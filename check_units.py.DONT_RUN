@@ -1,0 +1,19 @@
+import os
+import scipy.io as spio
+
+path = os.path.join(os.getcwd(), 'events_mat_corrected_v2')
+
+filenames = os.listdir(path)
+for filename in filenames:
+    if int(filename[:4]) == 1985 or int(filename[:4]) >= 2012:
+        continue
+    event = spio.loadmat(os.path.join(path, filename), struct_as_record=False, squeeze_me=True)
+    event.pop('__version__')
+    event.pop('__header__')
+    event.pop('__globals__')
+    for key in event.keys():
+        event[key].acc_1 /= 10.
+        event[key].acc_2 /= 10.
+        event[key].acc_3 /= 10.
+
+    spio.savemat(os.path.join(path, filename), event)
