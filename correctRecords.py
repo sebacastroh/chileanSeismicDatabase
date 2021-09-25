@@ -22,22 +22,27 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     t = np.linspace(0., (n-1)*dt, n)
     
     # Zero completation and band-pass filtering
-    Tmax = 100.
-    nn = len(acc) - p_wave
-    mm = int(Tmax/dt)
-    window = spsig.tukey(nn, alpha = 0.005)
+    # Tmax = 100.
+    # nn = len(acc) - p_wave
+    # mm = int(Tmax/dt)
+    # window = spsig.tukey(nn, alpha = 0.005)
     
-    new_acc = np.hstack((np.zeros(mm), acc[p_wave:]*window))
-        
+    # new_acc = np.hstack((np.zeros(mm), acc[p_wave:]*window))
+    new_acc = acc - acc.mean()
+    new_acc = new_acc - new_acc[:p_wave].mean()
+    
     freq_min = 0.01 # Hz
     freq_max = 20. # Hz
     fsamp = 1./dt # Hz
     order = 4
     zerophase = False
     
-    fil_acc = np.hstack((np.zeros(p_wave),
-            flt.bandpass(new_acc, freq_min, freq_max, fsamp,
-                           corners=order, zerophase=zerophase)[mm:]))
+    # fil_acc = np.hstack((np.zeros(p_wave),
+    #         flt.bandpass(new_acc, freq_min, freq_max, fsamp,
+    #                        corners=order, zerophase=zerophase)[mm:]))
+    
+    fil_acc = flt.bandpass(new_acc, freq_min, freq_max, fsamp,
+                           corners=order, zerophase=zerophase)
     
     fil_vel = spin.cumtrapz(fil_acc, dx=dt, initial=0.)
     
@@ -48,7 +53,7 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     std = np.sqrt(vel_mean2 - vel_mean**2)
     peaks = spsig.find_peaks(std, distance=int(2./dt))[0]
     smooth_std = np.interp(t, t[peaks], std[peaks])*alpha
-    smooth_std[:p_wave] = 0.
+    # smooth_std[:p_wave] = 0.
     
     # beta = 0.1
     energy = spin.cumtrapz(fil_acc**2, dx=dt, initial=0.)
@@ -58,7 +63,8 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     # mask[p] = 0
     # smooth_std[p] = np.max(smooth_std[mask])
     
-    dataset = rjmcmc.dataset1d(*np.c_[t[:nn], vel_mean[p_wave:], smooth_std[p_wave:]].T.tolist())
+    # dataset = rjmcmc.dataset1d(*np.c_[t[:nn], vel_mean[p_wave:], smooth_std[p_wave:]].T.tolist())
+    dataset = rjmcmc.dataset1d(*np.c_[t, vel_mean, smooth_std].T.tolist())
     
     sample_x = []
     sample_y = []
@@ -77,8 +83,10 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     max_partitions = int(max(10, np.sum(np.int64((t[y[1:]]-t[y[:-1]])/5.))))
     pd = (t[-1]-t[p_wave])*0.1
     percentage = 0.01
-    xsamples = int(percentage*nn)
-    ysamples = int(percentage*nn)
+    # xsamples = int(percentage*nn)
+    # ysamples = int(percentage*nn)
+    xsamples = int(percentage*n)
+    ysamples = int(percentage*n)
     credible_interval = 0.95
     
     results = rjmcmc.regression_part1d_natural(dataset,
@@ -101,12 +109,13 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     misfit = np.array(results.misfit())[burnin:]
     best = partitions_mode_locations[np.argmin(misfit[partitions_mode_locations])] + burnin
     
-    solution = np.hstack((np.zeros(p_wave),
-                          np.interp(t[p_wave:], np.array(sample_x[best])+t[p_wave], sample_y[best])))
+    # solution = np.hstack((np.zeros(p_wave),
+    #                       np.interp(t[p_wave:], np.array(sample_x[best])+t[p_wave], sample_y[best])))
+    solution = np.interp(t, np.array(sample_x[best]), sample_y[best])
     
     vel_corr = fil_vel - solution
-    if p_wave != 0:
-        vel_corr[p_wave:] *= window
+    # if p_wave != 0:
+    #     vel_corr[p_wave:] *= window
     acc_corr = np.gradient(vel_corr, dt, edge_order=2)
     
     if tmp_filename is not None:
