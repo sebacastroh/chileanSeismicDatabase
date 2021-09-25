@@ -133,34 +133,16 @@ def correctStation(station, p_wave):
     if np.allclose(acc_1, np.zeros_like(acc_1)):
         new_acc_1 = acc_1.copy()
     else:
-        # tmp_filename = station.event_name + '_' + station.name + '_' + station.component_1 + '.npy'
-        # p = multiprocessing.Process(target=correct_seismogram, args=(acc_1, p_wave, dt, tmp_filename))
-        # p.start()
-        # p.join()
-        # new_acc_1 = np.load(tmp_filename)
-        # os.remove(tmp_filename)
         new_acc_1 = correct_seismogram(acc_1, p_wave, dt)
         
     if np.allclose(acc_2, np.zeros_like(acc_2)):
         new_acc_2 = acc_2.copy()
     else:
-        # tmp_filename = station.event_name + '_' + station.name + '_' + station.component_2 + '.npy'
-        # p = multiprocessing.Process(target=correct_seismogram, args=(acc_2, p_wave, dt, tmp_filename))
-        # p.start()
-        # p.join()
-        # new_acc_2 = np.load(tmp_filename)
-        # os.remove(tmp_filename)
         new_acc_2 = correct_seismogram(acc_2, p_wave, dt)
         
     if np.allclose(acc_3, np.zeros_like(acc_3)):
         new_acc_3 = acc_3.copy()
     else:
-        # tmp_filename = station.event_name + '_' + station.name + '_' + station.component_3 + '.npy'
-        # p = multiprocessing.Process(target=correct_seismogram, args=(acc_3, p_wave, dt, tmp_filename))
-        # p.start()
-        # p.join()
-        # new_acc_3 = np.load(tmp_filename)
-        # os.remove(tmp_filename)
         new_acc_3 = correct_seismogram(acc_3, p_wave, dt)
     
     new_station = {}
