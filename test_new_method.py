@@ -78,6 +78,8 @@ if __name__ == '__main__':
         a3d = fig1.add_subplot(339)
         a3d.plot(t, spin.cumtrapz(spin.cumtrapz(original_station.acc_3, dx=original_station.dt, initial=0.), dx=original_station.dt, initial=0.))
 
+        plt.suptitle('Original')
+
         fig2 = plt.figure()
 
         a1a = fig2.add_subplot(331)
@@ -106,6 +108,8 @@ if __name__ == '__main__':
 
         a3d = fig2.add_subplot(339)
         a3d.plot(t, spin.cumtrapz(spin.cumtrapz(new_station['acc_3'], dx=new_station['dt'], initial=0.), dx=new_station['dt'], initial=0.))
+
+        plt.suptitle('Corrected')
 
         plt.draw()
         plt.show()
