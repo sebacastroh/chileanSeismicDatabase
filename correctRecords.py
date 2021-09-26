@@ -109,7 +109,7 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     solution = np.hstack((np.zeros(p_wave),
                           np.interp(t[p_wave:], np.array(sample_x[best])+t[p_wave], sample_y[best])))
     # solution = np.interp(t, np.array(sample_x[best]), sample_y[best])
-    solution2 = np.hstack((np.interp(t[:p_wave], [t[0], t[p_wave]], [fil_vel[0], solution[p_wave]]),
+    solution2 = np.hstack((np.interp(t[:p_wave], [t[0], t[p_wave]], [new_vel[0], solution[p_wave]]),
                            np.interp(t[p_wave:], np.array(sample_x[best]+t[p_wave]), sample_y[best])))
 
     vel_corr = new_vel - solution2
