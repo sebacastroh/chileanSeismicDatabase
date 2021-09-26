@@ -124,10 +124,10 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     # fil_dis = spin.cumtrapz(fil_vel, dx=dt, initial=0.)
     
     if tmp_filename is not None:
-        np.save(tmp_filename, fil_corr)
+        np.save(tmp_filename, fil_acc)
         return None
     else:
-        return fil_corr
+        return fil_acc
 
 def correctStation(station, p_wave):
     acc_1 = station.acc_1
