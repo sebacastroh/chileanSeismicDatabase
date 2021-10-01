@@ -40,6 +40,8 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     # fil_acc = np.hstack((np.zeros(p_wave),
     #         flt.bandpass(new_acc, freq_min, freq_max, fsamp,
     #                        corners=order, zerophase=zerophase)[mm:]))
+    new_acc = flt.bandpass(new_acc, freq_min, freq_max, fsamp,
+                            corners=order, zerophase=zerophase)
 
     new_vel = spin.cumtrapz(new_acc, dx=dt, initial=0.)
 
@@ -134,17 +136,17 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     #     vel_corr[p_wave:] *= window
     acc_corr = np.gradient(vel_corr, dt, edge_order=2)
 
-    fil_acc = flt.bandpass(acc_corr, freq_min, freq_max, fsamp,
-                           corners=order, zerophase=zerophase)
+    # fil_acc = flt.bandpass(acc_corr, freq_min, freq_max, fsamp,
+    #                        corners=order, zerophase=zerophase)
 
     # fil_vel = spin.cumtrapz(fil_acc, dx=dt, initial=0.)
     # fil_dis = spin.cumtrapz(fil_vel, dx=dt, initial=0.)
     
     if tmp_filename is not None:
-        np.save(tmp_filename, fil_acc)
+        np.save(tmp_filename, acc_corr)
         return None
     else:
-        return fil_acc
+        return acc_corr
 
 def correctStation(station, p_wave):
     acc_1 = station.acc_1
