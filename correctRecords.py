@@ -29,7 +29,7 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
 
     # new_acc = np.hstack((np.zeros(mm), acc[p_wave:]*window))
     new_acc = acc - acc.mean()
-    new_acc = new_acc - new_acc[:p_wave].mean()
+    # new_acc = new_acc - new_acc[:p_wave].mean()
 
     freq_min = 0.01 # Hz
     freq_max = 20. # Hz
@@ -40,8 +40,9 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     # fil_acc = np.hstack((np.zeros(p_wave),
     #         flt.bandpass(new_acc, freq_min, freq_max, fsamp,
     #                        corners=order, zerophase=zerophase)[mm:]))
-    fil_acc = flt.bandpass(new_acc, freq_min, freq_max, fsamp,
-                            corners=order, zerophase=zerophase)
+    # fil_acc = flt.bandpass(new_acc, freq_min, freq_max, fsamp,
+    #                         corners=order, zerophase=zerophase)
+    fil_acc = new_acc.copy()
 
     fil_vel = spin.cumtrapz(fil_acc, dx=dt, initial=0.)
 
@@ -120,6 +121,11 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
 
     vel_corr = fil_vel - solution
     acc_corr = np.gradient(vel_corr, dt, edge_order=2)
+
+    acc_corr = flt.bandpass(acc_corr, freq_min, freq_max, fsamp,
+                            corners=order, zerophase=zerophase)
+
+    # vel_corr = spin.cumtrapz(acc_corr, dx=dt, initial=0.)
     # dis_corr = spin.cumtrapz(vel_corr, dx=dt, initial=0.)
 
     # vel = spin.cumtrapz(acc, dx=dt, initial=0.)
