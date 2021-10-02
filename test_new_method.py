@@ -47,7 +47,7 @@ if __name__ == '__main__':
         original_station, p_loc = inputs[i]
         new_station = results[i]
 
-        t = np.linspace(0., (len(original_station.acc_1)-1)*mat_station.dt, len(original_station.acc_1))
+        t = np.linspace(0., (len(original_station.acc_1)-1)*original_station.dt, len(original_station.acc_1))
 
         fig1 = plt.figure()
 
