@@ -40,15 +40,15 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     # fil_acc = np.hstack((np.zeros(p_wave),
     #         flt.bandpass(new_acc, freq_min, freq_max, fsamp,
     #                        corners=order, zerophase=zerophase)[mm:]))
-    new_acc = flt.bandpass(new_acc, freq_min, freq_max, fsamp,
+    fil_acc = flt.bandpass(new_acc, freq_min, freq_max, fsamp,
                             corners=order, zerophase=zerophase)
 
-    new_vel = spin.cumtrapz(new_acc, dx=dt, initial=0.)
+    fil_vel = spin.cumtrapz(fil_acc, dx=dt, initial=0.)
 
     # Base line correction on velocity
     alpha = 0.2
-    vel_mean = np.convolve(new_vel, np.ones(int(fsamp/2.)+1)/(int(fsamp/2.)+1), 'same')
-    vel_mean2 = np.convolve(new_vel**2, np.ones(int(fsamp/2.)+1)/(int(fsamp/2.)+1), 'same')
+    vel_mean = np.convolve(fil_vel, np.ones(int(fsamp/2.)+1)/(int(fsamp/2.)+1), 'same')
+    vel_mean2 = np.convolve(fil_vel**2, np.ones(int(fsamp/2.)+1)/(int(fsamp/2.)+1), 'same')
     std = np.sqrt(vel_mean2 - vel_mean**2)
     peaks = spsig.find_peaks(std, distance=int(2./dt))[0]
     smooth_std = np.interp(t, t[peaks], std[peaks])*alpha
@@ -62,85 +62,130 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     # mask[p] = 0
     # smooth_std[p] = np.max(smooth_std[mask])
 
-    dataset = rjmcmc.dataset1d(*np.c_[t[:nn], vel_mean[p_wave:], smooth_std[p_wave:]].T.tolist())
+    dataset_pre = rjmcmc.dataset1d(*np.c_[t[:p_wave], vel_mean[:p_wave], smooth_std[:p_wave]].T.tolist())
+    dataset_post = rjmcmc.dataset1d(*np.c_[t[:nn], vel_mean[p_wave:], smooth_std[p_wave:]].T.tolist())
     # dataset = rjmcmc.dataset1d(*np.c_[t, vel_mean, smooth_std].T.tolist())
 
-    sample_x = []
-    sample_y = []
+    datasets = [dataset_pre, dataset_post]
+    for i in range(2):
+        sample_x = []
+        sample_y = []
 
-    def callback(x, y): 
-        sample_x.append(x)
-        sample_y.append(y)
+        def callback(x, y): 
+            sample_x.append(x)
+            sample_y.append(y)
 
-    pv = 0.
-    burnin = 10000
-    total = 100000
-    min_partitions = 2
-    y = [p_wave]
-    y.extend([np.argmin(np.abs(energy-x/10.)) for x in range(1,11)])
-    y = np.array(y)    
-    max_partitions = int(max(10, np.sum(np.int64((t[y[1:]]-t[y[:-1]])/5.))))
-    pd = (t[-1]-t[p_wave])*0.1
-    percentage = 0.01
-    xsamples = int(percentage*nn)
-    ysamples = int(percentage*nn)
-    # xsamples = int(percentage*n)
-    # ysamples = int(percentage*n)
-    credible_interval = 0.95
+        pv = 0.
+        burnin = 10000
+        total = 100000
+        min_partitions = 2
+        y = [p_wave]
+        y.extend([np.argmin(np.abs(energy-x/10.)) for x in range(1,11)])
+        y = np.array(y)    
+        max_partitions = int(max(10, np.sum(np.int64((t[y[1:]]-t[y[:-1]])/5.))))
+        pd = (t[-1]-t[p_wave])*0.1
+        percentage = 0.01
+        xsamples = int(percentage*nn)
+        ysamples = int(percentage*nn)
+        # xsamples = int(percentage*n)
+        # ysamples = int(percentage*n)
+        credible_interval = 0.95
 
-    results = rjmcmc.regression_part1d_natural(dataset,
-                                               pv,
-                                               pd,
-                                               burnin,
-                                               total,
-                                               min_partitions,
-                                               max_partitions+1,
-                                               xsamples,
-                                               ysamples,
-                                               credible_interval,
-                                               callback)
+        results = rjmcmc.regression_part1d_natural(datasets[i],
+                                                   pv,
+                                                   pd,
+                                                   burnin,
+                                                   total,
+                                                   min_partitions,
+                                                   max_partitions+1,
+                                                   xsamples,
+                                                   ysamples,
+                                                   credible_interval,
+                                                   callback)
 
-    partitions = np.array(results.partitions())[burnin:]
-    counts = np.bincount(partitions)
+        partitions = np.array(results.partitions())[burnin:]
+        counts = np.bincount(partitions)
 
-    partitions_mode = np.argmax(counts)
-    partitions_mode_locations = np.where(partitions == partitions_mode)[0]
-    misfit = np.array(results.misfit())[burnin:]
-    best = partitions_mode_locations[np.argmin(misfit[partitions_mode_locations])] + burnin
+        partitions_mode = np.argmax(counts)
+        partitions_mode_locations = np.where(partitions == partitions_mode)[0]
+        misfit = np.array(results.misfit())[burnin:]
+        best = partitions_mode_locations[np.argmin(misfit[partitions_mode_locations])] + burnin
 
-    solution = np.hstack((np.zeros(p_wave),
-                          np.interp(t[p_wave:], np.array(sample_x[best])+t[p_wave], sample_y[best])))
+        if i == 0:
+            solution_pre = np.interp(t[:p_wave], np.array(sample_x[best]), sample_y[best])
+        else:
+            solution_post = np.interp(t[p_wave:], np.array(sample_x[best])+t[p_wave], sample_y[best])
+
+    solution = np.hstack((solution_pre, solution_post))
+
+    vel_corr = fil_vel - solution
+    acc_corr = np.gradient(vel_corr, dt, edge_order=2)
+    # dis_corr = spin.cumtrapz(vel_corr, dx=dt, initial=0.)
+
+    # vel = spin.cumtrapz(acc, dx=dt, initial=0.)
+    # dis = spin.cumtrapz(vel, dx=dt, initial=0.)
+
+    # plt.figure()
+    # plt.subplot(311)
+    # plt.plot(t, acc)
+    # plt.subplot(312)
+    # plt.plot(t, vel)
+    # plt.subplot(313)
+    # plt.plot(t, dis)
+    # plt.suptitle('Original')
+
+    # plt.figure()
+    # plt.plot(t, fil_vel)
+    # plt.plot(t, solution)
+    # plt.title('Solution proposed')
+
+    # plt.figure()
+    # plt.subplot(311)
+    # plt.plot(t, acc_corr)
+    # plt.subplot(312)
+    # plt.plot(t, vel_corr)
+    # plt.subplot(313)
+    # plt.plot(t, dis_corr)
+    # plt.suptitle('Result')
 
 
-    vo = new_vel[0]
-    vp = solution[p_wave]
-    tp = t[p_wave]
+    # solution = np.hstack((np.zeros(p_wave),
+    #                       np.interp(t[p_wave:], np.array(sample_x[best])+t[p_wave], sample_y[best])))
 
 
-    X = (t[:p_wave]**2 - tp*t[:p_wave])
-    y = (new_vel[:p_wave] - vo - (vp-vo)/tp*t[:p_wave])
+    # vo = fil_vel[0]
+    # vp = solution[p_wave]
+    # tp = t[p_wave]
 
-    a = np.dot(X,y)/np.dot(X,X)
-    b = (vp - vo - a*tp**2)/tp
-    c = vo
+    # X = (t[:p_wave]**2 - tp*t[:p_wave])
+    # y = (fil_vel[:p_wave] - vo - (vp-vo)/tp*t[:p_wave])
+
+    # a = np.dot(X,y)/np.dot(X,X)
+    # b = (vp - vo - a*tp**2)/tp
+    # c = vo
 
     # solution = np.interp(t, np.array(sample_x[best]), sample_y[best])
-    # solution2 = np.hstack((np.interp(t[:p_wave], [t[0], t[p_wave]], [new_vel[0], solution[p_wave]]),
+    # solution3 = np.hstack((np.interp(t[:p_wave], [t[0], t[p_wave]], [fil_vel[0], solution[p_wave]]),
     #                        np.interp(t[p_wave:], np.array(sample_x[best]+t[p_wave]), sample_y[best])))
 
-    solution2 = np.hstack((a*t[:p_wave]**2 + b*t[:p_wave] + c,
-                           np.interp(t[p_wave:], np.array(sample_x[best]+t[p_wave]), sample_y[best])))
+    # solution2 = np.hstack((a*t[:p_wave]**2 + b*t[:p_wave] + c,
+    #                        np.interp(t[p_wave:], np.array(sample_x[best]+t[p_wave]), sample_y[best])))
 
-    vel_corr = new_vel - solution2
+
+
+    # vel_corr = fil_vel - solution
+    # vel_corr1 = fil_vel - solution2
+    # vel_corr2 = fil_vel - solution3
+
     # if p_wave != 0:
     #     vel_corr[p_wave:] *= window
-    acc_corr = np.gradient(vel_corr, dt, edge_order=2)
+    # acc_corr = np.gradient(vel_corr, dt, edge_order=2)
 
     # fil_acc = flt.bandpass(acc_corr, freq_min, freq_max, fsamp,
     #                        corners=order, zerophase=zerophase)
 
-    # fil_vel = spin.cumtrapz(fil_acc, dx=dt, initial=0.)
-    # fil_dis = spin.cumtrapz(fil_vel, dx=dt, initial=0.)
+    # vel_corr = spin.cumtrapz(acc_corr, dx=dt, initial=0.)
+    # dis_corr = spin.cumtrapz(vel_corr, dx=dt, initial=0.)
     
     if tmp_filename is not None:
         np.save(tmp_filename, acc_corr)
