@@ -117,7 +117,25 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
         else:
             solution_post = np.interp(t[p_wave:], np.array(sample_x[best])+t[p_wave], sample_y[best])
 
-    solution = np.hstack((solution_pre, solution_post))
+    m1 = (solution_pre[-2] - solution_pre[-1])/dt
+    i = 2
+    while True:
+        yp = m1*(t[p_wave-i] - t[p_wave]) + solution_pre[-1]
+        if yp != solution_pre[-i-1]:
+            break
+        i += 1
+
+    m2 = (solution_post[0] - solution_post[1])/dt
+    j = 2
+    while True:
+        yp = m2*(t[p_wave+j] - t[p_wave]) + solution_post[0]
+        if yp != solution_post[j]:
+            break
+        j += 1
+
+    solution = np.hstack((solution_pre[:-i],
+                          np.interp(t[p_wave-i:p_wave+j], [t[p_wave-i], t[p_wave+j]], [solution_pre[-i], solution_post[j]]),
+                          solution_post[j:]))
 
     vel_corr = fil_vel - solution
     acc_corr = np.gradient(vel_corr, dt, edge_order=2)
@@ -153,45 +171,6 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     # plt.subplot(313)
     # plt.plot(t, dis_corr)
     # plt.suptitle('Result')
-
-
-    # solution = np.hstack((np.zeros(p_wave),
-    #                       np.interp(t[p_wave:], np.array(sample_x[best])+t[p_wave], sample_y[best])))
-
-
-    # vo = fil_vel[0]
-    # vp = solution[p_wave]
-    # tp = t[p_wave]
-
-    # X = (t[:p_wave]**2 - tp*t[:p_wave])
-    # y = (fil_vel[:p_wave] - vo - (vp-vo)/tp*t[:p_wave])
-
-    # a = np.dot(X,y)/np.dot(X,X)
-    # b = (vp - vo - a*tp**2)/tp
-    # c = vo
-
-    # solution = np.interp(t, np.array(sample_x[best]), sample_y[best])
-    # solution3 = np.hstack((np.interp(t[:p_wave], [t[0], t[p_wave]], [fil_vel[0], solution[p_wave]]),
-    #                        np.interp(t[p_wave:], np.array(sample_x[best]+t[p_wave]), sample_y[best])))
-
-    # solution2 = np.hstack((a*t[:p_wave]**2 + b*t[:p_wave] + c,
-    #                        np.interp(t[p_wave:], np.array(sample_x[best]+t[p_wave]), sample_y[best])))
-
-
-
-    # vel_corr = fil_vel - solution
-    # vel_corr1 = fil_vel - solution2
-    # vel_corr2 = fil_vel - solution3
-
-    # if p_wave != 0:
-    #     vel_corr[p_wave:] *= window
-    # acc_corr = np.gradient(vel_corr, dt, edge_order=2)
-
-    # fil_acc = flt.bandpass(acc_corr, freq_min, freq_max, fsamp,
-    #                        corners=order, zerophase=zerophase)
-
-    # vel_corr = spin.cumtrapz(acc_corr, dx=dt, initial=0.)
-    # dis_corr = spin.cumtrapz(vel_corr, dx=dt, initial=0.)
     
     if tmp_filename is not None:
         np.save(tmp_filename, acc_corr)
