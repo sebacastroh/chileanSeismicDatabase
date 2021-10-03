@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import multiprocessing
 
 nTest = 10
-
+plt.close('all')
 if __name__ == '__main__':
     path = 'events_mat_uncorrected'
     
@@ -20,7 +20,7 @@ if __name__ == '__main__':
     selected = []
     while len(selected) < nTest:
         i = random.randint(0, n)
-        while p_waves[i][4] != 'Valid':
+        while p_waves[i][4] != 'Valid' or float(p_waves[i][0].split('_')[1][:-2]) < 7:
             i = random.randint(0, n)
     
         event = p_waves[i][0]
@@ -49,7 +49,7 @@ if __name__ == '__main__':
 
         t = np.linspace(0., (len(original_station.acc_1)-1)*original_station.dt, len(original_station.acc_1))
 
-        fig1 = plt.figure()
+        fig1 = plt.figure(figsize=(18.76,   6.26))
 
         a1a = fig1.add_subplot(331)
         a1a.plot(t, original_station.acc_1)
@@ -80,7 +80,7 @@ if __name__ == '__main__':
 
         plt.suptitle('Original')
 
-        fig2 = plt.figure()
+        fig2 = plt.figure(figsize=(18.76,   6.26))
 
         a1a = fig2.add_subplot(331)
         a1a.plot(t, new_station['acc_1'])
