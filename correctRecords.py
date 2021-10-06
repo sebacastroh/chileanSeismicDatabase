@@ -124,6 +124,9 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
         if yp != solution_pre[-i-1]:
             break
         i += 1
+        if p_wave - i <= 0:
+            i = p_wave
+            break
 
     m2 = (solution_post[0] - solution_post[1])/dt
     j = 2
@@ -132,6 +135,10 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
         if yp != solution_post[j]:
             break
         j += 1
+
+        if p_wave + j >= n:
+            j = n - p_wave
+            break
 
     solution = np.hstack((solution_pre[:-i],
                           np.interp(t[p_wave-i:p_wave+j], [t[p_wave-i], t[p_wave+j]], [solution_pre[-i], solution_post[j]]),
