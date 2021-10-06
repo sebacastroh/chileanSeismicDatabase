@@ -111,8 +111,10 @@ if __name__ == '__main__':
 
         plt.suptitle('Corrected')
 
-        plt.draw()
-        plt.show()
-        plt.pause(5)
-        input("Press Enter to continue...")
+        # plt.draw()
+        # plt.show()
+        # plt.pause(5)
+        fig1.savefig(original_station.event_name + '_sta_' + original_station.name + '_original.pdf', bbox_inches='tight', pad_inches=0)
+        fig2.savefig(original_station.event_name + '_sta_' + original_station.name + '_corrected.pdf', bbox_inches='tight', pad_inches=0)
+        # input("Press Enter to continue...")
         plt.close('all')
