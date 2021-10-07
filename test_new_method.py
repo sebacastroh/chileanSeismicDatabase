@@ -20,7 +20,7 @@ if __name__ == '__main__':
     selected = []
     while len(selected) < nTest:
         i = random.randint(0, n)
-        while p_waves[i][4] != 'Valid' or float(p_waves[i][0].split('_')[1][:-2]) < 7:
+        while p_waves[i][4] != 'Valid' or float(p_waves[i][0].split('_')[1][:-2]) > 5.5:
             i = random.randint(0, n)
     
         event = p_waves[i][0]
