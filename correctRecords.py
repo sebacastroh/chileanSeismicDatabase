@@ -13,59 +13,43 @@ import numpy as np
 import multiprocessing
 import scipy.io as spio
 import scipy.signal as spsig
+import scipy.fftpack as spfft
 import scipy.integrate as spin
 from obspy.signal import filter as flt
+import obspy.signal.konnoohmachismoothing as kon
 
 def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
-    
+
+    classic = False
+
     n = len(acc)
     t = np.linspace(0., (n-1)*dt, n)
 
     # Zero completation and band-pass filtering
-    # Tmax = 100.
     nn = len(acc) - p_wave
-    # mm = int(Tmax/dt)
-    # window = spsig.tukey(nn, alpha = 0.005)
 
-    # new_acc = np.hstack((np.zeros(mm), acc[p_wave:]*window))
     new_acc = acc - acc.mean()
-    # new_acc = new_acc - new_acc[:p_wave].mean()
 
-    freq_min = 0.01 # Hz
-    freq_max = 20. # Hz
-    fsamp = 1./dt # Hz
-    order = 4
-    zerophase = False
-
-    # fil_acc = np.hstack((np.zeros(p_wave),
-    #         flt.bandpass(new_acc, freq_min, freq_max, fsamp,
-    #                        corners=order, zerophase=zerophase)[mm:]))
-    # fil_acc = flt.bandpass(new_acc, freq_min, freq_max, fsamp,
-    #                         corners=order, zerophase=zerophase)
-    fil_acc = new_acc.copy()
-
-    fil_vel = spin.cumtrapz(fil_acc, dx=dt, initial=0.)
+    if classic:
+        new_vel = spin.cumtrapz(new_acc, dx=dt, initial=0.)
+    else:
+        new_vel = spfft.diff(new_acc, -1, period=n*dt)
+        new_vel -= new_vel[0]
 
     # Base line correction on velocity
     alpha = 0.2
-    vel_mean = np.convolve(fil_vel, np.ones(int(fsamp/2.)+1)/(int(fsamp/2.)+1), 'same')
-    vel_mean2 = np.convolve(fil_vel**2, np.ones(int(fsamp/2.)+1)/(int(fsamp/2.)+1), 'same')
+    fsamp = 1./dt # Hz
+    vel_mean = np.convolve(new_vel, np.ones(int(fsamp/2.)+1)/(int(fsamp/2.)+1), 'same')
+    vel_mean2 = np.convolve(new_vel**2, np.ones(int(fsamp/2.)+1)/(int(fsamp/2.)+1), 'same')
     std = np.sqrt(vel_mean2 - vel_mean**2)
     peaks = spsig.find_peaks(std, distance=int(2./dt))[0]
     smooth_std = np.interp(t, t[peaks], std[peaks])*alpha
-    # smooth_std[:p_wave] = 0.
 
-    # beta = 0.1
     energy = spin.cumtrapz(new_acc**2, dx=dt, initial=0.)
     energy /= energy[-1]
-    # p = np.where((energy >= beta/2.) & (energy <= 1.- beta/2.))[0]
-    # mask = np.ones(len(energy), dtype=bool)
-    # mask[p] = 0
-    # smooth_std[p] = np.max(smooth_std[mask])
 
     dataset_pre = rjmcmc.dataset1d(*np.c_[t[:p_wave], vel_mean[:p_wave], smooth_std[:p_wave]].T.tolist())
     dataset_post = rjmcmc.dataset1d(*np.c_[t[:nn], vel_mean[p_wave:], smooth_std[p_wave:]].T.tolist())
-    # dataset = rjmcmc.dataset1d(*np.c_[t, vel_mean, smooth_std].T.tolist())
 
     datasets = [dataset_pre, dataset_post]
     for i in range(2):
@@ -88,8 +72,6 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
         percentage = 0.01
         xsamples = int(percentage*nn)
         ysamples = int(percentage*nn)
-        # xsamples = int(percentage*n)
-        # ysamples = int(percentage*n)
         credible_interval = 0.95
 
         results = rjmcmc.regression_part1d_natural(datasets[i],
@@ -144,26 +126,125 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
                           np.interp(t[p_wave-i:p_wave+j], [t[p_wave-i], t[p_wave+j]], [solution_pre[-i], solution_post[j]]),
                           solution_post[j:]))
 
-    vel_corr = fil_vel - solution
-    acc_corr = np.gradient(vel_corr, dt, edge_order=2)
+    vel_corr = new_vel - solution
 
-    acc_corr = flt.bandpass(acc_corr, freq_min, freq_max, fsamp,
-                            corners=order, zerophase=zerophase)
+    if classic:
+        acc_corr = np.gradient(vel_corr, dt, edge_order=2)
+    else:
+        acc_corr = spfft.diff(vel_corr, 1, period=n*dt)
 
-    # vel_corr = spin.cumtrapz(acc_corr, dx=dt, initial=0.)
-    # dis_corr = spin.cumtrapz(vel_corr, dx=dt, initial=0.)
+    signal = acc_corr[p_wave:]
+    noise = acc_corr[:p_wave]
 
-    # vel = spin.cumtrapz(acc, dx=dt, initial=0.)
-    # dis = spin.cumtrapz(vel, dx=dt, initial=0.)
+    S = np.fft.fft(signal)
+    freqS = np.fft.fftfreq(S.size, d=dt)
+    posS = np.where(freqS >= 0.)
 
-    # plt.figure()
-    # plt.subplot(311)
-    # plt.plot(t, acc)
-    # plt.subplot(312)
-    # plt.plot(t, vel)
-    # plt.subplot(313)
-    # plt.plot(t, dis)
-    # plt.suptitle('Original')
+    N = np.fft.fft(noise)
+    freqN = np.fft.fftfreq(N.size, d=dt)
+    posN = np.where(freqN >= 0.)
+
+    Ssmooth = kon.konno_ohmachi_smoothing(np.abs(S[posS]), freqS[posS], normalize=True)
+    Nsmooth = kon.konno_ohmachi_smoothing(np.abs(N[posN]), freqN[posN], normalize=True)
+
+    freq = np.logspace(-3, 0, 1001)
+    Sint = np.interp(freq, freqS[posS], Ssmooth)
+    Nint = np.interp(freq, freqN[posN], Nsmooth)
+
+    SNR = Sint/Nint
+
+    pos = np.where(SNR < 3.)[0]
+    if len(pos) > 0:
+        freq_min = max(freq[pos[-1]], freqN[1])
+    else:
+        freq_min = freqN[1]
+
+    freq = np.logspace(0, 2, 1001)
+    Sint = np.interp(freq, freqS[posS], Ssmooth)
+    Nint = np.interp(freq, freqN[posN], Nsmooth)
+
+    SNR = Sint/Nint
+    pos = np.where(SNR < 3.)[0]
+    if len(pos) > 0:
+        freq_max = min(max(freq[pos[0]], 30.), fsamp/2.)
+    else:
+        freq_max = 30.
+
+    order = 4
+    zerophase = True
+    acc_fil = flt.bandpass(acc_corr, freq_min, freq_max, fsamp, corners=order, zerophase=zerophase)
+    window = spsig.tukey(n, alpha = 0.005)
+    # acc_fil *= window
+
+    if classic:
+        vel_fil = spin.cumtrapz(acc_fil, dx=dt, initial=0.)
+        dis_fil = spin.cumtrapz(vel_fil, dx=dt, initial=0.)
+        vel = spin.cumtrapz(acc, dx=dt, initial=0.)
+        dis = spin.cumtrapz(vel, dx=dt, initial=0.)
+    else:
+        vel_fil = spfft.diff(acc_fil, -1, period=n*dt)
+        vel_fil -= vel_fil[0]
+
+        dis_fil = spfft.diff(vel_fil, -1, period=n*dt)
+        dis_fil -= dis_fil[0]
+
+        vel = spfft.diff(acc, -1, period=n*dt)
+        vel -= vel[0]
+
+        dis = spfft.diff(vel, -1, period=n*dt)
+        dis -= dis[0]
+
+
+    # plt.close('all')
+
+    plt.figure()
+    plt.subplot(311)
+    plt.plot(t, acc)
+    plt.grid(which='both')
+    plt.subplot(312)
+    plt.plot(t, vel)
+    plt.grid(which='both')
+    plt.subplot(313)
+    plt.plot(t, dis)
+    plt.grid(which='both')
+
+    plt.suptitle('Original')
+
+    plt.figure()
+    plt.plot(t, new_vel)
+    plt.plot(t, solution)
+    plt.grid(which='both')
+    plt.title('Solution proposed in velocity')
+
+    plt.figure()
+    plt.loglog(freqS[posS], Ssmooth, label='Event')
+    plt.loglog(freqN[posN], Nsmooth, label='Noise (pre-event)')
+    plt.grid(which='both')
+    plt.title('Smoothed Fourier amplitude spectra (Konno Ohmachi method)')
+    plt.legend()
+
+    freq = np.logspace(-3, 2, 1001)
+    Sint = np.interp(freq, freqS[posS], Ssmooth)
+    Nint = np.interp(freq, freqN[posN], Nsmooth)
+
+    SNR = Sint/Nint
+    plt.figure()
+    plt.loglog(freq, Sint/Nint)
+    plt.grid(which='both')
+    plt.title('SNR')
+
+    plt.figure()
+    plt.subplot(311)
+    plt.plot(t, acc_fil)
+    plt.grid(which='both')
+    plt.subplot(312)
+    plt.plot(t, vel_fil)
+    plt.grid(which='both')
+    plt.subplot(313)
+    plt.plot(t, dis_fil)
+    plt.grid(which='both')
+
+    plt.suptitle('Corrected')
 
     # plt.figure()
     # plt.plot(t, fil_vel)
