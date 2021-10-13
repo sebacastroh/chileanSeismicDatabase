@@ -133,8 +133,10 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     else:
         acc_corr = spfft.diff(vel_corr, 1, period=n*dt)
 
-    signal = acc_corr[p_wave:]
-    noise = acc_corr[:p_wave]
+    # signal = acc_corr[p_wave:]
+    # noise = acc_corr[:p_wave]
+    signal = acc[p_wave:]
+    noise = acc[:p_wave]
 
     S = np.fft.fft(signal)
     freqS = np.fft.fftfreq(S.size, d=dt)
@@ -168,12 +170,12 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     if len(pos) > 0:
         freq_max = min(max(freq[pos[0]], 30.), fsamp/2.)
     else:
-        freq_max = 30.
+        freq_max = 50.
 
     order = 4
     zerophase = True
     acc_fil = flt.bandpass(acc_corr, freq_min, freq_max, fsamp, corners=order, zerophase=zerophase)
-    window = spsig.tukey(n, alpha = 0.005)
+    # window = spsig.tukey(n, alpha = 0.005)
     # acc_fil *= window
 
     if classic:
@@ -193,9 +195,17 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
 
         dis = spfft.diff(vel, -1, period=n*dt)
         dis -= dis[0]
-
-
-    # plt.close('all')
+    
+    if tmp_filename is not None:
+        np.save(tmp_filename, acc_corr)
+        return None
+    else:
+        return acc_corr
+    
+import matplotlib.pyplot as plt
+   
+def plots(t, acc, vel, dis, new_vel, solution, freqS, posS, Ssmooth, freqN, posN, Nsmooth, acc_fil, vel_fil, dis_fil):
+    plt.close('all')
 
     plt.figure()
     plt.subplot(311)
@@ -227,7 +237,7 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     Sint = np.interp(freq, freqS[posS], Ssmooth)
     Nint = np.interp(freq, freqN[posN], Nsmooth)
 
-    SNR = Sint/Nint
+    # SNR = Sint/Nint
     plt.figure()
     plt.loglog(freq, Sint/Nint)
     plt.grid(which='both')
@@ -245,26 +255,6 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     plt.grid(which='both')
 
     plt.suptitle('Corrected')
-
-    # plt.figure()
-    # plt.plot(t, fil_vel)
-    # plt.plot(t, solution)
-    # plt.title('Solution proposed')
-
-    # plt.figure()
-    # plt.subplot(311)
-    # plt.plot(t, acc_corr)
-    # plt.subplot(312)
-    # plt.plot(t, vel_corr)
-    # plt.subplot(313)
-    # plt.plot(t, dis_corr)
-    # plt.suptitle('Result')
-    
-    if tmp_filename is not None:
-        np.save(tmp_filename, acc_corr)
-        return None
-    else:
-        return acc_corr
 
 def correctStation(station, p_wave):
     acc_1 = station.acc_1
