@@ -20,7 +20,8 @@ import obspy.signal.konnoohmachismoothing as kon
 
 def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
 
-    classic = False
+    classic = True
+    fsamp = 1./dt
 
     n = len(acc)
     t = np.linspace(0., (n-1)*dt, n)
@@ -28,10 +29,11 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     # Zero completation and band-pass filtering
     nn = len(acc) - p_wave
 
-    new_acc = acc - acc.mean()
+    new_acc = acc - acc[:p_wave].mean()
 
     if classic:
         new_vel = spin.cumtrapz(new_acc, dx=dt, initial=0.)
+        new_vel -= new_vel[:p_wave].mean()
     else:
         new_vel = spfft.diff(new_acc, -1, period=n*dt)
         new_vel -= new_vel[0]
@@ -133,10 +135,12 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     else:
         acc_corr = spfft.diff(vel_corr, 1, period=n*dt)
 
-    # signal = acc_corr[p_wave:]
-    # noise = acc_corr[:p_wave]
-    signal = acc[p_wave:]
-    noise = acc[:p_wave]
+
+    acc_corr = acc_corr - acc_corr[:p_wave].mean()
+    signal = acc_corr[p_wave:]
+    noise = acc_corr[:p_wave]
+    # signal = acc[p_wave:]
+    # noise = acc[:p_wave]
 
     S = np.fft.fft(signal)
     freqS = np.fft.fftfreq(S.size, d=dt)
@@ -149,18 +153,30 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     Ssmooth = kon.konno_ohmachi_smoothing(np.abs(S[posS]), freqS[posS], normalize=True)
     Nsmooth = kon.konno_ohmachi_smoothing(np.abs(N[posN]), freqN[posN], normalize=True)
 
-    freq = np.logspace(-3, 0, 1001)
+    freq = np.logspace(-2, 0, 1001)
     Sint = np.interp(freq, freqS[posS], Ssmooth)
     Nint = np.interp(freq, freqN[posN], Nsmooth)
 
     SNR = Sint/Nint
-
+    
+    f0 = 0.01
+    f1 = freqN[1]
+    peaks = spsig.find_peaks(SNR)[0]
+    if len(peaks) > 0:
+        f2 = freq[peaks[0]]
+    else:
+        f2 = 0.
+    
     pos = np.where(SNR < 3.)[0]
     if len(pos) > 0:
-        freq_min = max(freq[pos[-1]], freqN[1])
+        f3 = freq[pos[-1]]
     else:
-        freq_min = freqN[1]
-
+        f3 = freq[np.argmin(SNR)]
+        
+    freq_min = np.max([f0, f1, f2, f3])
+    # peaks = spsig.find_peaks(SNR)[0]
+    # freq_min = max(freq[np.argmin(SNR[peaks[0]:peaks[-1]+1])+peaks[0]], freqN[1])
+    
     freq = np.logspace(0, 2, 1001)
     Sint = np.interp(freq, freqS[posS], Ssmooth)
     Nint = np.interp(freq, freqN[posN], Nsmooth)
@@ -170,19 +186,25 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
     if len(pos) > 0:
         freq_max = min(max(freq[pos[0]], 30.), fsamp/2.)
     else:
-        freq_max = 50.
+        freq_max = fsamp/2.
 
     order = 4
     zerophase = True
-    acc_fil = flt.bandpass(acc_corr, freq_min, freq_max, fsamp, corners=order, zerophase=zerophase)
-    # window = spsig.tukey(n, alpha = 0.005)
-    # acc_fil *= window
-
+    
+    if freq_max >= fsamp/2.:
+        acc_fil = flt.highpass(acc_corr, freq_min, fsamp, corners=order, zerophase=zerophase)
+    else:
+        acc_fil = flt.bandpass(acc_corr, freq_min, freq_max, fsamp, corners=order, zerophase=zerophase)
+   
     if classic:
         vel_fil = spin.cumtrapz(acc_fil, dx=dt, initial=0.)
+        vel_fil -= vel_fil[:p_wave].mean()
         dis_fil = spin.cumtrapz(vel_fil, dx=dt, initial=0.)
+        dis_fil -= dis_fil[:p_wave].mean()
         vel = spin.cumtrapz(acc, dx=dt, initial=0.)
+        vel -= vel[:p_wave].mean()
         dis = spin.cumtrapz(vel, dx=dt, initial=0.)
+        dis -= dis[:p_wave].mean()
     else:
         vel_fil = spfft.diff(acc_fil, -1, period=n*dt)
         vel_fil -= vel_fil[0]
@@ -195,66 +217,76 @@ def correct_seismogram(acc, p_wave, dt, tmp_filename=None):
 
         dis = spfft.diff(vel, -1, period=n*dt)
         dis -= dis[0]
+      
+    # plots(t, acc, vel, dis, new_vel, solution, freqS, posS, Ssmooth, freqN, posN, Nsmooth, acc_fil, vel_fil, dis_fil)
     
     if tmp_filename is not None:
-        np.save(tmp_filename, acc_corr)
+        np.save(tmp_filename, acc_fil)
         return None
     else:
-        return acc_corr
+        return acc_fil
     
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
    
-def plots(t, acc, vel, dis, new_vel, solution, freqS, posS, Ssmooth, freqN, posN, Nsmooth, acc_fil, vel_fil, dis_fil):
-    plt.close('all')
+# def plots(t, acc, vel, dis, new_vel, solution, freqS, posS, Ssmooth, freqN, posN, Nsmooth, acc_fil, vel_fil, dis_fil):
+#     plt.close('all')
 
-    plt.figure()
-    plt.subplot(311)
-    plt.plot(t, acc)
-    plt.grid(which='both')
-    plt.subplot(312)
-    plt.plot(t, vel)
-    plt.grid(which='both')
-    plt.subplot(313)
-    plt.plot(t, dis)
-    plt.grid(which='both')
+#     plt.figure()
+#     plt.subplot(311)
+#     plt.plot(t, acc/9.81)
+#     plt.ylabel('Acceleration [g]')
+#     plt.grid(which='both')
+#     plt.subplot(312)
+#     plt.plot(t, vel)
+#     plt.ylabel('Velocity [m/s]')
+#     plt.grid(which='both')
+#     plt.subplot(313)
+#     plt.plot(t, dis*100)
+#     plt.ylabel('Displacement [cm]')
+#     plt.xlabel('Time [s]')
+#     plt.grid(which='both')
 
-    plt.suptitle('Original')
+#     plt.suptitle('Original')
 
-    plt.figure()
-    plt.plot(t, new_vel)
-    plt.plot(t, solution)
-    plt.grid(which='both')
-    plt.title('Solution proposed in velocity')
+#     plt.figure()
+#     plt.plot(t, new_vel)
+#     plt.plot(t, solution)
+#     plt.grid(which='both')
+#     plt.title('Solution proposed in velocity')
 
-    plt.figure()
-    plt.loglog(freqS[posS], Ssmooth, label='Event')
-    plt.loglog(freqN[posN], Nsmooth, label='Noise (pre-event)')
-    plt.grid(which='both')
-    plt.title('Smoothed Fourier amplitude spectra (Konno Ohmachi method)')
-    plt.legend()
+#     plt.figure()
+#     plt.loglog(freqS[posS], Ssmooth, label='Event')
+#     plt.loglog(freqN[posN], Nsmooth, label='Noise (pre-event)')
+#     plt.grid(which='both')
+#     plt.title('Smoothed Fourier amplitude spectra (Konno Ohmachi method)')
+#     plt.legend()
 
-    freq = np.logspace(-3, 2, 1001)
-    Sint = np.interp(freq, freqS[posS], Ssmooth)
-    Nint = np.interp(freq, freqN[posN], Nsmooth)
+#     freq = np.logspace(-3, 2, 1001)
+#     Sint = np.interp(freq, freqS[posS], Ssmooth)
+#     Nint = np.interp(freq, freqN[posN], Nsmooth)
 
-    # SNR = Sint/Nint
-    plt.figure()
-    plt.loglog(freq, Sint/Nint)
-    plt.grid(which='both')
-    plt.title('SNR')
+#     # SNR = Sint/Nint
+#     plt.figure()
+#     plt.loglog(freq, Sint/Nint)
+#     plt.grid(which='both')
+#     plt.title('SNR')
 
-    plt.figure()
-    plt.subplot(311)
-    plt.plot(t, acc_fil)
-    plt.grid(which='both')
-    plt.subplot(312)
-    plt.plot(t, vel_fil)
-    plt.grid(which='both')
-    plt.subplot(313)
-    plt.plot(t, dis_fil)
-    plt.grid(which='both')
+#     plt.figure()
+#     plt.subplot(311)
+#     plt.plot(t, acc_fil/9.81)
+#     plt.ylabel('Acceleration [g]')
+#     plt.grid(which='both')
+#     plt.subplot(312)
+#     plt.plot(t, vel_fil)
+#     plt.ylabel('Velocity [m/s]')
+#     plt.grid(which='both')
+#     plt.subplot(313)
+#     plt.plot(t, dis_fil*100)
+#     plt.ylabel('Displacement [cm]')
+#     plt.xlabel('Time [s]')
+#     plt.grid(which='both')
 
-    plt.suptitle('Corrected')
+#     plt.suptitle('Corrected')
 
 def correctStation(station, p_wave):
     acc_1 = station.acc_1
