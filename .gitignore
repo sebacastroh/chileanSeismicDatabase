@@ -14,3 +14,4 @@ SpectralValues_2.xlsx
 *.xlsx
 *.pyc
 rawData/*
+!sam_slab2.npz
