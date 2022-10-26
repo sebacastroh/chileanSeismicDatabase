@@ -21,7 +21,7 @@ import tkinter
 from PIL import ImageTk, Image
 
 # import download
-# import transform_records
+import transform_records
 import automatic_p_wave
 
 import copyreg
@@ -82,9 +82,9 @@ class TkThread:
                                     command=self._planeFaultProperties)
         button_properties.pack(side=tkinter.TOP)
         
-        # button_matfiles = tkinter.Button(master=self.root, text="Transform records to .mat",
-        #                             command=self._transformRecords)
-        # button_matfiles.pack(side=tkinter.TOP)
+        button_matfiles = tkinter.Button(master=self.root, text="Transform records to .mat",
+                                    command=self._transformRecords)
+        button_matfiles.pack(side=tkinter.TOP)
         
         button_pwave = tkinter.Button(master=self.root, text="P-Wave detection",
                                  command=self._pwave_detection)
@@ -246,44 +246,44 @@ class TkThread:
             button_quit.grid(row=4, column=3, sticky=tkinter.W, pady=4)
             window.update_idletasks()
     
-    # def _transformRecords(self):        
-    #     window = tkinter.Toplevel(self.root)
-    #     toolbar = tkinter.Frame(window)
-    #     toolbar.pack(side="top", fill="x")
-    #     text = tkinter.Text(toolbar, wrap="word")
-    #     text.pack(side="top", fill="both", expand=True)
-    #     text.tag_configure("stderr", foreground="#b22222")
+    def _transformRecords(self):        
+        window = tkinter.Toplevel(self.root)
+        toolbar = tkinter.Frame(window)
+        toolbar.pack(side="top", fill="x")
+        text = tkinter.Text(toolbar, wrap="word")
+        text.pack(side="top", fill="both", expand=True)
+        text.tag_configure("stderr", foreground="#b22222")
         
-    #     def _close():
-    #         window.destroy()
+        def _close():
+            window.destroy()
                            
-    #     current_path = os.getcwd()
+        current_path = os.getcwd()
         
-    #     button_quit = tkinter.Button(master=window, text="Close",
-    #                              command=_close)
-    #     button_quit.pack(side=tkinter.BOTTOM)
-    #     window.update_idletasks()
+        button_quit = tkinter.Button(master=window, text="Close",
+                                  command=_close)
+        button_quit.pack(side=tkinter.BOTTOM)
+        window.update_idletasks()
         
-    #     text.insert('end', 'Processing...\n')
-    #     text.see('end')
-    #     window.update_idletasks()
-    #     events_path = os.path.join(current_path, 'events')
-    #     os.chdir(events_path)
-    #     events = list(sorted(os.listdir('.')))
+        text.insert('end', 'Processing...\n')
+        text.see('end')
+        window.update_idletasks()
+        events_path = os.path.join(current_path, 'rawData')
+        os.chdir(events_path)
+        events = list(sorted(os.listdir('.')))
         
-    #     replace_old = False
-    #     save_path = os.path.join(current_path, 'events_mat_uncorrected')
-    #     results = [transform_records.writeMat(window, text, event, events_path, save_path, replace_old) for event in events]
+        replace_old = False
+        save_path = os.path.join(current_path, 'events_mat_uncorrected')
+        results = [transform_records.writeMat(window, text, event, events_path, save_path, replace_old) for event in events]
         
-    #     os.chdir(current_path)
+        os.chdir(current_path)
         
-    #     df = pd.concat(results, ignore_index=True)
-    #     df.to_excel('flatFile_uncorrected.xlsx')
-    #     df.to_csv('flatFile_uncorrected.csv')
+        df = pd.concat(results, ignore_index=True)
+        df.to_excel('flatFile_uncorrected.xlsx')
+        df.to_csv('flatFile_uncorrected.csv')
         
-    #     text.insert('end', '------------------------\nAll files converted to .mat\n------------------------\n')
-    #     text.see('end')
-    #     window.update_idletasks()
+        text.insert('end', '------------------------\nAll files converted to .mat\n------------------------\n')
+        text.see('end')
+        window.update_idletasks()
     
     def _pwave_detection(self):
         window = tkinter.Toplevel(self.root)
