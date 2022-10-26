@@ -40,7 +40,10 @@ with open('p_waves.json') as f:
     p_waves = json.load(f)
 
 for filename in filenames:
-    info = df[df['Identificador'] == filename[:-4]].iloc[0]
+    try:
+        info = df[df['Identificador'] == filename[:-4]].iloc[0]
+    except:
+        continue
     event_id = info['Fecha (UTC)'][:10].replace('-', '')
     event_id += '_' + '%0.1fM' %info['Magnitud [*]']
     event_id += '_' + '%0.2fS' %np.abs(info['Latitud'])
