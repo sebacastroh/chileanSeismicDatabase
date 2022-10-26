@@ -24,7 +24,6 @@ licensing += 'https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode'
 
 df = pd.read_csv('ZW5TFERBT8B0GMQ.csv')
 
-slab = np.load('sam_slab2.npz')
 geod = pyproj.Geod(ellps='WGS84')
 
 ffm_files = os.listdir('ffm')
@@ -63,6 +62,7 @@ def raw2Uncorrected(filename):
     event_dep = info['Profundidad [km]']
     
     # Event type
+    slab = np.load('sam_slab2.npz')
     dep_pos = np.nanargmin(np.sqrt((slab['lon'] - event_lon)**2 + (slab['lat'] - event_lat)**2))
     slab_depth = -slab['dep'][dep_pos]
     difference = slab_depth - event_dep
@@ -242,6 +242,7 @@ def raw2Uncorrected(filename):
         }
         event['st%0.2i' %i] = station_dict
     
+    slab.close()
     np.savez_compressed(os.path.join('databaseUncorrected', 'npz', event_id), **event)
     spio.savemat(os.path.join('databaseUncorrected', 'mat', event_id + '.mat'), event, do_compression=True)
     
