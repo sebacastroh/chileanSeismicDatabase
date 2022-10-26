@@ -248,6 +248,6 @@ def raw2Uncorrected(filename):
 if __name__ == '__main__':
     filenames = os.listdir('rawData')
     
-    pool = mp.multiprocessing(processes=25)
+    pool = mp.Pool(processes=25)
     results = pool.map(raw2Uncorrected, filenames)
     pool.close()
