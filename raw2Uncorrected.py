@@ -37,6 +37,8 @@ with open('fault_plane_properties.json') as f:
 with open('p_waves.json') as f:
     p_waves = json.load(f)
 
+# filenames = os.listdir('rawData')
+
 def raw2Uncorrected(filename):
 # for filename in filenames:
     try:
@@ -102,10 +104,10 @@ def raw2Uncorrected(filename):
                 stationStarttime = metadata.get('starttime')
                 stationDt = metadata.get('delta')
                 
-                if channelCode.endswith('N'):
+                if channelCode.endswith('N') or channelCode.endswith('1'):
                     acc_1 = channel.get('y').copy()
                     component_1 = channelCode
-                elif channelCode.endswith('E'):
+                elif channelCode.endswith('E') or channelCode.endswith('2'):
                     acc_2 = channel.get('y').copy()
                     component_2 = channelCode
                 else:
