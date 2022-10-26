@@ -6,7 +6,6 @@ Created on Tue Nov 19 21:02:53 2019
 @author: srcastro
 """
 import os
-import json
 import pickle
 import numpy as np
 import pandas as pd
@@ -20,8 +19,8 @@ import multiprocessing
 import tkinter
 from PIL import ImageTk, Image
 
-# import download
-# import transform_records
+import download
+import transform_records
 import automatic_p_wave
 
 import copyreg
@@ -74,17 +73,17 @@ class TkThread:
         
         imglabel.pack(side = tkinter.TOP)
         
-        # button_download = tkinter.Button(master=self.root, text="Download new records",
-        #                             command=self._download)
-        # button_download.pack(side=tkinter.TOP)
+        button_download = tkinter.Button(master=self.root, text="Download new records",
+                                    command=self._download)
+        button_download.pack(side=tkinter.TOP)
         
         button_properties = tkinter.Button(master=self.root, text="Plane fault properties",
                                     command=self._planeFaultProperties)
         button_properties.pack(side=tkinter.TOP)
         
-        # button_matfiles = tkinter.Button(master=self.root, text="Transform records to .mat",
-        #                             command=self._transformRecords)
-        # button_matfiles.pack(side=tkinter.TOP)
+        button_matfiles = tkinter.Button(master=self.root, text="Transform records to .mat",
+                                    command=self._transformRecords)
+        button_matfiles.pack(side=tkinter.TOP)
         
         button_pwave = tkinter.Button(master=self.root, text="P-Wave detection",
                                  command=self._pwave_detection)
@@ -104,22 +103,22 @@ class TkThread:
         
         self.root.mainloop()
 
-    # def _download(self):
-    #     window = tkinter.Toplevel(self.root)
-    #     toolbar = tkinter.Frame(window)
-    #     toolbar.pack(side="top", fill="x")
-    #     text = tkinter.Text(toolbar, wrap="word")
-    #     text.pack(side="top", fill="both", expand=True)
-    #     text.tag_configure("stderr", foreground="#b22222")
+    def _download(self):
+        window = tkinter.Toplevel(self.root)
+        toolbar = tkinter.Frame(window)
+        toolbar.pack(side="top", fill="x")
+        text = tkinter.Text(toolbar, wrap="word")
+        text.pack(side="top", fill="both", expand=True)
+        text.tag_configure("stderr", foreground="#b22222")
         
-    #     def _close():
-    #         window.destroy()
+        def _close():
+            window.destroy()
         
-    #     button_quit = tkinter.Button(master=window, text="Close",
-    #                              command=_close)
-    #     button_quit.pack(side=tkinter.BOTTOM)
-    #     window.update_idletasks()
-    #     download.download(window, text)
+        button_quit = tkinter.Button(master=window, text="Close",
+                                 command=_close)
+        button_quit.pack(side=tkinter.BOTTOM)
+        window.update_idletasks()
+        download.download(window, text)
         
     def _planeFaultProperties(self):
         
@@ -246,56 +245,54 @@ class TkThread:
             button_quit.grid(row=4, column=3, sticky=tkinter.W, pady=4)
             window.update_idletasks()
     
-    # def _transformRecords(self):        
-    #     window = tkinter.Toplevel(self.root)
-    #     toolbar = tkinter.Frame(window)
-    #     toolbar.pack(side="top", fill="x")
-    #     text = tkinter.Text(toolbar, wrap="word")
-    #     text.pack(side="top", fill="both", expand=True)
-    #     text.tag_configure("stderr", foreground="#b22222")
+    def _transformRecords(self):        
+        window = tkinter.Toplevel(self.root)
+        toolbar = tkinter.Frame(window)
+        toolbar.pack(side="top", fill="x")
+        text = tkinter.Text(toolbar, wrap="word")
+        text.pack(side="top", fill="both", expand=True)
+        text.tag_configure("stderr", foreground="#b22222")
         
-    #     def _close():
-    #         window.destroy()
+        def _close():
+            window.destroy()
                            
-    #     current_path = os.getcwd()
+        current_path = os.getcwd()
         
-    #     button_quit = tkinter.Button(master=window, text="Close",
-    #                              command=_close)
-    #     button_quit.pack(side=tkinter.BOTTOM)
-    #     window.update_idletasks()
+        button_quit = tkinter.Button(master=window, text="Close",
+                                 command=_close)
+        button_quit.pack(side=tkinter.BOTTOM)
+        window.update_idletasks()
         
-    #     text.insert('end', 'Processing...\n')
-    #     text.see('end')
-    #     window.update_idletasks()
-    #     events_path = os.path.join(current_path, 'events')
-    #     os.chdir(events_path)
-    #     events = list(sorted(os.listdir('.')))
+        text.insert('end', 'Processing...\n')
+        text.see('end')
+        window.update_idletasks()
+        events_path = os.path.join(current_path, 'events')
+        os.chdir(events_path)
+        events = list(sorted(os.listdir('.')))
         
-    #     replace_old = False
-    #     save_path = os.path.join(current_path, 'events_mat_uncorrected')
-    #     results = [transform_records.writeMat(window, text, event, events_path, save_path, replace_old) for event in events]
+        replace_old = False
+        save_path = os.path.join(current_path, 'events_mat_uncorrected')
+        results = [transform_records.writeMat(window, text, event, events_path, save_path, replace_old) for event in events]
         
-    #     os.chdir(current_path)
+        os.chdir(current_path)
         
-    #     df = pd.concat(results, ignore_index=True)
-    #     df.to_excel('flatFile_uncorrected.xlsx')
-    #     df.to_csv('flatFile_uncorrected.csv')
+        df = pd.concat(results, ignore_index=True)
+        df.to_excel('flatFile_uncorrected.xlsx')
+        df.to_csv('flatFile_uncorrected.csv')
         
-    #     text.insert('end', '------------------------\nAll files converted to .mat\n------------------------\n')
-    #     text.see('end')
-    #     window.update_idletasks()
+        text.insert('end', '------------------------\nAll files converted to .mat\n------------------------\n')
+        text.see('end')
+        window.update_idletasks()
     
     def _pwave_detection(self):
         window = tkinter.Toplevel(self.root)
-        name_json = 'p_waves.json'
-        if os.path.exists(name_json):
-            with open(name_json, 'r') as f:
-                results = json.load(f)
-        else:
-            results = {}
+        name_pkl = 'p_waves.pkl'
+        with open(name_pkl, 'rb') as f:
+            results = pickle.load(f)
         
-        rawData = os.path.join(os.getcwd(), 'rawData')
-        automatic_p_wave.main_window(window, rawData, results)    
+        mat_files_wd = os.path.join(os.getcwd(), 'events_mat_uncorrected')
+        
+        automatic_p_wave.main_window(window, results, mat_files_wd, name_pkl)    
     
     def _correction(self):
         window = tkinter.Toplevel(self.root)

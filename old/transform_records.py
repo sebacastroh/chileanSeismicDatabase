@@ -29,7 +29,7 @@ licensing += 'licensed under the Creative Commons Attribution-'
 licensing += 'NonCommercial-ShareAlike 4.0 International Public License: '
 licensing += 'https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode'
 
-slab = np.load('sam_slab2.npz')
+slab = None#np.load('sam_slab2.npz')
 
 def write_dataframe(stations):
     table = []
