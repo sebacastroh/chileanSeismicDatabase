@@ -90,10 +90,17 @@ def raw2Uncorrected(filename):
             Rjb   = None
             
             for channelCode, channel in station.items():
-                stationLon = channel.get('location').get('lon')
-                stationLat = channel.get('location').get('lat')
-                stationStarttime = channel.get('metadata').get('starttime')
-                stationDt = channel.get('metadata').get('delta')
+                location = channel.get('location')
+                if location is None:
+                    location = channel.get('loc')
+                stationLon = location.get('lon')
+                stationLat = location.get('lat')
+                
+                metadata = channel.get('metadata')
+                if metadata is None:
+                    metadata = channel.get('m')
+                stationStarttime = metadata.get('starttime')
+                stationDt = metadata.get('delta')
                 
                 if channelCode.endswith('N'):
                     acc_1 = channel.get('y').copy()
