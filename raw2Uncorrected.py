@@ -10,7 +10,7 @@ import pyproj
 import numpy as np
 import pandas as pd
 import scipy.io as spio
-
+import multiprocessing as mp
 import computeDistances
 
 licensing = 'This SIBER-RISK Strong Motion Database is made available '
@@ -24,7 +24,6 @@ licensing += 'https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode'
 
 df = pd.read_csv('ZW5TFERBT8B0GMQ.csv')
 
-filenames = os.listdir('rawData')
 slab = np.load('sam_slab2.npz')
 geod = pyproj.Geod(ellps='WGS84')
 
@@ -39,11 +38,14 @@ with open('fault_plane_properties.json') as f:
 with open('p_waves.json') as f:
     p_waves = json.load(f)
 
-for filename in filenames:
+def raw2Uncorrected(filename):
+# for filename in filenames:
     try:
         info = df[df['Identificador'] == filename[:-4]].iloc[0]
     except:
-        continue
+        # continue
+        return filename
+    
     event_id = info['Fecha (UTC)'][:10].replace('-', '')
     event_id += '_' + '%0.1fM' %info['Magnitud [*]']
     event_id += '_' + '%0.2fS' %np.abs(info['Latitud'])
@@ -242,3 +244,10 @@ for filename in filenames:
     
     np.savez_compressed(os.path.join('databaseUncorrected', 'npz', event_id), **event)
     spio.savemat(os.path.join('databaseUncorrected', 'mat', event_id + '.mat'), event, do_compression=True)
+    
+if __name__ == '__main__':
+    filenames = os.listdir('rawData')
+    
+    pool = mp.multiprocessing(processes=25)
+    results = pool.map(raw2Uncorrected, filenames)
+    pool.close()
