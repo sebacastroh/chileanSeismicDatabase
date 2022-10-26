@@ -8,7 +8,7 @@ Created on Mon Jun 20 15:57:27 2022
 import os
 import json
 import numpy as np
-# import scipy.io as sio1
+import scipy.io as sio
 import SeismicCorrectionLibrary
 
 import tkinter
@@ -22,20 +22,14 @@ event_name = ''
 key = ''
 currentStation = 0
 nStations = 0
-stationCodes = []
 event = None
-filenames = []
 
-
+#%%
 def find_p_wave(filename):
-    # p_wave_path = '/home/srcastro/projects/correctSeismicDatabase/newMethodology/p_wave/'
-    mat_files_wd = 'rawData'
-    
-    with np.load(os.path.join(mat_files_wd, filename), allow_pickle=True) as f:
-        event = {}
-        for key, value in f.items():
-            event[key] = value.item()
-    
+    p_wave_path = '/home/srcastro/projects/correctSeismicDatabase/newMethodology/p_wave/'
+    mat_files_wd = '/home/srcastro/projects/correctSeismicDatabase/newMethodology/events_mat_uncorrected/'
+    event = sio.loadmat(mat_files_wd + filename,
+                        struct_as_record=False, squeeze_me=True)
     results = []
     
     for key,value in event.items():
@@ -49,14 +43,14 @@ def find_p_wave(filename):
             if True:
                 pos = SeismicCorrectionLibrary.PWaveDetection(X, fsamp)
                 
-                # txtfile = os.path.join(p_wave_path, filename[:-4], value.name + '.txt')
+                txtfile = os.path.join(p_wave_path, filename[:-4], value.name + '.txt')
                 
-                # if os.path.exists(txtfile):
-                #     manual_pos = int(np.loadtxt(txtfile))
-                #     difference = np.abs(manual_pos - pos)*value.dt
-                #     if difference < 1.:
-                #         output = 'Valid'
-                #         method = 'Automatic'
+                if os.path.exists(txtfile):
+                    manual_pos = int(np.loadtxt(txtfile))
+                    difference = np.abs(manual_pos - pos)*value.dt
+                    if difference < 1.:
+                        output = 'Valid'
+                        method = 'Automatic'
             # except:
                 # print(filename, key)
                 # pos = 0
@@ -75,35 +69,37 @@ def pop_up():
     b = tkinter.Button(win, text="Close", command=win.destroy)
     b.grid(row=1, column=0)    
 
-def main_window(window, rawData, p_waves):
-    global first, events, event_name, key, nStations, stationCodes, currentStation, seismicEvent, filenames
-    filenames = os.listdir(rawData)
+def main_window(window, mat_files_wd, p_waves, filename):
+    global first, events, event_name, key, nStations, currentStation, event
+    matfiles = sorted(os.listdir(mat_files_wd))
+    
+    key = 'st00'
+    nStations = 0
     
     to_check = False
-    for filename in filenames:
-        event_name = filename[:-4]
-        if p_waves.get(event_name) is None:
-            with np.load(os.path.join(rawData, filename), allow_pickle=True) as f:
-                seismicEvent = {}
-                for key, value in f.items():
-                    seismicEvent[key] = value.item()
+    for matfile in matfiles:
+        if matfile[:-4] not in p_waves.keys():
+            event_name = matfile[:-4]
+            event = sio.loadmat(os.path.join(mat_files_wd, matfile),
+                                struct_as_record=False, squeeze_me=True)
             
-            nStations = len(seismicEvent)
-            stationCodes = list(seismicEvent.keys())
-            key = stationCodes.pop()
-            station = seismicEvent.get(key)
-            for channel_code, channel in station.items():
-                if channel_code.endswith('E'):
-                    record_x = channel.get('y')
-                    component_1 = channel_code
-                elif channel_code.endswith('N'):
-                    record_y = channel.get('y')
-                    component_2 = channel_code
-                else:
-                    record_z = channel.get('y')
-                    component_3 = channel_code
+            nStations = len(event) - 3
             
-            dt = station.get(component_3).get('metadata').get('delta')
+            p = 1
+            while event.get(key) is None:
+                key = 'st%0.2i' %p
+                p += 1
+            
+            record_x = event[key].acc_1/9.81
+            record_y = event[key].acc_2/9.81
+            record_z = event[key].acc_3/9.81
+            
+            component_1 = event[key].component_1
+            component_2 = event[key].component_2
+            component_3 = event[key].component_3
+            
+            dt = event['st00'].dt
+            
             t = np.linspace(0., (len(record_z)-1)*dt, len(record_z))
             currentStation = 1
             to_check = True
@@ -138,7 +134,7 @@ def main_window(window, rawData, p_waves):
         a1 = fig.add_subplot(411)
         a1.plot(t, record_x, label=component_1, lw=lw)
         a1.plot(t[pos], record_x[pos], 'ro', label='')
-        a1.set_title(event_name + ' - %i/%i' %(currentStation, nStations))
+        a1.set_title(event['st00'].event_id + ' - %i/%i' %(currentStation, nStations))
         a1.legend()
         a1.grid()
         a1.set_xlim(-t[-1]*0.1, t[-1]*1.1)
@@ -249,7 +245,7 @@ def main_window(window, rawData, p_waves):
             fig.canvas.draw()
     
         def _valid():
-            global first, events, event_name, key, nStations, stationCodes, currentStation, seismicEvent, filenames
+            global first, events, event_name, key, nStations, currentStation, event
             if events.get(event_name) is None:
                 events[event_name] = {}
             
@@ -262,47 +258,47 @@ def main_window(window, rawData, p_waves):
               'pos': int(this_pos[0]),
               'status': True,
               'method': method
-            }
+            } 
             
             currentStation += 1
             
             if currentStation <= nStations:
                 to_check = True
-                key = stationCodes.pop()
+                p = int(key[2:])
+                key = 'st%0.2i' %(p+1)
             else:
                 p_waves[event_name] = events[event_name]
                 to_check = False
-                for filename in filenames:
-                    event_name = filename[:-4]
-                    if p_waves.get(event_name) is None:
-                        with np.load(os.path.join(rawData, filename), allow_pickle=True) as f:
-                            seismicEvent = {}
-                            for key, value in f.items():
-                                seismicEvent[key] = value.item()
+                for matfile in matfiles:
+                    if p_waves.get(matfile[:-4]) is None:
+                        event_name = matfile[:-4]
+                        event = sio.loadmat(os.path.join(mat_files_wd, matfile),
+                                            struct_as_record=False, squeeze_me=True)
                         
-                        nStations = len(seismicEvent)
-                        stationCodes = list(seismicEvent.keys())
-                        key = stationCodes.pop()
+                        nStations = len(event) - 3
                         currentStation = 1
                         to_check = True
+                        key = 'st00'
                         break
+            
                         
             if not to_check:
                 pop_up()
             else:
-                station = seismicEvent.get(key)
-                for channel_code, channel in station.items():
-                    if channel_code.endswith('E'):
-                        record_x = channel.get('y')
-                        component_1 = channel_code
-                    elif channel_code.endswith('N'):
-                        record_y = channel.get('y')
-                        component_2 = channel_code
-                    else:
-                        record_z = channel.get('y')
-                        component_3 = channel_code
+                p = int(key[2:])
+                while event.get(key) is None:
+                    p += 1
+                    key = 'st%0.2i' %p
+                    
+                record_x = event[key].acc_1/9.81
+                record_y = event[key].acc_2/9.81
+                record_z = event[key].acc_3/9.81
                 
-                dt = station.get(component_3).get('metadata').get('delta')
+                component_1 = event[key].component_1
+                component_2 = event[key].component_2
+                component_3 = event[key].component_3
+                
+                dt = event[key].dt
                 t = np.linspace(0., (len(record_z)-1)*dt, len(record_z))
                     
                 try:
@@ -313,11 +309,11 @@ def main_window(window, rawData, p_waves):
                     sim = np.vstack((np.arange(len(t)), np.ones(len(t)))).T
                 
                 this_pos[0] = pos
-                update_plot(t, sim, pos, event_name + ' - %i/%i' %(currentStation, nStations), record_x, record_y, record_z, component_1, component_2, component_3)
+                update_plot(t, sim, pos, event[key].event_id + ' - %i/%i' %(currentStation, nStations), record_x, record_y, record_z, component_1, component_2, component_3)
             # i[0] += k
         
         def _discarded(): 
-            global first, events, event_name, key, nStations, stationCodes, currentStation, event, filenames, seismicEvent
+            global first, events, event_name, key, nStations, currentStation, event
             if events.get(event_name) is None:
                 events[event_name] = {}
             
@@ -336,42 +332,41 @@ def main_window(window, rawData, p_waves):
             
             if currentStation <= nStations:
                 to_check = True
-                key = stationCodes.pop()
+                p = int(key[2:])
+                key = 'st%0.2i' %(p+1)
             else:
                 p_waves[event_name] = events[event_name]
                 to_check = False
-                for filename in filenames:
-                    event_name = filename[:-4]
-                    if p_waves.get(event_name) is None:
-                        with np.load(os.path.join(rawData, filename), allow_pickle=True) as f:
-                            seismicEvent = {}
-                            for key, value in f.items():
-                                seismicEvent[key] = value.item()
+                for matfile in matfiles:
+                    if p_waves.get(matfile[:-4]) is None:
+                        event_name = matfile[:-4]
+                        event = sio.loadmat(os.path.join(mat_files_wd, matfile),
+                                            struct_as_record=False, squeeze_me=True)
                         
-                        nStations = len(seismicEvent)
-                        stationCodes = list(seismicEvent.keys())
-                        key = stationCodes.pop()
+                        nStations = len(event) - 3
                         currentStation = 1
                         to_check = True
+                        key = 'st00'
                         break
             
                         
             if not to_check:
                 pop_up()
             else:
-                station = seismicEvent.get(key)
-                for channel_code, channel in station.items():
-                    if channel_code.endswith('E'):
-                        record_x = channel.get('y')
-                        component_1 = channel_code
-                    elif channel_code.endswith('N'):
-                        record_y = channel.get('y')
-                        component_2 = channel_code
-                    else:
-                        record_z = channel.get('y')
-                        component_3 = channel_code
+                p = int(key[2:])
+                while event.get(key) is None:
+                    p += 1
+                    key = 'st%0.2i' %p
+                    
+                record_x = event[key].acc_1/9.81
+                record_y = event[key].acc_2/9.81
+                record_z = event[key].acc_3/9.81
                 
-                dt = station.get(component_3).get('metadata').get('delta')
+                component_1 = event[key].component_1
+                component_2 = event[key].component_2
+                component_3 = event[key].component_3
+                
+                dt = event[key].dt
                 t = np.linspace(0., (len(record_z)-1)*dt, len(record_z))
                     
                 try:
@@ -382,14 +377,14 @@ def main_window(window, rawData, p_waves):
                     sim = np.vstack((np.arange(len(t)), np.ones(len(t)))).T
                 
                 this_pos[0] = pos
-                update_plot(t, sim, pos, event_name + ' - %i/%i' %(currentStation, nStations), record_x, record_y, record_z, component_1, component_2, component_3)
+                update_plot(t, sim, pos, event[key].event_id + ' - %i/%i' %(currentStation, nStations), record_x, record_y, record_z, component_1, component_2, component_3)
         
         def _save():
-            with open('p_waves.json', 'w') as f:
+            with open(filename, 'w') as f:
                 json.dump(p_waves, f)
             
         def _save_and_quit():
-            with open('p_waves.json', 'w') as f:
+            with open(filename, 'w') as f:
                 json.dump(p_waves, f)
                     
             window.quit()     # stops mainloop
