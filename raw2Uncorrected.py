@@ -7,11 +7,12 @@ Created on Wed Oct 26 11:56:22 2022
 import os
 import json
 import pyproj
+import datetime
 import numpy as np
 import pandas as pd
+import computeDistances
 import scipy.io as spio
 import multiprocessing as mp
-import computeDistances
 
 licensing = 'This SIBER-RISK Strong Motion Database is made available '
 licensing += 'under the Creative Commons Attribution-NonCommercial-'
@@ -21,6 +22,11 @@ licensing += 'Any rights in individual contents of the database are '
 licensing += 'licensed under the Creative Commons Attribution-'
 licensing += 'NonCommercial-ShareAlike 4.0 International Public License: '
 licensing += 'https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode'
+
+cite = 'Sebastián Castro, Roberto Benavente, Jorge G. F. Crempien, Gabriel Candia, Juan Carlos de la Llera; '
+cite += 'A Consistently Processed Strong‐Motion Database for Chilean Earthquakes. '
+cite += 'Seismological Research Letters 2022;; 93 (5): 2700–2718. doi: https://doi.org/10.1785/0220200336'
+database_doi = 'https://doi.org/10.7764/datasetUC/ING-UC.1170836_1'
 
 df = pd.read_csv('siberrisk.csv', dtype={'Identificador': str})
 
@@ -66,7 +72,9 @@ def raw2Uncorrected(event_id):
         st = 0
         event = {
             'event_id': event_id,
-            'licensing': licensing
+            'licensing': licensing,
+            'cite': cite,
+            'databaseURL': database_doi
         }
         slab = np.load('sam_slab2.npz')
         for r, row in info.iterrows():
@@ -287,7 +295,8 @@ def raw2Uncorrected(event_id):
                     'vs30': vs30,
                     'hvsr': hvsr,
                     'corner_freqs': np.array([np.nan, np.nan]),
-                    'azimuth': azimuth
+                    'azimuth': azimuth,
+                    'last_update': datetime.datetime.now().isoformat()
                 }
                 event['st%0.2i' %st] = station_dict
                 st += 1
