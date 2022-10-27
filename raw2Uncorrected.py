@@ -294,7 +294,9 @@ def raw2Uncorrected(event_id):
                     'Rjb': Rjb,
                     'vs30': vs30,
                     'hvsr': hvsr,
-                    'corner_freqs': np.array([np.nan, np.nan]),
+                    'corner_freqs_1': np.array([np.nan, np.nan]),
+                    'corner_freqs_2': np.array([np.nan, np.nan]),
+                    'corner_freqs_3': np.array([np.nan, np.nan]),
                     'azimuth': azimuth,
                     'last_update': datetime.datetime.now().isoformat()
                 }
