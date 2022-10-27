@@ -22,8 +22,10 @@ if len(sys.argv) >= 4:
     with np.load(os.path.join('seismicDatabase', 'npz', event_id + '.npz'), allow_pickle=True) as f:
         acc_uncorrected = f.get(station_id).item().get(channel_id)
         dt = f.get(station_id).item().get('dt')
+        status = f.get(station_id).item().get('p_wave').get('status')
+        p_wave = f.get(station_id).item().get('p_wave').get('pos')
     
     filename = '&'.join([event_id, station_id, channel_id])
-    acc_corrected, acc_filtered, corner_freqs = automaticCorrection.correctRecord(acc_uncorrected, dt, saveInTemp, filename)
+    acc_corrected, acc_filtered, corner_freqs = automaticCorrection.correctRecord(acc_uncorrected, dt, status, p_wave, saveInTemp, filename)
 else:
     sys.exit('Expected at least 3 arguments, got %i' %(len(sys.argv) - 1))
