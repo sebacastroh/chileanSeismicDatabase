@@ -13,8 +13,8 @@ eventId = '20150916_8.4M_31.55S_71.86W_11.0KM'
 
 plt.close('all')
 
-st = 'st00'
-channel = 'acc_3'
+st = 'st43'
+channel = 'acc_2'
 
 with np.load(os.path.join('databaseUncorrected', 'npz', eventId + '.npz'), allow_pickle=True) as f:
     station = f.get(st).item()
@@ -92,7 +92,7 @@ plt.ylim([-dcen, dcen])
 
 plt.suptitle('Uncorrected')
 
-plt.savefig('uncorrected.pdf', bbox_inches='tight')
+# plt.savefig('uncorrected.pdf', bbox_inches='tight')
 
 plt.figure()
 
@@ -110,7 +110,7 @@ plt.ylim([-dcen, dcen])
 
 plt.suptitle('Corrected')
 
-plt.savefig('corrected.pdf', bbox_inches='tight')
+# plt.savefig('corrected.pdf', bbox_inches='tight')
 
 plt.figure()
 
@@ -128,4 +128,4 @@ plt.ylim([-dcen, dcen])
 
 plt.suptitle('Filtered')
 
-plt.savefig('filtered.pdf', bbox_inches='tight')
+# plt.savefig('filtered.pdf', bbox_inches='tight')
