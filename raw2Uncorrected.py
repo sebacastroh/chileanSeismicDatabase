@@ -50,13 +50,24 @@ omitChannel = ['INTC']
 
 event_ids = df['ID'].unique()
 
+if not os.path.exists('seismicDatabase'):
+    os.path.mkdir('seismicDatabase')
+
+if not os.path.exists(os.path.join('seismicDatabase', 'npz')):
+    os.mkdir(os.path.join('seismicDatabase', 'npz'))
+
+if not os.path.exists(os.path.join('seismicDatabase', 'mat')):
+    os.mkdir(os.path.join('seismicDatabase', 'mat'))
+
 def raw2Uncorrected(event_id):
     try:
-        ########################
         info = df[df['ID'] == event_id]
         
         st = 0
-        event = {}
+        event = {
+            'event_id': event_id,
+            'licensing': licensing
+        }
         slab = np.load('sam_slab2.npz')
         for r, row in info.iterrows():
             filename = row['Identificador'] + '.npz'
@@ -244,7 +255,6 @@ def raw2Uncorrected(event_id):
                 
                 # Save results
                 station_dict = {
-                    'event_id': event_id,
                     'starttime': stationStarttime,
                     'magnitude': event_mag,
                     'hypocenter_lon': event_lon,
@@ -255,11 +265,17 @@ def raw2Uncorrected(event_id):
                     'station_code': stationCode,
                     'station_lon': stationLon,
                     'station_lat': stationLat,
-                    'acc_1': acc_1,
+                    'acc_uncorrected_1': acc_1,
+                    'acc_corrected_1': np.empty(0),
+                    'acc_filtered_1': np.empty(0),
                     'component_1': component_1,
-                    'acc_2': acc_2,
+                    'acc_uncorrected_2': acc_2,
+                    'acc_corrected_2': np.empty(0),
+                    'acc_filtered_2': np.empty(0),
                     'component_2': component_2,
-                    'acc_3': acc_3,
+                    'acc_uncorrected_3': acc_3,
+                    'acc_corrected_3': np.empty(0),
+                    'acc_filtered_3': np.empty(0),
                     'component_3': component_3,
                     'dt': stationDt,
                     'p_wave': p_wave,
@@ -271,16 +287,14 @@ def raw2Uncorrected(event_id):
                     'vs30': vs30,
                     'hvsr': hvsr,
                     'corner_freqs': np.array([np.nan, np.nan]),
-                    'azimuth': azimuth,
-                    'licensing': licensing
+                    'azimuth': azimuth
                 }
                 event['st%0.2i' %st] = station_dict
                 st += 1
             
-            np.savez_compressed(os.path.join('databaseUncorrected', 'npz', event_id), **event)
-            spio.savemat(os.path.join('databaseUncorrected', 'mat', event_id + '.mat'), event, do_compression=True)
+            np.savez_compressed(os.path.join('seismicDatabase', 'npz', event_id), **event)
+            spio.savemat(os.path.join('seismicDatabase', 'mat', event_id + '.mat'), event, do_compression=True)
         slab.close()
-        ########################
     except:
         return event_id
     
