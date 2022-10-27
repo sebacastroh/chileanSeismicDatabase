@@ -65,10 +65,10 @@ def raw2Uncorrected(event_id):
                 for key, value in f.items():
                     data[key] = value.item()
             
-            event_mag = info['Magnitud [*]']
-            event_lon = info['Longitud']
-            event_lat = info['Latitud']
-            event_dep = info['Profundidad [km]']
+            event_mag = row['Magnitud [*]']
+            event_lon = row['Longitud']
+            event_lat = row['Latitud']
+            event_dep = row['Profundidad [km]']
             
             if np.any(np.isnan([event_mag, event_lon, event_lat, event_dep])):
                 event_type = 'Undetermined'
@@ -100,7 +100,7 @@ def raw2Uncorrected(event_id):
                 acc_3 = np.empty(0)
                 
                 for channelCode, channel in station.items():
-                    if channelCode in omitChannel:
+                    if channelCode.strip() in omitChannel:
                         continue
                     
                     location = channel.get('location')
@@ -115,15 +115,15 @@ def raw2Uncorrected(event_id):
                     stationStarttime = metadata.get('starttime')
                     stationDt = metadata.get('delta')
                     
-                    if channelCode in xChannels:
+                    if channelCode.strip() in xChannels:
                         acc_1 = channel.get('y').copy()
-                        component_1 = channelCode
-                    elif channelCode in yChannels:
+                        component_1 = channelCode.strip()
+                    elif channelCode.strip() in yChannels:
                         acc_2 = channel.get('y').copy()
-                        component_2 = channelCode
-                    elif channelCode in zChannels:
+                        component_2 = channelCode.strip()
+                    elif channelCode.strip() in zChannels:
                         acc_3 = channel.get('y').copy()
-                        component_3 = channelCode
+                        component_3 = channelCode.strip()
                 
                 # Distances
                 if not np.isnan(hypocenter):
@@ -277,5 +277,5 @@ def raw2Uncorrected(event_id):
     
 if __name__ == '__main__':
     pool = mp.Pool(processes=50)
-    results = pool.map(raw2Uncorrected, event_ids)
+    results = pool.map(raw2Uncorrected, event_ids.tolist())
     pool.close()
