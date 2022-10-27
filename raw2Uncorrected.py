@@ -52,6 +52,7 @@ event_ids = df['ID'].unique()
 
 def raw2Uncorrected(event_id):
     try:
+        ########################
         info = df[df['ID'] == event_id]
         
         st = 0
@@ -112,8 +113,15 @@ def raw2Uncorrected(event_id):
                     metadata = channel.get('metadata')
                     if metadata is None:
                         metadata = channel.get('m')
+                    
                     stationStarttime = metadata.get('starttime')
+                    if stationStarttime is None:
+                        stationStarttime = row['Fecha (UTC)']
+                        
                     stationDt = metadata.get('delta')
+                    if stationDt is None:
+                        x = channel.get('x')
+                        stationDt = np.mean(x[1:] - x[:-1])
                     
                     if channelCode.strip() in xChannels:
                         acc_1 = channel.get('y').copy()
@@ -126,7 +134,7 @@ def raw2Uncorrected(event_id):
                         component_3 = channelCode.strip()
                 
                 # Distances
-                if not np.isnan(hypocenter):
+                if not np.all(np.isnan(hypocenter)):
                     Rhypo = None
                     Repi  = None
                     Rrup  = None
@@ -272,6 +280,7 @@ def raw2Uncorrected(event_id):
             np.savez_compressed(os.path.join('databaseUncorrected', 'npz', event_id), **event)
             spio.savemat(os.path.join('databaseUncorrected', 'mat', event_id + '.mat'), event, do_compression=True)
         slab.close()
+        ########################
     except:
         return event_id
     
