@@ -45,7 +45,7 @@ def sampling_function(x, boundaries, local_values):
     
     return y
 
-eventId = '20150916_8.4M_31.55S_71.86W_11.0KM'
+eventId = '20140401_8.2M_19.57S_70.91W_39.0KM' #'20150916_8.4M_31.55S_71.86W_11.0KM'
 
 with np.load(os.path.join('databaseUncorrected', 'npz', eventId + '.npz'), allow_pickle=True) as f:
     event = {}
