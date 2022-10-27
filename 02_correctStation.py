@@ -19,9 +19,9 @@ if len(sys.argv) >= 3:
             saveInTemp = False    
     
     cwd = os.getcwd()
-    filepath = os.path.join(cwd, '03_correctRecord.py')
+    filepath = os.path.join(cwd, '03_correctChannel.py')
     cmd = 'python ' + filepath + ' ' + event_id + ' ' + station_id
     for i in range(3):
-        subprocess.run(cmd + ' ' + 'acc_uncorrected_%i' %(i+1) + ' ' + str(saveInTemp))
+        subprocess.run(cmd + ' ' + 'acc_uncorrected_%i' %(i+1) + ' ' + str(saveInTemp), shell=True)
 else:
     sys.exit('Expected at least 2 arguments, got %i' %(len(sys.argv) - 1))

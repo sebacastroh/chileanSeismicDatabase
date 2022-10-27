@@ -25,7 +25,7 @@ if len(sys.argv) >= 4:
         status = f.get(station_id).item().get('p_wave').get('status')
         p_wave = f.get(station_id).item().get('p_wave').get('pos')
     
-    filename = '&'.join([event_id, station_id, channel_id])
+    filename = '-'.join([event_id, station_id, channel_id])
     acc_corrected, acc_filtered, corner_freqs = automaticCorrection.correctRecord(acc_uncorrected, dt, status, p_wave, saveInTemp, filename)
 else:
     sys.exit('Expected at least 3 arguments, got %i' %(len(sys.argv) - 1))

@@ -22,6 +22,7 @@ if len(sys.argv) >= 1:
     filepath = os.path.join(cwd, '02_correctStation.py')
     cmd = 'python ' + filepath + ' ' + event_id
     for i in range(nStations):
-        subprocess.run(cmd + ' ' + 'st%0.2i' %i + ' True')
+        subprocess.run(cmd + ' ' + 'st%0.2i' %i + ' True', shell=True)
+        break
 else:
     sys.exit('Expected 1 argument, got 0')
