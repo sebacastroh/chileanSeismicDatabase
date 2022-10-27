@@ -86,6 +86,7 @@ Fecha (UTC),Latitud,Longitud,Profundidad [km],Magnitud [*],Tipo magnitud,Estacio
 2006-10-12 18:05:56,-31.2,-71.42,37.2,6.2,,Amolanas,0610121,20061012_6.2M_31.20S_71.42W_37.2KM
 2006-11-01 03:00:00,,,,,,Illapel,0611000,20061101_magM_latS_lonW_depthKM
 2006-11-20 14:38:27,-17.45,-70.33,48.0,5.8,,Arica Cerro La Cruz; Chacalluta; Poconchile,0611201,20061120_5.8M_17.45S_70.33W_48.0KM
+2007-02-14 14:22:00,-19.4,-70.07,78.0,5.4,,Fuerte Baquedano,0702141,20070214_5.4M_19.40S_70.07W_78.0KM
 2007-03-02 13:07:29,-30.52,-71.4,33.1,5.7,,Puente Amolanas,0703021,20070302_5.7M_30.52S_71.40W_33.1KM
 2007-04-01 04:00:00,,,,,,Arica Cementerio; Arica Costanera; Cuya,0704001,20070401_magM_latS_lonW_depthKM
 2007-04-22 10:22:02,-32.23,-71.26,25.6,5.6,,Viña del Mar El Salto,0704221,20070422_5.6M_32.23S_71.26W_25.6KM
@@ -104,7 +105,6 @@ Fecha (UTC),Latitud,Longitud,Profundidad [km],Magnitud [*],Tipo magnitud,Estacio
 2007-12-13 07:23:38,-23.17,-70.44,43.1,6.2,,Mejillones Puerto,0712131,20071213_6.2M_23.17S_70.44W_43.1KM
 2007-12-15 18:22:27,-32.48,-71.44,45.0,5.8,,Viña del Mar Centro; Viña del Mar El Salto; Valparaíso,0712151,20071215_5.8M_32.48S_71.44W_45.0KM
 2007-12-16 08:09:17,-22.56,-70.1,42.0,6.7,,Tocopilla Puerto; Michilla; Mejillones; Mejillones Puerto; Mejillones Central,0712161,20071216_6.7M_22.56S_70.10W_42.0KM
-2007-14-02 14:22:00,-19.4,-70.07,78.0,5.4,,Fuerte Baquedano,0702141,20071402_5.4M_19.40S_70.07W_78.0KM
 2008-01-01 03:00:00,,,,,,Papudo,0801000,20080101_magM_latS_lonW_depthKM
 2008-01-22 09:09:27,-19.57,-70.06,49.4,5.2,,Pisagua; Alto Hospicio; Iquique; Iquique E. Chipana,0801221,20080122_5.2M_19.57S_70.06W_49.4KM
 2008-02-04 17:01:29,-20.16,-70.15,45.6,6.3,,Alto Hospicio; Iquique; Iquique E. Chipana; Pica,0802041,20080204_6.3M_20.16S_70.15W_45.6KM
@@ -118,12 +118,12 @@ Fecha (UTC),Latitud,Longitud,Profundidad [km],Magnitud [*],Tipo magnitud,Estacio
 2008-12-19 09:36:04,-32.27,-71.56,32.2,5.8,,Viña del Mar El Salto,0812191,20081219_5.8M_32.27S_71.56W_32.2KM
 2009-02-11 20:45:31,-20.2,-69.13,116.8,5.5,,Pica,0902111,20090211_5.5M_20.20S_69.13W_116.8KM
 2009-04-01 04:00:00,,,,,,Cuya; Huara,0904001,20090401_magM_latS_lonW_depthKM
+2009-04-17 02:08:08,-19.4,-70.41,35.7,6.0,,Pisagua,0904161,20090417_6.0M_19.40S_70.41W_35.7KM
 2009-05-25 05:10:12,-28.33,-71.27,50.1,5.4,,Vallenar,0905251,20090525_5.4M_28.33S_71.27W_50.1KM
 2009-07-15 15:21:26,-20.26,-69.2,119.9,5.6,,Pica,0907151,20090715_5.6M_20.26S_69.20W_119.9KM
 2009-10-29 01:25:13,-20.45,-69.37,66.5,5.0,,Pica,0910281,20091029_5.0M_20.45S_69.37W_66.5KM
 2009-11-13 03:05:57,-19.3,-70.31,38.1,6.4,,Arica; Cuya; Pisagua; Huara; Alto Hospicio; Chipana,0911131,20091113_6.4M_19.30S_70.31W_38.1KM
 2009-12-22 23:01:11,-28.36,-71.02,45.0,5.1,,Vallenar,0912221,20091222_5.1M_28.36S_71.02W_45.0KM
-2009-17-04 02:08:08,-19.4,-70.41,35.7,6.0,,Pisagua,0904161,20091704_6.0M_19.40S_70.41W_35.7KM
 2010-01-13 03:52:23,-20.49,-69.33,,5.3,,Pica,1001131,20100113_5.3M_20.49S_69.33W_depthKM
 2010-02-27 06:24:08,-36.17,-73.14,30.1,8.8,,Copiapo; Vallenar; Papudo; Viña del Mar Centro; Viña del Mar El Salto; Valparaíso Almendral; Valparaíso UTFSM; Llolleo; Santiago Centro; Santiago Maipu; Santiago La Florida; Santiago Peñalolen; Santiago Puente Alto; Matanzas; Hualañe; Talca; Constitución; Concepción; Angol; Valdivia; Curico,1002271,20100227_8.8M_36.17S_73.14W_30.1KM
 2010-02-27 10:30:36,,,,6.1,,Viña del Mar El Salto,1002273,20100227_6.1M_latS_lonW_depthKM
