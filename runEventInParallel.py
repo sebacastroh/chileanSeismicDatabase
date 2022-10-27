@@ -17,7 +17,7 @@ def callCorrectStation(key):
     cmd = 'python ' + filepath + ' ' + event_id
     subprocess.run(cmd + ' ' + station_id + ' True', shell=True)
 
-if len(sys.argv) >= 1:
+if len(sys.argv) >= 2:
     event_id = sys.argv[1]
     nStations = 0
     keys = []
