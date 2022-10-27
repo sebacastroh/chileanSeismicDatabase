@@ -41,4 +41,4 @@ if len(sys.argv) >= 2:
     np.savez_compressed(os.path.join('seismicDatabase', 'npz', event_id), **event)
     spio.savemat(os.path.join('seismicDatabase', 'mat', event_id + '.mat'), event, do_compression=True)
 else:
-    sys.exit('Expected 2 argument, got 0')
+    sys.exit('Expected 1 argument, got 0')
