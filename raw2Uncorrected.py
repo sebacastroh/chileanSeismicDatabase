@@ -51,13 +51,13 @@ omitChannel = ['INTC']
 event_ids = df['ID'].unique()
 
 if not os.path.exists('seismicDatabase'):
-    os.path.mkdir('seismicDatabase')
+    os.mkdir('seismicDatabase')
 
 if not os.path.exists(os.path.join('seismicDatabase', 'npz')):
-    os.path.mkdir(os.path.join('seismicDatabase', 'npz'))
+    os.mkdir(os.path.join('seismicDatabase', 'npz'))
 
 if not os.path.exists(os.path.join('seismicDatabase', 'mat')):
-    os.path.mkdir(os.path.join('seismicDatabase', 'mat'))
+    os.mkdir(os.path.join('seismicDatabase', 'mat'))
 
 def raw2Uncorrected(event_id):
     try:
