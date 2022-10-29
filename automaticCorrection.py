@@ -90,7 +90,7 @@ def correctRecord(acc, dt, status, p_wave, saveInTemp=False, filename=''):
     
     # Pre
     if p_wave > 0:
-        datasets = [np.column_stack((t[:p_wave+1], vel_mean[:p_wave+1], smooth_std[:p_wave+1]))]
+        datasets = [np.column_stack((t[:p_wave+1], new_vel[:p_wave+1], smooth_std[:p_wave+1]))]
         samples = 100
         pd = (t[p_wave])*0.1
         
@@ -117,7 +117,7 @@ def correctRecord(acc, dt, status, p_wave, saveInTemp=False, filename=''):
         lp1 = results1.local_parameters[sol1].copy()
     
     # Post
-    datasets = [np.column_stack((t[p_wave:], vel_mean[p_wave:], smooth_std[p_wave:]))]
+    datasets = [np.column_stack((t[p_wave:], new_vel[p_wave:], smooth_std[p_wave:]))]
     samples = 0
     pd = (t[-1]-t[p_wave])*0.1
     
