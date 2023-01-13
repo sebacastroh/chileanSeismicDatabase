@@ -32,7 +32,6 @@ def downloadNewEvents(window, widget):
         element_id = row['Identificador']
         
         session.download_file(dataset_id, 'npz', element_id, os.path.join('rawData', element_id + '.npz'))
-        break
     
     widget.insert('end', 'Done!\n')
     window.update_idletasks()
