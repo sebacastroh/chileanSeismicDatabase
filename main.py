@@ -20,8 +20,9 @@ import multiprocessing
 import tkinter
 from PIL import ImageTk, Image
 
-# import download
-import transform_records
+from main_01_updateEventsList import updateEventsList
+from main_02_downloadNewEvents import downloadNewEvents
+from main_03_raw2Uncorrected import raw2Uncorrected
 import automatic_p_wave
 
 import copyreg
@@ -62,7 +63,7 @@ class TkThread:
     
     def run_tk(self):
         self.root.wm_title("SIBER-RISK Strong Motion Database")
-        self.root.geometry("400x400")
+        self.root.geometry("400x600")
         self.root.configure(background='white')
         
         logo = ImageTk.PhotoImage(file="logo.png")
@@ -74,52 +75,73 @@ class TkThread:
         
         imglabel.pack(side = tkinter.TOP)
         
-        # button_download = tkinter.Button(master=self.root, text="Download new records",
-        #                             command=self._download)
-        # button_download.pack(side=tkinter.TOP)
+        button_update = tkinter.Button(master=self.root, text="Update list of events",
+                                    command=self._updateEvents)
+        button_update.pack(side=tkinter.TOP, pady=10)
         
-        button_properties = tkinter.Button(master=self.root, text="Plane fault properties",
-                                    command=self._planeFaultProperties)
-        button_properties.pack(side=tkinter.TOP)
+        button_download = tkinter.Button(master=self.root, text="Download new records",
+                                    command=self._download)
+        button_download.pack(side=tkinter.TOP, pady=10)
         
-        button_matfiles = tkinter.Button(master=self.root, text="Transform records to .mat",
+        # button_properties = tkinter.Button(master=self.root, text="Plane fault properties",
+        #                             command=self._planeFaultProperties)
+        # button_properties.pack(side=tkinter.TOP)
+        
+        button_matfiles = tkinter.Button(master=self.root, text="Transform raw records to uncorrected",
                                     command=self._transformRecords)
-        button_matfiles.pack(side=tkinter.TOP)
+        button_matfiles.pack(side=tkinter.TOP, pady=10)
         
         button_pwave = tkinter.Button(master=self.root, text="P-Wave detection",
                                  command=self._pwave_detection)
-        button_pwave.pack(side=tkinter.TOP)
+        button_pwave.pack(side=tkinter.TOP, pady=10)
         
         button_correction = tkinter.Button(master=self.root, text="Correction",
                                  command=self._correction)
-        button_correction.pack(side=tkinter.TOP)
+        button_correction.pack(side=tkinter.TOP, pady=10)
         
         button_flatfile = tkinter.Button(master=self.root, text="Update Flat File",
                                  command=self._updateFlatFile)
-        button_flatfile.pack(side=tkinter.TOP)
+        button_flatfile.pack(side=tkinter.TOP, pady=10)
         
         button_quit = tkinter.Button(master=self.root, text="Quit",
                                  command=self._quit)
-        button_quit.pack(side=tkinter.TOP)
+        button_quit.pack(side=tkinter.TOP, pady=10)
         
         self.root.mainloop()
 
-    # def _download(self):
-    #     window = tkinter.Toplevel(self.root)
-    #     toolbar = tkinter.Frame(window)
-    #     toolbar.pack(side="top", fill="x")
-    #     text = tkinter.Text(toolbar, wrap="word")
-    #     text.pack(side="top", fill="both", expand=True)
-    #     text.tag_configure("stderr", foreground="#b22222")
+    def _updateEvents(self):
+        window = tkinter.Toplevel(self.root)
+        toolbar = tkinter.Frame(window)
+        toolbar.pack(side="top", fill="x")
+        text = tkinter.Text(toolbar, wrap="word")
+        text.pack(side="top", fill="both", expand=True)
+        text.tag_configure("stderr", foreground="#b22222")
         
-    #     def _close():
-    #         window.destroy()
+        def _close():
+            window.destroy()
         
-    #     button_quit = tkinter.Button(master=window, text="Close",
-    #                              command=_close)
-    #     button_quit.pack(side=tkinter.BOTTOM)
-    #     window.update_idletasks()
-    #     download.download(window, text)
+        button_quit = tkinter.Button(master=window, text="Close",
+                                  command=_close)
+        button_quit.pack(side=tkinter.BOTTOM)
+        window.update_idletasks()
+        updateEventsList(window, text)
+
+    def _download(self):
+        window = tkinter.Toplevel(self.root)
+        toolbar = tkinter.Frame(window)
+        toolbar.pack(side="top", fill="x")
+        text = tkinter.Text(toolbar, wrap="word")
+        text.pack(side="top", fill="both", expand=True)
+        text.tag_configure("stderr", foreground="#b22222")
+        
+        def _close():
+            window.destroy()
+        
+        button_quit = tkinter.Button(master=window, text="Close",
+                                  command=_close)
+        button_quit.pack(side=tkinter.BOTTOM)
+        window.update_idletasks()
+        downloadNewEvents(window, text)
         
     def _planeFaultProperties(self):
         
@@ -269,11 +291,12 @@ class TkThread:
         window.update_idletasks()
         events_path = os.path.join(current_path, 'rawData')
         os.chdir(events_path)
-        events = list(sorted(os.listdir('.')))
+        # events = list(sorted(os.listdir('.')))
         
-        replace_old = False
-        save_path = os.path.join(current_path, 'events_mat_uncorrected')
-        results = [transform_records.writeMat(window, text, event, events_path, save_path, replace_old) for event in events]
+        # replace_old = False
+        # save_path = os.path.join(current_path, 'events_mat_uncorrected')
+        # results = [transform_records.writeMat(window, text, event, events_path, save_path, replace_old) for event in events]
+        results = []
         
         os.chdir(current_path)
         

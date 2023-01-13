@@ -8,7 +8,6 @@ Created on Mon Jun 20 15:57:27 2022
 import os
 import json
 import numpy as np
-# import scipy.io as sio
 import SeismicCorrectionLibrary
 
 import tkinter

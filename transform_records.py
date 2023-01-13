@@ -15,8 +15,8 @@ from zipfile import ZipFile
 import pandas as pd
 import pickle
 
-from stations_renadic import stations_renadic
-from stations_csn import stations_csn
+# from stations_renadic import stations_renadic
+# from stations_csn import stations_csn
 
 import distanceSurfaceFault
 
