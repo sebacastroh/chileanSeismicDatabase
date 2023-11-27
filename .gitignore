@@ -16,6 +16,11 @@ rawData/*
 *.pdf
 !sam_slab2.npz
 
+# Cython compilation related files
+*.c
+*.o
+*.so
+
 # Secrets
 src/secrets/*
 !src/secrets/pdd-secrets.template.json
