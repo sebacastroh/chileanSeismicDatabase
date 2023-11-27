@@ -11,8 +11,8 @@ import pyproj
 import datetime
 import numpy as np
 import pandas as pd
-import computeDistances
 import scipy.io as spio
+import lib.computeDistances as computeDistances
 
 def raw2Uncorrected():
 

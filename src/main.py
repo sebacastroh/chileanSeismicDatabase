@@ -20,10 +20,11 @@ import multiprocessing
 import tkinter
 from PIL import ImageTk, Image
 
-from main_01_updateEventsList import updateEventsList
-from main_02_downloadNewEvents import downloadNewEvents
-from main_03_raw2Uncorrected import raw2Uncorrected
-import automatic_p_wave
+# Widgets
+from widgets.updateEventsList import updateEventsList
+from widgets.downloadNewEvents import downloadNewEvents
+from widgets.raw2Uncorrected import raw2Uncorrected
+import widgets.automatic_p_wave as automatic_p_wave
 
 import copyreg
 from types import MethodType
@@ -58,18 +59,19 @@ def run_correction(inp):
     return output
 
 class TkThread:
-    def __init__(self):
+    def __init__(self, basePath = None):
         self.root = tkinter.Tk()
+        self.basePath = basePath
     
     def run_tk(self):
         self.root.wm_title("SIBER-RISK Strong Motion Database")
         self.root.geometry("400x600")
         self.root.configure(background='white')
         
-        logo = ImageTk.PhotoImage(file="logo.png")
+        logo = ImageTk.PhotoImage(file="assets/logo.png")
         self.root.iconphoto(True, logo)
         
-        img = ImageTk.PhotoImage(Image.open("logo_fondecyt.png"))
+        img = ImageTk.PhotoImage(Image.open("assets/logo_fondecyt.png"))
         
         imglabel = tkinter.Label(self.root, image=img, borderwidth=0)
         
@@ -124,7 +126,7 @@ class TkThread:
                                   command=_close)
         button_quit.pack(side=tkinter.BOTTOM)
         window.update_idletasks()
-        updateEventsList(window, text)
+        updateEventsList(window, text, self.basePath)
 
     def _download(self):
         window = tkinter.Toplevel(self.root)
@@ -141,7 +143,7 @@ class TkThread:
                                   command=_close)
         button_quit.pack(side=tkinter.BOTTOM)
         window.update_idletasks()
-        downloadNewEvents(window, text)
+        downloadNewEvents(window, text, self.basePath)
         
     def _planeFaultProperties(self):
         
@@ -279,34 +281,11 @@ class TkThread:
         def _close():
             window.destroy()
                            
-        current_path = os.getcwd()
-        
         button_quit = tkinter.Button(master=window, text="Close",
                                   command=_close)
         button_quit.pack(side=tkinter.BOTTOM)
         window.update_idletasks()
-        
-        text.insert('end', 'Processing...\n')
-        text.see('end')
-        window.update_idletasks()
-        events_path = os.path.join(current_path, 'rawData')
-        os.chdir(events_path)
-        # events = list(sorted(os.listdir('.')))
-        
-        # replace_old = False
-        # save_path = os.path.join(current_path, 'events_mat_uncorrected')
-        # results = [transform_records.writeMat(window, text, event, events_path, save_path, replace_old) for event in events]
-        results = []
-        
-        os.chdir(current_path)
-        
-        df = pd.concat(results, ignore_index=True)
-        df.to_excel('flatFile_uncorrected.xlsx')
-        df.to_csv('flatFile_uncorrected.csv')
-        
-        text.insert('end', '------------------------\nAll files converted to .mat\n------------------------\n')
-        text.see('end')
-        window.update_idletasks()
+        transformRecords(window, text, self.basePath)
     
     def _pwave_detection(self):
         window = tkinter.Toplevel(self.root)
@@ -446,6 +425,12 @@ class TkThread:
                         # Fatal Python Error: PyEval_RestoreThread: NULL tstate
 
 if __name__ == '__main__':
+
+    if not os.path.exists('data'):
+        os.mkdir('data')
+
+    basePath = os.path.abspath('.')
+
     copyreg.pickle(MethodType, _pickle_method, _unpickle_method)
-    tk_thread = TkThread()
+    tk_thread = TkThread(basePath)
     tk_thread.run_tk()

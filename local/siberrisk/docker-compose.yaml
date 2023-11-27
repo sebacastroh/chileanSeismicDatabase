@@ -15,10 +15,12 @@ services:
     build:
       context: .
       dockerfile: siberrisk.Dockerfile
+    working_dir: /usr/local/src
     ports:
-      - "80:80"
+      - "5006:5006"
     volumes:
-      - ../../src:/usr/local/src/siberrisk
+      - ../../website/StrongMotionDatabase:/usr/local/src/strongMotionDatabase
+    command: ["bokeh", "serve", "strongMotionDatabase", "--allow-websocket-origin=*"]
   python:
     build:
       context: .

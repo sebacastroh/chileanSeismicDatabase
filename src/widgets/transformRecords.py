@@ -1,24 +1,40 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jul  2 17:54:03 2019
-
-@author: srcastro
-"""
 import os
-import numpy as np
-import unidecode
+import pickle
 import chardet
 import scipy.io
-import geopy.distance
-from zipfile import ZipFile
+import unidecode
+import numpy as np
 import pandas as pd
-import pickle
+import geopy.distance
+import distanceSurfaceFault
+from zipfile import ZipFile
 
 # from stations_renadic import stations_renadic
 # from stations_csn import stations_csn
 
-import distanceSurfaceFault
+def transformRecords(window, widget, basePath):
+    current_path = os.getcwd()
+    widget.insert('end', 'Processing...\n')
+    widget.see('end')
+    window.update_idletasks()
+    events_path = os.path.join(current_path, 'rawData')
+    os.chdir(events_path)
+    # events = list(sorted(os.listdir('.')))
+
+    # replace_old = False
+    # save_path = os.path.join(current_path, 'events_mat_uncorrected')
+    # results = [transform_records.writeMat(window, text, event, events_path, save_path, replace_old) for event in events]
+    results = []
+
+    os.chdir(current_path)
+
+    df = pd.concat(results, ignore_index=True)
+    df.to_excel('flatFile_uncorrected.xlsx')
+    df.to_csv('flatFile_uncorrected.csv')
+
+    widget.insert('end', '------------------------\nAll files converted to .mat\n------------------------\n')
+    widget.see('end')
+    window.update_idletasks()
 
 licensing = 'This SIBER-RISK Strong Motion Database is made available '
 licensing += 'under the Creative Commons Attribution-NonCommercial-'
@@ -160,7 +176,7 @@ def transformRenadicv1(GMPaths, event_path, save_path, replace_old=False):
         num_points = int(GM_lines[10].split()[4])
         dt = float(GM_lines[10].split()[-2].replace('=',''))/num_points
         
-#         Extract accelerations
+        # Extract accelerations
         lines_to_read = (num_points*2-1)/10 + 1
         chx = np.array([])
         chy = np.array([])

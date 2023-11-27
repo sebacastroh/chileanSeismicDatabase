@@ -8,7 +8,7 @@ Created on Mon Jun 20 15:57:27 2022
 import os
 import json
 import numpy as np
-import SeismicCorrectionLibrary
+import lib.SeismicCorrectionLibrary as SeismicCorrectionLibrary
 
 import tkinter
 from matplotlib.backends.backend_tkagg import (

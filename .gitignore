@@ -15,4 +15,21 @@ SpectralValues_2.xlsx
 rawData/*
 *.pdf
 !sam_slab2.npz
-pdd-secrets.json
+
+# Secrets
+src/secrets/*
+!src/secrets/pdd-secrets.template.json
+
+# Data
+data/rawEvents
+data/correctedEvents
+
+# Temporal files
+src/tmp
+
+# Cache
+src/__pycache__
+src/lib/__pycache__
+src/widgets/__pycache__
+
+src/deprecated
