@@ -6,13 +6,20 @@ import unidecode
 import numpy as np
 import pandas as pd
 import geopy.distance
-import distanceSurfaceFault
+#import distanceSurfaceFault
 from zipfile import ZipFile
 
 # from stations_renadic import stations_renadic
 # from stations_csn import stations_csn
 
+slab = None
+
 def transformRecords(window, widget, basePath):
+    global slab
+
+    if slab is None:
+        slab = np.load(os.path.join(basePath, 'data', 'sam_slab2.npz'))
+
     current_path = os.getcwd()
     widget.insert('end', 'Processing...\n')
     widget.see('end')
@@ -44,8 +51,6 @@ licensing += 'Any rights in individual contents of the database are '
 licensing += 'licensed under the Creative Commons Attribution-'
 licensing += 'NonCommercial-ShareAlike 4.0 International Public License: '
 licensing += 'https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode'
-
-slab = np.load('sam_slab2.npz')
 
 def write_dataframe(stations):
     table = []
@@ -424,9 +429,10 @@ def transformCSN(GMPaths, event_path, save_path, replace_old=False):
             with open(fault_plane_properties, 'rb') as f:
                 data = pickle.load(f)
             if event in data.keys():
-                strike, dip, rake = data[event]
-                distance = distanceSurfaceFault.MinDistToFault(hypocenter_lat, hypocenter_lon, depth, strike, dip, magnitude, lat, lon)
-                station['Rrup'] = distance
+                # strike, dip, rake = data[event]
+                # distance = distanceSurfaceFault.MinDistToFault(hypocenter_lat, hypocenter_lon, depth, strike, dip, magnitude, lat, lon)
+                # station['Rrup'] = distance
+                station['Rrup'] = 'To determine'
             else:
                 station['Rrup'] = 'To determine'
         

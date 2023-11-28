@@ -23,6 +23,7 @@ from PIL import ImageTk, Image
 # Widgets
 from widgets.updateEventsList import updateEventsList
 from widgets.downloadNewEvents import downloadNewEvents
+from widgets.transformRecords import transformRecords
 from widgets.raw2Uncorrected import raw2Uncorrected
 import widgets.automatic_p_wave as automatic_p_wave
 

@@ -20,7 +20,7 @@ cdef extern from "math.h":
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-@cython.cdivision(True)    
+@cython.cdivision(True)
 cpdef Spectrum(double[::1] ax, double dt, double[::1] T, double xi):
     '''
     Calculates the acceleration spectrum using the Newmark's method
@@ -32,15 +32,15 @@ cpdef Spectrum(double[::1] ax, double dt, double[::1] T, double xi):
     cdef np.ndarray Sa
     
     npts = len(ax)
-    nT = len(T)
+    nT   = len(T)
     
     Sa = np.zeros(nT)
     # Average constant acceleration scheme for Newmark's method
     gamma = 0.5
-    beta = 0.25    
+    beta  = 0.25
 
-    if T[0]==0:
-        for j in xrange(npts):
+    if T[0] == 0:
+        for j in range(npts):
             if fabs(ax[j]) > Sa[0]:
                 Sa[0] = fabs(ax[j])
         first = 0
@@ -61,26 +61,26 @@ cpdef Spectrum(double[::1] ax, double dt, double[::1] T, double xi):
         a3 = 2.*xi*wn + wn**2*dt
         a4 = wn**2
 
-        u1 = 0.
-        up1 = 0.
+        u1   = 0.
+        up1  = 0.
         upp1 = -ax[0]
         
         max_disp = 0.
 
-        for j in xrange(npts-1):
+        for j in range(npts-1):
             upp2 = (-ax[j+1] - upp1*a2 - up1*a3 - u1*a4)/a1
             up2  = up1 + b1*upp1 + b2*upp2
             u2   = u1 + up1*dt + c1*upp1 + c2*upp2
 
-            u1 = u2
-            up1 = up2
+            u1   = u2
+            up1  = up2
             upp1 = upp2
 
             u2_p = fabs(u2)
 
             if u2_p > max_disp:
                 max_disp = u2_p
-                Sa[i+1] = u2_p*a4
+                Sa[i+1]  = u2_p*a4
 
     return Sa
 
@@ -98,9 +98,9 @@ cdef void _Spectrum(double *ax, double dt, double[::1] T, double xi, int npts, i
 
     # Average constant acceleration scheme for Newmark's method
     gamma = 0.5
-    beta = 0.25
+    beta  = 0.25
     
-    if T[0]==0:
+    if T[0] == 0:
         Sa[pos] = 0.
         for j in xrange(npts):
             if fabs(ax[j]) > Sa[pos]:
@@ -123,8 +123,8 @@ cdef void _Spectrum(double *ax, double dt, double[::1] T, double xi, int npts, i
         a3 = 2.*xi*wn + wn**2*dt
         a4 = wn**2
 
-        u1 = 0.
-        up1 = 0.
+        u1   = 0.
+        up1  = 0.
         upp1 = -ax[0]
         
         max_disp = 0.
@@ -134,14 +134,14 @@ cdef void _Spectrum(double *ax, double dt, double[::1] T, double xi, int npts, i
             up2  = up1 + b1*upp1 + b2*upp2
             u2   = u1 + up1*dt + c1*upp1 + c2*upp2
 
-            u1 = u2
-            up1 = up2
+            u1   = u2
+            up1  = up2
             upp1 = upp2
 
             u2_p = fabs(u2)
 
             if u2_p > max_disp:
-                max_disp = u2_p
+                max_disp    = u2_p
                 Sa[pos+i+1] = u2_p*a4
 
 @cython.boundscheck(False)
@@ -155,16 +155,16 @@ cpdef SpectraRot(double[::1] ax, double[::1] ay, double dt, double[::1] T, doubl
     cdef double *thisSa
     cdef np.ndarray Sa
     
-    n = len(ax)
+    n  = len(ax)
     nT = len(T)
     
     thisSa = <double *>malloc(nT * nTheta * sizeof(double))
     
     for i in prange(nTheta, nogil=True):
         theta = pi*i/(nTheta - 1)
-        acc =  <double *>malloc(n * sizeof(double))
-        s = sin(theta)
-        c = cos(theta)
+        acc   =  <double *>malloc(n * sizeof(double))
+        s     = sin(theta)
+        c     = cos(theta)
         for j in range(n):
             acc[j] = ax[j]*c + ay[j]*s
         
