@@ -8,9 +8,6 @@ Created on Wed Jun 26 10:35:19 2019
 import numpy as np
 from scipy import integrate
 from scipy import signal
-# from scipy import stats
-# from obspy.signal import filter as flt
-# import rjmcmc
 
 def PWaveDetection(X, fsamp, WN=800, AIlim=0.5, seconds=2.,
                    ntrials=5, return_similarity=False):
@@ -104,7 +101,6 @@ def PWaveDetection(X, fsamp, WN=800, AIlim=0.5, seconds=2.,
     peaks2, _ = signal.find_peaks(-(ysmooth[p3] - ysmooth[p2:p3])/(xcorr[p3] - xcorr[p2:p3]), distance = int(fsamp))
     
     peaks3, _ = signal.find_peaks(-(ysmooth[p2+1:p3+1] - ysmooth[p2:p3])/(xcorr[p2+1:p3+1] - xcorr[p2:p3]), distance = int(fsamp))
-#    peaks3 = np.hstack([np.arange(x-int(fsamp), x+-int(fsamp)) for x in peaks2])
     
     p5 = np.hstack((peaks, peaks2, peaks3))
     p5 = np.unique(p5)
@@ -125,97 +121,3 @@ def PWaveDetection(X, fsamp, WN=800, AIlim=0.5, seconds=2.,
         return pos, similarity
     else:
         return pos
-
-# sample_x = None
-# sample_curves = []
-# sample_i = 0
-# sample_rate = 1
-
-# def sampler_cb(x, y):
-#     global sample_x, sample_curves, sample_i, sample_rate
-
-#     if sample_i == 0:
-#         sample_x = x
-
-#     if sample_i % sample_rate == 0:
-#         sample_curves.append(y)
-
-#     sample_i = sample_i + 1
-
-# def RecordCorrection(record, dt, pos, alpha=0.005):
-#     global sample_x, sample_curves, sample_i, sample_rate
-#     nn = len(record) - pos
-#     window = signal.tukey(nn, alpha=alpha)
-    
-#     new_tr = record.copy()
-#     new_tr[pos:] = new_tr[int(pos):]*window
-#     new_tr[:pos] = 0
-    
-#     # Step 3: Band-pass filtering on velocity
-#     vel = integrate.cumtrapz(new_tr, dx=dt)
-#     n = len(vel)
-    
-#     t = np.linspace(0, (n-1)*dt, n)
-#     min_std = 0.1*np.max(np.abs(vel))
-    
-#     # Computing std from envelope
-#     #Filter needs to be adjusted but this is a good start...
-#     fil_vel = flt.bandpass(vel, .01, 99., 1./dt, corners=3, zerophase=True)
-#     # Step 4: Baseline correction
-#     # Envelope of filtered data
-#     tr_env= flt.envelope(fil_vel)
-    
-#     std_n = tr_env.max()*np.ones(len(fil_vel))
-#     std_n[np.where(std_n < min_std)] = min_std
-    
-#     data = rjmcmc.dataset1d(*map(list,[t, fil_vel, std_n]))
-    
-#     # This is our callback function which samples the curves generated 
-#     # during the analysis
-#     #
-#     sample_x = None
-#     sample_curves = []
-#     sample_i = 0
-#     sample_rate = 1
-    
-#     pd = 0.1 * t.max()
-#     burnin = 10000
-#     total = 50000
-#     max_partitions = 20
-#     max_order = 1
- 
-#     results = rjmcmc.regression_part1d_sampled(data, sampler_cb, 
-#                                        pd, 
-#                                        burnin, 
-#                                        total, 
-#                                        max_partitions,
-#                                        max_order)
-    
-
-#     #################################  SEGUNDA PARTE #####################################
-#     mode = stats.mode(results.partitions())[0][0]
-    
-#     pos1 = np.where(results.partitions()==mode)[0]
-    
-#     m_misfit = []
-#     for i in range(len(pos1)):
-#         m_misfit.append(results.misfit()[pos1[i]])
-    
-#     best = np.min(m_misfit)
-#     pos_b = np.where(m_misfit==best)[0][0]
-    
-#     m_curves = []
-#     for i in range(len(pos1)):
-#         m_curves.append(sample_curves[pos1[i]])
-    
-#     best_curv = m_curves[pos_b]
-    
-#     correc = np.interp(t, sample_x, best_curv)
-#     vel1 = fil_vel - correc
-    
-#     # Step 5: Derivation of velocity
-#     window2 = signal.tukey(n, alpha=alpha)
-#     velf = vel1*window2
-#     acc = np.gradient(velf, dt, edge_order=2)
-    
-#     return acc

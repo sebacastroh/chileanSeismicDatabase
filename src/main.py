@@ -21,11 +21,10 @@ import tkinter
 from PIL import ImageTk, Image
 
 # Widgets
-from widgets.updateEventsList import updateEventsList
+from widgets.updateEventsList  import updateEventsList
 from widgets.downloadNewEvents import downloadNewEvents
-from widgets.transformRecords import transformRecords
-from widgets.raw2Uncorrected import raw2Uncorrected
-import widgets.automatic_p_wave as automatic_p_wave
+from widgets.transformRecords  import transformRecords
+from widgets.automatic_p_wave  import automatic_p_wave, detect_p_wave
 
 import copyreg
 from types import MethodType
@@ -78,11 +77,11 @@ class TkThread:
         
         imglabel.pack(side = tkinter.TOP)
         
-        button_update = tkinter.Button(master=self.root, text="Update list of events",
+        button_update = tkinter.Button(master=self.root, text="Actualizar lista de eventos",
                                     command=self._updateEvents)
         button_update.pack(side=tkinter.TOP, pady=10)
         
-        button_download = tkinter.Button(master=self.root, text="Download new records",
+        button_download = tkinter.Button(master=self.root, text="Descargar nuevos registros",
                                     command=self._download)
         button_download.pack(side=tkinter.TOP, pady=10)
         
@@ -90,23 +89,23 @@ class TkThread:
         #                             command=self._planeFaultProperties)
         # button_properties.pack(side=tkinter.TOP)
         
-        button_matfiles = tkinter.Button(master=self.root, text="Transform raw records to uncorrected",
+        button_matfiles = tkinter.Button(master=self.root, text="Transformar registros a formato paper",
                                     command=self._transformRecords)
         button_matfiles.pack(side=tkinter.TOP, pady=10)
         
-        button_pwave = tkinter.Button(master=self.root, text="P-Wave detection",
+        button_pwave = tkinter.Button(master=self.root, text="Detección de onda P",
                                  command=self._pwave_detection)
         button_pwave.pack(side=tkinter.TOP, pady=10)
         
-        button_correction = tkinter.Button(master=self.root, text="Correction",
+        button_correction = tkinter.Button(master=self.root, text="Corrección de línea base",
                                  command=self._correction)
         button_correction.pack(side=tkinter.TOP, pady=10)
         
-        button_flatfile = tkinter.Button(master=self.root, text="Update Flat File",
+        button_flatfile = tkinter.Button(master=self.root, text="Actualizar Flat file",
                                  command=self._updateFlatFile)
         button_flatfile.pack(side=tkinter.TOP, pady=10)
         
-        button_quit = tkinter.Button(master=self.root, text="Quit",
+        button_quit = tkinter.Button(master=self.root, text="Salir",
                                  command=self._quit)
         button_quit.pack(side=tkinter.TOP, pady=10)
         
@@ -290,15 +289,31 @@ class TkThread:
     
     def _pwave_detection(self):
         window = tkinter.Toplevel(self.root)
-        name_json = 'p_waves.json'
-        if os.path.exists(name_json):
-            with open(name_json, 'r') as f:
-                results = json.load(f)
-        else:
-            results = {}
-        
-        rawData = os.path.join(os.getcwd(), 'rawData')
-        automatic_p_wave.main_window(window, rawData, results)    
+        toolbar = tkinter.Frame(window)
+        toolbar.pack(side="top", fill="x")
+        text = tkinter.Text(toolbar, wrap="word")
+        text.pack(side="top", fill="both", expand=True)
+        text.tag_configure("stderr", foreground="#b22222")
+
+        def _close():
+            window.destroy()
+                           
+        button_quit = tkinter.Button(master=window, text="Cerrar",
+                                  command=_close)
+        button_quit.pack(side=tkinter.RIGHT)
+
+        def _process():
+            button_process['state'] = 'disabled'
+            detect_p_wave(window, self.basePath)
+
+        button_process = tkinter.Button(master=window, text="Iniciar detección onda P",
+                                  command=_process)
+        button_process.pack(side=tkinter.RIGHT)
+
+        window.update_idletasks()
+        disable = automatic_p_wave(window, text, self.basePath)
+        if disable:
+            button_process['state'] = 'disabled'
     
     def _correction(self):
         window = tkinter.Toplevel(self.root)
