@@ -11,6 +11,8 @@ services:
       - ../../src:/usr/local/src/siberrisk
       - /tmp/.X11-unix:/tmp/.X11-unix
     command: ["python3", "main.py"]
+    depends_on:
+      - pyrjmcmc
   web:
     build:
       context: .
@@ -28,3 +30,11 @@ services:
     volumes:
       - ../../src:/usr/local/src/siberrisk
     entrypoint: [ "python3" ]
+  pyrjmcmc:
+    build:
+      context: .
+      dockerfile: siberrisk.Dockerfile
+    volumes:
+      - ../../src:/usr/local/src/siberrisk
+    working_dir: /usr/local/src/siberrisk/lib/pyrjmcmc
+    command: ["python3", "setup.py", "build_ext", "--inplace"]
