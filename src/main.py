@@ -6,6 +6,7 @@ Created on Tue Nov 19 21:02:53 2019
 @author: srcastro
 """
 import os
+import sys
 import json
 import pickle
 import numpy as np
@@ -19,6 +20,9 @@ import multiprocessing
 
 import tkinter
 from PIL import ImageTk, Image
+
+sys.path.append(os.path.abspath(os.path.join('.', 'lib', 'pyrjmcmc')))
+sys.path.append(os.path.abspath(os.path.join('.', 'lib')))
 
 # Widgets
 from widgets.updateEventsList  import updateEventsList

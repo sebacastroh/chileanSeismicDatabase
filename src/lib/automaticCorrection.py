@@ -7,10 +7,6 @@ Created on Thu Oct 27 11:02:49 2022
 
 import os
 import sys
-
-if not '../pyrjmcmc' in sys.path:
-    sys.path.append('../pyrjmcmc')
-
 import scipy
 import pyrjmcmc
 import numpy as np
