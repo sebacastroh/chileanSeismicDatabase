@@ -43,7 +43,7 @@ def correctRecord(acc, dt, status, p_wave, saveInTemp=False, filename=''):
         freqs = np.array([np.nan, np.nan])
         
         if saveInTemp:
-            np.savez(os.path.join('tmp', filename + '.npz'), acc_corr = acc_corr, acc_fil = acc_fil, freqs = freqs)
+            np.savez(filename, acc_corr = acc_corr, acc_fil = acc_fil, freqs = freqs)
         
         return acc_corr, acc_fil, freqs
 
@@ -226,7 +226,7 @@ def correctRecord(acc, dt, status, p_wave, saveInTemp=False, filename=''):
     freqs = np.array([freq_min, freq_max])
     
     if saveInTemp:
-        np.savez(os.path.join('tmp', filename + '.npz'), acc_corr = acc_corr, acc_fil = acc_fil, freqs = freqs)
+        np.savez(filename, acc_corr = acc_corr, acc_fil = acc_fil, freqs = freqs)
     
     return acc_corr, acc_fil, freqs
 
