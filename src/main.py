@@ -25,6 +25,7 @@ from widgets.updateEventsList  import updateEventsList
 from widgets.downloadNewEvents import downloadNewEvents
 from widgets.transformRecords  import transformRecords
 from widgets.automatic_p_wave  import automatic_p_wave, detect_p_wave
+from widgets.correctRecords    import correctRecords
 
 import copyreg
 from types import MethodType
@@ -331,34 +332,7 @@ class TkThread:
                                  command=_close)
         button_quit.pack(side=tkinter.BOTTOM)
         window.update_idletasks()
-        
-        name_pkl = 'p_waves.pkl'
-        with open(name_pkl, 'rb') as f:
-            results = pickle.load(f)
-        a = { result[0] : {} for result in results}
-        {a[result[0]].update({result[1] : result[2:]}) for result in results}
-        
-        uncorrected_path = os.path.join(os.getcwd(), 'events_mat_uncorrected')
-        save_path = os.path.join(os.getcwd(), 'events_mat_corrected_v%i' %version)
-        
-        filenames = sorted(os.listdir(uncorrected_path))
-        
-        inputs = []
-        text.insert('end', 'Files to correct:\n')
-        for filename in filenames:
-            if not os.path.exists(os.path.join(save_path, filename)):
-                text.insert('end', filename + '\n')
-                inputs.append([filename, a[filename], uncorrected_path, save_path])
-        text.insert('end', 'Processing...\n')
-        pool = multiprocessing.Pool(processes=56)
-        results = pool.map(run_correction, inputs)
-        pool.close()
-        
-        for result in results:
-            text.insert('end', result + '\n')
-        text.insert('end', '------------------------\nDone\n------------------------\n')
-        text.see('end')
-        window.update_idletasks()
+        correctRecords(window, text, self.basePath)
         
     def _updateFlatFile(self):
         
