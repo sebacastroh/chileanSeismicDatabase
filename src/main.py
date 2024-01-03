@@ -334,9 +334,33 @@ class TkThread:
         
         button_quit = tkinter.Button(master=window, text="Close",
                                  command=_close)
-        button_quit.pack(side=tkinter.BOTTOM)
+        button_quit.pack(side=tkinter.RIGHT)
         window.update_idletasks()
-        correctRecords(window, text, self.basePath)
+
+        def _serial_process():
+            button_serial_process['state']   = 'disabled'
+            button_parallel_process['state'] = 'disabled'
+            applyCorrection(window, widget, self.basePath, False)
+
+        def _parallel_process():
+            button_serial_process['state']   = 'disabled'
+            button_parallel_process['state'] = 'disabled'
+            applyCorrection(window, widget, self.basePath, True)
+
+        button_serial_process = tkinter.Button(master=window, text="Ejecución en serie",
+                                  command=_serial_process)
+        button_serial_process.pack(side=tkinter.RIGHT)
+
+        button_parallel_process = tkinter.Button(master=window, text="Ejecución en paralelo",
+                                  command=_parallel_process)
+        button_parallel_process.pack(side=tkinter.RIGHT)
+
+        window.update_idletasks()
+        enable = correctRecords(window, text, self.basePath)
+        
+        if not enable:
+            button_serial_process['state']   = 'disabled'
+            button_parallel_process['state'] = 'disabled'
         
     def _updateFlatFile(self):
         
