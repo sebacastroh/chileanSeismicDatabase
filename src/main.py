@@ -29,7 +29,7 @@ from widgets.updateEventsList  import updateEventsList
 from widgets.downloadNewEvents import downloadNewEvents
 from widgets.transformRecords  import transformRecords
 from widgets.automatic_p_wave  import automatic_p_wave, detect_p_wave
-from widgets.correctRecords    import correctRecords
+from widgets.correctRecords    import correctRecords, applyCorrection
 
 import copyreg
 from types import MethodType
@@ -332,7 +332,7 @@ class TkThread:
         def _close():
             window.destroy()
         
-        button_quit = tkinter.Button(master=window, text="Close",
+        button_quit = tkinter.Button(master=window, text="Salir",
                                  command=_close)
         button_quit.pack(side=tkinter.RIGHT)
         window.update_idletasks()
@@ -340,12 +340,12 @@ class TkThread:
         def _serial_process():
             button_serial_process['state']   = 'disabled'
             button_parallel_process['state'] = 'disabled'
-            applyCorrection(window, widget, self.basePath, False)
+            applyCorrection(window, text, self.basePath, False)
 
         def _parallel_process():
             button_serial_process['state']   = 'disabled'
             button_parallel_process['state'] = 'disabled'
-            applyCorrection(window, widget, self.basePath, True)
+            applyCorrection(window, text, self.basePath, True)
 
         button_serial_process = tkinter.Button(master=window, text="Ejecución en serie",
                                   command=_serial_process)

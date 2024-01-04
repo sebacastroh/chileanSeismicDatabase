@@ -8,6 +8,7 @@ import lib.automaticCorrection as automaticCorrection
 
 p_waves    = {}
 to_correct = []
+base_path  = ''
 
 def correctRecords(window, widget, basePath):
     """
@@ -94,31 +95,12 @@ def applyCorrection(window, widget, basePath, parallel):
     Este proceso puede requerir un alto espacio de memoria en el disco. Por defecto es ```False```.
     :type parallel: bool
     """
-    global p_waves, to_correct
+    global p_waves, to_correct, base_path
+    base_path = basePath
 
     widget.insert('end', '\nIniciando proceso de corrección.\n')
     widget.see('end')
     window.update_idletasks()
-
-    def parallel_run(combination):
-        event_id, station_code = combination
-        with np.load(os.path.join(basePath, 'data', 'seismicDatabase', 'npz', event_id + '.npz'), allow_pickle=True) as f:
-            data = {}
-            for key, value in f.items():
-                data[key] = value.item()
-
-        for key, station in data.items():
-            if not key.startswith('st'):
-                continue
-            if station.get('station_code') == station_code:
-                dt     = station.get('dt')
-                status = p_waves[event_id][station_code]['status']
-                p_wave = p_waves[event_id][station_code]['pos']
-
-                for i in range(3):
-                    acc = station.get('acc_uncorrected_%i' %(i+1))
-                    acc_corr, acc_fil, freqs = automaticCorrection.correctRecord(acc, dt, status, p_wave, saveInTemp=True,
-                        filename=os.path.join(basePath, 'tmp', event_id + '_' + station_code + '_%i.npz' %(i+1)))
 
     if parallel:
         widget.insert('end', '\nEjecución en paralelo, el avance no se mostrará en pantalla.\n')
@@ -196,3 +178,27 @@ def applyCorrection(window, widget, basePath, parallel):
     widget.insert('end', '\nProceso finalizado.')
     widget.see('end')
     window.update_idletasks()
+
+
+def parallel_run(combination):
+    global base_path
+    basePath = base_path
+
+    event_id, station_code = combination
+    with np.load(os.path.join(basePath, 'data', 'seismicDatabase', 'npz', event_id + '.npz'), allow_pickle=True) as f:
+        data = {}
+        for key, value in f.items():
+            data[key] = value.item()
+
+    for key, station in data.items():
+        if not key.startswith('st'):
+            continue
+        if station.get('station_code') == station_code:
+            dt     = station.get('dt')
+            status = p_waves[event_id][station_code]['status']
+            p_wave = p_waves[event_id][station_code]['pos']
+
+            for i in range(3):
+                acc = station.get('acc_uncorrected_%i' %(i+1))
+                acc_corr, acc_fil, freqs = automaticCorrection.correctRecord(acc, dt, status, p_wave, saveInTemp=True,
+                    filename=os.path.join(basePath, 'tmp', event_id + '_' + station_code + '_%i.npz' %(i+1)))
