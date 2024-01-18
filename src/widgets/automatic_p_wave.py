@@ -21,6 +21,8 @@ stations = []
 events   = []
 p_waves  = {}
 
+DEFAULT_INDENT = 4
+
 def automatic_p_wave(window, widget, basePath=None):
     global stations, events, p_waves
     # List seismic database
@@ -304,13 +306,13 @@ def plot_p_wave(masterWindow, event_id, station, basePath):
     def _save():
         global action
         with open(os.path.join(basePath, 'data', 'p_waves.json'), 'w') as f:
-            json.dump(p_waves, f)
+            json.dump(p_waves, f, indent=DEFAULT_INDENT)
         action = 'continue'
         
     def _save_and_quit():
         global action
         with open(os.path.join(basePath, 'data', 'p_waves.json'), 'w') as f:
-            json.dump(p_waves, f)
+            json.dump(p_waves, f, indent=DEFAULT_INDENT)
         action = 'quit'
         window.destroy()
 
@@ -356,7 +358,7 @@ def pop_up(basePath):
     def _save():
         global p_waves
         with open(os.path.join('data', 'p_waves.json'), 'w') as f:
-            json.dump(p_waves, f)
+            json.dump(p_waves, f, indent=DEFAULT_INDENT)
         window.destroy()
 
     l = tkinter.Label(window, text='Ya se han revisado todos los registros')
