@@ -1,5 +1,6 @@
 import os
 import json
+import datetime
 import numpy as np
 import pandas as pd
 import multiprocessing
@@ -171,11 +172,19 @@ def applyCorrection(window, widget, basePath, parallel):
                         window.update_idletasks()
 
                 if status:
-                    data[key]['p_wave'] = p_wave
+                    data[key]['p_wave']      = p_wave
+                    data[key]['last_update'] = datetime.datetime.now().isoformat()
 
                 p_waves[event_id][station_code]['corrected'] = True
                 save = True
                 break
+
+    if save:
+        np.savez_compressed(os.path.join(basePath, 'data', 'seismicDatabase', 'npz', current_event_id), **data)
+        spio.savemat(os.path.join(basePath, 'data', 'seismicDatabase', 'mat', current_event_id + '.mat'), data, do_compression=True)
+        
+        with open(os.path.join(basePath, 'data', 'p_waves.json'), 'w') as f:
+            json.dump(p_waves, f, indent=DEFAULT_INDENT)
 
     widget.insert('end', '\nProceso finalizado.')
     widget.see('end')
