@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: siberrisk.Dockerfile
+    environment:
+      DISPLAY:
+    volumes:
+      - ../../src:/usr/local/src/siberrisk
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    command: ["python3", "main.py"]
+    depends_on:
+      - pyrjmcmc
+  web:
+    build:
+      context: .
+      dockerfile: siberrisk.Dockerfile
+    working_dir: /usr/local/src
+    ports:
+      - "5006:5006"
+    volumes:
+      - ../../website/StrongMotionDatabase:/usr/local/src/strongMotionDatabase
+    command: ["bokeh", "serve", "strongMotionDatabase", "--allow-websocket-origin=*"]
+  python:
+    build:
+      context: .
+      dockerfile: siberrisk.Dockerfile
+    volumes:
+      - ../../src:/usr/local/src/siberrisk
+    entrypoint: [ "python3" ]
+  pyrjmcmc:
+    build:
+      context: .
+      dockerfile: siberrisk.Dockerfile
+    volumes:
+      - ../../src:/usr/local/src/siberrisk
+    working_dir: /usr/local/src/siberrisk/lib/pyrjmcmc
+    command: ["python3", "setup.py", "build_ext", "--inplace"]
