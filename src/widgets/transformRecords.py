@@ -206,7 +206,7 @@ def transformRecords(window, widget, basePath):
                         Rjb = Repi
                     else:
                         if event_id + '.geojson' in ffm_files:
-                            with open(os.path.join('ffm', event_id + '.geojson')) as f:
+                            with open(os.path.join(basePath, 'data', 'ffm', event_id + '.geojson')) as f:
                                 ffm = json.load(f)
                                 
                             max_slip = -np.inf
