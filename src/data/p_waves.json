@@ -1,0 +1,175 @@
+{
+    "19850303_7.8M_33.13S_71.87W_33.0KM": {
+        "Cauquenes": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "ChillanInstitute": {
+            "pos": 7383,
+            "status": false,
+            "method": "Automatic"
+        },
+        "Colbun": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "Constitucion": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "Hualane": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "Illapel": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "Iloca": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "LaLigua": {
+            "pos": 0,
+            "status": true,
+            "method": "Automatic"
+        },
+        "Llayllay": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "Llolleo": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "LosVilos": {
+            "pos": 3435,
+            "status": false,
+            "method": "Automatic"
+        },
+        "Melipilla": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "Papudo": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "Pichilemu": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "Quintay": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "Rapel": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "SanFelipe": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "SanFernando": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "SanIsidro": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "SantiagoEndesaBldg": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "Talca": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "ValparaisoElAlmendral": {
+            "pos": 0,
+            "status": true,
+            "method": "Automatic"
+        },
+        "Valparaiso": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "Ventanas": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "VinadelMar": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "Zapallar": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        }
+    },
+    "19850303_6.3M_32.74S_71.22W_33.0KM": {
+        "Llolleo": {
+            "pos": 0,
+            "status": true,
+            "method": "Manual"
+        },
+        "Valparaiso": {
+            "pos": 0,
+            "status": false,
+            "method": "Manual"
+        },
+        "VinadelMar": {
+            "pos": 4506,
+            "status": false,
+            "method": "Automatic"
+        }
+    },
+    "19850408_5.0M_33.02S_71.97W_33.0KM": {
+        "Llolleo": {
+            "pos": 22,
+            "status": true,
+            "method": "Manual"
+        }
+    },
+    "19850409_7.2M_34.13S_71.62W_37.8KM": {
+        "Cauquenes": {
+            "pos": 778,
+            "status": false,
+            "method": "Automatic"
+        },
+        "Constitucion": {
+            "pos": 757,
+            "status": false,
+            "method": "Automatic"
+        },
+        "Iloca": {
+            "pos": 4171,
+            "status": false,
+            "method": "Manual"
+        }
+    }
+}
