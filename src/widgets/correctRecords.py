@@ -110,6 +110,9 @@ def applyCorrection(window, widget, basePath, parallel):
         widget.see('end')
         window.update_idletasks()
 
+        if not os.path.exists(os.path.join(basePath, 'tmp')):
+            os.mkdir(os.path.join(basePath, 'tmp'))
+
         pool = multiprocessing.Pool(processes=8)
         pool.map(parallel_run, to_correct)
         pool.close()
