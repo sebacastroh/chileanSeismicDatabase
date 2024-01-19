@@ -29,6 +29,10 @@
             "release": "patch"
           },
           {
+            "type": "data",
+            "release": "patch"
+          },
+          {
             "type": "perf",
             "release": "patch"
           },
@@ -88,6 +92,11 @@
             {
               "type": "fix",
               "section": ":bug: Correcciones",
+              "hidden": false
+            },
+            {
+              "type": "data",
+              "section": ":bar_chart: Datos",
               "hidden": false
             },
             {
