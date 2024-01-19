@@ -3,7 +3,8 @@
         "Cauquenes": {
             "pos": 0,
             "status": true,
-            "method": "Manual"
+            "method": "Manual",
+            "corrected": true
         },
         "ChillanInstitute": {
             "pos": 7383,
@@ -23,17 +24,20 @@
         "Hualane": {
             "pos": 0,
             "status": true,
-            "method": "Manual"
+            "method": "Manual",
+            "corrected": true
         },
         "Illapel": {
             "pos": 0,
             "status": true,
-            "method": "Manual"
+            "method": "Manual",
+            "corrected": true
         },
         "Iloca": {
             "pos": 0,
             "status": true,
-            "method": "Manual"
+            "method": "Manual",
+            "corrected": true
         },
         "LaLigua": {
             "pos": 0,
@@ -43,12 +47,14 @@
         "Llayllay": {
             "pos": 0,
             "status": true,
-            "method": "Manual"
+            "method": "Manual",
+            "corrected": true
         },
         "Llolleo": {
             "pos": 0,
             "status": true,
-            "method": "Manual"
+            "method": "Manual",
+            "corrected": true
         },
         "LosVilos": {
             "pos": 3435,
@@ -58,27 +64,32 @@
         "Melipilla": {
             "pos": 0,
             "status": true,
-            "method": "Manual"
+            "method": "Manual",
+            "corrected": true
         },
         "Papudo": {
             "pos": 0,
             "status": true,
-            "method": "Manual"
+            "method": "Manual",
+            "corrected": true
         },
         "Pichilemu": {
             "pos": 0,
             "status": true,
-            "method": "Manual"
+            "method": "Manual",
+            "corrected": true
         },
         "Quintay": {
             "pos": 0,
             "status": true,
-            "method": "Manual"
+            "method": "Manual",
+            "corrected": true
         },
         "Rapel": {
             "pos": 0,
             "status": true,
-            "method": "Manual"
+            "method": "Manual",
+            "corrected": true
         },
         "SanFelipe": {
             "pos": 0,
@@ -103,7 +114,8 @@
         "Talca": {
             "pos": 0,
             "status": true,
-            "method": "Manual"
+            "method": "Manual",
+            "corrected": true
         },
         "ValparaisoElAlmendral": {
             "pos": 0,
@@ -118,7 +130,8 @@
         "Ventanas": {
             "pos": 0,
             "status": true,
-            "method": "Manual"
+            "method": "Manual",
+            "corrected": true
         },
         "VinadelMar": {
             "pos": 0,
@@ -128,14 +141,16 @@
         "Zapallar": {
             "pos": 0,
             "status": true,
-            "method": "Manual"
+            "method": "Manual",
+            "corrected": true
         }
     },
     "19850303_6.3M_32.74S_71.22W_33.0KM": {
         "Llolleo": {
             "pos": 0,
             "status": true,
-            "method": "Manual"
+            "method": "Manual",
+            "corrected": true
         },
         "Valparaiso": {
             "pos": 0,
@@ -152,14 +167,16 @@
         "Llolleo": {
             "pos": 22,
             "status": true,
-            "method": "Manual"
+            "method": "Manual",
+            "corrected": true
         }
     },
     "19850409_7.2M_34.13S_71.62W_37.8KM": {
         "Cauquenes": {
             "pos": 778,
             "status": false,
-            "method": "Automatic"
+            "method": "Automatic",
+            "corrected": true
         },
         "Constitucion": {
             "pos": 757,
@@ -169,7 +186,8 @@
         "Iloca": {
             "pos": 4171,
             "status": false,
-            "method": "Manual"
+            "method": "Manual",
+            "corrected": true
         }
     }
 }
