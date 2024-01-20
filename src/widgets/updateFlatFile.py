@@ -29,6 +29,9 @@ def updateFlatFile(window, widget, basePath):
 
     for filename in filenames:
         p_wave_info = p_waves.get(filename[:-4])
+        
+        widget.insert('end', 'Analizando evento %s\n' %filename[:-4])
+        window.update_idletasks()
 
         with np.load(os.path.join(basePath, 'data', 'seismicDatabase', 'npz', filename), allow_pickle=True) as stations:
             for key in sorted(stations.keys()):
@@ -36,6 +39,9 @@ def updateFlatFile(window, widget, basePath):
                     continue
 
                 station = stations.get(key).item()
+
+                widget.insert('end', 'Analizando estación %s\n' %station.get('station_code'))
+                window.update_idletasks()
 
                 Rrup = station.get('Rrup')
                 Rjb  = station.get('Rjb')

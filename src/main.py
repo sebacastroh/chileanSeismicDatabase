@@ -30,7 +30,7 @@ from widgets.downloadNewEvents import downloadNewEvents
 from widgets.transformRecords  import transformRecords
 from widgets.automatic_p_wave  import automatic_p_wave, detect_p_wave
 from widgets.correctRecords    import correctRecords, applyCorrection
-from widgets.updateFlatFile   import updateFlatFile
+from widgets.updateFlatFile    import updateFlatFile
 
 import copyreg
 from types import MethodType
