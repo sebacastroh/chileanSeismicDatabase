@@ -8,7 +8,7 @@ services:
     environment:
       DISPLAY:
     volumes:
-      - ../../src:/usr/local/src/siberrisk
+      - ../../src:/usr/local/src
       - /tmp/.X11-unix:/tmp/.X11-unix
     command: ["python3", "main.py"]
     depends_on:
@@ -17,25 +17,34 @@ services:
     build:
       context: .
       dockerfile: siberrisk.Dockerfile
-    working_dir: /usr/local/src
+    working_dir: /usr/local/src/websites
     ports:
       - "5006:5006"
     volumes:
-      - ../../website/StrongMotionDatabase:/usr/local/src/strongMotionDatabase
-      - ../../src:/usr/local/src/siberrisk
-    command: ["bokeh", "serve", "strongMotionDatabase", "--allow-websocket-origin=*"]
+      - ../../src:/usr/local/src
+    command: ["bokeh", "serve", "StrongMotionDatabase", "--allow-websocket-origin=*"]
+    depends_on:
+      - seismic
   python:
     build:
       context: .
       dockerfile: siberrisk.Dockerfile
     volumes:
-      - ../../src:/usr/local/src/siberrisk
+      - ../../src:/usr/local/src
     entrypoint: [ "python3" ]
   pyrjmcmc:
     build:
       context: .
       dockerfile: siberrisk.Dockerfile
     volumes:
-      - ../../src:/usr/local/src/siberrisk
-    working_dir: /usr/local/src/siberrisk/lib/pyrjmcmc
+      - ../../src:/usr/local/src
+    working_dir: /usr/local/src/lib/pyrjmcmc
+    command: ["python3", "setup.py", "build_ext", "--inplace"]
+  seismic:
+    build:
+      context: .
+      dockerfile: siberrisk.Dockerfile
+    volumes:
+      - ../../src:/usr/local/src
+    working_dir: /usr/local/src/lib
     command: ["python3", "setup.py", "build_ext", "--inplace"]
