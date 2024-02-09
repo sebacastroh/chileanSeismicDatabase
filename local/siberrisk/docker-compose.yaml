@@ -22,6 +22,7 @@ services:
       - "5006:5006"
     volumes:
       - ../../website/StrongMotionDatabase:/usr/local/src/strongMotionDatabase
+      - ../../src:/usr/local/src/siberrisk
     command: ["bokeh", "serve", "strongMotionDatabase", "--allow-websocket-origin=*"]
   python:
     build:
