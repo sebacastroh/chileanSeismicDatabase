@@ -1,3 +1,5 @@
+import os
+import sys
 import json
 from jinja2 import Environment, PackageLoader
 import jinja2
@@ -17,11 +19,18 @@ from datetime import datetime, timedelta, date
 
 CARTODBPOSITRON = get_provider(Vendors.STAMEN_TERRAIN)
 
+# Paths
+currentDir = os.path.dirname(__file__)
+libPath    = os.path.abspath(os.path.join(currentDir, '..', '..', 'lib'))
+dataPath   = os.path.abspath(os.path.join(currentDir, '..', '..', 'data'))
+
+if not libPath in sys.path:
+    sys.path.append(libPath)
+
 # Seismic libraries
-from myCodes import SeismicLibrary
+import seismic
 
 # System libraries
-import os
 import subprocess
 
 # Numerical libraries
@@ -46,9 +55,9 @@ lettersandnumbers = string.ascii_lowercase + string.digits
 #from email.mime.text import MIMEText
 
 # Paths
-matfiles = '/home/srcastro/projects/correctSeismicDatabase/newMethodology/events_mat_corrected_v2'
-flatfile = '/home/srcastro/projects/correctSeismicDatabase/newMethodology/flatFile_corrected_v2.csv'
-users_registered = '/home/srcastro/projects/strongMotionDatabaseWeb/seismic_db_users.csv'
+matfiles = os.path.join(dataPath, 'seismicDatabase', 'mat')
+flatfile = os.path.join(dataPath, 'flatfile.csv') #'/home/srcastro/projects/correctSeismicDatabase/newMethodology/flatFile_corrected_v2.csv'
+users_registered = os.path.join(dataPath, 'seismic_db_users.csv')
 
 #%% Read database
 df = pd.read_csv(users_registered, encoding='latin1')
