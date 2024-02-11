@@ -64,6 +64,12 @@ def transformRecords(window, widget, basePath):
     omitChannel = ['INTC']
     
     event_ids = df['ID'].unique()
+
+    if os.path.exists(os.path.join(basePath, 'data', 'p_waves.json')):
+        with open(os.path.join(basePath, 'data', 'p_waves.json')) as f:
+            p_waves = json.load(f)
+    else:
+        p_waves = {}
     
     if not os.path.exists(os.path.join(basePath, 'data', 'seismicDatabase')):
         os.mkdir(os.path.join(basePath, 'data', 'seismicDatabase'))

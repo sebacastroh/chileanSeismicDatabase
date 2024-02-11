@@ -22,6 +22,24 @@ def updateFlatFile(window, widget, basePath):
         window.update_idletasks()
         return
 
+
+    columns=['Earthquake Name', 'Earthquake date',
+        'Start time record', 'Magnitude [Mw]',
+        'Hypocenter latitude', 'Hypocenter longitude',
+        'Depth [km]', 'Event type', 'Station name',
+        'Station code',
+        'Station latitude', 'Station longitude', 'Station dt [s]',
+        'Hypocentral distance [km]',
+        'Epicentral distance [km]',
+        'Rupture distance [km]',
+        'Joyner-Boore distance [km]', 'Vs30 [m/s]',
+        'Azimut [o]', 'HVSR', 'Corrected records', 'Last update']
+
+    if os.path.exists(os.path.join(basePath, 'data', 'flatFile.csv')):
+        df = pd.read_csv(os.path.join(basePath, 'data', 'flatFile.csv'))
+    else:
+        df = pd.DataFrame([], columns=columns)
+
     table = []
     
     with open(os.path.join(basePath, 'data', 'p_waves.json')) as f:
@@ -29,9 +47,26 @@ def updateFlatFile(window, widget, basePath):
 
     for filename in filenames:
         p_wave_info = p_waves.get(filename[:-4])
-        
-        widget.insert('end', 'Analizando evento %s\n' %filename[:-4])
-        window.update_idletasks()
+        subdf = df[df['Earthquake Name'] == filename[:-4]]
+
+        updateRows = False
+        if  p_wave_info is not None and len(subdf) > 0:
+            for station_code, station_info in p_wave_info.items():
+
+                row = subdf[subdf['Station code'] == station_code]
+                if len(row) == 0:
+                    updateRows = True
+                    break
+
+                lastUpdateCSV  = row['Last update']
+                lastUpdateJSON = station_info.get('updated')
+                
+                if lastUpdateCSV != lastUpdateJSON:
+                    updateRows = True
+                    break
+
+        if not updateRows:
+            continue
 
         with np.load(os.path.join(basePath, 'data', 'seismicDatabase', 'npz', filename), allow_pickle=True) as stations:
             for key in sorted(stations.keys()):
@@ -39,9 +74,6 @@ def updateFlatFile(window, widget, basePath):
                     continue
 
                 station = stations.get(key).item()
-
-                widget.insert('end', 'Analizando estación %s\n' %station.get('station_code'))
-                window.update_idletasks()
 
                 Rrup = station.get('Rrup')
                 Rjb  = station.get('Rjb')
@@ -93,17 +125,8 @@ def updateFlatFile(window, widget, basePath):
                     station.get('last_update')
                 ])
     
-    df = pd.DataFrame(np.array(table), columns=['Earthquake Name', 'Earthquake date',
-                      'Start time record', 'Magnitude [Mw]',
-                      'Hypocenter latitude', 'Hypocenter longitude',
-                      'Depth [km]', 'Event type', 'Station name',
-                      'Station code',
-                      'Station latitude', 'Station longitude', 'Station dt [s]',
-                      'Hypocentral distance [km]',
-                      'Epicentral distance [km]',
-                      'Rupture distance [km]',
-                      'Joyner-Boore distance [km]', 'Vs30 [m/s]',
-                      'Azimut [o]', 'HVSR', 'Corrected records', 'Last update'])
+    new_rows = pd.DataFrame(table, columns=columns)
+    df = pd.concat([df, new_rows], ignore_index=True)
     
     for col in df.columns[[3,4,5,6,10,11,12,13,14,15,16,17,18]]:
         df[col] = df[col].astype(float) 
