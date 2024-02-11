@@ -174,11 +174,13 @@ def applyCorrection(window, widget, basePath, parallel):
                         widget.see('end')
                         window.update_idletasks()
 
+                updated = datetime.datetime.now().isoformat()
                 if status:
                     data[key]['p_wave']      = p_wave
-                    data[key]['last_update'] = datetime.datetime.now().isoformat()
+                    data[key]['last_update'] = updated
 
                 p_waves[event_id][station_code]['corrected'] = True
+                p_waves[event_id][station_code]['updated']   = updated
                 save = True
                 break
 
