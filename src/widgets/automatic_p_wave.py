@@ -21,7 +21,7 @@ stations = []
 events   = []
 p_waves  = {}
 
-DEFAULT_INDENT = 4
+DEFAULT_INDENT = 2
 
 def automatic_p_wave(window, widget, basePath=None):
     global stations, events, p_waves
@@ -47,7 +47,7 @@ def automatic_p_wave(window, widget, basePath=None):
         event_id = row['ID']
         these_stations = row['Estaciones'].split('; ')
         for station in these_stations:
-            if p_waves.get(event_id).get(station) is None:
+            if p_waves.get(event_id).get(station).get('status') is None:
                 stations.append([event_id, station])
 
     nStations = len(stations)
@@ -271,11 +271,10 @@ def plot_p_wave(masterWindow, event_id, station, basePath):
         else:
             method = 'Manual'
 
-        p_waves[event_id][station_code] = {
-          'pos': int(this_pos[0]),
-          'status': True,
-          'method': method
-        }
+        p_waves[event_id][station_code]['pos']    = int(this_pos[0])
+        p_waves[event_id][station_code]['status'] = True
+        p_waves[event_id][station_code]['method'] = method
+
         action = 'continue'
         window.destroy()
 
@@ -290,11 +289,10 @@ def plot_p_wave(masterWindow, event_id, station, basePath):
         else:
             method = 'Manual'
 
-        p_waves[event_id][station_code] = {
-          'pos': int(this_pos[0]),
-          'status': False,
-          'method': method
-        }
+        p_waves[event_id][station_code]['pos']    = int(this_pos[0])
+        p_waves[event_id][station_code]['status'] = False
+        p_waves[event_id][station_code]['method'] = method
+
         action = 'continue'
         window.destroy()
 

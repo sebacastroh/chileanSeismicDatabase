@@ -6,6 +6,7 @@ Created on Sat Jan 20 09:29:28 2022
 """
 import os
 import json
+import datetime
 import numpy as np
 import pandas as pd
 
@@ -22,6 +23,10 @@ def updateFlatFile(window, widget, basePath):
         window.update_idletasks()
         return
 
+    if not os.path.exists(os.path.join(basePath, 'data', 'p_waves.json')):
+        widget.insert('end', 'No se ha encontrado el archivo p_waves.json necesario.\n')
+        window.update_idletasks()
+        return
 
     columns=['Earthquake Name', 'Earthquake date',
         'Start time record', 'Magnitude [Mw]',
@@ -46,24 +51,32 @@ def updateFlatFile(window, widget, basePath):
         p_waves = json.load(f)
 
     for filename in filenames:
-        p_wave_info = p_waves.get(filename[:-4])
         subdf = df[df['Earthquake Name'] == filename[:-4]]
+        p_wave_info = p_waves.get(filename[:-4])
 
         updateRows = False
-        if  p_wave_info is not None and len(subdf) > 0:
-            for station_code, station_info in p_wave_info.items():
 
-                row = subdf[subdf['Station code'] == station_code]
-                if len(row) == 0:
-                    updateRows = True
-                    break
+        if len(subdf) == 0:
+            updateRows = True
+        else:
+            if p_wave_info is None:
+                updateRows = True
+            else:
+                stations_codes_json = list(p_wave_info.keys())
+                station_codes_csv   = subdf['Station code'].tolist()
 
-                lastUpdateCSV  = row['Last update']
-                lastUpdateJSON = station_info.get('updated')
-                
-                if lastUpdateCSV != lastUpdateJSON:
-                    updateRows = True
-                    break
+                for station_code_json in stations_codes_json:
+                    if station_code_json not in station_codes_csv:
+                        updateRows = True
+                        break
+                    else:
+                        row = subdf[subdf['Station code'] == station_code_json]
+                        lastUpdateCSV  = datetime.datetime.strptime(row['Last update'].iloc[0], '%Y-%m-%d %H:%M:%S.%f')
+                        lastUpdateJSON = datetime.datetime.strptime(p_wave_info[station_code_json]['updated'], '%Y-%m-%dT%H:%M:%S.%f')
+
+                        if lastUpdateCSV != lastUpdateJSON:
+                            updateRows = True
+                            break
 
         if not updateRows:
             continue

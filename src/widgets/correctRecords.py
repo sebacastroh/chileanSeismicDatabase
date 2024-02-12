@@ -11,7 +11,7 @@ p_waves    = {}
 to_correct = []
 base_path  = ''
 
-DEFAULT_INDENT = 4
+DEFAULT_INDENT = 2
 
 def correctRecords(window, widget, basePath):
     """
