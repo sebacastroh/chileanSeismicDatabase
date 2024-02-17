@@ -116,7 +116,7 @@ def updateFlatFile(window, widget, basePath):
                 table.append([
                     filename[:-4],                                          # Earthquake name
                     '-'.join([filename[:4], filename[4:6], filename[6:8]]), # Earthquake date
-                    station.get('starttime'),
+                    station.get('starttime').replace('T', ' ').replace('Z', ''),
                     station.get('magnitude'),
                     station.get('hypocenter_lat'),
                     station.get('hypocenter_lon'),
@@ -135,7 +135,7 @@ def updateFlatFile(window, widget, basePath):
                     station.get('azimuth'),
                     station.get('hvsr'),
                     corrected,
-                    station.get('last_update')
+                    station.get('last_update').replace('T', ' ').replace('Z', '')
                 ])
     
     new_rows = pd.DataFrame(table, columns=columns)
@@ -145,8 +145,8 @@ def updateFlatFile(window, widget, basePath):
         df[col] = df[col].astype(float) 
 
     df['Earthquake date'] = pd.to_datetime(df['Earthquake date'], format='%Y-%m-%d')
-    df['Start time record'] = pd.to_datetime(df['Start time record'], format='%Y-%m-%dT%H:%M:%S.%fZ')
-    df['Last update'] = pd.to_datetime(df['Last update'], format='%Y-%m-%dT%H:%M:%S.%f')
+    df['Start time record'] = pd.to_datetime(df['Start time record'], format='%Y-%m-%d %H:%M:%S.%f')
+    df['Last update'] = pd.to_datetime(df['Last update'], format='%Y-%m-%d %H:%M:%S.%f')
 
     df.to_excel(os.path.join(basePath, 'data', 'flatFile.xlsx'), index=False)
     df.to_csv(os.path.join(basePath, 'data', 'flatFile.csv'), index=False)
