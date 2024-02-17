@@ -64,6 +64,12 @@ def transformRecords(window, widget, basePath):
     omitChannel = ['INTC']
     
     event_ids = df['ID'].unique()
+
+    if os.path.exists(os.path.join(basePath, 'data', 'p_waves.json')):
+        with open(os.path.join(basePath, 'data', 'p_waves.json')) as f:
+            p_waves = json.load(f)
+    else:
+        p_waves = {}
     
     if not os.path.exists(os.path.join(basePath, 'data', 'seismicDatabase')):
         os.mkdir(os.path.join(basePath, 'data', 'seismicDatabase'))
@@ -92,6 +98,9 @@ def transformRecords(window, widget, basePath):
             'cite': cite,
             'databaseURL': database_doi
         }
+
+        if p_waves.get(event_id) is None:
+            p_waves[event_id] = {}
         
         for r, row in info.iterrows():
             filename = row['Identificador'] + '.npz'
@@ -292,6 +301,8 @@ def transformRecords(window, widget, basePath):
                     station_name = 'Unknown'
                 
                 # Save results
+                update = datetime.datetime.now().isoformat()
+
                 station_dict = {
                     'starttime': stationStarttime,
                     'magnitude': event_mag,
@@ -328,10 +339,16 @@ def transformRecords(window, widget, basePath):
                     'corner_freqs_2': np.array([np.nan, np.nan]),
                     'corner_freqs_3': np.array([np.nan, np.nan]),
                     'azimuth': azimuth,
-                    'last_update': datetime.datetime.now().isoformat()
+                    'last_update': update
                 }
                 event['st%0.2i' %st] = station_dict
                 st += 1
+
+                p_waves[event_id][stationCode] = {
+                    "status": None,
+                    "corrected": False,
+                    'updated': update
+                }
             
             np.savez_compressed(os.path.join(basePath, 'data', 'seismicDatabase', 'npz', event_id), **event)
             spio.savemat(os.path.join(basePath, 'data', 'seismicDatabase', 'mat', event_id + '.mat'), event, do_compression=True)
@@ -341,6 +358,10 @@ def transformRecords(window, widget, basePath):
             window.update_idletasks()
 
     slab.close()
+
+    # Save p_waves info
+    with open(os.path.join(basePath, 'data', 'p_waves.json'), 'w') as f:
+        json.dump(p_waves, f, indent=2)
 
     widget.insert('end', '\nProceso finalizado.')
     
