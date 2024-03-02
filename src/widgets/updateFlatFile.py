@@ -38,7 +38,7 @@ def updateFlatFile(window, widget, basePath):
         'Epicentral distance [km]',
         'Rupture distance [km]',
         'Joyner-Boore distance [km]', 'Vs30 [m/s]',
-        'Azimut [o]', 'HVSR', 'Corrected records', 'Last update']
+        'Azimuth [o]', 'HVSR', 'Corrected records', 'Last update']
 
     if os.path.exists(os.path.join(basePath, 'data', 'flatFile.csv')):
         df = pd.read_csv(os.path.join(basePath, 'data', 'flatFile.csv'))
@@ -98,9 +98,9 @@ def updateFlatFile(window, widget, basePath):
                 if isinstance(Vs30, str):
                     Vs30 = -1
                 
-                azimut = station.get('azimut')
+                azimuth = station.get('azimuth')
                 if isinstance(azimut, str):
-                    azimut = -1
+                    azimuth = -1
 
                 if p_wave_info is not None:
                     station_info = p_wave_info.get(station.get('station_code'))
@@ -131,8 +131,8 @@ def updateFlatFile(window, widget, basePath):
                     station.get('Repi'),
                     Rrup,
                     Rjb,
-                    station.get('vs30'),
-                    station.get('azimuth'),
+                    Vs30,
+                    azimuth,
                     station.get('hvsr'),
                     corrected,
                     station.get('last_update').replace('T', ' ').replace('Z', '')
