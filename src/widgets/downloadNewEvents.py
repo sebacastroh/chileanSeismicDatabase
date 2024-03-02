@@ -34,7 +34,7 @@ def downloadNewEvents(window, widget, basePath):
     for r, row in df.iterrows():
         name = row['ID']
         if os.path.exists(os.path.join(basePath, 'data', 'rawEvents', name + '.npz')) \
-        or os.path.exists(os.path.join(basePath, 'data', 'correctedEvents', 'npz', name + '.npz')):
+        or os.path.exists(os.path.join(basePath, 'data', 'seismicDatabase', 'npz', name + '.npz')):
             continue
         
         dataset_id = row['Fuente']
