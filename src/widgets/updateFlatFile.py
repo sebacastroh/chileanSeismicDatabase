@@ -99,7 +99,7 @@ def updateFlatFile(window, widget, basePath):
                     Vs30 = -1
                 
                 azimuth = station.get('azimuth')
-                if isinstance(azimut, str):
+                if isinstance(azimuth, str):
                     azimuth = -1
 
                 if p_wave_info is not None:
