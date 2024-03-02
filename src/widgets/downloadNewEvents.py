@@ -32,14 +32,19 @@ def downloadNewEvents(window, widget, basePath):
     )
     
     for r, row in df.iterrows():
-        name = row['ID']
-        if os.path.exists(os.path.join(basePath, 'data', 'rawEvents', name + '.npz')) \
-        or os.path.exists(os.path.join(basePath, 'data', 'seismicDatabase', 'npz', name + '.npz')):
+        rawName = row['Identificador']
+        sdbName = row['ID']
+        if os.path.exists(os.path.join(basePath, 'data', 'rawEvents', rawName + '.npz')) \
+        or os.path.exists(os.path.join(basePath, 'data', 'seismicDatabase', 'npz', sdbName + '.npz')):
             continue
         
         dataset_id = row['Fuente']
         element_id = row['Identificador']
         
+        widget.insert('end', 'Descargando archivo {element_id}... '.format(element_id=element_id))
+        widget.see('end')
+        window.update_idletasks()
+
         session.download_file(dataset_id, 'npz', element_id, filename = os.path.join(basePath, 'data', 'rawEvents', element_id + '.npz'))
     
     widget.insert('end', 'Done!\n')
