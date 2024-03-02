@@ -12,6 +12,7 @@ to_correct = []
 base_path  = ''
 
 DEFAULT_INDENT = 2
+SORT_KEYS      = True
 
 def correctRecords(window, widget, basePath):
     """
@@ -130,7 +131,7 @@ def applyCorrection(window, widget, basePath, parallel):
                 spio.savemat(os.path.join(basePath, 'data', 'seismicDatabase', 'mat', current_event_id + '.mat'), data, do_compression=True)
                 
                 with open(os.path.join(basePath, 'data', 'p_waves.json'), 'w') as f:
-                    json.dump(p_waves, f, indent=DEFAULT_INDENT)
+                    json.dump(p_waves, f, indent=DEFAULT_INDENT, sort_keys=SORT_KEYS)
 
             current_event_id = event_id
             with np.load(os.path.join(basePath, 'data', 'seismicDatabase', 'npz', event_id + '.npz'), allow_pickle=True) as f:
@@ -189,7 +190,7 @@ def applyCorrection(window, widget, basePath, parallel):
         spio.savemat(os.path.join(basePath, 'data', 'seismicDatabase', 'mat', current_event_id + '.mat'), data, do_compression=True)
         
         with open(os.path.join(basePath, 'data', 'p_waves.json'), 'w') as f:
-            json.dump(p_waves, f, indent=DEFAULT_INDENT)
+            json.dump(p_waves, f, indent=DEFAULT_INDENT, sort_keys=SORT_KEYS)
 
     widget.insert('end', '\nProceso finalizado.')
     widget.see('end')

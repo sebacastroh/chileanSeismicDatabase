@@ -7,6 +7,9 @@ import pandas as pd
 import scipy.io as spio
 import lib.computeDistances as computeDistances
 
+DEFAULT_INDENT = 2
+SORT_KEYS      = True
+
 def transformRecords(window, widget, basePath):
     """
     Función que ejecuta la transformación de los registros listados en el archivo ```siberrisk.csv```.
@@ -361,7 +364,7 @@ def transformRecords(window, widget, basePath):
 
     # Save p_waves info
     with open(os.path.join(basePath, 'data', 'p_waves.json'), 'w') as f:
-        json.dump(p_waves, f, indent=2)
+        json.dump(p_waves, f, indent=DEFAULT_INDENT, sort_keys=SORT_KEYS)
 
     widget.insert('end', '\nProceso finalizado.')
     
