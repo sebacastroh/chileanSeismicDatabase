@@ -904,21 +904,27 @@
   "20030620_magM_30.38S_71.48W_depthKM": {
     "PuenteAmolanas": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 3181,
+      "status": true,
       "updated": "2024-03-03T00:21:29.191819"
     }
   },
   "20030709_magM_32.41S_71.31W_depthKM": {
     "VinadelMarElSaltoCerro": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 3841,
+      "status": true,
       "updated": "2024-03-03T00:21:29.304378"
     }
   },
   "20031020_magM_18.32S_70.31W_depthKM": {
     "AricaChacalluta": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7802,
+      "status": true,
       "updated": "2024-03-03T00:21:29.405890"
     }
   },
