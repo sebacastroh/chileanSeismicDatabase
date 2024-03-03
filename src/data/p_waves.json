@@ -2800,7 +2800,9 @@
   "20131115_4.2M_30.54S_71.61W_23.0KM": {
     "C13O": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7875,
+      "status": true,
       "updated": "2024-03-03T00:21:53.127658"
     }
   },
