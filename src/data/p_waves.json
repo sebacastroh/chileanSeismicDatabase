@@ -2314,14 +2314,18 @@
   "20120401_5.2M_23.06S_69.32W_94.0KM": {
     "PB06": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1562,
+      "status": true,
       "updated": "2024-03-03T00:21:43.520982"
     }
   },
   "20120430_6.0M_29.80S_71.64W_43.0KM": {
     "GO04": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1624,
+      "status": true,
       "updated": "2024-03-03T00:21:43.706260"
     }
   },
