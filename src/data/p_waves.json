@@ -2,203 +2,281 @@
   "19850303_6.3M_32.74S_71.22W_33.0KM": {
     "Llolleo": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 97,
+      "status": true,
       "updated": "2024-03-03T00:21:23.560045"
     },
     "Valparaiso": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 6396,
+      "status": false,
       "updated": "2024-03-03T00:21:23.561228"
     },
     "VinadelMar": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 31,
+      "status": true,
       "updated": "2024-03-03T00:21:23.561707"
     }
   },
   "19850303_7.8M_33.13S_71.87W_33.0KM": {
     "Cauquenes": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.142607"
     },
     "ChillanInstitute": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7383,
+      "status": false,
       "updated": "2024-03-03T00:21:22.143155"
     },
     "Colbun": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.143497"
     },
     "Constitucion": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.143922"
     },
     "Hualane": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.144332"
     },
     "Illapel": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.144912"
     },
     "Iloca": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.145342"
     },
     "LaLigua": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.145708"
     },
     "Llayllay": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.146259"
     },
     "Llolleo": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.146511"
     },
     "LosVilos": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 3435,
+      "status": false,
       "updated": "2024-03-03T00:21:22.146885"
     },
     "Melipilla": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.147251"
     },
     "Papudo": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.147754"
     },
     "Pichilemu": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.148116"
     },
     "Quintay": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.148715"
     },
     "Rapel": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.149349"
     },
     "SanFelipe": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.150367"
     },
     "SanFernando": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.150993"
     },
     "SanIsidro": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.151814"
     },
     "SantiagoEndesaBldg": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.152480"
     },
     "Talca": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.153533"
     },
     "Valparaiso": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.154136"
     },
     "ValparaisoElAlmendral": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.153778"
     },
     "Ventanas": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.154966"
     },
     "VinadelMar": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.155262"
     },
     "Zapallar": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:22.155945"
     }
   },
   "19850408_5.0M_33.02S_71.97W_33.0KM": {
     "Llolleo": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 3,
+      "status": true,
       "updated": "2024-03-03T00:21:23.830680"
     }
   },
   "19850409_7.2M_34.13S_71.62W_37.8KM": {
     "Cauquenes": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 778,
+      "status": false,
       "updated": "2024-03-03T00:21:24.027286"
     },
     "Constitucion": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 757,
+      "status": false,
       "updated": "2024-03-03T00:21:24.027657"
     },
     "Iloca": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 4613,
+      "status": false,
       "updated": "2024-03-03T00:21:24.028028"
     },
     "Quintay": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2555,
+      "status": false,
       "updated": "2024-03-03T00:21:24.028297"
     },
     "Rapel": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 800,
+      "status": false,
       "updated": "2024-03-03T00:21:24.028576"
     },
     "SanFernando": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:24.029000"
     },
     "Santiago": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:24.029877"
     },
     "SantiagoEndesaBldg": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:24.029521"
     },
     "Ventanas": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2111,
+      "status": false,
       "updated": "2024-03-03T00:21:24.030199"
     }
   },
