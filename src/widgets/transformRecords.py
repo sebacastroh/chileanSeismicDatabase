@@ -301,7 +301,7 @@ def transformRecords(window, widget, basePath):
                     vs30 = properties[2]
                     azimuth = properties[4]
                     hvsr = 'Undetermined'
-                    station_name = 'Unknown'
+                    station_name = properties[5]
                 
                 # Save results
                 update = datetime.datetime.now().isoformat()
