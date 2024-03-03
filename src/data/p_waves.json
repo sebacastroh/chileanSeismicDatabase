@@ -2425,41 +2425,55 @@
   "20121113_5.1M_20.54S_69.03W_93.0KM": {
     "PB11": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1925,
+      "status": true,
       "updated": "2024-03-03T00:21:45.798084"
     }
   },
   "20121114_5.7M_29.24S_71.23W_82.0KM": {
     "GO04": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2208,
+      "status": true,
       "updated": "2024-03-03T00:21:45.982374"
     }
   },
   "20121116_5.3M_21.51S_69.49W_62.0KM": {
     "PB01": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1216,
+      "status": true,
       "updated": "2024-03-03T00:21:46.207221"
     },
     "PB02": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1166,
+      "status": true,
       "updated": "2024-03-03T00:21:46.207557"
     },
     "PB03": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1374,
+      "status": true,
       "updated": "2024-03-03T00:21:46.207855"
     },
     "PB07": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1180,
+      "status": true,
       "updated": "2024-03-03T00:21:46.208131"
     },
     "PB09": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1179,
+      "status": true,
       "updated": "2024-03-03T00:21:46.208384"
     }
   },
