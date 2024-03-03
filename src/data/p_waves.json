@@ -371,69 +371,91 @@
   "19970201_magM_latS_lonW_depthKM": {
     "AricaCostanera": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 1317,
+      "status": true,
       "updated": "2024-03-03T00:21:24.872684"
     }
   },
   "19970325_magM_33.28S_70.47W_depthKM": {
     "SantiagoCentro": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2860,
+      "status": true,
       "updated": "2024-03-03T00:21:24.928451"
     }
   },
   "19970401_magM_18.12S_69.49W_depthKM": {
     "AricaCementerio": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 0,
+      "status": false,
       "updated": "2024-03-03T00:21:25.051602"
     },
     "Putre": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 2232,
+      "status": true,
       "updated": "2024-03-03T00:21:25.051821"
     }
   },
   "19970401_magM_latS_lonW_depthKM": {
     "Illapel": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 1424,
+      "status": true,
       "updated": "2024-03-03T00:21:24.991083"
     },
     "Llolleo": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 0,
+      "status": false,
       "updated": "2024-03-03T00:21:24.991303"
     }
   },
   "19971015_magM_30.44S_71.19W_depthKM": {
     "Illapel": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:25.124819"
     },
     "Papudo": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 3768,
+      "status": false,
       "updated": "2024-03-03T00:21:25.125079"
     },
     "SantiagoCentro": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:25.125404"
     }
   },
   "19971022_magM_latS_lonW_depthKM": {
     "Illapel": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 1381,
+      "status": true,
       "updated": "2024-03-03T00:21:25.274652"
     }
   },
   "19971103_magM_latS_lonW_depthKM": {
     "Illapel": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 1996,
+      "status": true,
       "updated": "2024-03-03T00:21:25.332665"
     }
   },
