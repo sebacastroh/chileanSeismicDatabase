@@ -37,7 +37,7 @@ def automatic_p_wave(window, widget, basePath=None):
     for event_id, stations_info in p_waves.items():
         for station_code, station_info in stations_info.items():
             if station_info.get('status') is None:
-                to_detect.append([event_id, station_code])
+                stations.append([event_id, station_code])
 
     nStations = len(stations)
     disable   = False
