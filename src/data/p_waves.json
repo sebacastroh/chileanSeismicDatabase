@@ -516,45 +516,59 @@
   "19990101_magM_latS_lonW_depthKM": {
     "LaSerena": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 749,
+      "status": false,
       "updated": "2024-03-03T00:21:25.835764"
     }
   },
   "19990206_magM_22.20S_69.54W_depthKM": {
     "Tocopilla": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 0,
+      "status": false,
       "updated": "2024-03-03T00:21:25.901688"
     }
   },
   "19990802_magM_33.07S_70.21W_depthKM": {
     "SantiagoLaFlorida": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 4061,
+      "status": true,
       "updated": "2024-03-03T00:21:26.028878"
     }
   },
   "19991104_magM_32.41S_71.42W_depthKM": {
     "VinadelMarElSaltoCerro": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 2826,
+      "status": true,
       "updated": "2024-03-03T00:21:26.116603"
     }
   },
   "19991130_magM_18.46S_69.02W_depthKM": {
     "Arica": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 5797,
+      "status": true,
       "updated": "2024-03-03T00:21:26.244739"
     },
     "AricaCementerio": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 749,
+      "status": false,
       "updated": "2024-03-03T00:21:26.244973"
     },
     "AricaCostanera": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 749,
+      "status": false,
       "updated": "2024-03-03T00:21:26.245168"
     }
   },
