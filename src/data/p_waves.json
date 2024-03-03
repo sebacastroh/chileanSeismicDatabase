@@ -607,120 +607,160 @@
   "20010201_magM_32.57S_70.20W_depthKM": {
     "Cuya": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1575,
+      "status": false,
       "updated": "2024-03-03T00:21:26.645602"
     }
   },
   "20010623_magM_17.21S_70.02W_depthKM": {
     "Arica": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2672,
+      "status": true,
       "updated": "2024-03-03T00:21:26.756202"
     },
     "AricaCementerio": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2780,
+      "status": false,
       "updated": "2024-03-03T00:21:26.756521"
     },
     "AricaCostanera": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:26.756820"
     },
     "Cuya": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2655,
+      "status": false,
       "updated": "2024-03-03T00:21:26.757096"
     },
     "Pisagua": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1883,
+      "status": false,
       "updated": "2024-03-03T00:21:26.757295"
     },
     "Poconchile": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2964,
+      "status": false,
       "updated": "2024-03-03T00:21:26.757487"
     },
     "Putre": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 880,
+      "status": false,
       "updated": "2024-03-03T00:21:26.757675"
     }
   },
   "20010701_magM_latS_lonW_depthKM": {
     "AricaCementerio": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1809,
+      "status": false,
       "updated": "2024-03-03T00:21:27.147496"
     },
     "AricaChacalluta": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2823,
+      "status": true,
       "updated": "2024-03-03T00:21:27.218735"
     }
   },
   "20010724_magM_32.51S_71.46W_depthKM": {
     "VinadelMarElSaltoCerro": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 3881,
+      "status": true,
       "updated": "2024-03-03T00:21:27.578619"
     }
   },
   "20010724_magM_32.56S_71.34W_depthKM": {
     "AricaChacalluta": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 4674,
+      "status": true,
       "updated": "2024-03-03T00:21:27.377504"
     },
     "Iquique": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 6716,
+      "status": true,
       "updated": "2024-03-03T00:21:27.377850"
     },
     "Pica": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 6293,
+      "status": true,
       "updated": "2024-03-03T00:21:27.378147"
     }
   },
   "20010809_magM_latS_lonW_depthKM": {
     "AricaChacalluta": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9923,
+      "status": true,
       "updated": "2024-03-03T00:21:27.676881"
     }
   },
   "20010901_magM_latS_lonW_depthKM": {
     "Illapel": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1068,
+      "status": false,
       "updated": "2024-03-03T00:21:27.778096"
     },
     "Papudo": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 824,
+      "status": false,
       "updated": "2024-03-03T00:21:27.778334"
     }
   },
   "20011128_magM_32.43S_71.44W_depthKM": {
     "VinadelMarElSaltoCerro": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 2485,
+      "status": true,
       "updated": "2024-03-03T00:21:27.883456"
     }
   },
   "20011201_magM_latS_lonW_depthKM": {
     "Pica": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8074,
+      "status": true,
       "updated": "2024-03-03T00:21:27.967421"
     }
   },
   "20011228_magM_32.52S_71.36W_depthKM": {
     "VinadelMarElSaltoCerro": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 3989,
+      "status": true,
       "updated": "2024-03-03T00:21:28.053851"
     }
   },
