@@ -767,103 +767,137 @@
   "20020101_magM_latS_lonW_depthKM": {
     "Cuya": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 0,
+      "status": false,
       "updated": "2024-03-03T00:21:28.140845"
     },
     "ElLoa": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1423,
+      "status": false,
       "updated": "2024-03-03T00:21:28.141052"
     },
     "Tocopilla": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1668,
+      "status": false,
       "updated": "2024-03-03T00:21:28.141276"
     }
   },
   "20020226_magM_18.27S_69.57W_depthKM": {
     "Arica": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7916,
+      "status": true,
       "updated": "2024-03-03T00:21:28.260944"
     },
     "AricaCerroLaCruz": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9911,
+      "status": true,
       "updated": "2024-03-03T00:21:28.261304"
     },
     "AricaChacalluta": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9835,
+      "status": true,
       "updated": "2024-03-03T00:21:28.261633"
     }
   },
   "20020401_magM_29.37S_71.26W_depthKM": {
     "Papudo": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 0,
+      "status": false,
       "updated": "2024-03-03T00:21:28.437779"
     }
   },
   "20020523_magM_30.43S_71.22W_depthKM": {
     "VinadelMarElSaltoCerro": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 3210,
+      "status": true,
       "updated": "2024-03-03T00:21:28.509809"
     }
   },
   "20020524_magM_32.11S_71.07W_depthKM": {
     "PuenteAmolanas": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 3321,
+      "status": true,
       "updated": "2024-03-03T00:21:28.613677"
     }
   },
   "20020614_magM_17.64S_71.34W_depthKM": {
     "Pisagua": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9254,
+      "status": true,
       "updated": "2024-03-03T00:21:28.712442"
     }
   },
   "20020618_magM_30.49S_71.20W_depthKM": {
     "LaSerena": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:28.817706"
     },
     "PuenteAmolanas": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 3692,
+      "status": true,
       "updated": "2024-03-03T00:21:28.818027"
     }
   },
   "20020701_magM_latS_lonW_depthKM": {
     "AricaCostanera": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 749,
+      "status": false,
       "updated": "2024-03-03T00:21:28.949017"
     },
     "Illapel": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 0,
+      "status": false,
       "updated": "2024-03-03T00:21:28.949233"
     },
     "Papudo": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:28.949467"
     },
     "Poconchile": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 1850,
+      "status": true,
       "updated": "2024-03-03T00:21:28.949669"
     }
   },
   "20021112_magM_latS_lonW_depthKM": {
     "Pica": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7671,
+      "status": true,
       "updated": "2024-03-03T00:21:29.093392"
     }
   },
