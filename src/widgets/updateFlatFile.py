@@ -94,7 +94,7 @@ def updateFlatFile(window, widget, basePath):
                     Rrup = -1
                     Rjb = -1    
                     
-                Vs30 = station.get('Vs30')
+                Vs30 = station.get('vs30')
                 if isinstance(Vs30, str):
                     Vs30 = -1
                 
