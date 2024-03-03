@@ -575,24 +575,32 @@
   "20000616_magM_33.53S_70.13W_depthKM": {
     "Llolleo": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 749,
+      "status": false,
       "updated": "2024-03-03T00:21:26.403394"
     },
     "Papudo": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 0,
+      "status": false,
       "updated": "2024-03-03T00:21:26.403604"
     },
     "SantiagoLaFlorida": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 3864,
+      "status": true,
       "updated": "2024-03-03T00:21:26.403864"
     }
   },
   "20000811_magM_latS_lonW_depthKM": {
     "Arica": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7804,
+      "status": true,
       "updated": "2024-03-03T00:21:26.531447"
     }
   },
