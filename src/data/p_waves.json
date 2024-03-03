@@ -2528,12 +2528,16 @@
   "20130302_5.1M_22.85S_70.38W_51.0KM": {
     "PB05": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 938,
+      "status": true,
       "updated": "2024-03-03T00:21:47.587769"
     },
     "PB15": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1792,
+      "status": true,
       "updated": "2024-03-03T00:21:47.588101"
     }
   },
