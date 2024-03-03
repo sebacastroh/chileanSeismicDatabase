@@ -1035,163 +1035,221 @@
   "20050313_magM_32.43S_71.42W_depthKM": {
     "VinadelMarElSalto": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2705,
+      "status": true,
       "updated": "2024-03-03T00:21:30.412594"
     }
   },
   "20050319_magM_20.26S_68.34W_depthKM": {
     "Pica": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10022,
+      "status": true,
       "updated": "2024-03-03T00:21:30.494706"
     }
   },
   "20050325_magM_20.15S_68.47W_depthKM": {
     "Pica": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9932,
+      "status": true,
       "updated": "2024-03-03T00:21:30.600271"
     }
   },
   "20050613_magM_19.54S_69.07W_depthKM": {
     "AricaCementerio": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 1,
+      "status": true,
       "updated": "2024-03-03T00:21:30.777659"
     },
     "AricaCerroLaCruz": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9442,
+      "status": true,
       "updated": "2024-03-03T00:21:30.778255"
     },
     "AricaCostanera": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:30.778568"
     },
     "Calama": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9515,
+      "status": true,
       "updated": "2024-03-03T00:21:30.779337"
     },
     "Cuya": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:30.779680"
     },
     "ElLoa": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:30.779952"
     },
     "Iquique": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9903,
+      "status": true,
       "updated": "2024-03-03T00:21:30.780714"
     },
     "IquiquePlaza": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:30.781051"
     },
     "Mejillones": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8771,
+      "status": true,
       "updated": "2024-03-03T00:21:30.781772"
     },
     "Pica": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9858,
+      "status": true,
       "updated": "2024-03-03T00:21:30.782691"
     },
     "Pisagua": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:30.782987"
     },
     "Poconchile": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9507,
+      "status": true,
       "updated": "2024-03-03T00:21:30.783744"
     },
     "Putre": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:30.784083"
     }
   },
   "20050627_magM_19.58S_70.10W_depthKM": {
     "Pisagua": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8664,
+      "status": true,
       "updated": "2024-03-03T00:21:31.738117"
     }
   },
   "20050705_magM_32.51S_71.17W_depthKM": {
     "VinadelMarElSalto": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 3904,
+      "status": true,
       "updated": "2024-03-03T00:21:31.841627"
     }
   },
   "20050713_magM_17.48S_69.58W_depthKM": {
     "Arica": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9249,
+      "status": true,
       "updated": "2024-03-03T00:21:31.962722"
     },
     "AricaCementerio": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2175,
+      "status": false,
       "updated": "2024-03-03T00:21:31.962993"
     },
     "AricaCerroLaCruz": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7644,
+      "status": true,
       "updated": "2024-03-03T00:21:31.963396"
     },
     "AricaChacalluta": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9807,
+      "status": true,
       "updated": "2024-03-03T00:21:31.963898"
     },
     "AricaCostanera": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 863,
+      "status": false,
       "updated": "2024-03-03T00:21:31.964089"
     },
     "Poconchile": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9916,
+      "status": true,
       "updated": "2024-03-03T00:21:31.964596"
     }
   },
   "20050814_magM_19.45S_68.53W_depthKM": {
     "Pica": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9256,
+      "status": true,
       "updated": "2024-03-03T00:21:32.266727"
     }
   },
   "20051017_magM_18.16S_69.47W_depthKM": {
     "Arica": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9954,
+      "status": true,
       "updated": "2024-03-03T00:21:32.415146"
     },
     "AricaCerroLaCruz": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9964,
+      "status": true,
       "updated": "2024-03-03T00:21:32.415635"
     },
     "AricaChacalluta": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9783,
+      "status": true,
       "updated": "2024-03-03T00:21:32.416089"
     },
     "Poconchile": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 10048,
+      "status": true,
       "updated": "2024-03-03T00:21:32.416481"
     }
   },
