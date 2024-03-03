@@ -462,42 +462,54 @@
   "19980130_magM_23.30S_69.49W_depthKM": {
     "Antofagasta": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:25.395628"
     }
   },
   "19980201_magM_latS_lonW_depthKM": {
     "Cuya": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 0,
+      "status": false,
       "updated": "2024-03-03T00:21:25.460421"
     }
   },
   "19980417_magM_32.47S_71.31W_depthKM": {
     "Papudo": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:25.525561"
     }
   },
   "19980729_magM_32.22S_71.27W_depthKM": {
     "Llolleo": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1005,
+      "status": false,
       "updated": "2024-03-03T00:21:25.612372"
     }
   },
   "19981029_magM_32.52S_70.39W_depthKM": {
     "VinadelMarElSaltoCerro": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 788,
+      "status": true,
       "updated": "2024-03-03T00:21:25.685558"
     }
   },
   "19981201_magM_latS_lonW_depthKM": {
     "Papudo": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1010,
+      "status": false,
       "updated": "2024-03-03T00:21:25.768562"
     }
   },
