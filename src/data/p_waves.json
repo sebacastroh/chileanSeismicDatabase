@@ -2384,7 +2384,9 @@
   "20120921_5.4M_19.72S_69.33W_101.0KM": {
     "MNMCX": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1842,
+      "status": true,
       "updated": "2024-03-03T00:21:44.963890"
     }
   },
