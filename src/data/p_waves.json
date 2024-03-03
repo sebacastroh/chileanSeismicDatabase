@@ -283,21 +283,27 @@
   "19940501_magM_latS_lonW_depthKM": {
     "Cuya": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:24.279515"
     }
   },
   "19940502_magM_latS_lonW_depthKM": {
     "Cuya": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
       "updated": "2024-03-03T00:21:24.338556"
     }
   },
   "19941101_magM_latS_lonW_depthKM": {
     "AricaCostanera": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2245,
+      "status": false,
       "updated": "2024-03-03T00:21:24.401979"
     }
   },
