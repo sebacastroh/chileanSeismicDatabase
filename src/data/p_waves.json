@@ -2393,24 +2393,32 @@
   "20121008_5.7M_21.83S_68.54W_121.0KM": {
     "PB15": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 3048,
+      "status": true,
       "updated": "2024-03-03T00:21:45.154815"
     }
   },
   "20121011_5.7M_32.88S_70.65W_95.0KM": {
     "FAR1": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1618,
+      "status": true,
       "updated": "2024-03-03T00:21:45.376770"
     },
     "LMEL": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2146,
+      "status": true,
       "updated": "2024-03-03T00:21:45.377104"
     },
     "ROC1": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2928,
+      "status": true,
       "updated": "2024-03-03T00:21:45.377550"
     }
   },
