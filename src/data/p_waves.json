@@ -310,28 +310,36 @@
   "19950701_magM_33.93S_72.40W_depthKM": {
     "Illapel": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 0,
+      "status": false,
       "updated": "2024-03-03T00:21:24.467974"
     }
   },
   "19950730_magM_23.34S_70.36W_depthKM": {
     "Tocopilla": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 3316,
+      "status": false,
       "updated": "2024-03-03T00:21:24.520666"
     }
   },
   "19951101_magM_latS_lonW_depthKM": {
     "Illapel": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 1495,
+      "status": true,
       "updated": "2024-03-03T00:21:24.610572"
     }
   },
   "19951102_magM_latS_lonW_depthKM": {
     "Illapel": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 1360,
+      "status": true,
       "updated": "2024-03-03T00:21:24.680925"
     }
   },
