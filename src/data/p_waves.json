@@ -2480,36 +2480,48 @@
   "20130101_5.1M_20.81S_69.67W_59.0KM": {
     "PB01": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1109,
+      "status": true,
       "updated": "2024-03-03T00:21:46.747621"
     },
     "PB02": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1367,
+      "status": true,
       "updated": "2024-03-03T00:21:46.747944"
     }
   },
   "20130113_5.5M_20.12S_69.31W_90.0KM": {
     "PB01": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1920,
+      "status": true,
       "updated": "2024-03-03T00:21:47.033774"
     },
     "PB08": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1365,
+      "status": true,
       "updated": "2024-03-03T00:21:47.034098"
     },
     "PB11": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1511,
+      "status": true,
       "updated": "2024-03-03T00:21:47.034406"
     }
   },
   "20130130_6.7M_28.18S_70.88W_52.0KM": {
     "GO03": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1755,
+      "status": true,
       "updated": "2024-03-03T00:21:47.387539"
     }
   },
