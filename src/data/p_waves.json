@@ -79118,117 +79118,159 @@
   "20231202_5.4M_24.43S_70.34W_41.0KM": {
     "PB15": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9123,
+      "status": true,
       "updated": "2024-03-03T01:04:58.168027"
     }
   },
   "20231202_5.6M_19.23S_69.30W_108.0KM": {
     "AP01": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8661,
+      "status": true,
       "updated": "2024-03-03T01:04:57.427272"
     },
     "GO01": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7931,
+      "status": true,
       "updated": "2024-03-03T01:04:57.426945"
     },
     "MNMCX": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7849,
+      "status": true,
       "updated": "2024-03-03T01:04:57.426703"
     },
     "PB08": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8321,
+      "status": true,
       "updated": "2024-03-03T01:04:57.427882"
     },
     "T24A": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 17358,
+      "status": true,
       "updated": "2024-03-03T01:04:57.426364"
     },
     "TA02": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 8671,
+      "status": true,
       "updated": "2024-03-03T01:04:57.427584"
     }
   },
   "20231211_5.9M_24.20S_67.10W_223.0KM": {
     "PB15": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 10720,
+      "status": true,
       "updated": "2024-03-03T01:04:58.370003"
     }
   },
   "20231216_4.6M_37.05S_74.23W_16.0KM": {
     "B14I": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9040,
+      "status": true,
       "updated": "2024-03-03T01:04:58.565759"
     }
   },
   "20231221_5.8M_21.92S_70.25W_55.0KM": {
     "PB01": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8241,
+      "status": true,
       "updated": "2024-03-03T01:04:58.960444"
     },
     "PB02": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7664,
+      "status": true,
       "updated": "2024-03-03T01:04:58.962332"
     },
     "PB03": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7455,
+      "status": true,
       "updated": "2024-03-03T01:04:58.961760"
     },
     "PB06": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8074,
+      "status": true,
       "updated": "2024-03-03T01:04:58.960137"
     },
     "PB09": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8008,
+      "status": true,
       "updated": "2024-03-03T01:04:58.959845"
     },
     "PB15": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8735,
+      "status": true,
       "updated": "2024-03-03T01:04:58.962043"
     },
     "PX03": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8838,
+      "status": true,
       "updated": "2024-03-03T01:04:58.961479"
     },
     "T07A": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 18119,
+      "status": true,
       "updated": "2024-03-03T01:04:58.961185"
     },
     "T24A": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 17818,
+      "status": true,
       "updated": "2024-03-03T01:04:58.959541"
     },
     "TA02": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 8908,
+      "status": true,
       "updated": "2024-03-03T01:04:58.960726"
     }
   },
   "20231224_5.4M_38.13S_74.16W_36.0KM": {
     "BI04": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 6263,
+      "status": true,
       "updated": "2024-03-03T01:05:00.042877"
     },
     "LC02": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7531,
+      "status": true,
       "updated": "2024-03-03T01:05:00.042572"
     }
   },
