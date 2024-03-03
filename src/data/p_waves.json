@@ -2567,29 +2567,39 @@
   "20130815_4.9M_32.51S_71.64W_48.0KM": {
     "V08A": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10528,
+      "status": true,
       "updated": "2024-03-03T00:21:48.237477"
     }
   },
   "20130823_5.7M_22.28S_68.86W_118.0KM": {
     "PB02": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2693,
+      "status": true,
       "updated": "2024-03-03T00:21:48.526199"
     },
     "PB03": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2155,
+      "status": true,
       "updated": "2024-03-03T00:21:48.527002"
     },
     "PB07": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2425,
+      "status": true,
       "updated": "2024-03-03T00:21:48.527514"
     },
     "PB15": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2423,
+      "status": true,
       "updated": "2024-03-03T00:21:48.527830"
     }
   },
