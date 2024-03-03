@@ -2606,58 +2606,78 @@
   "20130907_5.2M_19.62S_69.30W_100.0KM": {
     "GO01": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1521,
+      "status": true,
       "updated": "2024-03-03T00:21:48.961372"
     }
   },
   "20130924_4.2M_29.83S_71.32W_56.0KM": {
     "C01O": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10818,
+      "status": true,
       "updated": "2024-03-03T00:21:49.166934"
     },
     "C06O": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10655,
+      "status": true,
       "updated": "2024-03-03T00:21:49.167230"
     },
     "C09O": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10379,
+      "status": true,
       "updated": "2024-03-03T00:21:49.167511"
     }
   },
   "20130929_5.2M_37.47S_73.75W_49.0KM": {
     "BI04": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 1745,
+      "status": true,
       "updated": "2024-03-03T00:21:49.836710"
     },
     "C05O": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10930,
+      "status": true,
       "updated": "2024-03-03T00:21:49.838018"
     },
     "C11O": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10544,
+      "status": true,
       "updated": "2024-03-03T00:21:49.837708"
     },
     "C13O": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10767,
+      "status": true,
       "updated": "2024-03-03T00:21:49.837397"
     },
     "CO02": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1331,
+      "status": true,
       "updated": "2024-03-03T00:21:49.837065"
     }
   },
   "20130929_5.5M_37.47S_73.88W_42.0KM": {
     "BI03": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1757,
+      "status": true,
       "updated": "2024-03-03T00:21:50.553439"
     }
   },
