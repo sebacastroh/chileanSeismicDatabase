@@ -3534,5 +3534,629 @@
     -1,
     -1,
     "Cuartel de Investigaciones Macul"
+  ],
+  "A07F": [
+    -21.6,
+    -69.6,
+    null,
+    null,
+    null,
+    "Reten Quillagua (Aduana)"
+  ],
+  "V23A": [
+    -33.0,
+    -71.6,
+    null,
+    null,
+    null,
+    "Estadio Italiano"
+  ],
+  "L08C": [
+    -38.9,
+    -71.7,
+    null,
+    null,
+    null,
+    "Recinto Municipal Melipeuco"
+  ],
+  "V24A": [
+    -33.6,
+    -71.6,
+    null,
+    null,
+    null,
+    "Escuela de Ingenieros Ejercito"
+  ],
+  "B03I": [
+    -36.9,
+    -73.0,
+    null,
+    null,
+    null,
+    "Subcomisaria Chiguayante"
+  ],
+  "A17F": [
+    -22.5,
+    -68.9,
+    null,
+    null,
+    null,
+    "Piscina Municipal Calama"
+  ],
+  "B07I": [
+    -36.8,
+    -73.0,
+    null,
+    null,
+    null,
+    "Regimiento Forzado N\u00b07 Chacabuco"
+  ],
+  "T23A": [
+    -20.9,
+    -70.0,
+    null,
+    null,
+    null,
+    "Mina Punta de Lobos"
+  ],
+  "T21A": [
+    -20.9,
+    -69.5,
+    null,
+    null,
+    null,
+    "Planta SQM - Campamento IRIS"
+  ],
+  "A26F": [
+    -25.1,
+    -70.5,
+    null,
+    null,
+    null,
+    "Mina Nova Ventura"
+  ],
+  "B14I": [
+    -37.6,
+    -73.7,
+    null,
+    null,
+    null,
+    "Capitania de Puerto Lebu"
+  ],
+  "A22F": [
+    -22.9,
+    -68.2,
+    null,
+    null,
+    null,
+    "Fomento Productivo y Turismo SPA"
+  ],
+  "A10C": [
+    -28.6,
+    -70.8,
+    null,
+    null,
+    null,
+    "Estadio Municipal de Vallenar"
+  ],
+  "A20C": [
+    -27.6,
+    -69.3,
+    null,
+    null,
+    null,
+    "Mina Maricunga"
+  ],
+  "C25O": [
+    -31.9,
+    -70.6,
+    null,
+    null,
+    null,
+    "Escuela Basica de Batuco"
+  ],
+  "B20I": [
+    -36.9,
+    -71.4,
+    null,
+    null,
+    null,
+    "Tenencia Las Trancas (Termas de Chillan)"
+  ],
+  "B15I": [
+    -37.5,
+    -72.4,
+    null,
+    null,
+    null,
+    "SERVIU Los Angeles"
+  ],
+  "B18I": [
+    -37.5,
+    -72.4,
+    null,
+    null,
+    null,
+    "Piscina Municipal Los Angeles"
+  ],
+  "B22I": [
+    -36.7,
+    -73.1,
+    null,
+    null,
+    null,
+    "Hospital Naval de Talcahuano"
+  ],
+  "A10Y": [
+    -45.2,
+    -73.5,
+    null,
+    null,
+    null,
+    "Reten Puerto Aguirre"
+  ],
+  "A09Y": [
+    -44.7,
+    -72.2,
+    null,
+    null,
+    null,
+    "Recinto MOP Villa Amengual"
+  ],
+  "A02Y": [
+    -45.4,
+    -72.7,
+    null,
+    null,
+    null,
+    "Regimiento de Ingenieros N\u00b08"
+  ],
+  "PEL": [
+    -33.1,
+    -70.7,
+    null,
+    null,
+    null,
+    "Peldehue"
+  ],
+  "V06L": [
+    -33.0,
+    -71.6,
+    null,
+    null,
+    null,
+    "PDI Valparaiso San Francisco"
+  ],
+  "A20P": [
+    -18.4,
+    -69.9,
+    null,
+    null,
+    null,
+    "Planta Quiborax"
+  ],
+  "A18P": [
+    -18.2,
+    -69.6,
+    null,
+    null,
+    null,
+    "Regimiento N\u00b024 Huamachuco"
+  ],
+  "A17P": [
+    -18.9,
+    -69.1,
+    null,
+    null,
+    null,
+    "Salar de Surire"
+  ],
+  "A29F": [
+    -22.2,
+    -70.1,
+    null,
+    null,
+    null,
+    "Central E-CL Barriles"
+  ],
+  "A13F": [
+    -22.1,
+    -70.2,
+    null,
+    null,
+    null,
+    "Estadio de Tocopilla"
+  ],
+  "A02P": [
+    -17.6,
+    -69.5,
+    null,
+    null,
+    null,
+    "Tenencia Visviri"
+  ],
+  "A27F": [
+    -24.3,
+    -69.1,
+    null,
+    null,
+    null,
+    "Mina Escondida"
+  ],
+  "A26C": [
+    -29.2,
+    -71.0,
+    null,
+    null,
+    null,
+    "Escuela Rural Basica Incahuasi"
+  ],
+  "R01M": [
+    -33.4,
+    -70.7,
+    null,
+    null,
+    null,
+    "Wallmart Quilicura"
+  ],
+  "A28F": [
+    -25.1,
+    -69.5,
+    null,
+    null,
+    null,
+    "Mina El Guanaco"
+  ],
+  "PX02": [
+    -19.0,
+    -70.2,
+    null,
+    null,
+    null,
+    "IPOC Station Quebrada Camarones, Chile"
+  ],
+  "PX03": [
+    -20.4,
+    -69.6,
+    null,
+    null,
+    null,
+    "IPOC Station El Huarango, Chile"
+  ],
+  "M17L": [
+    -34.9,
+    -72.0,
+    null,
+    null,
+    null,
+    "Registro Civil Vichuquen"
+  ],
+  "B05O": [
+    -34.4,
+    -72.0,
+    null,
+    null,
+    null,
+    "3ra Comisaria Pichilemu"
+  ],
+  "L06C": [
+    -37.8,
+    -72.7,
+    null,
+    null,
+    null,
+    "Regimiento de Caballeria Blindada Husares de Angol"
+  ],
+  "V06A": [
+    -33.0,
+    -71.6,
+    null,
+    null,
+    null,
+    "PDI Valparaiso San Francisco"
+  ],
+  "C02O": [
+    -30.0,
+    -70.1,
+    null,
+    null,
+    null,
+    "Tenencia Juntas del Toro"
+  ],
+  "B06O": [
+    -34.0,
+    -71.8,
+    null,
+    null,
+    null,
+    "Escuela Municipal Navidad"
+  ],
+  "R11M": [
+    -33.4,
+    -70.3,
+    null,
+    null,
+    null,
+    "Recinto Municipal Farellones"
+  ],
+  "R26M": [
+    -33.5,
+    -70.6,
+    null,
+    null,
+    null,
+    "Planta Asfalto SERVIU"
+  ],
+  "R09M": [
+    -33.5,
+    -70.7,
+    null,
+    null,
+    null,
+    "Hospital Mutual CChC"
+  ],
+  "MT15": [
+    -33.6,
+    -70.5,
+    null,
+    null,
+    null,
+    "Las Vizcachas"
+  ],
+  "B07O": [
+    -34.2,
+    -70.5,
+    null,
+    null,
+    null,
+    "Tenencia Coya"
+  ],
+  "B02O": [
+    -34.2,
+    -70.8,
+    null,
+    null,
+    null,
+    "Patio de Rancagua - Talleres Codelco"
+  ],
+  "B01O": [
+    -34.2,
+    -70.7,
+    null,
+    null,
+    null,
+    "SERVIU Rancagua"
+  ],
+  "B04O": [
+    -34.6,
+    -71.0,
+    null,
+    null,
+    null,
+    "Regimiento de Infanteria N\u00b019 (Colchagua)"
+  ],
+  "B03O": [
+    -34.2,
+    -70.7,
+    null,
+    null,
+    null,
+    "Estadio - CONAF Machali"
+  ],
+  "MT14": [
+    -33.4,
+    -70.5,
+    null,
+    null,
+    null,
+    "Calan"
+  ],
+  "B10O": [
+    -34.6,
+    -71.4,
+    null,
+    null,
+    null,
+    "Hospital de Santa Cruz"
+  ],
+  "LC02": [
+    -38.8,
+    -73.4,
+    null,
+    null,
+    null,
+    "PUERTO SAAVEDRA"
+  ],
+  "L04C": [
+    -39.0,
+    -73.1,
+    null,
+    null,
+    null,
+    "Reten Teodoro Schmidt"
+  ],
+  "A21C": [
+    -28.1,
+    -71.1,
+    null,
+    null,
+    null,
+    "Escuela Pablo Neruda Carrizal Bajo"
+  ],
+  "L07C": [
+    -38.2,
+    -72.3,
+    null,
+    null,
+    null,
+    "Regimiento Logistico N\u00b03 Victoria"
+  ],
+  "A16F": [
+    -22.1,
+    -70.2,
+    null,
+    null,
+    null,
+    "Escuela Estados Unidos"
+  ],
+  "B12O": [
+    -34.4,
+    -70.8,
+    null,
+    null,
+    null,
+    "Reten Popeta"
+  ],
+  "R25M": [
+    -33.6,
+    -70.7,
+    null,
+    null,
+    null,
+    "Escuela de Infanteria del Ejercito San Bernardo"
+  ],
+  "B08O": [
+    -34.1,
+    -70.5,
+    null,
+    null,
+    null,
+    "Mina El Teniente Sector Barahona"
+  ],
+  "M07L": [
+    -35.1,
+    -72.0,
+    null,
+    null,
+    null,
+    "Tenencia Curepto"
+  ],
+  "T22A": [
+    -19.9,
+    -68.6,
+    null,
+    null,
+    null,
+    "Reten Cancosa"
+  ],
+  "T17A": [
+    -19.3,
+    -68.6,
+    null,
+    null,
+    null,
+    "Subcomisaria Colchane"
+  ],
+  "R24M": [
+    -33.7,
+    -70.1,
+    null,
+    null,
+    null,
+    "Embalse El Yeso"
+  ],
+  "B09O": [
+    -34.2,
+    -71.4,
+    null,
+    null,
+    null,
+    "Reten Llallauquen"
+  ],
+  "A02C": [
+    -27.1,
+    -70.8,
+    null,
+    null,
+    null,
+    "Camping CORFO"
+  ],
+  "M05A": [
+    -51.3,
+    -72.3,
+    null,
+    null,
+    null,
+    "Reten Torres del Paine"
+  ],
+  "L02C": [
+    -39.3,
+    -72.0,
+    null,
+    null,
+    null,
+    "9na Comisaria Pucon"
+  ],
+  "B21I": [
+    -36.6,
+    -72.1,
+    null,
+    null,
+    null,
+    "INACAP Chillan"
+  ],
+  "M19L": [
+    -35.1,
+    -70.5,
+    null,
+    null,
+    null,
+    "Complejo Fronterizo Paso Vergara"
+  ],
+  "B13I": [
+    -36.6,
+    -71.5,
+    null,
+    null,
+    null,
+    "Subcomisaria San Fabian de Alico"
+  ],
+  "B11O": [
+    -34.4,
+    -71.6,
+    null,
+    null,
+    null,
+    "Tenencia Marchigue"
+  ],
+  "B10I": [
+    -36.8,
+    -73.1,
+    null,
+    null,
+    null,
+    "3ra Compa\u00f1ia de Bomberos Concepcion"
+  ],
+  "LR03": [
+    -39.6,
+    -72.3,
+    null,
+    null,
+    null,
+    "Panguipulli"
+  ],
+  "B19I": [
+    -37.0,
+    -73.1,
+    null,
+    null,
+    null,
+    "Capitania de Puerto Coronel"
+  ],
+  "L09R": [
+    -39.9,
+    -71.9,
+    null,
+    null,
+    null,
+    "Reten Neltume"
+  ],
+  "M04A": [
+    -51.7,
+    -72.5,
+    null,
+    null,
+    null,
+    "SERVIU Puerto Natales"
   ]
 }
