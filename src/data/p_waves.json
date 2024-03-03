@@ -346,19 +346,25 @@
   "19960222_magM_33.38S_71.36W_depthKM": {
     "Llolleo": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 800,
+      "status": true,
       "updated": "2024-03-03T00:21:24.739189"
     },
     "SantiagoCentro": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2971,
+      "status": true,
       "updated": "2024-03-03T00:21:24.739467"
     }
   },
   "19960401_magM_latS_lonW_depthKM": {
     "Tocopilla": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 2037,
+      "status": true,
       "updated": "2024-03-03T00:21:24.816618"
     }
   },
