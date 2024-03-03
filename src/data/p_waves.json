@@ -2332,19 +2332,25 @@
   "20120514_6.4M_18.11S_70.24W_120.0KM": {
     "MNMCX": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2437,
+      "status": true,
       "updated": "2024-03-03T00:21:43.910657"
     },
     "PB12": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1793,
+      "status": true,
       "updated": "2024-03-03T00:21:43.910989"
     }
   },
   "20120519_6.1M_25.74S_70.86W_84.0KM": {
     "GO02": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2432,
+      "status": true,
       "updated": "2024-03-03T00:21:44.180860"
     }
   },
