@@ -2357,21 +2357,27 @@
   "20120807_5.5M_27.88S_70.58W_74.0KM": {
     "GO03": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1241,
+      "status": true,
       "updated": "2024-03-03T00:21:44.372618"
     }
   },
   "20120827_5.0M_23.74S_69.42W_99.0KM": {
     "PB15": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1660,
+      "status": true,
       "updated": "2024-03-03T00:21:44.573774"
     }
   },
   "20120830_5.2M_37.24S_73.86W_40.0KM": {
     "CCSP": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1359,
+      "status": true,
       "updated": "2024-03-03T00:21:44.772321"
     }
   },
