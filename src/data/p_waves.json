@@ -79235,17 +79235,23 @@
   "20240124_5.4M_22.17S_68.77W_132.0KM": {
     "PB02": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8754,
+      "status": true,
       "updated": "2024-03-03T01:05:00.347062"
     },
     "PB03": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8332,
+      "status": true,
       "updated": "2024-03-03T01:05:00.347379"
     },
     "PB15": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8649,
+      "status": true,
       "updated": "2024-03-03T01:05:00.347695"
     }
   }
