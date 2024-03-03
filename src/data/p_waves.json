@@ -2232,62 +2232,82 @@
   "20120303_5.6M_30.19S_71.45W_35.0KM": {
     "GO04": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1172,
+      "status": true,
       "updated": "2024-03-03T00:21:41.867702"
     }
   },
   "20120304_5.3M_21.60S_70.06W_47.0KM": {
     "PB02": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 957,
+      "status": true,
       "updated": "2024-03-03T00:21:42.060189"
     },
     "PB07": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 909,
+      "status": true,
       "updated": "2024-03-03T00:21:42.060525"
     }
   },
   "20120310_5.3M_19.74S_69.25W_101.0KM": {
     "MNMCX": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1826,
+      "status": true,
       "updated": "2024-03-03T00:21:42.328910"
     }
   },
   "20120319_5.0M_25.00S_69.75W_100.0KM": {
     "GO02": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1563,
+      "status": true,
       "updated": "2024-03-03T00:21:42.516562"
     }
   },
   "20120324_5.2M_33.05S_71.06W_69.0KM": {
     "ROC1": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2104,
+      "status": true,
       "updated": "2024-03-03T00:21:42.708603"
     }
   },
   "20120325_6.8M_35.20S_72.22W_41.0KM": {
     "CCSP": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 3018,
+      "status": true,
       "updated": "2024-03-03T00:21:43.012351"
     },
     "GO05": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 908,
+      "status": true,
       "updated": "2024-03-03T00:21:43.011587"
     },
     "LMEL": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 3566,
+      "status": true,
       "updated": "2024-03-03T00:21:43.011260"
     },
     "ROC1": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7871,
+      "status": true,
       "updated": "2024-03-03T00:21:43.012052"
     }
   },
