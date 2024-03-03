@@ -2544,17 +2544,23 @@
   "20130710_5.7M_19.37S_69.52W_113.0KM": {
     "GO01": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1868,
+      "status": true,
       "updated": "2024-03-03T00:21:47.879903"
     },
     "MNMCX": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1744,
+      "status": true,
       "updated": "2024-03-03T00:21:47.880234"
     },
     "PB11": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1829,
+      "status": true,
       "updated": "2024-03-03T00:21:47.880525"
     }
   },
