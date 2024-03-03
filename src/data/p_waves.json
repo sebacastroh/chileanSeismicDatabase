@@ -78073,229 +78073,311 @@
   "20230401_4.2M_20.88S_70.44W_30.0KM": {
     "T23A": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10790,
+      "status": true,
       "updated": "2024-03-03T01:04:08.011535"
     }
   },
   "20230404_5.7M_27.46S_71.01W_53.0KM": {
     "A01C": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 11784,
+      "status": true,
       "updated": "2024-03-03T01:04:08.529849"
     },
     "A02C": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 14739,
+      "status": true,
       "updated": "2024-03-03T01:04:08.531666"
     },
     "A04C": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 11890,
+      "status": true,
       "updated": "2024-03-03T01:04:08.531186"
     },
     "A07C": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 11773,
+      "status": true,
       "updated": "2024-03-03T01:04:08.530517"
     },
     "A09C": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 11441,
+      "status": true,
       "updated": "2024-03-03T01:04:08.528798"
     },
     "A10C": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 11445,
+      "status": true,
       "updated": "2024-03-03T01:04:08.528247"
     },
     "A14C": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 16548,
+      "status": true,
       "updated": "2024-03-03T01:04:08.527937"
     },
     "A18C": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 11980,
+      "status": true,
       "updated": "2024-03-03T01:04:08.532270"
     },
     "A20C": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 7842,
+      "status": true,
       "updated": "2024-03-03T01:04:08.526822"
     },
     "A25C": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 7825,
+      "status": true,
       "updated": "2024-03-03T01:04:08.532564"
     },
     "A27C": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 11976,
+      "status": true,
       "updated": "2024-03-03T01:04:08.529079"
     },
     "A28C": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 11931,
+      "status": true,
       "updated": "2024-03-03T01:04:08.530865"
     },
     "A29C": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7877,
+      "status": true,
       "updated": "2024-03-03T01:04:08.527470"
     },
     "A30C": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 11789,
+      "status": true,
       "updated": "2024-03-03T01:04:08.530158"
     },
     "AC01": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8574,
+      "status": true,
       "updated": "2024-03-03T01:04:08.527172"
     },
     "AC02": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9314,
+      "status": true,
       "updated": "2024-03-03T01:04:08.531954"
     },
     "AC04": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 7761,
+      "status": true,
       "updated": "2024-03-03T01:04:08.528514"
     },
     "AC06": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7537,
+      "status": true,
       "updated": "2024-03-03T01:04:08.529557"
     },
     "GO03": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7678,
+      "status": true,
       "updated": "2024-03-03T01:04:08.529331"
     }
   },
   "20230405_4.0M_32.10S_71.69W_36.0KM": {
     "C23O": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 10179,
+      "status": true,
       "updated": "2024-03-03T01:04:11.281082"
     }
   },
   "20230406_4.0M_27.48S_71.05W_52.0KM": {
     "A04C": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10302,
+      "status": true,
       "updated": "2024-03-03T01:04:11.581759"
     },
     "A27C": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 10100,
+      "status": true,
       "updated": "2024-03-03T01:04:11.581205"
     },
     "A28C": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 10104,
+      "status": true,
       "updated": "2024-03-03T01:04:11.581529"
     },
     "A29C": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 6170,
+      "status": true,
       "updated": "2024-03-03T01:04:11.580862"
     }
   },
   "20230410_4.0M_32.37S_71.45W_53.0KM": {
     "V12A": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10787,
+      "status": true,
       "updated": "2024-03-03T01:04:12.248482"
     }
   },
   "20230410_4.5M_32.62S_70.84W_78.0KM": {
     "C07O": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 8926,
+      "status": true,
       "updated": "2024-03-03T01:04:12.578797"
     },
     "C23O": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9473,
+      "status": true,
       "updated": "2024-03-03T01:04:12.579105"
     },
     "V02A": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9538,
+      "status": true,
       "updated": "2024-03-03T01:04:12.578450"
     }
   },
   "20230420_4.1M_30.91S_71.44W_51.0KM": {
     "C05O": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 10506,
+      "status": true,
       "updated": "2024-03-03T01:04:13.180572"
     },
     "C08O": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 10092,
+      "status": true,
       "updated": "2024-03-03T01:04:13.180925"
     }
   },
   "20230423_4.3M_30.64S_71.26W_56.0KM": {
     "C08O": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9778,
+      "status": true,
       "updated": "2024-03-03T01:04:13.659219"
     },
     "C11O": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10572,
+      "status": true,
       "updated": "2024-03-03T01:04:13.658903"
     },
     "C18O": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9912,
+      "status": true,
       "updated": "2024-03-03T01:04:13.659510"
     },
     "C32O": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 10254,
+      "status": true,
       "updated": "2024-03-03T01:04:13.658558"
     }
   },
   "20230424_4.8M_33.66S_72.04W_31.0KM": {
     "V08A": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9475,
+      "status": true,
       "updated": "2024-03-03T01:04:14.506051"
     }
   },
   "20230425_3.7M_30.70S_71.39W_52.0KM": {
     "C08O": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10196,
+      "status": true,
       "updated": "2024-03-03T01:04:14.786386"
     },
     "C11O": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10665,
+      "status": true,
       "updated": "2024-03-03T01:04:14.786029"
     }
   },
   "20230427_5.1M_35.61S_71.45W_93.0KM": {
     "BO02": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8114,
+      "status": true,
       "updated": "2024-03-03T01:04:15.282117"
     },
     "ML02": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7393,
+      "status": true,
       "updated": "2024-03-03T01:04:15.282482"
     }
   },
   "20230429_2.8M_32.83S_71.33W_36.0KM": {
     "V02A": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10752,
+      "status": true,
       "updated": "2024-03-03T01:04:15.565249"
     }
   },
