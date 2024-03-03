@@ -1256,109 +1256,143 @@
   "20060210_magM_32.35S_71.33W_depthKM": {
     "VinadelMarElSalto": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2644,
+      "status": true,
       "updated": "2024-03-03T00:21:32.672684"
     },
     "VinadelMarElSaltoCerro": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 2542,
+      "status": true,
       "updated": "2024-03-03T00:21:32.672909"
     }
   },
   "20060327_magM_20.47S_69.23W_depthKM": {
     "Pica": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8848,
+      "status": true,
       "updated": "2024-03-03T00:21:32.850343"
     }
   },
   "20060407_magM_latS_lonW_depthKM": {
     "FuerteBaquedano": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1009,
+      "status": false,
       "updated": "2024-03-03T00:21:32.955527"
     }
   },
   "20060409_magM_20.23S_70.11W_depthKM": {
     "AltoHospicio": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 866,
+      "status": false,
       "updated": "2024-03-03T00:21:33.030029"
     },
     "Pica": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9982,
+      "status": true,
       "updated": "2024-03-03T00:21:33.030387"
     }
   },
   "20060430_magM_26.50S_71.08W_depthKM": {
     "Copiapo": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 1738,
+      "status": true,
       "updated": "2024-03-03T00:21:33.223950"
     }
   },
   "20060430_magM_27.05S_71.23W_depthKM": {
     "Copiapo": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 1522,
+      "status": true,
       "updated": "2024-03-03T00:21:33.147025"
     }
   },
   "20060601_magM_latS_lonW_depthKM": {
     "Cuya": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 0,
+      "status": false,
       "updated": "2024-03-03T00:21:33.295865"
     }
   },
   "20060606_magM_20.51S_69.28W_depthKM": {
     "Pica": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9853,
+      "status": true,
       "updated": "2024-03-03T00:21:33.372745"
     }
   },
   "20060620_magM_32.55S_71.38W_depthKM": {
     "VinadelMarElSalto": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 3997,
+      "status": true,
       "updated": "2024-03-03T00:21:33.481127"
     },
     "VinadelMarElSaltoCerro": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2939,
+      "status": true,
       "updated": "2024-03-03T00:21:33.481380"
     }
   },
   "20061012_magM_31.20S_71.42W_depthKM": {
     "PuenteAmolanas": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 3775,
+      "status": true,
       "updated": "2024-03-03T00:21:33.574696"
     }
   },
   "20061101_magM_latS_lonW_depthKM": {
     "Illapel": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 1312,
+      "status": false,
       "updated": "2024-03-03T00:21:33.675242"
     }
   },
   "20061120_magM_17.45S_70.33W_depthKM": {
     "AricaCerroLaCruz": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9894,
+      "status": true,
       "updated": "2024-03-03T00:21:33.759372"
     },
     "AricaChacalluta": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9856,
+      "status": true,
       "updated": "2024-03-03T00:21:33.759741"
     },
     "Poconchile": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9844,
+      "status": true,
       "updated": "2024-03-03T00:21:33.760086"
     }
   },
