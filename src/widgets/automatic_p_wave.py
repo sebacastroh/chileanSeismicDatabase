@@ -282,6 +282,8 @@ def plot_p_wave(masterWindow, event_id, station, basePath):
         action = 'quit'
         window.destroy()
 
+    fig.canvas.toolbar.zoom()
+
     button = tkinter.Button(master=window, text="Registrar onda P",
                             command=_valid)
     button.pack(side=tkinter.LEFT)
