@@ -159,10 +159,10 @@ cpdef SpectraRot(double[::1] ax, double[::1] ay, double dt, double[::1] T, doubl
     nT = len(T)
     
     thisSa = <double *>malloc(nT * nTheta * sizeof(double))
-    
+    acc    = <double *>malloc(n * sizeof(double))
+
     for i in prange(nTheta, nogil=True):
         theta = pi*i/(nTheta - 1)
-        acc   =  <double *>malloc(n * sizeof(double))
         s     = sin(theta)
         c     = cos(theta)
         for j in range(n):
@@ -170,7 +170,7 @@ cpdef SpectraRot(double[::1] ax, double[::1] ay, double dt, double[::1] T, doubl
         
         _Spectrum(acc, dt, T, xi, n, nT, thisSa, i*nT)
         
-        free(acc)
+    free(acc)
         
     Sa = np.empty((nTheta, nT))
     for i in range(nTheta):

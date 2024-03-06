@@ -1,5 +1,7 @@
+import os
+import sys
 import json
-from jinja2 import Environment, PackageLoader
+from jinja2 import Environment, FileSystemLoader
 import jinja2
 Markup = jinja2.utils.markupsafe.Markup
 
@@ -9,19 +11,24 @@ from bokeh.plotting import figure
 from bokeh.layouts import layout, column
 from bokeh.models import ColumnDataSource, CustomJS, DatePicker, Tabs, TabPanel
 from bokeh.models.widgets import TextInput, Select, DataTable, TableColumn, Button, Div, CheckboxGroup, Toggle
-from bokeh.tile_providers import get_provider, Vendors
+from bokeh.tile_providers import Vendors
 from bokeh.io import curdoc
 from bokeh.palettes import Spectral6
 from bokeh.events import ButtonClick
 from datetime import datetime, timedelta, date
 
-CARTODBPOSITRON = get_provider(Vendors.STAMEN_TERRAIN)
+# Paths
+currentDir = os.path.dirname(__file__)
+libPath    = os.path.abspath(os.path.join(currentDir, '..', '..', 'lib'))
+dataPath   = os.path.abspath(os.path.join(currentDir, '..', '..', 'data'))
+
+if not libPath in sys.path:
+    sys.path.append(libPath)
 
 # Seismic libraries
-from myCodes import SeismicLibrary
+import seismic
 
 # System libraries
-import os
 import subprocess
 
 # Numerical libraries
@@ -46,12 +53,13 @@ lettersandnumbers = string.ascii_lowercase + string.digits
 #from email.mime.text import MIMEText
 
 # Paths
-matfiles = '/home/srcastro/projects/correctSeismicDatabase/newMethodology/events_mat_corrected_v2'
-flatfile = '/home/srcastro/projects/correctSeismicDatabase/newMethodology/flatFile_corrected_v2.csv'
-users_registered = '/home/srcastro/projects/strongMotionDatabaseWeb/seismic_db_users.csv'
+matfiles = os.path.join(dataPath, 'seismicDatabase', 'mat')
+flatfile = os.path.join(dataPath, 'flatFile.csv') #'/home/srcastro/projects/correctSeismicDatabase/newMethodology/flatFile_corrected_v2.csv'
+users_registered = os.path.join(dataPath, 'seismic_db_users.csv')
 
 #%% Read database
-df = pd.read_csv(users_registered, encoding='latin1')
+# df = pd.read_csv(users_registered, encoding='latin1')
+df = pd.DataFrame([], columns=['email', 'password'])
 users = list(df['email'])
 passwords = list(df['password'])
 
@@ -176,17 +184,17 @@ Stations.pop('__header__')
 Stations.pop('__globals__')
 keyValues = [item for item in Stations.items()]
 
-snames    = []
-for keyValue in keyValues:
-    Station = keyValue[1]
-    snames.append(Station.name)
+keys   = []
+snames = []
+for key, value in keyValues:
+    if not key.startswith('st'):
+        continue
+    keys.append(key)
+    snames.append(value.station_code)
 
-order     = np.argsort(snames)
-keys      = []
-snames    = []
-for pos in order:
-    keys.append(keyValues[pos][0])
-    snames.append(keyValues[pos][1].name)
+order  = np.argsort(snames)
+snames = np.array(snames)[order].tolist()
+keys   = np.array(keys)[order].tolist()
 
 stations  = Select(title='Stations\n', value=snames[0], options=snames, sizing_mode='stretch_width', width=pwdith)
 Station   = Stations[keys[0]]
@@ -320,62 +328,62 @@ tooltips_cav = [("(t, CAV)", "($x, $y)"),]
 plot_height = 250
 #%% Acceleration
 # ax
-tax = np.linspace(0., (len(Station.acc_1)-1)*Station.dt, len(Station.acc_1))
-source_ax = ColumnDataSource(data=dict(x=tax, y=Station.acc_1/g))
+tax = np.linspace(0., (len(Station.acc_uncorrected_1)-1)*Station.dt, len(Station.acc_uncorrected_1))
+source_ax = ColumnDataSource(data=dict(x=tax, y=Station.acc_uncorrected_1/g))
 
 ax = figure(title='Acceleration', x_axis_label='Time [s]', y_axis_label='Acceleration [g]',
-            tooltips=tooltips_a, plot_height=plot_height, sizing_mode='stretch_width', width=pwdith*4)
-ax.line('x', 'y', legend_label=Station.name, source=source_ax)
+            tooltips=tooltips_a, height=plot_height, sizing_mode='stretch_width', width=pwdith*4)
+ax.line('x', 'y', legend_label=Station.station_name, source=source_ax)
 ax.xgrid[0].minor_grid_line_color = '#e5e5e5'
 ax.ygrid[0].minor_grid_line_color = '#e5e5e5'
 
 # ay
-tay = np.linspace(0., (len(Station.acc_2)-1)*Station.dt, len(Station.acc_2))
-source_ay = ColumnDataSource(data=dict(x=tay, y=Station.acc_2/g))
+tay = np.linspace(0., (len(Station.acc_uncorrected_2)-1)*Station.dt, len(Station.acc_uncorrected_2))
+source_ay = ColumnDataSource(data=dict(x=tay, y=Station.acc_uncorrected_2/g))
 
 ay = figure(title='Acceleration', x_axis_label='Time [s]', y_axis_label='Acceleration [g]',
-            tooltips=tooltips_a, plot_height=plot_height, sizing_mode='stretch_width', width=pwdith*4)
-ay.line('x', 'y', legend_label=Station.name, source=source_ay)
+            tooltips=tooltips_a, height=plot_height, sizing_mode='stretch_width', width=pwdith*4)
+ay.line('x', 'y', legend_label=Station.station_name, source=source_ay)
 ay.xgrid[0].minor_grid_line_color = '#e5e5e5'
 ay.ygrid[0].minor_grid_line_color = '#e5e5e5'
 
 # az
-taz = np.linspace(0., (len(Station.acc_3)-1)*Station.dt, len(Station.acc_3))
-source_az = ColumnDataSource(data=dict(x=taz, y=Station.acc_3/g))
+taz = np.linspace(0., (len(Station.acc_uncorrected_3)-1)*Station.dt, len(Station.acc_uncorrected_3))
+source_az = ColumnDataSource(data=dict(x=taz, y=Station.acc_uncorrected_3/g))
 
 az = figure(title='Acceleration', x_axis_label='Time [s]', y_axis_label='Acceleration [g]',
-            tooltips=tooltips_a, plot_height=plot_height, sizing_mode='stretch_width', width=pwdith*4)
-az.line('x', 'y', legend_label=Station.name, source=source_az)
+            tooltips=tooltips_a, height=plot_height, sizing_mode='stretch_width', width=pwdith*4)
+az.line('x', 'y', legend_label=Station.station_name, source=source_az)
 az.xgrid[0].minor_grid_line_color = '#e5e5e5'
 az.ygrid[0].minor_grid_line_color = '#e5e5e5'
 #%% Velocity
 # vx
-velocity_x = spi.cumtrapz(Station.acc_1, x=tax, initial=0.)
+velocity_x = spi.cumtrapz(Station.acc_uncorrected_1, x=tax, initial=0.)
 source_vx = ColumnDataSource(data=dict(x=tax, y=velocity_x))
 
 vx = figure(title='Velocity', x_axis_label='Time [s]', y_axis_label='Velocity [m/s]',
-            tooltips=tooltips_v, plot_height=plot_height, sizing_mode='stretch_width', width=pwdith*4)
-vx.line('x', 'y', legend_label=Station.name, source=source_vx)
+            tooltips=tooltips_v, height=plot_height, sizing_mode='stretch_width', width=pwdith*4)
+vx.line('x', 'y', legend_label=Station.station_name, source=source_vx)
 vx.xgrid[0].minor_grid_line_color = '#e5e5e5'
 vx.ygrid[0].minor_grid_line_color = '#e5e5e5'
 
 # vy
-velocity_y = spi.cumtrapz(Station.acc_2, x=tay, initial=0.)
+velocity_y = spi.cumtrapz(Station.acc_uncorrected_2, x=tay, initial=0.)
 source_vy = ColumnDataSource(data=dict(x=tay, y=velocity_y))
 
 vy = figure(title='Velocity', x_axis_label='Time [s]', y_axis_label='Velocity [m/s]',
-            tooltips=tooltips_v, plot_height=plot_height, sizing_mode='stretch_width', width=pwdith*4)
-vy.line('x', 'y', legend_label=Station.name, source=source_vy)
+            tooltips=tooltips_v, height=plot_height, sizing_mode='stretch_width', width=pwdith*4)
+vy.line('x', 'y', legend_label=Station.station_name, source=source_vy)
 vy.xgrid[0].minor_grid_line_color = '#e5e5e5'
 vy.ygrid[0].minor_grid_line_color = '#e5e5e5'
 
 # vz
-velocity_z = spi.cumtrapz(Station.acc_3, x=taz, initial=0.)
+velocity_z = spi.cumtrapz(Station.acc_uncorrected_3, x=taz, initial=0.)
 source_vz = ColumnDataSource(data=dict(x=taz, y=velocity_z))
 
 vz = figure(title='Velocity', x_axis_label='Time [s]', y_axis_label='Velocity [m/s]',
-            tooltips=tooltips_v, plot_height=plot_height, sizing_mode='stretch_width', width=pwdith*4)
-vz.line('x', 'y', legend_label=Station.name, source=source_vz)
+            tooltips=tooltips_v, height=plot_height, sizing_mode='stretch_width', width=pwdith*4)
+vz.line('x', 'y', legend_label=Station.station_name, source=source_vz)
 vz.xgrid[0].minor_grid_line_color = '#e5e5e5'
 vz.ygrid[0].minor_grid_line_color = '#e5e5e5'
 #%% Displacement
@@ -384,8 +392,8 @@ displacement_x = spi.cumtrapz(velocity_x, x=tax, initial=0.)
 source_dx = ColumnDataSource(data=dict(x=tax, y=displacement_x))
 
 dx = figure(title='Displacement', x_axis_label='Time [s]', y_axis_label='Displacement [m]',
-            tooltips=tooltips_d, plot_height=plot_height, sizing_mode='stretch_width', width=pwdith*4)
-dx.line('x', 'y', legend_label=Station.name, source=source_dx)
+            tooltips=tooltips_d, height=plot_height, sizing_mode='stretch_width', width=pwdith*4)
+dx.line('x', 'y', legend_label=Station.station_name, source=source_dx)
 dx.xgrid[0].minor_grid_line_color = '#e5e5e5'
 dx.ygrid[0].minor_grid_line_color = '#e5e5e5'
 
@@ -394,8 +402,8 @@ displacement_y = spi.cumtrapz(velocity_y, x=tay, initial=0.)
 source_dy = ColumnDataSource(data=dict(x=tay, y=displacement_y))
 
 dy = figure(title='Displacement', x_axis_label='Time [s]', y_axis_label='Displacement [m]',
-            tooltips=tooltips_d, plot_height=plot_height, sizing_mode='stretch_width', width=pwdith*4)
-dy.line('x', 'y', legend_label=Station.name, source=source_dy)
+            tooltips=tooltips_d, height=plot_height, sizing_mode='stretch_width', width=pwdith*4)
+dy.line('x', 'y', legend_label=Station.station_name, source=source_dy)
 dy.xgrid[0].minor_grid_line_color = '#e5e5e5'
 dy.ygrid[0].minor_grid_line_color = '#e5e5e5'
 
@@ -404,8 +412,8 @@ displacement_z = spi.cumtrapz(velocity_z, x=taz, initial=0.)
 source_dz = ColumnDataSource(data=dict(x=taz, y=displacement_z))
 
 dz = figure(title='Displacement', x_axis_label='Time [s]', y_axis_label='Displacement [m]',
-            tooltips=tooltips_d, plot_height=plot_height, sizing_mode='stretch_width', width=pwdith*4)
-dz.line('x', 'y', legend_label=Station.name, source=source_dz)
+            tooltips=tooltips_d, height=plot_height, sizing_mode='stretch_width', width=pwdith*4)
+dz.line('x', 'y', legend_label=Station.station_name, source=source_dz)
 dz.xgrid[0].minor_grid_line_color = '#e5e5e5'
 dz.ygrid[0].minor_grid_line_color = '#e5e5e5'
 
@@ -428,7 +436,7 @@ Tn_lin = np.linspace(float(ta.value), float(tb.value), npoints)
 Tn_log = np.hstack((0., np.logspace(np.log10(0.001), np.log10(float(tb.value)), npoints)))
 
 #%% Spectrum
-Spectrum_lin = SeismicLibrary.SpectraRot(Station.acc_1, Station.acc_2, Station.dt, Tn_lin, float(xi.value), nTheta)
+Spectrum_lin = seismic.SpectraRot(Station.acc_uncorrected_1, Station.acc_uncorrected_2, Station.dt, Tn_lin, float(xi.value), nTheta)
 Spectrum_linx = Spectrum_lin[nx]
 Spectrum_liny = Spectrum_lin[ny]
 
@@ -439,7 +447,7 @@ source_SaRotD0_lin = ColumnDataSource(data=dict(x=Tn_lin, y=np.min(Spectrum_lin,
 source_SaRotD100_lin = ColumnDataSource(data=dict(x=Tn_lin, y=np.max(Spectrum_lin, axis=0)/g))
 source_Saxy_lin = ColumnDataSource(data=dict(x=Tn_lin, y=np.sqrt(Spectrum_linx*Spectrum_liny)/g))
 
-Spectrum_log = SeismicLibrary.SpectraRot(Station.acc_1, Station.acc_2, Station.dt, Tn_log, float(xi.value), nTheta)
+Spectrum_log = seismic.SpectraRot(Station.acc_uncorrected_1, Station.acc_uncorrected_2, Station.dt, Tn_log, float(xi.value), nTheta)
 Spectrum_logx = Spectrum_log[nx]
 Spectrum_logy = Spectrum_log[ny]
 
@@ -590,10 +598,10 @@ Sv_logx_logy.legend.click_policy = "hide"
 panel_Sv_logx_logy = TabPanel(child=Sv_logx_logy, title='D-V-A Spectrum')
 
 #%% Fourier spectrum
-L = Station.acc_1.shape[0]
-Fax = 2.*np.abs(spf.fft(Station.acc_1)*Station.dt)[:L//2]
-Fay = 2.*np.abs(spf.fft(Station.acc_2)*Station.dt)[:L//2]
-Faz = 2.*np.abs(spf.fft(Station.acc_3)*Station.dt)[:L//2]
+L = Station.acc_uncorrected_1.shape[0]
+Fax = 2.*np.abs(spf.fft(Station.acc_uncorrected_1)*Station.dt)[:L//2]
+Fay = 2.*np.abs(spf.fft(Station.acc_uncorrected_2)*Station.dt)[:L//2]
+Faz = 2.*np.abs(spf.fft(Station.acc_uncorrected_3)*Station.dt)[:L//2]
 
 Fs = 1./Station.dt
 freq = Fs*np.linspace(0., L//2, L//2)/L
@@ -643,15 +651,16 @@ Fourier_logx_logy.legend.click_policy = "hide"
 panel_Fourier_logx_logy = TabPanel(child=Fourier_logx_logy, title='Fourier Spectrum')
 
 #%% Husid plot
-t = np.linspace(0., (len(Station.acc_1)-1)*Station.dt, len(Station.acc_1))
-
-iax = np.pi/(2.*g)*spi.cumtrapz(Station.acc_1**2, t, initial=0.)
+t = np.linspace(0., (len(Station.acc_uncorrected_1)-1)*Station.dt, len(Station.acc_uncorrected_1))
+iax = np.pi/(2.*g)*spi.cumtrapz(Station.acc_uncorrected_1**2, t, initial=0.)
 source_aix = ColumnDataSource(data=dict(x=t, y=iax))
 
-iay = np.pi/(2.*g)*spi.cumtrapz(Station.acc_2**2, t, initial=0.)
+t = np.linspace(0., (len(Station.acc_uncorrected_2)-1)*Station.dt, len(Station.acc_uncorrected_2))
+iay = np.pi/(2.*g)*spi.cumtrapz(Station.acc_uncorrected_2**2, t, initial=0.)
 source_aiy = ColumnDataSource(data=dict(x=t, y=iay))
 
-iaz = np.pi/(2.*g)*spi.cumtrapz(Station.acc_3**2, t, initial=0.)
+t = np.linspace(0., (len(Station.acc_uncorrected_3)-1)*Station.dt, len(Station.acc_uncorrected_3))
+iaz = np.pi/(2.*g)*spi.cumtrapz(Station.acc_uncorrected_3**2, t, initial=0.)
 source_aiz = ColumnDataSource(data=dict(x=t, y=iaz))
 
 Husid_linx_liny = figure(title='Husid Plot', x_axis_label='Time [s]',
@@ -695,15 +704,18 @@ Husid_logx_logy.legend.click_policy = "hide"
 panel_Husid_logx_logy = TabPanel(child=Husid_logx_logy, title='Husid Plot')
 
 #%% Cumulative absolute velocity plot
-#t = np.linspace(0., (len(Station.acc_1)-1)*Station.dt, len(Station.acc_1))
+#t = np.linspace(0., (len(Station.acc_uncorrected_1)-1)*Station.dt, len(Station.acc_uncorrected_1))
 
-cavx = spi.cumtrapz(np.abs(Station.acc_1), t, initial=0.)
+t = np.linspace(0., (len(Station.acc_uncorrected_1)-1)*Station.dt, len(Station.acc_uncorrected_1))
+cavx = spi.cumtrapz(np.abs(Station.acc_uncorrected_1), t, initial=0.)
 source_cavx = ColumnDataSource(data=dict(x=t, y=cavx))
 
-cavy = spi.cumtrapz(np.abs(Station.acc_2), t, initial=0.)
+t = np.linspace(0., (len(Station.acc_uncorrected_2)-1)*Station.dt, len(Station.acc_uncorrected_2))
+cavy = spi.cumtrapz(np.abs(Station.acc_uncorrected_2), t, initial=0.)
 source_cavy = ColumnDataSource(data=dict(x=t, y=cavy))
 
-cavz = spi.cumtrapz(np.abs(Station.acc_3), t, initial=0.)
+t = np.linspace(0., (len(Station.acc_uncorrected_3)-1)*Station.dt, len(Station.acc_uncorrected_3))
+cavz = spi.cumtrapz(np.abs(Station.acc_uncorrected_3), t, initial=0.)
 source_cavz = ColumnDataSource(data=dict(x=t, y=cavz))
 
 CAV_linx_liny = figure(title='Cumulative Absolute Velocity', x_axis_label='Time [s]',
@@ -755,8 +767,7 @@ panel_CAV_linx_liny]
 tabs_spectrum = Tabs(tabs=panels_spectrum, sizing_mode='stretch_width', width=pwdith*3)
 
 # Table
-table = dict(fields=['Event name',
-        'Start time',
+table = dict(fields=['Start time',
         'Magnitude [Mw]',
         'Longitude hypocenter',
         'Latitude hypocenter',
@@ -771,22 +782,21 @@ table = dict(fields=['Event name',
         'Joyner-Boore distance [km]',
         'Vs30 [m/s]',
         'Azimut [o]'],
-        values=[Station.event_name,
-        Station.start_time,
+        values=[Station.starttime,
         Station.magnitude,
         Station.hypocenter_lon,
         Station.hypocenter_lat,
         Station.event_type,
         Station.depth,
-        Station.name,
-        Station.lon,
-        Station.lat,
+        Station.station_name,
+        Station.station_lon,
+        Station.station_lat,
         Station.Rhypo,
         Station.Repi,
         Station.Rrup,
         Station.Rjb,
-        Station.Vs30,
-        Station.azimut])
+        Station.vs30,
+        Station.azimuth])
 
 source_table = ColumnDataSource(data=table)
 columns = [TableColumn(field="fields", title="Parameter"),
@@ -798,7 +808,7 @@ inProj = pyproj.Proj("EPSG:{0}".format(4326)) # WGS84
 outProj = pyproj.Proj("EPSG:{0}".format(3857)) # Mercator
 
 hypo_x, hypo_y = pyproj.transform(inProj, outProj, Station.hypocenter_lon, Station.hypocenter_lat, always_xy=True)
-sta_x, sta_y   = pyproj.transform(inProj, outProj, Station.lon, Station.lat, always_xy=True)
+sta_x, sta_y   = pyproj.transform(inProj, outProj, Station.station_lon, Station.station_lat, always_xy=True)
 
 xmean = 0.5*(hypo_x + sta_x)
 ymean = 0.5*(hypo_y + sta_y)
@@ -813,7 +823,7 @@ ymax = ymean + dist + 30000
 
 p = figure(x_range=(xmin, xmax), y_range=(ymin, ymax),
         x_axis_type="mercator", y_axis_type="mercator", sizing_mode='stretch_width', width=pwdith*4*2//3)
-p.add_tile(CARTODBPOSITRON)
+p.add_tile("CartoDB Positron")
 
 source_hypo = ColumnDataSource(
         data=dict(lat=[ hypo_y],
@@ -926,7 +936,7 @@ def update_stations(attrname, old, new):
 
     for keyValue in keyValues:
         Station = keyValue[1]
-        snames.append(Station.name)
+        snames.append(Station.station_name)
 
     order     = np.argsort(snames)
     keys      = []
@@ -959,25 +969,25 @@ def update_acceleration(attrname, old, new):
     pos     = stations.options.index(stations.value)
     Station = Stations[keys[pos]]
 
-    tax = np.linspace(0., (len(Station.acc_1)-1)*Station.dt, len(Station.acc_1))
-    source_ax.data = dict(x=tax, y=Station.acc_1/g)
-    velocity_x = spi.cumtrapz(Station.acc_1, x=tax, initial=0.)
+    tax = np.linspace(0., (len(Station.acc_uncorrected_1)-1)*Station.dt, len(Station.acc_uncorrected_1))
+    source_ax.data = dict(x=tax, y=Station.acc_uncorrected_1/g)
+    velocity_x = spi.cumtrapz(Station.acc_uncorrected_1, x=tax, initial=0.)
     source_vx.data = dict(x=tax, y=velocity_x)
     displacement_x = spi.cumtrapz(velocity_x, x=tax, initial=0.)
     source_dx.data = dict(x=tax, y=displacement_x)
     tabs_acceleration.tabs[0].title = Station.component_1
 
-    tay = np.linspace(0., (len(Station.acc_2)-1)*Station.dt, len(Station.acc_2))
-    source_ay.data = dict(x=tay, y=Station.acc_2/g)
-    velocity_y = spi.cumtrapz(Station.acc_2, x=tay, initial=0.)
+    tay = np.linspace(0., (len(Station.acc_uncorrected_2)-1)*Station.dt, len(Station.acc_uncorrected_2))
+    source_ay.data = dict(x=tay, y=Station.acc_uncorrected_2/g)
+    velocity_y = spi.cumtrapz(Station.acc_uncorrected_2, x=tay, initial=0.)
     source_vy.data = dict(x=tay, y=velocity_y)
     displacement_y = spi.cumtrapz(velocity_y, x=tay, initial=0.)
     source_dy.data = dict(x=tay, y=displacement_y)
     tabs_acceleration.tabs[1].title = Station.component_2
 
-    taz = np.linspace(0., (len(Station.acc_3)-1)*Station.dt, len(Station.acc_3))
-    source_az.data = dict(x=taz, y=Station.acc_3/g)
-    velocity_z = spi.cumtrapz(Station.acc_3, x=taz, initial=0.)
+    taz = np.linspace(0., (len(Station.acc_uncorrected_3)-1)*Station.dt, len(Station.acc_uncorrected_3))
+    source_az.data = dict(x=taz, y=Station.acc_uncorrected_3/g)
+    velocity_z = spi.cumtrapz(Station.acc_uncorrected_3, x=taz, initial=0.)
     source_vz.data = dict(x=taz, y=velocity_z)
     displacement_z = spi.cumtrapz(velocity_z, x=taz, initial=0.)
     source_dz.data = dict(x=taz, y=displacement_z)
@@ -987,7 +997,7 @@ def update_acceleration(attrname, old, new):
         for row in tab.child.children:
             for fig in row.children:
                 for item in fig.legend.items:
-                    item.update(label=dict(value = Station.name))
+                    item.update(label=dict(value = Station.station_name))
 
     if float(ta.value) <= 0.:
         Tn_lin = np.linspace(0., float(tb.value), npoints)
@@ -996,11 +1006,11 @@ def update_acceleration(attrname, old, new):
         Tn_lin = np.linspace(float(ta.value), float(tb.value), npoints)
         Tn_log = np.logspace(np.log10(float(ta.value)), np.log10(float(tb.value)), npoints)
         
-    Spectrum_lin = SeismicLibrary.SpectraRot(Station.acc_1, Station.acc_2, Station.dt, Tn_lin, float(xi.value), nTheta)
+    Spectrum_lin = seismic.SpectraRot(Station.acc_uncorrected_1, Station.acc_uncorrected_2, Station.dt, Tn_lin, float(xi.value), nTheta)
     Spectrum_linx = Spectrum_lin[nx]
     Spectrum_liny = Spectrum_lin[ny]
     
-    Spectrum_log = SeismicLibrary.SpectraRot(Station.acc_1, Station.acc_2, Station.dt, Tn_log, float(xi.value), nTheta)
+    Spectrum_log = seismic.SpectraRot(Station.acc_uncorrected_1, Station.acc_uncorrected_2, Station.dt, Tn_log, float(xi.value), nTheta)
     Spectrum_logx = Spectrum_log[nx]
     Spectrum_logy = Spectrum_log[ny]
 
@@ -1032,34 +1042,34 @@ def update_acceleration(attrname, old, new):
     source_SvRotD100_log.data = dict(x=Tn_log, y=np.max(Spectrum_log, axis=0)*Tn_log/(2.*np.pi))
     source_Svxy_log.data = dict(x=Tn_log, y=np.sqrt(Spectrum_logx*Spectrum_logy)*Tn_log/(2.*np.pi))
 
-    L = Station.acc_1.shape[0]
-    Fax = 2.*np.abs(spf.fft(Station.acc_1*Station.dt))[:L//2]
-    Fay = 2.*np.abs(spf.fft(Station.acc_2*Station.dt))[:L//2]
-    Faz = 2.*np.abs(spf.fft(Station.acc_3*Station.dt))[:L//2]
+    L = Station.acc_uncorrected_1.shape[0]
+    Fax = 2.*np.abs(spf.fft(Station.acc_uncorrected_1*Station.dt))[:L//2]
+    Fay = 2.*np.abs(spf.fft(Station.acc_uncorrected_2*Station.dt))[:L//2]
+    Faz = 2.*np.abs(spf.fft(Station.acc_uncorrected_3*Station.dt))[:L//2]
     Fs = 1./Station.dt
     freq = Fs*np.linspace(0., L//2, L//2)/L
     source_fx.data = dict(x=freq, y=Fax)
     source_fy.data = dict(x=freq, y=Fay)
     source_fz.data = dict(x=freq, y=Faz)
 
-    t = np.linspace(0., (len(Station.acc_1)-1)*Station.dt, len(Station.acc_1))
+    t = np.linspace(0., (len(Station.acc_uncorrected_1)-1)*Station.dt, len(Station.acc_uncorrected_1))
 
-    iax = np.pi/(2.*g)*spi.cumtrapz(Station.acc_1**2, t, initial=0.)
+    iax = np.pi/(2.*g)*spi.cumtrapz(Station.acc_uncorrected_1**2, t, initial=0.)
     source_aix.data  = dict(x=t, y=iax)
 
-    iay = np.pi/(2.*g)*spi.cumtrapz(Station.acc_2**2, t, initial=0.)
+    iay = np.pi/(2.*g)*spi.cumtrapz(Station.acc_uncorrected_2**2, t, initial=0.)
     source_aiy.data  = dict(x=t, y=iay)
 
-    iaz = np.pi/(2.*g)*spi.cumtrapz(Station.acc_3**2, t, initial=0.)
+    iaz = np.pi/(2.*g)*spi.cumtrapz(Station.acc_uncorrected_3**2, t, initial=0.)
     source_aiz.data  = dict(x=t, y=iaz)
 
-    cavx = spi.cumtrapz(np.abs(Station.acc_1), t, initial=0.)
+    cavx = spi.cumtrapz(np.abs(Station.acc_uncorrected_1), t, initial=0.)
     source_cavx.data  = dict(x=t, y=cavx)
 
-    cavy = spi.cumtrapz(np.abs(Station.acc_2), t, initial=0.)
+    cavy = spi.cumtrapz(np.abs(Station.acc_uncorrected_2), t, initial=0.)
     source_cavy.data  = dict(x=t, y=cavy)
 
-    cavz = spi.cumtrapz(np.abs(Station.acc_3), t, initial=0.)
+    cavz = spi.cumtrapz(np.abs(Station.acc_uncorrected_3), t, initial=0.)
     source_cavz.data  = dict(x=t, y=cavz)
 
     hypo_x, hypo_y = pyproj.transform(inProj, outProj, Station.hypocenter_lon, Station.hypocenter_lat, always_xy=True)
@@ -1107,7 +1117,7 @@ def update_acceleration(attrname, old, new):
             Station.hypocenter_lat,
             Station.event_type,
             Station.depth,
-            Station.name,
+            Station.station_name,
             Station.lon,
             Station.lat,
             Station.Rhypo,
@@ -1130,11 +1140,11 @@ def update_spectrum(attrname, old, new):
         Tn_lin = np.linspace(float(ta.value), float(tb.value), npoints)
         Tn_log = np.logspace(np.log10(float(ta.value)), np.log10(float(tb.value)), npoints)
 
-    Spectrum_lin = SeismicLibrary.SpectraRot(Station.acc_1, Station.acc_2, Station.dt, Tn_lin, float(xi.value), nTheta)
+    Spectrum_lin = seismic.SpectraRot(Station.acc_uncorrected_1, Station.acc_uncorrected_2, Station.dt, Tn_lin, float(xi.value), nTheta)
     Spectrum_linx = Spectrum_lin[nx]
     Spectrum_liny = Spectrum_lin[ny]
 
-    Spectrum_log = SeismicLibrary.SpectraRot(Station.acc_1, Station.acc_2, Station.dt, Tn_log, float(xi.value), nTheta)
+    Spectrum_log = seismic.SpectraRot(Station.acc_uncorrected_1, Station.acc_uncorrected_2, Station.dt, Tn_log, float(xi.value), nTheta)
     Spectrum_logx = Spectrum_log[nx]
     Spectrum_logy = Spectrum_log[ny]
     
@@ -1279,11 +1289,8 @@ checkbox_axis.on_change('active', update_axis)
 checkbox_grid.on_change('active', update_grid)
 
 # Export website
-_env = Environment(loader=PackageLoader('bokeh.core', '_templates'))
-_env.filters['json'] = lambda obj: Markup(json.dumps(obj))
-
+_env = Environment(loader=FileSystemLoader('StrongMotionDatabase'))
 FILE = _env.get_template("siberrisk_seismicdatabase.html")
-
 curdoc().template = FILE
 
 div1 = Div(text='<h2>User registration</h2>', sizing_mode='stretch_width', width=pwdith)
