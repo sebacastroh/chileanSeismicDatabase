@@ -1,0 +1,323 @@
+{#
+Renders Bokeh models into a basic .html file.
+
+:param title: value for ``<title>`` tags
+:type title: str
+
+:param plot_resources: typically the output of RESOURCES
+:type plot_resources: str
+
+:param plot_script: typically the output of PLOT_SCRIPT
+:type plot_script: str
+
+Users can customize the file output by providing their own Jinja2 template
+that accepts these same parameters.
+
+#}
+
+{% from macros import embed %}
+
+<!DOCTYPE html>
+<html lang="en">
+  {% block head %}
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <link rel="pingback" href="https://www.siberrisk.cl/xmlrpc.php">
+
+<title>Strong Motion Database &#8211; SIBER-RISK</title>
+
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//secure.gravatar.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="SIBER-RISK &raquo; Feed" href="https://www.siberrisk.cl/feed/" />
+<link rel="alternate" type="application/rss+xml" title="SIBER-RISK &raquo; Comments Feed" href="https://www.siberrisk.cl/comments/feed/" />
+        <script type="text/javascript">
+            window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/siberrisk.ing.puc.cl\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.2.3"}};
+            !function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+        </script>
+        <style type="text/css">
+img.wp-smiley,
+img.emoji {
+    display: inline !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: 1em !important;
+    width: 1em !important;
+    margin: 0 .07em !important;
+    vertical-align: -0.1em !important;
+    background: none !important;
+    padding: 0 !important;
+}
+</style>
+    <link rel='stylesheet' id='wp-block-library-css'  href='https://www.siberrisk.cl/wp-includes/css/dist/block-library/style.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cntctfrm_form_style-css'  href='https://www.siberrisk.cl/wp-content/plugins/contact-form-plugin/css/form_style.css?ver=4.1.6' type='text/css' media='all' />
+<link rel='stylesheet' id='edin-pt-sans-css'  href='https://fonts.googleapis.com/css?family=PT+Sans%3A400%2C700%2C400italic%2C700italic&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='edin-pt-serif-css'  href='https://fonts.googleapis.com/css?family=PT+Serif%3A400%2C700%2C400italic%2C700italic&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='edin-pt-mono-css'  href='https://fonts.googleapis.com/css?family=PT+Mono&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='edin-edincon-css'  href='https://www.siberrisk.cl/wp-content/themes/edin/font/edincon.css?ver=20140606' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='https://www.siberrisk.cl/wp-content/plugins/jetpack/_inc/genericons/genericons/genericons.css?ver=3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='edin-style-css'  href='https://www.siberrisk.cl/wp-content/themes/edin/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='https://www.siberrisk.cl/wp-content/plugins/jetpack/css/jetpack.css?ver=7.7.1' type='text/css' media='all' />
+<!--n2css-->
+    <!-- <script>if (document.location.protocol != "https:") {document.location = document.URL.replace(/^http:/i, "https:");}</script> -->
+<script type='text/javascript' src='https://www.siberrisk.cl/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://www.siberrisk.cl/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://www.siberrisk.cl/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.siberrisk.cl/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.siberrisk.cl/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.2.3" />
+<link rel="canonical" href="https://www.siberrisk.cl/projects/siber-risk-strong-motion-database/" />
+<link rel='shortlink' href='https://wp.me/P9EStc-7L' />
+<link rel="alternate" type="application/json+oembed" href="https://www.siberrisk.cl/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fsiberrisk.ing.puc.cl%2Fprojects%2Fsiber-risk-strong-motion-database%2F" />
+<meta name="google-site-verification" content="civ2DoS7b9GqVKMeLM9ANPsr2_24ZoYpC4cb0wvMsWI" />
+
+<!-- This site is optimized with the Schema plugin v1.7.5 - https://schema.press -->
+<script type="application/ld+json">{"@context":"http:\/\/schema.org\/","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/siberrisk.ing.puc.cl\/projects\/siber-risk-strong-motion-database\/"},"url":"https:\/\/siberrisk.ing.puc.cl\/projects\/siber-risk-strong-motion-database\/","headline":"SIBER-RISK Strong Motion...","datePublished":"2019-09-03T04:00:53+00:00","dateModified":"2019-09-03T04:00:53+00:00","publisher":{"@type":"Organization","@id":"https:\/\/siberrisk.ing.puc.cl\/#organization","name":"SIBER-RISK","logo":{"@type":"ImageObject","url":"https:\/\/siberrisk.ing.puc.cl\/wp-content\/uploads\/2018\/02\/logo.png","width":600,"height":60}},"description":"During the development of the project, the idea to create an extensive and well defined strong motion database of Chilean earthquakes arised. Used in different tasks, this database has proven to be incredibly useful for researchers and students in their projects. In order to reach more people, we finally","author":{"@type":"Person","name":"admin","url":"https:\/\/siberrisk.ing.puc.cl\/author\/admin\/","image":{"@type":"ImageObject","url":"https:\/\/secure.gravatar.com\/avatar\/4797150f427b8f6e482a69d8d7236ea3?s=96&d=mm&r=g","height":96,"width":96}}}</script>
+
+
+<link rel='dns-prefetch' href='//v0.wordpress.com'/>
+<style type='text/css'>img#wpstats{display:none}</style>    <style type="text/css">
+            .site-title,
+        .site-description {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+        }
+        </style>
+    
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="SIBER-RISK Strong Motion Database" />
+<meta property="og:url" content="https://www.siberrisk.cl/projects/siber-risk-strong-motion-database/" />
+<meta property="og:description" content="During the development of the project, the idea to create an extensive and well defined strong motion database of Chilean earthquakes arised. Used in different tasks, this database has proven to be…" />
+<meta property="article:published_time" content="2019-09-03T04:00:53+00:00" />
+<meta property="article:modified_time" content="2019-09-03T04:00:53+00:00" />
+<meta property="og:site_name" content="SIBER-RISK" />
+<meta property="og:image" content="https://www.siberrisk.cl/wp-content/uploads/2018/02/logo.png" />
+<meta property="og:image:width" content="10940" />
+<meta property="og:image:height" content="1274" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:text:title" content="SIBER-RISK Strong Motion Database" />
+<meta name="twitter:image" content="https://www.siberrisk.cl/wp-content/uploads/2018/02/logo.png" />
+<meta name="twitter:card" content="summary" />
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="icon" href="https://www.siberrisk.cl/wp-content/uploads/2020/08/logo_institucional.svg" sizes="32x32" />
+<link rel="icon" href="https://www.siberrisk.cl/wp-content/uploads/2020/08/logo_institucional.svg" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.siberrisk.cl/wp-content/uploads/2020/08/logo_institucional.svg" />
+<meta name="msapplication-TileImage" content="https://www.siberrisk.cl/wp-content/uploads/20120/08/logo_institucioal.svg" />
+            <style type="text/css" id="wp-custom-css">
+                .home .hero.without-featured-image {
+  display: none;
+}
+
+.content-area {
+margin-top: -60px;
+margin-bottom: -20px;
+}
+
+@media screen and (min-width: 980px) {
+.single-post.no-sidebar .content-area {
+width: 83%;
+}
+}
+
+.blog #secondary {
+    display: none !important;
+}
+
+.blog #primary {
+    width: 83% !important;
+}           </style>
+        </head>
+
+<body data-rsssl=1 class="page-template-default page page-id-481 page-child parent-pageid-13 has-footer-navigation navigation-default no-sidebar no-image-filter has-site-logo">
+<div id="page" class="hfeed site">
+    <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+    
+    <header id="masthead" class="site-header" role="banner">
+        
+        
+        <div class="header-wrapper clear">
+            <div class="site-branding">
+              <a href="https://www.siberrisk.cl/" class="site-logo-link" rel="home" itemprop="url"><img width="583" height="68" src="https://www.siberrisk.cl/wp-content/uploads/2020/08/logo_siberrisk-583x68.png" class="site-logo attachment-edin-logo" alt="" data-size="edin-logo" itemprop="logo" srcset="https://www.siberrisk.cl/wp-content/uploads/2020/08/logo_siberrisk-583x68.png 583w, https://www.siberrisk.cl/wp-content/uploads/2020/08/logo_siberrisk-300x35.png 300w, https://www.siberrisk.cl/wp-content/uploads/2020/08/logo_siberrisk-1024x119.png 1024w, https://www.siberrisk.cl/wp-content/uploads/2020/08/logo_siberrisk-768x89.png 768w, https://www.siberrisk.cl/wp-content/uploads/2020/08/logo_siberrisk-1536x179.png 1536w, https://www.siberrisk.cl/wp-content/uploads/2020/08/logo_siberrisk-2048x239.png 2048w, https://www.siberrisk.cl/wp-content/uploads/2020/08/logo_siberrisk-648x75.png 648w" sizes="(max-width: 583px) 100vw, 583px" /></a> <p class="site-title"><a href="https://www.siberrisk.cl/" rel="home">SIBER-RISK</a></p>
+                                            <p class="site-description">Simulation Based Earthquake Risk and Resilience of Interdependent Systems and Networks</p>
+                                </div><!-- .site-branding -->
+
+                            <div id="site-navigation" class="header-navigation">
+                    <button class="menu-toggle" aria-expanded="false">Menu</button>
+                    <div class="navigation-wrapper clear">
+                                                                            <nav class="primary-navigation" role="navigation">
+                                <div class="menu-primary"><ul id="menu-menu" class="clear"><li id="menu-item-38" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-38"><a href="https://www.siberrisk.cl">Home</a></li>
+<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-30"><a href="https://www.siberrisk.cl/people/">People</a>
+<ul class="sub-menu">
+    <li id="menu-item-173" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-173"><a href="https://www.siberrisk.cl/people/our-team/">Our Team</a></li>
+    <li id="menu-item-174" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-174"><a href="https://www.siberrisk.cl/people/students/">Students</a></li>
+    <li id="menu-item-175" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a href="https://www.siberrisk.cl/people/collaborators/">Collaborators</a></li>
+    <li id="menu-item-176" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a href="https://www.siberrisk.cl/people/alumni-and-previous-collaborators/">Alumni and previous collaborators</a></li>
+</ul>
+</li>
+<li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32"><a href="https://www.siberrisk.cl/about-us/">About us</a></li>
+<li id="menu-item-68" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-68"><a href="https://www.siberrisk.cl/news/">News</a></li>
+<li id="menu-item-25" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-menu-ancestor current-menu-parent current-page-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-25"><a href="https://www.siberrisk.cl/projects/">Projects</a>
+<ul class="sub-menu">
+    <li id="menu-item-29" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29"><a href="https://www.siberrisk.cl/projects/wp1/">WP1: Seismic hazard and risk assessment of spatially Distributed Network Systems</a></li>
+    <li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28"><a href="https://www.siberrisk.cl/projects/wp2/">WP2: Vulnerability, risk and resilience evaluation of Distributed Network Systems</a></li>
+    <li id="menu-item-27" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27"><a href="https://www.siberrisk.cl/projects/wp3/">WP3: Graphical model synthesis of Distributed Interdependent Physical Networks</a></li>
+    <li id="menu-item-26" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26"><a href="https://www.siberrisk.cl/projects/wp4/">WP4: The problem of two cities – Distributed Network Systems risk and resilience at urban scale</a></li>
+    <li id="menu-item-488" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-481 current_page_item menu-item-488"><a href="https://www.siberrisk.cl/projects/siber-risk-strong-motion-database/" aria-current="page">SIBER-RISK Strong Motion Database</a></li>
+</ul>
+</li>
+<li id="menu-item-33" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33"><a href="https://www.siberrisk.cl/publications/">Publications</a></li>
+<li id="menu-item-555" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-555"><a href="https://www.siberrisk.cl/collaborations/">Collaborations</a></li>
+<li id="menu-item-72" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-72"><a href="https://www.siberrisk.cl/outreach/">Outreach</a></li>
+<li id="menu-item-31" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31"><a href="https://www.siberrisk.cl/contact/">Contact</a></li>
+</ul></div>                         </nav><!-- .primary-navigation -->
+                                            </div><!-- .navigation-wrapper -->
+                </div><!-- #site-navigation -->
+            
+                    </div><!-- .header-wrapper -->
+    </header><!-- #masthead -->
+  
+    {% block inner_head %}
+      <meta charset="utf-8">
+      <title>{% block title %}{{ title | e if title else "Bokeh Plot" }}{% endblock %}</title>
+      {% block preamble %}{% endblock %}
+      {% block resources %}
+        {% block css_resources %}
+          {{ bokeh_css | indent(8) if bokeh_css }}
+        {% endblock %}
+        {% block js_resources %}
+          {{ bokeh_js | indent(8) if bokeh_js }}
+        {% endblock %}
+      {% endblock %}
+      {% block postamble %}{% endblock %}
+    {% endblock %}
+  </head>
+  {% endblock %}
+  {% block body %}
+	
+	<div class="hero without-featured-image">
+	
+		<div class="hero-wrapper"><h1 class="page-title">SIBER-RISK Strong Motion Database</h1></div>
+	</div>
+    <center>
+    <div style="text-align: center;">
+    <div style="display: inline-block; text-align: left;width:70%;">
+    SIBER-RISK (called by the initials of <b>SI</b>mulation <b>B</b>ased <b>E</b>arthquake <b>R</b>isk
+    and <b>R</b>esilience of <b>I</b>nterdependent <b>S</b>ystems and <b>N</b>etwor<b>K</b>s)
+    is a project led by professor Juan Carlos de la Llera and co-investigators Paula Aguirre and
+    Gabriel Candia, and funded by Fondecyt grant #1170836. The project started in April 2017 and
+    it aims to investigate, develop, and implement a conceptual framework to evaluate earthquake 
+    vulnerability, risk and resilience of geographically Distributed Network Systems (DNS).<br/><br/>
+    
+    During the development of the project, the idea to create an extensive and well defined strong motion
+    database of Chilean earthquakes arised. Used in different tasks, this database has proven to be
+    incredibly useful for researchers and students in their projects.<br/><br/>
+    
+    In order to reach more people, we finally have published it online, entirely free. We only ask you
+    to follow our licensing terms. Finally, we do not take any responsibility in any result or analysis
+    made from this database.<br/><br/>
+    
+    If you have any question, please feel free to contact us by e-mail to admin@siberrisk.cl
+    
+    <h2>Licensing terms</h2>
+    The SIBER-RISK Strong Motion Database uses the Attribution-NonCommercial-ShareAlike 4.0 International
+    license from Creative Commons (CC BY-NC-SA 4.0). You are free to share and adapt the information provided
+    here under the following terms:
+    <ul style="list-style-type:disc;">
+      <li><b>Attribution:</b> You must give appropriate credit, provide a link to the license, and indicate if changes
+      were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses
+      you or your use.</li>
+      <li><b>NonCommercial:</b> You may not use the material for commercial purposes.</li>
+      <li><b>ShareAlike:</b> If you remix, transform, or build upon the material, you must distribute your contributions
+      under the same license as the original.</li>
+      <li><b>No additional restrictions:</b> You may not apply legal terms or technological measures that legally restrict
+      others from doing anything the license permits.</li>
+    </ul>
+    You can see more details of the license <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode" target="_blank">here</a>. If you want to use it for commercial purposes, please contact us at admin@siberrisk.cl.<br/>
+    
+    <h2>How to cite this database</h2>
+    Please use the following cite: <br></br>
+    <ul>
+	    <li><b>Castro, S., Benavente, R., Crempien, J., Candia, G., de la Llera, J.C. (2021). <i>A Consistently Processed Strong Motion Database for Chilean Earthquakes.</i> Submitted.</b></li>
+    </ul>
+    and add the following line in your acknowledgements <br></br>
+    <ul>
+	    <li><b>The strong motion database was provided by the SIBER-RISK project: Simulation Based Earthquake Risk and Resilience of Interdependent Systems and Networks ANID/FONDECYT/1170836. doi <a href=https://doi.org/10.7764/datasetUC/ING-UC.1170836_1>https://doi.org/10.7764/datasetUC/ING-UC.1170836_1</a></b></li>
+    </ul>
+    
+    <h2>Flat file</h2>
+    In this database you can find more than 1800 events and 7600 records. 
+    The following parameters are tabulated for each record: start time of the record, magnitude, hypocenter location, type of event (crustal, interface or intraslab), depth, station name, station location, hypocentral distance, epicentral distance, rupture distance, Joyner-Boore distance, Vs30 (if available), and azimut (if available). The table can be accesed here: <a href="https://www.siberrisk.cl/flatFile.xlsx" target="_blank"><b>flatFile.xlsx</b></a>. Also, spectral accelerations with damping ratios of 0.02 and 0.05 are available for all records here: <a href="https://www.siberrisk.cl/SpectralValues.xlsx" target="_blank"><b>SpectralValues.xlsx</b></a>.
+    <!--
+    <h2>Please read</h2>
+    We are having problems with the email registration. If you don't receive your password after 24 hours, please contact us.
+    -->
+    {% block inner_body %}
+      {% block contents %}
+        {% for doc in docs %}
+          {{ embed(doc) if doc.elementid }}
+          {% for root in doc.roots %}
+            {% block root scoped %}
+              {{ embed(root) | indent(10) }}
+            {% endblock %}
+          {% endfor %}
+        {% endfor %}
+      {% endblock %}
+      {{ plot_script | indent(8) }}
+    {% endblock %}
+    </div></div>
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="footer-wrapper clear">
+			<div class="site-info">
+				
+			</div><!-- .site-info -->
+							<nav class="footer-navigation" role="navigation">
+					<div class="menu-menu-container"><ul id="menu-menu-1" class="clear"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-38"><a href="https://www.siberrisk.cl">Home</a></li>
+
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-30"><a href="https://www.siberrisk.cl/people/">People</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32"><a href="https://www.siberrisk.cl/about-us/">About us</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-68"><a href="https://www.siberrisk.cl/news/">News</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-menu-ancestor current-menu-parent current-page-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-25"><a href="https://www.siberrisk.cl/projects/">Projects</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33"><a href="https://www.siberrisk.cl/publications/">Publications</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-555"><a href="https://www.siberrisk.cl/collaborations/">Collaborations</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-72"><a href="https://www.siberrisk.cl/outreach/">Outreach</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31"><a href="https://www.siberrisk.cl/contact/">Contact</a></li>
+</ul></div>				</nav><!-- .footer-navigation -->
+					</div><!-- .footer-wrapper -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.0';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script><script type='text/javascript'>
+/* <![CDATA[ */
+var screen_reader_text = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.siberrisk.cl/wp-content/themes/edin/js/navigation.js?ver=20140718'></script>
+<script type='text/javascript' src='https://www.siberrisk.cl/wp-content/themes/edin/js/skip-link-focus-fix.js?ver=20130115'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var screen_reader_text = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.siberrisk.cl/wp-content/themes/edin/js/edin.js?ver=20140606'></script>
+<script type='text/javascript' src='https://www.siberrisk.cl/wp-includes/js/wp-embed.min.js?ver=5.4.2'></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.8',blog:'142729530',post:'5',tz:'0',srv:'www.siberrisk.cl'} ]);
+	_stq.push([ 'clickTrackerInit', '142729530', '5' ]);
+</script>
+
+ </body>
+  {% endblock %}
+</html>
