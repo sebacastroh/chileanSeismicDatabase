@@ -18,15 +18,13 @@ from matplotlib.figure import Figure
 first    = True
 action   = None
 stations = []
-events   = []
 p_waves  = {}
 
-DEFAULT_INDENT = 4
+DEFAULT_INDENT = 2
+SORT_KEYS      = True
 
 def automatic_p_wave(window, widget, basePath=None):
-    global stations, events, p_waves
-    # List seismic database
-    df = pd.read_csv(os.path.join(basePath, 'data', 'events.csv'), dtype={'Identificador': str})
+    global stations, p_waves
 
     # Registered P-Waves
     if os.path.exists(os.path.join(basePath, 'data', 'p_waves.json')):
@@ -35,32 +33,19 @@ def automatic_p_wave(window, widget, basePath=None):
     else:
         p_waves = {}
 
-    events_with_p_waves = list(p_waves.keys())
-
-    # List events without registered P-Waves
-    events = df[~df['ID'].isin(events_with_p_waves)]['ID'].tolist()
-
-    # Find stations without registered P-Waves
-    subdf = df[df['ID'].isin(events_with_p_waves)]
     stations = []
-    for r, row in subdf.iterrows():
-        event_id = row['ID']
-        these_stations = row['Estaciones'].split('; ')
-        for station in these_stations:
-            if p_waves.get(event_id).get(station) is None:
-                stations.append([event_id, station])
+    for event_id, stations_info in p_waves.items():
+        for station_code, station_info in stations_info.items():
+            if station_info.get('status') is None:
+                stations.append([event_id, station_code])
 
     nStations = len(stations)
-    nEvents   = len(events)
     disable   = False
 
     if nStations > 0:
         widget.insert('end', 'Eventos con estaciones pendientes\n\n' + '\n'.join([event_id + ' - ' + station_code for event_id, station_code in stations]) + '\n\n')
 
-    if nEvents > 0:
-        widget.insert('end', 'Eventos a procesar completamente\n\n' + '\n'.join(events) + '\n')
-
-    if nStations == 0 and nEvents == 0:
+    if nStations == 0:
         widget.insert('end', 'No hay eventos pendientes por procesar.')
         disable = True
 
@@ -70,7 +55,7 @@ def automatic_p_wave(window, widget, basePath=None):
     return disable
 
 def detect_p_wave(masterWindow, basePath):
-    global stations, events, p_waves
+    global stations, p_waves
 
     action = 'continue'
 
@@ -104,28 +89,6 @@ def detect_p_wave(masterWindow, basePath):
     # Stop in case user pressed quit
     if action != 'continue':
         return
-
-    # Detect P-wave in whole events
-    for event_id in events:
-        if not os.path.exists(os.path.join(basePath, 'data', 'seismicDatabase', 'npz', event_id + '.npz')):
-            continue
-
-        with np.load(os.path.join(basePath, 'data', 'seismicDatabase', 'npz', event_id + '.npz'), allow_pickle=True) as f:
-            event = {}
-            for key, value in f.items():
-                event[key] = value.item()
-
-        event_id = event.get('event_id')
-        for st, station in event.items():
-            if not st.startswith('st'):
-                continue
-
-            action = plot_p_wave(masterWindow, event_id, station, basePath)
-            if action != 'continue':
-                break
-
-        if action != 'continue':
-                break
 
     # Show end message
     if action == 'continue':
@@ -271,11 +234,10 @@ def plot_p_wave(masterWindow, event_id, station, basePath):
         else:
             method = 'Manual'
 
-        p_waves[event_id][station_code] = {
-          'pos': int(this_pos[0]),
-          'status': True,
-          'method': method
-        }
+        p_waves[event_id][station_code]['pos']    = int(this_pos[0])
+        p_waves[event_id][station_code]['status'] = True
+        p_waves[event_id][station_code]['method'] = method
+
         action = 'continue'
         window.destroy()
 
@@ -290,11 +252,10 @@ def plot_p_wave(masterWindow, event_id, station, basePath):
         else:
             method = 'Manual'
 
-        p_waves[event_id][station_code] = {
-          'pos': int(this_pos[0]),
-          'status': False,
-          'method': method
-        }
+        p_waves[event_id][station_code]['pos']    = int(this_pos[0])
+        p_waves[event_id][station_code]['status'] = False
+        p_waves[event_id][station_code]['method'] = method
+
         action = 'continue'
         window.destroy()
 
@@ -306,13 +267,13 @@ def plot_p_wave(masterWindow, event_id, station, basePath):
     def _save():
         global action
         with open(os.path.join(basePath, 'data', 'p_waves.json'), 'w') as f:
-            json.dump(p_waves, f, indent=DEFAULT_INDENT)
+            json.dump(p_waves, f, indent=DEFAULT_INDENT, sort_keys=SORT_KEYS)
         action = 'continue'
         
     def _save_and_quit():
         global action
         with open(os.path.join(basePath, 'data', 'p_waves.json'), 'w') as f:
-            json.dump(p_waves, f, indent=DEFAULT_INDENT)
+            json.dump(p_waves, f, indent=DEFAULT_INDENT, sort_keys=SORT_KEYS)
         action = 'quit'
         window.destroy()
 
@@ -320,6 +281,8 @@ def plot_p_wave(masterWindow, event_id, station, basePath):
         global action
         action = 'quit'
         window.destroy()
+
+    fig.canvas.toolbar.zoom()
 
     button = tkinter.Button(master=window, text="Registrar onda P",
                             command=_valid)
@@ -358,7 +321,7 @@ def pop_up(basePath):
     def _save():
         global p_waves
         with open(os.path.join('data', 'p_waves.json'), 'w') as f:
-            json.dump(p_waves, f, indent=DEFAULT_INDENT)
+            json.dump(p_waves, f, indent=DEFAULT_INDENT, sort_keys=SORT_KEYS)
         window.destroy()
 
     l = tkinter.Label(window, text='Ya se han revisado todos los registros')

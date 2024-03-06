@@ -30,6 +30,7 @@ from widgets.downloadNewEvents import downloadNewEvents
 from widgets.transformRecords  import transformRecords
 from widgets.automatic_p_wave  import automatic_p_wave, detect_p_wave
 from widgets.correctRecords    import correctRecords, applyCorrection
+from widgets.updateFlatFile    import updateFlatFile
 
 import copyreg
 from types import MethodType
@@ -378,63 +379,7 @@ class TkThread:
                                  command=_close)
         button_quit.pack(side=tkinter.BOTTOM)
         
-        text.insert('end', 'Processing...\n')
-        window.update_idletasks()
-        
-        path = os.path.join(os.getcwd(), 'events_mat_corrected_v%i' %version)
-        filenames = sorted(os.listdir(path))
-        table = []
-            
-        for filename in filenames:
-            stations = spio.loadmat(os.path.join(path, filename), struct_as_record=False, squeeze_me=True)
-            stations.pop('__header__')
-            stations.pop('__version__')
-            stations.pop('__globals__')
-            # print('------\n%s' %filename)
-            for key  in sorted(stations.keys()):
-                # print('Station: %s' %key)
-                station = stations[key]
-                if isinstance(station.Rrup, str):
-                    Rrup = -1
-                    Rjb = -1
-                else:
-                    Rrup = station.Rrup
-                    Rjb = station.Rjb
-                    
-                if isinstance(station.Vs30, str):
-                    Vs30 = -1
-                else:
-                    Vs30 = station.Vs30
-                    
-                if isinstance(station.azimut, str):
-                    azimut = -1
-                else:
-                    azimut = station.azimut
-                
-                table.append([station.event_name, station.start_time, station.magnitude,
-                              station.hypocenter_lat, station.hypocenter_lon,
-                              station.event_type, station.depth, station.name,
-                              station.lat, station.lon, station.Rhypo, station.Repi,
-                              Rrup, Rjb, Vs30, azimut])
-        
-        df = pd.DataFrame(np.array(table), columns=['Earthquake Name',
-                          'Start time record', 'Magnitude [Mw]',
-                          'Hypocenter latitude', 'Hypocenter longitude',
-                          'Event type', 'Depth [km]', 'Station name',
-                          'Station latitude', 'Station longitude',
-                          'Hypocentral distance [km]',
-                          'Epicentral distance [km]',
-                          'Rupture distance [km]',
-                          'Joyner-Boore distance [km]', 'Vs30 [m/s]',
-                          'Azimut [o]'])
-        
-        for col in df.columns[[2,3,4,6,8,9,10,11,12,13,14,15]]:
-            df[col] = df[col].astype(float) 
-    
-        df.to_excel('flatFile_corrected_v%i.xlsx' %version)
-        df.to_csv('flatFile_corrected_v%i.csv' %version)
-        
-        text.insert('end', 'Done!\n')
+        updateFlatFile(window, text, self.basePath)
         
     
     def _quit(self):
