@@ -74,102 +74,6 @@ nTheta = 91
 nx = 0
 ny = 45
 
-#%% Add user
-email       = TextInput(title='Email', value='', sizing_mode='stretch_width', width=pwdith)
-name        = TextInput(title='Name', value='', sizing_mode='stretch_width', width=pwdith)
-institution = TextInput(title='Institution', value='', sizing_mode='stretch_width', width=pwdith)
-country     = TextInput(title='Country', value='', sizing_mode='stretch_width', width=pwdith)
-position    = TextInput(title='Position', value='', sizing_mode='stretch_width', width=pwdith)
-purpose     = TextInput(title='Purpose', value='', sizing_mode='stretch_width', width=pwdith)
-
-# message = PreText(text='', sizing_mode='stretch_width', width=pwdith)
-
-register_callback_code = """
-if (success == 1) {
-    alert('An email with your password has been sent to your account');
-} else if (email == '' || name == '' || institution == '' || country == '' || position == '' || purpose == '') {
-    alert('All fields are mandatory');
-} else if (users.includes(email)) {
-    alert('Email already registered. Please contact admin@siberrisk.cl to recover your password');
-}
-"""
-
-register_callback = CustomJS(args=dict(email=email.value, name=name.value, institution=institution.value, country=country.value,
-            position=position.value, purpose=purpose.value, users=users, success=0),code=register_callback_code)
-
-register_button = Button(label="Sign-up", button_type="success", sizing_mode='stretch_width', width=pwdith, align='end')
-
-if bokeh.__version__[0] == '1':
-    register_button.callback = register_callback
-else:
-    register_button.js_on_change('name', register_callback)
-
-# def update_user_data(attrname, old, new):
-#     register_callback.args = dict(email=email.value, name=name.value, institution=institution.value, country=country.value,
-#         position=position.value, purpose=purpose.value, users=users)
-
-def add_user():
-    global users, passwords, events
-    
-    df = pd.read_csv(users_registered, encoding='latin1')
-    users = list(df['email'])
-    passwords = list(df['password'])
-    
-    if email.value == '' or name.value == '' or institution.value == '' or country.value == '' or position.value == '' or purpose.value == '':
-        register_callback.args = dict(email=email.value, name=name.value, institution=institution.value, country=country.value,
-            position=position.value, purpose=purpose.value, users=users, success=0)
-        register_button.name = ''.join(random.choice(lettersandnumbers) for i in range(10))
-
-    elif email.value in users:
-        register_callback.args = dict(email=email.value, name=name.value, institution=institution.value, country=country.value,
-            position=position.value, purpose=purpose.value, users=users, success=0)
-        register_button.name = ''.join(random.choice(lettersandnumbers) for i in range(10))
-    
-    else:
-        password = ''.join(random.choice(lettersandnumbers) for i in range(10))
-        new_user = pd.DataFrame({'email': [email.value],
-                                 'password': [password],
-                                 'name': [name.value],
-                                 'institution': [institution.value],
-                                 'country': [country.value],
-                                 'position': [position.value],
-                                 'purpose': [purpose.value],
-                                 'date': [datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S')]})
-        df = df.append(new_user, ignore_index=True, sort=False)
-        df.to_csv(users_registered, index=False, encoding='latin1')
-        
-        users.append(email.value)
-        passwords.append(password)
-        
-        download_button_callback.args = dict(validated=validated, source=events, users=users, passwords=passwords, extension=fileType)
-        
-        this_name = name.value
-        this_name = unicodedata.normalize('NFD', this_name).encode('ascii', 'ignore').decode('utf-8').split()
-        
-        subprocess.Popen(['/home/srcastro/programs/anaconda3/bin/python', '/home/srcastro/projects/strongMotionDatabaseWeb/send_email.py',\
-                email.value, password] + this_name)
-
-        email.value = ''
-        name.value = ''
-        institution.value = ''
-        country.value = ''
-        position.value = ''
-        purpose.value = ''
-
-        register_callback.args = dict(email=email.value, name=name.value, institution=institution.value, country=country.value,
-            position=position.value, purpose=purpose.value, users=users, success=1)
-        register_button.name = ''.join(random.choice(lettersandnumbers) for i in range(10))
-
-       
-register_button.on_click(add_user)
-
-# email.on_change('value', update_user_data)
-# name.on_change('value', update_user_data)
-# institution.on_change('value', update_user_data)
-# country.on_change('value', update_user_data)
-# position.on_change('value', update_user_data)
-# purpose.on_change('value', update_user_data)
-
 #%% List of events and stations
 tdata = pd.read_csv(flatfile)
 Events    = sorted(os.listdir(matfiles), reverse=True)
@@ -1293,8 +1197,6 @@ _env = Environment(loader=FileSystemLoader('StrongMotionDatabase'))
 FILE = _env.get_template("siberrisk_seismicdatabase.html")
 curdoc().template = FILE
 
-div1 = Div(text='<h2>User registration</h2>', sizing_mode='stretch_width', width=pwdith)
-
 div2 = Div(text='<h2>Filter options</h2>', sizing_mode='stretch_width', width=pwdith)
 
 div3 = Div(text='<h2>Strong Motion Database</h2>\nTo download several files at once please click <a href="https://siberrisk.ing.puc.cl/StrongMotionDatabaseDownloadManager" target="_blank">here</a>. Examples to read the database files are available for <a href="examplePython.py" target="_blank">Python</a> and <a href="exampleMatlab.m" target="_blank">Matlab</a>.<br/>', sizing_mode='stretch_width', width=pwdith)
@@ -1304,30 +1206,6 @@ div4 = Div(text='<b>TIP:</b> You can hide/show the curves by pressing their name
 inputs_plots = column([ta, tb, xi, checkbox_axis, checkbox_grid, div4], sizing_mode='stretch_width', width=pwdith)
 
 from bokeh.layouts import grid
-
-showUser_button = Toggle(label='Hide', active=True, button_type='default', sizing_mode='stretch_width', width=pwdith, align='center')
-
-def showUser(event):
-    if showUser_button.active:
-        showUser_button.label = 'Hide'
-        email.visible = True
-        name.visible = True
-        institution.visible = True
-        country.visible = True
-        position.visible = True
-        purpose.visible = True
-        register_button.visible = True
-    else:
-        showUser_button.label = 'Show'
-        email.visible = False
-        name.visible = False
-        institution.visible = False
-        country.visible = False
-        position.visible = False
-        purpose.visible = False
-        register_button.visible = False
-
-showUser_button.on_click(showUser)
 
 filter_button = Toggle(label='Hide', active=True, button_type='default', sizing_mode='stretch_width', width=pwdith, align='center')
 
@@ -1351,10 +1229,7 @@ def showFilters(event):
 
 filter_button.on_click(showFilters)
 
-distribution = grid([[div1, showUser_button, None, None],
-                     [email, name, institution, register_button],
-                     [country, position, purpose, None],
-                     [div2, filter_button, None, None],
+distribution = grid([[div2, filter_button, None, None],
                      [eventsSince, minMagnitude, eventType, filterButton],
                      [eventsUntil, maxMagnitude, stationSelect, None],
                      [div3],
@@ -1364,12 +1239,11 @@ distribution = grid([[div1, showUser_button, None, None],
                      [data_table, p, None]], sizing_mode='stretch_width')
 
 distribution.children[1] = (distribution.children[1][0], distribution.children[1][1], distribution.children[1][2], 1, 1)
-distribution.children[10] = (distribution.children[10][0], distribution.children[10][1], distribution.children[10][2], 1, 1)
 
-distribution.children[24] = (distribution.children[24][0], distribution.children[24][1], distribution.children[24][2], 1, 3)
-distribution.children[25] = (distribution.children[25][0], distribution.children[25][1], distribution.children[24][2]+3, 1, 9)
-distribution.children[26] = (distribution.children[26][0], distribution.children[26][1], distribution.children[26][2], 1, 4)
-distribution.children[27] = (distribution.children[27][0], distribution.children[27][1], distribution.children[26][2]+4, 1, 8)
+distribution.children[15] = (distribution.children[15][0], distribution.children[15][1], distribution.children[15][2], 1, 3)
+distribution.children[16] = (distribution.children[16][0], distribution.children[16][1], distribution.children[15][2]+3, 1, 9)
+distribution.children[17] = (distribution.children[17][0], distribution.children[17][1], distribution.children[17][2], 1, 4)
+distribution.children[18] = (distribution.children[18][0], distribution.children[18][1], distribution.children[17][2]+4, 1, 8)
 
 curdoc().add_root(distribution)
 curdoc().title = 'Strong Motion Database ' + u'\u2013' + ' SIBER-RISK'
