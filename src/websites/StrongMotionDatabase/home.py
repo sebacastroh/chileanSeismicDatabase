@@ -1207,29 +1207,7 @@ inputs_plots = column([ta, tb, xi, checkbox_axis, checkbox_grid, div4], sizing_m
 
 from bokeh.layouts import grid
 
-filter_button = Toggle(label='Hide', active=True, button_type='default', sizing_mode='stretch_width', width=pwdith, align='center')
-
-def showFilters(event):
-    if filter_button.active:
-        filter_button.label = 'Hide'
-        eventsSince.visible = True
-        minMagnitude.visible = True
-        eventType.visible = True
-        eventsUntil.visible = True
-        maxMagnitude.visible = True
-        filterButton.visible = True
-    else:
-        filter_button.label = 'Show'
-        eventsSince.visible = False
-        minMagnitude.visible = False
-        eventType.visible = False
-        eventsUntil.visible = False
-        maxMagnitude.visible = False
-        filterButton.visible = False
-
-filter_button.on_click(showFilters)
-
-distribution = grid([[div2, filter_button, None, None],
+distribution = grid([[div2, None, None, None],
                      [eventsSince, minMagnitude, eventType, filterButton],
                      [eventsUntil, maxMagnitude, stationSelect, None],
                      [div3],
@@ -1238,12 +1216,10 @@ distribution = grid([[div2, filter_button, None, None],
                      [inputs_plots, tabs_spectrum],
                      [data_table, p, None]], sizing_mode='stretch_width')
 
-distribution.children[1] = (distribution.children[1][0], distribution.children[1][1], distribution.children[1][2], 1, 1)
-
-distribution.children[15] = (distribution.children[15][0], distribution.children[15][1], distribution.children[15][2], 1, 3)
-distribution.children[16] = (distribution.children[16][0], distribution.children[16][1], distribution.children[15][2]+3, 1, 9)
-distribution.children[17] = (distribution.children[17][0], distribution.children[17][1], distribution.children[17][2], 1, 4)
-distribution.children[18] = (distribution.children[18][0], distribution.children[18][1], distribution.children[17][2]+4, 1, 8)
+distribution.children[14] = (distribution.children[14][0], distribution.children[14][1], distribution.children[14][2], 1, 3)
+distribution.children[15] = (distribution.children[15][0], distribution.children[15][1], distribution.children[14][2]+3, 1, 9)
+distribution.children[16] = (distribution.children[16][0], distribution.children[16][1], distribution.children[16][2], 1, 4)
+distribution.children[17] = (distribution.children[17][0], distribution.children[17][1], distribution.children[16][2]+4, 1, 8)
 
 curdoc().add_root(distribution)
 curdoc().title = 'Strong Motion Database ' + u'\u2013' + ' SIBER-RISK'
