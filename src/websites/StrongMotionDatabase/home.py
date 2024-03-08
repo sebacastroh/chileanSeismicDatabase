@@ -35,7 +35,7 @@ import scipy.fftpack as spf
 import scipy.integrate as spi
 import scipy.io as spio
 import numpy as np
-import pyproj
+from pyproj import Transformer
 
 # User and password libraries
 import pandas as pd
@@ -707,11 +707,10 @@ TableColumn(field="values", title="Value")]
 data_table = DataTable(source=source_table, columns=columns, sizing_mode='stretch_width', width=pwdith*4//3, reorderable=False)
 
 # Map
-inProj = pyproj.Proj("EPSG:{0}".format(4326)) # WGS84
-outProj = pyproj.Proj("EPSG:{0}".format(3857)) # Mercator
+transformer = Transformer.from_crs("EPSG:4326", "EPSG:3857")
 
-hypo_x, hypo_y = pyproj.transform(inProj, outProj, Station.hypocenter_lon, Station.hypocenter_lat, always_xy=True)
-sta_x, sta_y   = pyproj.transform(inProj, outProj, Station.station_lon, Station.station_lat, always_xy=True)
+hypo_x, hypo_y = transformer.transform(Station.hypocenter_lat, Station.hypocenter_lon)
+sta_x, sta_y   = transformer.transform(Station.station_lat, Station.station_lon)
 
 xmean = 0.5*(hypo_x + sta_x)
 ymean = 0.5*(hypo_y + sta_y)
@@ -975,8 +974,8 @@ def update_acceleration(attrname, old, new):
     cavz = spi.cumtrapz(np.abs(Station.acc_uncorrected_3), t, initial=0.)
     source_cavz.data  = dict(x=t, y=cavz)
 
-    hypo_x, hypo_y = pyproj.transform(inProj, outProj, Station.hypocenter_lon, Station.hypocenter_lat, always_xy=True)
-    sta_x, sta_y   = pyproj.transform(inProj, outProj, Station.lon, Station.lat, always_xy=True)
+    hypo_x, hypo_y = transformer.transform(Station.hypocenter_lat, Station.hypocenter_lon)
+    sta_x, sta_y   = transformer.transform(Station.lat, Station.lon)
 
     xmean = 0.5*(hypo_x + sta_x)
     ymean = 0.5*(hypo_y + sta_y)
