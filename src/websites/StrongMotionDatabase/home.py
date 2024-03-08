@@ -11,7 +11,6 @@ from bokeh.plotting import figure
 from bokeh.layouts import layout, column
 from bokeh.models import ColumnDataSource, CustomJS, DatePicker, Tabs, TabPanel
 from bokeh.models.widgets import TextInput, Select, DataTable, TableColumn, Button, Div, CheckboxGroup, Toggle
-from bokeh.tile_providers import Vendors
 from bokeh.io import curdoc
 from bokeh.palettes import Spectral6
 from bokeh.events import ButtonClick
