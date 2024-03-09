@@ -9,6 +9,7 @@ services:
       DISPLAY:
     volumes:
       - ../../src:/usr/local/src
+      - ../../data:/usr/local/data
       - /tmp/.X11-unix:/tmp/.X11-unix
     command: ["python3", "main.py"]
     depends_on:
