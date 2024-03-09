@@ -65,9 +65,10 @@ def run_correction(inp):
     return output
 
 class TkThread:
-    def __init__(self, basePath = None):
+    def __init__(self, basePath = None, dataPath = None):
         self.root = tkinter.Tk()
         self.basePath = basePath
+        self.dataPath = dataPath
     
     def run_tk(self):
         self.root.wm_title("SIBER-RISK Strong Motion Database")
@@ -132,7 +133,7 @@ class TkThread:
                                   command=_close)
         button_quit.pack(side=tkinter.BOTTOM)
         window.update_idletasks()
-        updateEventsList(window, text, self.basePath)
+        updateEventsList(window, text, self.basePath, self.dataPath)
 
     def _download(self):
         window = tkinter.Toplevel(self.root)
@@ -149,7 +150,7 @@ class TkThread:
                                   command=_close)
         button_quit.pack(side=tkinter.BOTTOM)
         window.update_idletasks()
-        downloadNewEvents(window, text, self.basePath)
+        downloadNewEvents(window, text, self.basePath, self.dataPath)
         
     def _planeFaultProperties(self):
         
@@ -291,7 +292,7 @@ class TkThread:
                                   command=_close)
         button_quit.pack(side=tkinter.BOTTOM)
         window.update_idletasks()
-        transformRecords(window, text, self.basePath)
+        transformRecords(window, text, self.basePath, self.dataPath)
     
     def _pwave_detection(self):
         window = tkinter.Toplevel(self.root)
@@ -310,14 +311,14 @@ class TkThread:
 
         def _process():
             button_process['state'] = 'disabled'
-            detect_p_wave(window, self.basePath)
+            detect_p_wave(window, self.basePath, self.dataPath)
 
         button_process = tkinter.Button(master=window, text="Iniciar detección onda P",
                                   command=_process)
         button_process.pack(side=tkinter.RIGHT)
 
         window.update_idletasks()
-        disable = automatic_p_wave(window, text, self.basePath)
+        disable = automatic_p_wave(window, text, self.basePath, self.dataPath)
         if disable:
             button_process['state'] = 'disabled'
     
@@ -341,12 +342,12 @@ class TkThread:
         def _serial_process():
             button_serial_process['state']   = 'disabled'
             button_parallel_process['state'] = 'disabled'
-            applyCorrection(window, text, self.basePath, False)
+            applyCorrection(window, text, self.basePath, self.dataPath, False)
 
         def _parallel_process():
             button_serial_process['state']   = 'disabled'
             button_parallel_process['state'] = 'disabled'
-            applyCorrection(window, text, self.basePath, True)
+            applyCorrection(window, text, self.basePath, self.dataPath, True)
 
         button_serial_process = tkinter.Button(master=window, text="Ejecución en serie",
                                   command=_serial_process)
@@ -357,7 +358,7 @@ class TkThread:
         button_parallel_process.pack(side=tkinter.RIGHT)
 
         window.update_idletasks()
-        enable = correctRecords(window, text, self.basePath)
+        enable = correctRecords(window, text, self.basePath, self.dataPath)
         
         if not enable:
             button_serial_process['state']   = 'disabled'
@@ -379,7 +380,7 @@ class TkThread:
                                  command=_close)
         button_quit.pack(side=tkinter.BOTTOM)
         
-        updateFlatFile(window, text, self.basePath)
+        updateFlatFile(window, text, self.basePath, self.dataPath)
         
     
     def _quit(self):
@@ -389,11 +390,9 @@ class TkThread:
 
 if __name__ == '__main__':
 
-    if not os.path.exists('data'):
-        os.mkdir('data')
-
     basePath = os.path.abspath('.')
+    dataPath = os.path.abspath(os.path.join('.', '..', 'data'))
 
     copyreg.pickle(MethodType, _pickle_method, _unpickle_method)
-    tk_thread = TkThread(basePath)
+    tk_thread = TkThread(basePath, dataPath)
     tk_thread.run_tk()

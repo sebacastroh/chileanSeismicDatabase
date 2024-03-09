@@ -9,7 +9,7 @@ import json
 import pandas as pd
 import lib.pytrend as pytrend
 
-def downloadNewEvents(window, widget, basePath):
+def downloadNewEvents(window, widget, basePath, dataPath):
     
     if not os.path.exists(os.path.join(basePath, 'data', 'events.csv')):
         widget.insert('end', 'No existe el archivo "events.csv", primero ejecute la función para descargar la base de datos actualizada\n')
@@ -35,7 +35,7 @@ def downloadNewEvents(window, widget, basePath):
         rawName = row['Identificador']
         sdbName = row['ID']
         if os.path.exists(os.path.join(basePath, 'data', 'rawEvents', rawName + '.npz')) \
-        or os.path.exists(os.path.join(basePath, 'data', 'seismicDatabase', 'npz', sdbName + '.npz')):
+        or os.path.exists(os.path.join(dataPath, 'seismicDatabase', 'npz', sdbName + '.npz')):
             continue
         
         dataset_id = row['Fuente']

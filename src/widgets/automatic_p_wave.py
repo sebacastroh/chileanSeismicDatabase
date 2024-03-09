@@ -23,7 +23,7 @@ p_waves  = {}
 DEFAULT_INDENT = 2
 SORT_KEYS      = True
 
-def automatic_p_wave(window, widget, basePath=None):
+def automatic_p_wave(window, widget, basePath=None, dataPath):
     global stations, p_waves
 
     # Registered P-Waves
@@ -54,7 +54,7 @@ def automatic_p_wave(window, widget, basePath=None):
 
     return disable
 
-def detect_p_wave(masterWindow, basePath):
+def detect_p_wave(masterWindow, basePath, dataPath):
     global stations, p_waves
 
     action = 'continue'
@@ -64,12 +64,12 @@ def detect_p_wave(masterWindow, basePath):
     for event_station in stations:
         event_id, station_code = event_station
 
-        if not os.path.exists(os.path.join(basePath, 'data', 'seismicDatabase', 'npz', event_id + '.npz')):
+        if not os.path.exists(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz')):
             continue
 
         if event_id != old_event_id:
             old_event_id = event_id
-            with np.load(os.path.join(basePath, 'data', 'seismicDatabase', 'npz', event_id + '.npz'), allow_pickle=True) as f:
+            with np.load(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz'), allow_pickle=True) as f:
                 event = {}
                 for key, value in f.items():
                     event[key] = value.item()
@@ -80,7 +80,7 @@ def detect_p_wave(masterWindow, basePath):
                 continue
 
             if station.get('station_code') == station_code:
-                action = plot_p_wave(masterWindow, event_id, station, basePath)
+                action = plot_p_wave(masterWindow, event_id, station, basePath, dataPath)
                 break
 
         if action != 'continue':
@@ -92,9 +92,9 @@ def detect_p_wave(masterWindow, basePath):
 
     # Show end message
     if action == 'continue':
-        pop_up(basePath)
+        pop_up(basePath, dataPath)
 
-def plot_p_wave(masterWindow, event_id, station, basePath):
+def plot_p_wave(masterWindow, event_id, station, basePath, dataPath):
     global first, p_waves, action
 
     first = True
@@ -312,7 +312,7 @@ def plot_p_wave(masterWindow, event_id, station, basePath):
 
     return action
 
-def pop_up(basePath):
+def pop_up(basePath, dataPath):
     global p_waves
 
     window = tkinter.Toplevel()
@@ -320,7 +320,7 @@ def pop_up(basePath):
 
     def _save():
         global p_waves
-        with open(os.path.join('data', 'p_waves.json'), 'w') as f:
+        with open(os.path.join(basePath, 'data', 'p_waves.json'), 'w') as f:
             json.dump(p_waves, f, indent=DEFAULT_INDENT, sort_keys=SORT_KEYS)
         window.destroy()
 

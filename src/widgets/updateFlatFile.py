@@ -10,14 +10,14 @@ import datetime
 import numpy as np
 import pandas as pd
 
-def updateFlatFile(window, widget, basePath):
+def updateFlatFile(window, widget, basePath, dataPath):
 
-    if not os.path.exists(os.path.join(basePath, 'data', 'seismicDatabase', 'npz')):
+    if not os.path.exists(os.path.join(dataPath, 'seismicDatabase', 'npz')):
         widget.insert('end', 'No existen registros almacenados para registrar en la base de datos.\n')
         window.update_idletasks()
         return
 
-    filenames = sorted(os.listdir(os.path.join(basePath, 'data', 'seismicDatabase', 'npz')))
+    filenames = sorted(os.listdir(os.path.join(dataPath, 'seismicDatabase', 'npz')))
     if len(filenames) == 0:
         widget.insert('end', 'No existen registros almacenados para registrar en la base de datos.\n')
         window.update_idletasks()
@@ -40,8 +40,8 @@ def updateFlatFile(window, widget, basePath):
         'Joyner-Boore distance [km]', 'Vs30 [m/s]',
         'Azimuth [o]', 'HVSR', 'Corrected records', 'Last update']
 
-    if os.path.exists(os.path.join(basePath, 'data', 'flatFile.csv')):
-        df = pd.read_csv(os.path.join(basePath, 'data', 'flatFile.csv'))
+    if os.path.exists(os.path.join(dataPath, 'flatFile.csv')):
+        df = pd.read_csv(os.path.join(dataPath, 'flatFile.csv'))
     else:
         df = pd.DataFrame([], columns=columns)
 
@@ -81,7 +81,7 @@ def updateFlatFile(window, widget, basePath):
         if not updateRows:
             continue
 
-        with np.load(os.path.join(basePath, 'data', 'seismicDatabase', 'npz', filename), allow_pickle=True) as stations:
+        with np.load(os.path.join(dataPath, 'seismicDatabase', 'npz', filename), allow_pickle=True) as stations:
             for key in sorted(stations.keys()):
                 if not key.startswith('st'):
                     continue
@@ -148,8 +148,8 @@ def updateFlatFile(window, widget, basePath):
     df['Start time record'] = pd.to_datetime(df['Start time record'], format='%Y-%m-%d %H:%M:%S.%f')
     df['Last update'] = pd.to_datetime(df['Last update'], format='%Y-%m-%d %H:%M:%S.%f')
 
-    df.to_excel(os.path.join(basePath, 'data', 'flatFile.xlsx'), index=False)
-    df.to_csv(os.path.join(basePath, 'data', 'flatFile.csv'), index=False)
+    df.to_excel(os.path.join(dataPath, 'flatFile.xlsx'), index=False)
+    df.to_csv(os.path.join(dataPath, 'flatFile.csv'), index=False)
     
     widget.insert('end', 'Flat file actualizado.\n')
     window.update_idletasks()

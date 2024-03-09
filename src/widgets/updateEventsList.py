@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 import lib.pytrend as pytrend
 
-def updateEventsList(window, widget, basePath):
+def updateEventsList(window, widget, basePath, dataPath):
 
     if not os.path.exists(os.path.join(basePath, 'tmp')):
         os.mkdir(os.path.join(basePath, 'tmp'))

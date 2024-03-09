@@ -10,7 +10,7 @@ import lib.computeDistances as computeDistances
 DEFAULT_INDENT = 2
 SORT_KEYS      = True
 
-def transformRecords(window, widget, basePath):
+def transformRecords(window, widget, basePath, dataPath):
     """
     Función que ejecuta la transformación de los registros listados en el archivo ```siberrisk.csv```.
 
@@ -74,19 +74,19 @@ def transformRecords(window, widget, basePath):
     else:
         p_waves = {}
     
-    if not os.path.exists(os.path.join(basePath, 'data', 'seismicDatabase')):
-        os.mkdir(os.path.join(basePath, 'data', 'seismicDatabase'))
+    if not os.path.exists(os.path.join(dataPath, 'seismicDatabase')):
+        os.mkdir(os.path.join(dataPath, 'seismicDatabase'))
     
-    if not os.path.exists(os.path.join(basePath, 'data', 'seismicDatabase', 'npz')):
-        os.mkdir(os.path.join(basePath, 'data', 'seismicDatabase', 'npz'))
+    if not os.path.exists(os.path.join(dataPath, 'seismicDatabase', 'npz')):
+        os.mkdir(os.path.join(dataPath, 'seismicDatabase', 'npz'))
     
-    if not os.path.exists(os.path.join(basePath, 'data', 'seismicDatabase', 'mat')):
-        os.mkdir(os.path.join(basePath, 'data', 'seismicDatabase', 'mat'))
+    if not os.path.exists(os.path.join(dataPath, 'seismicDatabase', 'mat')):
+        os.mkdir(os.path.join(dataPath, 'seismicDatabase', 'mat'))
     
     slab = np.load(os.path.join(basePath, 'data', 'sam_slab2.npz'))
     for event_id in event_ids.tolist():
         
-        if os.path.exists(os.path.join(basePath, 'data', 'seismicDatabase', 'npz', event_id + '.npz')):
+        if os.path.exists(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz')):
             continue
 
         widget.insert('end', 'Transformando evento {event_id}... '.format(event_id=event_id))
@@ -353,8 +353,8 @@ def transformRecords(window, widget, basePath):
                     'updated': update
                 }
             
-            np.savez_compressed(os.path.join(basePath, 'data', 'seismicDatabase', 'npz', event_id), **event)
-            spio.savemat(os.path.join(basePath, 'data', 'seismicDatabase', 'mat', event_id + '.mat'), event, do_compression=True)
+            np.savez_compressed(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id), **event)
+            spio.savemat(os.path.join(dataPath, 'seismicDatabase', 'mat', event_id + '.mat'), event, do_compression=True)
 
             widget.insert('end', 'Listo\n')
             widget.see('end')
