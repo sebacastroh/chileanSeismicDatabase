@@ -23,7 +23,7 @@ p_waves  = {}
 DEFAULT_INDENT = 2
 SORT_KEYS      = True
 
-def automatic_p_wave(window, widget, basePath=None, dataPath):
+def automatic_p_wave(window, widget, basePath, dataPath):
     global stations, p_waves
 
     # Registered P-Waves
