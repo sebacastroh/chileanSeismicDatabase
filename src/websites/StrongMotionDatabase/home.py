@@ -19,7 +19,7 @@ from datetime import datetime, timedelta, date
 # Paths
 currentDir = os.path.dirname(__file__)
 libPath    = os.path.abspath(os.path.join(currentDir, '..', '..', 'lib'))
-dataPath   = os.path.abspath(os.path.join(currentDir, '..', '..', 'data'))
+dataPath   = os.path.abspath(os.path.join(currentDir, '..', '..', '..', 'data'))
 
 if not libPath in sys.path:
     sys.path.append(libPath)
