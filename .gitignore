@@ -1,39 +1,24 @@
-events/
-events_mat_corrected/
-events_mat_corrected_v2/
-events_mat_uncorrected/
-events_pkl_corrected_v2/
-figures/
-p_wave/
-*.zip
-*.npz
-*.mat
-SpectralValues.xlsx
-SpectralValues_2.xlsx
-*.pyc
-rawData/*
-*.pdf
-!sam_slab2.npz
+# Data
+data/seismicDatabase
+src/data/rawEvents
+src/data/seismicDatabase
+
+# Temporary files
+src/tmp
+
+# Secrets
+src/secrets/*
+!src/secrets/pdd-secrets.template.json
 
 # Cython compilation related files
 *.c
 *.o
 *.so
 
-# Secrets
-src/secrets/*
-!src/secrets/pdd-secrets.template.json
-
-# Data
-data/rawEvents
-data/correctedEvents
-
-# Temporal files
-src/tmp
-
 # Cache
 src/__pycache__
 src/lib/__pycache__
 src/widgets/__pycache__
 
-src/deprecated
+# Python compilation files
+*.pyc
