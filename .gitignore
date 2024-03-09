@@ -1,7 +1,6 @@
 # Data
-data/seismicDatabase
+data
 src/data/rawEvents
-src/data/seismicDatabase
 
 # Temporary files
 src/tmp
