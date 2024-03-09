@@ -150,9 +150,6 @@ def updateFlatFile(window, widget, basePath, dataPath):
 
     df.to_excel(os.path.join(dataPath, 'flatFile.xlsx'), index=False)
     df.to_csv(os.path.join(dataPath, 'flatFile.csv'), index=False)
-
-    rootPath = os.path.abspath(os.path.join(dataPath, '..'))
-    df.to_csv(os.path.join(rootPath, 'flatFile.csv'), index=False)
     
     widget.insert('end', 'Flat file actualizado.\n')
     window.update_idletasks()
