@@ -37,7 +37,7 @@ Todo el código relacionado tanto a la detección de la onda P, la corrección p
 python3 main.py
 ````
 
-En tanto, para levantar la página web del servidor se debe levantar un servidor local de ```bokeh``` con el archivo ```src/websites/StrgonMotionDatabase/home.py```, por ejemplo desde la ruta ```src/websites``` ejecutar el siguiente comando:
+En tanto, para levantar la página web del servidor se debe levantar un servidor local de ```bokeh``` con el archivo ```src/websites/StrongMotionDatabase/home.py```, por ejemplo desde la ruta ```src/websites``` ejecutar el siguiente comando:
 
 ```shell
 bokeh serve StrongMotionDatabase/home.py --allow-websocket-origin=* --prefix=StrongMotionDatabase
