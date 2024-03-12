@@ -24,7 +24,7 @@ services:
     volumes:
       - ../../src:/usr/local/src
       - ../../data:/usr/local/data
-    command: ["bokeh", "serve", "StrongMotionDatabase/home.py", "--allow-websocket-origin=*", "--prefix=StrongMotionDatabase"]
+    command: ["bokeh", "serve", "StrongMotionDatabase/newHome.py", "--allow-websocket-origin=*", "--prefix=StrongMotionDatabase"]
     depends_on:
       - seismic
   python:

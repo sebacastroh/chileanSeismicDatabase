@@ -1,16 +1,23 @@
 import os
+import random
+import string
+import datetime
 import numpy as np
 import pandas as pd
 
 ###################
 ## Bokeh modules ##
 ###################
-from bokeh.layouts import layout
+from bokeh.io import curdoc
 
-from bokeh.models import DatePicker, Tabs, TabPanel
-from bokeh.models.widgets import CheckboxGroup, DataTable, NumericInput, Select, TableColumn
+from bokeh.layouts import column, grid, layout
+
+from bokeh.models import CustomJS, DatePicker, Tabs, TabPanel
+from bokeh.models.widgets import Button, CheckboxGroup, DataTable, Div, NumericInput, Select, TableColumn
 
 from bokeh.plotting import figure
+
+from jinja2 import Environment, FileSystemLoader
 
 # Paths
 currentDir = os.path.dirname(__file__)
@@ -47,18 +54,32 @@ min_date = flatfile['Earthquake date'].min()
 max_date = flatfile['Earthquake date'].max()
 
 # Earthquake types
-eTypes = ['All'] + list(map(lambda x: x.capitalize(), np.sort(flatfile['Event type'].unique()).tolist()))
+eTypes = ['Any'] + list(map(lambda x: x.capitalize(), np.sort(flatfile['Event type'].unique()).tolist()))
 
 # Magnitudes
 min_mag = flatfile['Magnitude [Mw]'].min()
 max_mag = flatfile['Magnitude [Mw]'].max()
 
 # Station codes
-sCodes = ['All'] + np.sort(flatfile['Station code'].unique()).tolist()
+sCodes = ['Any'] + np.sort(flatfile['Station code'].unique()).tolist()
 
 # Seismic events
 seismic_events = list(reversed(flatfile['Earthquake Name'].unique().tolist()))
 station_codes  = np.sort(flatfile[flatfile['Earthquake Name'] == seismic_events[0]]['Station code']).tolist()
+
+############
+##  Divs  ##
+############
+div_filter  = Div(text='<h2>Filter options</h2>', sizing_mode='stretch_width', width=pwdith)
+
+div_records = Div(text='<h2>Strong Motion Database</h2>\nTo download several files at once please ' +
+    'click <a href="https://siberrisk.ing.puc.cl/StrongMotionDatabaseDownloadManager" target=' +
+    '"_blank">here</a>. Examples to read the database files are available for <a href="examplePython.py"' +
+    ' target="_blank">Python</a> and <a href="exampleMatlab.m" target="_blank">Matlab</a>.<br/>',
+    sizing_mode='stretch_width', width=pwdith)
+
+div_plots   = Div(text='<b>TIP:</b> You can hide/show the curves by pressing their names at the legend box!',
+    sizing_mode='stretch_width', width=pwdith)
 
 #########################
 ##  Filter components  ##
@@ -72,10 +93,10 @@ filter_until = DatePicker(min_date=min_date, max_date=max_date, value=max_date,
 filter_eType = Select(title='Event type', value=eTypes[0], options=eTypes,
     sizing_mode='stretch_width', width=pwdith*2)
 
-filter_minMw = NumericInput(title='Show events larger or equal than', value=min_mag,
+filter_minMw = NumericInput(title='Show events larger or equal than', value=min_mag, mode='float',
     sizing_mode='stretch_width', width=pwdith)
 
-filter_maxMw = NumericInput(title='Show events smaller or equal than', value=max_mag,
+filter_maxMw = NumericInput(title='Show events smaller or equal than', value=max_mag, mode='float',
     sizing_mode='stretch_width', width=pwdith)
 
 filter_sCode = Select(title='Recorded by station', value=sCodes[0], options=sCodes,
@@ -175,19 +196,22 @@ plots_cav = [figure(title='Cumulative Absolute Plot',
 ####################
 ##  Plots inputs  ##
 ####################
-options_ta = NumericInput(title='Initial period [s]', value=0.,
+options_ta = NumericInput(title='Initial period [s]', value=0., low=0., mode='float',
     sizing_mode='stretch_width', width=pwdith)
 
-options_tb = NumericInput(title='Ending period [s]', value=1.5,
+options_tb = NumericInput(title='Ending period [s]', value=1.5, low=0., mode='float',
     sizing_mode='stretch_width', width=pwdith)
 
-options_xi = NumericInput(title='Damping ratio', value=0.05,
+options_xi = NumericInput(title='Damping ratio', value=0.05, low=0., mode='float',
     sizing_mode='stretch_width', width=pwdith)
 
 options_ax = CheckboxGroup(labels=['Logarithmic X axis', 'Logarithmic Y axis'],
     sizing_mode='stretch_width', width=pwdith)
 
 options_gr = CheckboxGroup(labels=['X axis minor grid', 'Y axis minor grid'],
+    sizing_mode='stretch_width', width=pwdith)
+
+inputs_plots = column([options_ta, options_tb, options_xi, options_ax, options_gr, div_plots],
     sizing_mode='stretch_width', width=pwdith)
 
 #############
@@ -225,7 +249,6 @@ tabs_plots    = Tabs(tabs=panel_plots,
 ######################################
 ## Load and process data functions  ##
 ######################################
-#TODO: check if acceleration lengths are equal
 def load_event(event_name):
     with np.load(os.path.join(dataPath, 'seismicDatabase', 'npz', event_name + '.npz'), allow_pickle=True) as f:
         event = {}
@@ -314,7 +337,6 @@ def compute_cav_plot(station):
 #######################
 ## Update functions  ##
 #######################
-
 def update_event(attrname, old, new):
     global event
     
@@ -323,9 +345,9 @@ def update_event(attrname, old, new):
 
     event, station_codes = load_event(new)
 
-    if filter_scode.value in station_codes:
+    if filter_sCode.value in station_codes:
         select_station.value = ''
-        select_station.value = filter_scode.value
+        select_station.value = filter_sCode.value
     else:
         select_station.value = station_codes[0]
     
@@ -334,8 +356,13 @@ def update_station(attrname, old, new):
 
     station = event[select_station.value]
 
+    if 0 in options_ax.active:
+        tn = np.logspace(np.log10(max(options_ta.value, 0.001)), np.log10(options_tb.value), npoints)
+    else:
+        tn = np.linspace(options_ta.value, options_tb.value, npoints)
+
     vel, dis        = compute_vel_dis(station)
-    sa_spectra      = compute_sa_spectra(station, tn, xi)
+    sa_spectra      = compute_sa_spectra(station, tn, options_xi.value)
     dva_spectra     = compute_dva_spectra(sa_spectra, tn)
     fourier_spectra = compute_fourier_spectra(station)
     husid_plot      = compute_husid_plot(station)
@@ -344,19 +371,102 @@ def update_station(attrname, old, new):
 def update_spectra_options(attrname, old, new):
     global event
 
-    if options_ta.value < 0. or options_ta.value >= options_tb.value:
-        return
+    # assert type(options_ta.value) == float
+    # assert type(options_tb.value) == float
+    # assert type(options_xi.value) == float
 
-    if options_xi.value < 0.:
+    if options_ta.value >= options_tb.value:
         return
 
     station = event[select_station.value]
 
-
-
-    if option_ta.value <= 0.:
-        Tn_lin = np.linspace(0., float(tb.value), npoints)
-        Tn_log = np.hstack((0., np.logspace(np.log10(0.001), np.log10(float(tb.value)), npoints)))
+    if 0 in options_ax.active:
+        tn = np.logspace(np.log10(max(options_ta.value, 0.001)), np.log10(options_tb.value), npoints)
     else:
-        Tn_lin = np.linspace(float(ta.value), float(tb.value), npoints)
-        Tn_log = np.logspace(np.log10(float(ta.value)), np.log10(float(tb.value)), npoints)
+        tn = np.linspace(options_ta.value, options_tb.value, npoints)
+
+    sa_spectra = compute_sa_spectra(station, tn, options_xi.value)
+
+####################################
+##  Custom Javascript Functions   ##
+####################################
+Alert = CustomJS(args=dict(n=0), code="""
+if (n == 0) {
+    alert('Zero events meet your criteria! Please try again');
+} else {
+    if (n == 1) {
+        var message = 'A total of 1 event meets your criteria';
+    } else {
+        var message = 'A total of '.concat(n.toString());
+        message = message.concat(' events meet your criteria');
+    }
+    alert(message);
+}""")
+
+########################
+##  Filter functions  ##
+########################
+def filter_events():
+    since = filter_since.value
+    since = datetime.date(int(since[:4]), int(since[5:7]), int(since[8:]))
+    
+    until = filter_until.value
+    until = datetime.date(int(until[:4]), int(until[5:7]), int(until[8:]))
+    
+    minMag = filter_minMw.value
+    maxMag = filter_maxMw.value
+    
+    eType = filter_eType.value
+    sCode = filter_sCode.value
+    
+    conditions = (flatfile['Magnitude [Mw]']  >= minMag) & \
+                 (flatfile['Magnitude [Mw]']  <= maxMag) & \
+                 (flatfile['Earthquake date'] >= since) & \
+                 (flatfile['Earthquake date'] <= until)
+
+    if eType != 'Any':
+        conditions &= (flatfile['Event type'] == eType.lower())
+
+    if sCode != 'Any':
+        conditions &= (flatfile['Station code'] == sCode)
+
+    EarthquakeNames = flatfile[conditions]['Earthquake Name']
+    EarthquakeNames = sorted(EarthquakeNames.drop_duplicates().values.tolist(), reverse=True)
+    
+    Alert.args = dict(n=len(EarthquakeNames))
+    
+    lettersandnumbers  = string.ascii_lowercase + string.digits
+    button_filter.name = ''.join(random.choice(lettersandnumbers) for i in range(10))
+    if len(EarthquakeNames) > 0:
+        select_event.options = EarthquakeNames
+        select_event.value   = EarthquakeNames[0]
+
+########################
+## Javascript events  ##
+########################
+button_filter.js_on_change('name', Alert)
+button_filter.on_click(filter_events)
+
+######################
+##  Export website  ##
+######################
+_env = Environment(loader=FileSystemLoader('StrongMotionDatabase'))
+FILE = _env.get_template("siberrisk_seismicdatabase.html")
+curdoc().template = FILE
+
+distribution = grid([[div_filter, None, None, None],
+                     [filter_since, filter_minMw, filter_eType, button_filter],
+                     [filter_until, filter_maxMw, filter_sCode, None],
+                     [div_records],
+                     [select_event, select_station, select_format, button_download],
+                     [tabs_records],
+                     [inputs_plots, tabs_plots],
+                     [table, plot_map, None]], sizing_mode='stretch_width')
+
+distribution.children[14] = (distribution.children[14][0], distribution.children[14][1], distribution.children[14][2]  , 1, 3)
+distribution.children[15] = (distribution.children[15][0], distribution.children[15][1], distribution.children[14][2]+3, 1, 9)
+distribution.children[16] = (distribution.children[16][0], distribution.children[16][1], distribution.children[16][2]  , 1, 4)
+distribution.children[17] = (distribution.children[17][0], distribution.children[17][1], distribution.children[16][2]+4, 1, 8)
+
+curdoc().add_root(distribution)
+curdoc().title = 'Strong Motion Database ' + u'\u2013' + ' SIBER-RISK'
