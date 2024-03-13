@@ -18,6 +18,8 @@ from bokeh.layouts import column, grid, layout
 from bokeh.models import ColumnDataSource, CustomJS, DatePicker, Tabs, TabPanel
 from bokeh.models.widgets import Button, CheckboxGroup, DataTable, Div, NumericInput, Select, TableColumn
 
+from bokeh.palettes import Spectral6
+
 from bokeh.plotting import figure
 
 from jinja2 import Environment, FileSystemLoader
@@ -40,6 +42,7 @@ npoints    = 250
 allowed    = False
 pwdith     = 1
 pheight    = 250
+lwidth     = 2
 nTheta     = 91
 nx         = 0
 ny         = 45
@@ -223,13 +226,13 @@ for i in range(3):
 
 for i in range(len(axis_types)):
     for j in range(3):
-        plots_fourier[i].line('x', 'y', source=sources_fourier[j])
-        plots_husid[i].line('x', 'y', source=sources_husid[j])
-        plots_cav[i].line('x', 'y', source=sources_cav[j])
+        plots_fourier[i].line('x', 'y', source=sources_fourier[j], line_width=lwidth, color=Spectral6[j])
+        plots_husid[i].line('x', 'y', source=sources_husid[j], line_width=lwidth, color=Spectral6[j])
+        plots_cav[i].line('x', 'y', source=sources_cav[j], line_width=lwidth, color=Spectral6[j])
 
     for j in range(6):
-        plots_sa[i].line('x', 'y', source=sources_sa[j])
-        plots_dva[i].line('x', 'y', source=sources_dva[j])
+        plots_sa[i].line('x', 'y', source=sources_sa[j], line_width=lwidth, color=Spectral6[j])
+        plots_dva[i].line('x', 'y', source=sources_dva[j], line_width=lwidth, color=Spectral6[j])
 
 ####################
 ##  Plots inputs  ##
