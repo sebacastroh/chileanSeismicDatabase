@@ -1,9 +1,12 @@
 import os
+import sys
 import random
 import string
 import datetime
 import numpy as np
 import pandas as pd
+import scipy.fftpack as spf
+import scipy.integrate as spi
 
 ###################
 ## Bokeh modules ##
@@ -12,7 +15,7 @@ from bokeh.io import curdoc
 
 from bokeh.layouts import column, grid, layout
 
-from bokeh.models import CustomJS, DatePicker, Tabs, TabPanel
+from bokeh.models import ColumnDataSource, CustomJS, DatePicker, Tabs, TabPanel
 from bokeh.models.widgets import Button, CheckboxGroup, DataTable, Div, NumericInput, Select, TableColumn
 
 from bokeh.plotting import figure
@@ -23,6 +26,11 @@ from jinja2 import Environment, FileSystemLoader
 currentDir = os.path.dirname(__file__)
 libPath    = os.path.abspath(os.path.join(currentDir, '..', '..', 'lib'))
 dataPath   = os.path.abspath(os.path.join(currentDir, '..', '..', '..', 'data'))
+
+if not libPath in sys.path:
+    sys.path.append(libPath)
+
+import seismic
 
 ################
 ##  Settings  ##
@@ -193,6 +201,36 @@ plots_cav = [figure(title='Cumulative Absolute Plot',
     tooltips=tooltips_cav, sizing_mode='stretch_width', width=pwdith*3,
     x_axis_type=axis_type[0], y_axis_type=axis_type[1]) for axis_type in axis_types]
 
+###############
+##  Sources  ##
+###############
+sources_acc     = [ColumnDataSource(data=dict(x=[], y=[])) for i in range(3)]
+sources_vel     = [ColumnDataSource(data=dict(x=[], y=[])) for i in range(3)]
+sources_dis     = [ColumnDataSource(data=dict(x=[], y=[])) for i in range(3)]
+sources_sa      = [ColumnDataSource(data=dict(x=[], y=[])) for i in range(6)]
+sources_dva     = [ColumnDataSource(data=dict(x=[], y=[])) for i in range(6)]
+sources_fourier = [ColumnDataSource(data=dict(x=[], y=[])) for i in range(3)]
+sources_husid   = [ColumnDataSource(data=dict(x=[], y=[])) for i in range(3)]
+sources_cav     = [ColumnDataSource(data=dict(x=[], y=[])) for i in range(3)]
+
+#############
+##  Lines  ##
+#############
+for i in range(3):
+    plots_acc[i].line('x', 'y', source=sources_acc[i])
+    plots_vel[i].line('x', 'y', source=sources_vel[i])
+    plots_dis[i].line('x', 'y', source=sources_dis[i])
+
+for i in range(len(axis_types)):
+    for j in range(3):
+        plots_fourier[i].line('x', 'y', source=sources_fourier[j])
+        plots_husid[i].line('x', 'y', source=sources_husid[j])
+        plots_cav[i].line('x', 'y', source=sources_cav[j])
+
+    for j in range(6):
+        plots_sa[i].line('x', 'y', source=sources_sa[j])
+        plots_dva[i].line('x', 'y', source=sources_dva[j])
+
 ####################
 ##  Plots inputs  ##
 ####################
@@ -250,6 +288,7 @@ tabs_plots    = Tabs(tabs=panel_plots,
 ## Load and process data functions  ##
 ######################################
 def load_event(event_name):
+    stations_codes = []
     with np.load(os.path.join(dataPath, 'seismicDatabase', 'npz', event_name + '.npz'), allow_pickle=True) as f:
         event = {}
         for key, value in f.items():
@@ -262,9 +301,9 @@ def load_event(event_name):
             stations_codes.append(station_code)
             event[station_code] = station
 
-    stations_codes = list(sorted(station_codes))
+    stations_codes = list(sorted(stations_codes))
 
-    return event, station_codes
+    return event, stations_codes
 
 def compute_vel_dis(station):
     velocities    = []
@@ -291,7 +330,7 @@ def compute_sa_spectra(station, tn, xi):
     spectrum_rotd100 = np.max(spectra, axis=0)/g
     spectrum_geom    = np.sqrt(spectrum_x*spectrum_y)
 
-    return spectrum_x, spectrum_y, spectrum_rotd50, spectrum_rod0, spectrum_rotd100, spectrum_geom
+    return spectrum_x, spectrum_y, spectrum_rotd50, spectrum_rotd0, spectrum_rotd100, spectrum_geom
 
 def compute_dva_spectra(sa_spectra, tn):
     dva_spectra = []
@@ -319,7 +358,7 @@ def compute_husid_plot(station):
         n  = len(station['acc_uncorrected_%i' %(i+1)])
         t  = np.linspace(0., (n-1)*dt, n)
         ia = np.pi/(2.*g)*spi.cumtrapz(station['acc_uncorrected_%i' %(i+1)]**2, t, initial=0.)
-        husid_plots.extend([t, ia])
+        husid_plots.append(ia)
 
     return husid_plots
 
@@ -330,7 +369,7 @@ def compute_cav_plot(station):
         n   = len(station['acc_uncorrected_%i' %(i+1)])
         t   = np.linspace(0., (n-1)*dt, n)
         cav = spi.cumtrapz(np.abs(station['acc_uncorrected_%i' %(i+1)]), t, initial=0.)
-        cav_plots.extend([t, cav])
+        cav_plots.append(cav)
 
     return cav_plots
 
@@ -345,6 +384,7 @@ def update_event(attrname, old, new):
 
     event, station_codes = load_event(new)
 
+    select_station.options = station_codes
     if filter_sCode.value in station_codes:
         select_station.value = ''
         select_station.value = filter_sCode.value
@@ -367,6 +407,22 @@ def update_station(attrname, old, new):
     fourier_spectra = compute_fourier_spectra(station)
     husid_plot      = compute_husid_plot(station)
     cav_plot        = compute_cav_plot(station)
+
+    for i in range(3):
+        n  = len(station['acc_uncorrected_%i' %(i+1)])
+        dt = station['dt']
+        t  = np.linspace(0., (n-1)*dt, n)
+        sources_acc[i].data = dict(x=t, y=station['acc_uncorrected_%i' %(i+1)]/g)
+        sources_vel[i].data = dict(x=t, y=vel[i])
+        sources_dis[i].data = dict(x=t, y=dis[i])
+
+        sources_fourier[i].data = dict(x=fourier_spectra[2*i], y=fourier_spectra[2*i+1])
+        sources_husid[i].data   = dict(x=t, y=husid_plot[i])
+        sources_cav[i].data     = dict(x=t, y=cav_plot[i])
+
+    for i in range(6):
+        sources_sa[i].data  = dict(x=tn, y=sa_spectra[i])
+        sources_dva[i].data = dict(x=tn, y=dva_spectra[i])
 
 def update_spectra_options(attrname, old, new):
     global event
@@ -446,6 +502,13 @@ def filter_events():
 ########################
 button_filter.js_on_change('name', Alert)
 button_filter.on_click(filter_events)
+select_event.on_change('value', update_event)
+select_station.on_change('value', update_station)
+options_ta.on_change('value', update_spectra_options)
+options_tb.on_change('value', update_spectra_options)
+options_xi.on_change('value', update_spectra_options)
+# checkbox_axis.on_change('active', update_axis)
+# checkbox_grid.on_change('active', update_grid)
 
 ######################
 ##  Export website  ##
