@@ -37,17 +37,18 @@ import seismic
 ################
 ##  Settings  ##
 ################
-g          = 9.81 # m/s**2
-npoints    = 250
-allowed    = False
-pwdith     = 1
-pheight    = 250
-lwidth     = 2
-nTheta     = 91
-nx         = 0
-ny         = 45
-formats    = ['Matlab (MAT-binary, *.mat)', 'Python (Numpy, *.npz)']
-axis_types = [('linear', 'linear'), ('linear', 'log'), ('log', 'linear'), ('log', 'log')]
+g               = 9.81 # m/s**2
+npoints         = 250
+allowed         = False
+pwdith          = 1
+pheight         = 250
+lwidth          = 2
+nTheta          = 91
+nx              = 0
+ny              = 45
+formats         = ['Matlab (MAT-binary, *.mat)', 'Python (Numpy, *.npz)']
+axis_types      = [('linear', 'linear'), ('linear', 'log'), ('log', 'linear'), ('log', 'log')]
+spectrum_labels = ['1', '2', 'RotD50', 'RotD0', 'RotD100', 'Geometric mean']
 
 ########################
 ##  Global variables  ##
@@ -220,19 +221,19 @@ sources_cav     = [ColumnDataSource(data=dict(x=[], y=[])) for i in range(3)]
 ##  Lines  ##
 #############
 for i in range(3):
-    plots_acc[i].line('x', 'y', source=sources_acc[i])
-    plots_vel[i].line('x', 'y', source=sources_vel[i])
-    plots_dis[i].line('x', 'y', source=sources_dis[i])
+    plots_acc[i].line('x', 'y', source=sources_acc[i], legend_label='')
+    plots_vel[i].line('x', 'y', source=sources_vel[i], legend_label='')
+    plots_dis[i].line('x', 'y', source=sources_dis[i], legend_label='')
 
 for i in range(len(axis_types)):
     for j in range(3):
-        plots_fourier[i].line('x', 'y', source=sources_fourier[j], line_width=lwidth, color=Spectral6[j])
-        plots_husid[i].line('x', 'y', source=sources_husid[j], line_width=lwidth, color=Spectral6[j])
-        plots_cav[i].line('x', 'y', source=sources_cav[j], line_width=lwidth, color=Spectral6[j])
+        plots_fourier[i].line('x', 'y', source=sources_fourier[j], legend_label=str(j), line_width=lwidth, color=Spectral6[j])
+        plots_husid[i].line(  'x', 'y', source=sources_husid[j]  , legend_label=str(j), line_width=lwidth, color=Spectral6[j])
+        plots_cav[i].line(    'x', 'y', source=sources_cav[j]    , legend_label=str(j), line_width=lwidth, color=Spectral6[j])
 
     for j in range(6):
-        plots_sa[i].line('x', 'y', source=sources_sa[j], line_width=lwidth, color=Spectral6[j])
-        plots_dva[i].line('x', 'y', source=sources_dva[j], line_width=lwidth, color=Spectral6[j])
+        plots_sa[i].line( 'x', 'y', source=sources_sa[j] , legend_label=spectrum_labels[j], line_width=lwidth, color=Spectral6[j])
+        plots_dva[i].line('x', 'y', source=sources_dva[j], legend_label=spectrum_labels[j], line_width=lwidth, color=Spectral6[j])
 
 ####################
 ##  Plots inputs  ##
@@ -411,6 +412,7 @@ def update_station(attrname, old, new):
     husid_plot      = compute_husid_plot(station)
     cav_plot        = compute_cav_plot(station)
 
+    # Update source data
     for i in range(3):
         n  = len(station['acc_uncorrected_%i' %(i+1)])
         dt = station['dt']
@@ -426,6 +428,22 @@ def update_station(attrname, old, new):
     for i in range(6):
         sources_sa[i].data  = dict(x=tn, y=sa_spectra[i])
         sources_dva[i].data = dict(x=tn, y=dva_spectra[i])
+
+    # Update legend text
+    for i in range(3):
+        plots_acc[i].legend[0].items[0].update(label=dict(value = station['station_name']))
+        plots_vel[i].legend[0].items[0].update(label=dict(value = station['station_name']))
+        plots_dis[i].legend[0].items[0].update(label=dict(value = station['station_name']))
+
+    for i in range(len(axis_types)):
+        for j in range(3):
+            plots_fourier[i].legend[0].items[j].update(label=dict(value = station['component_%i' %(j+1)]))
+            plots_husid[i].legend[0].items[j].update(  label=dict(value = station['component_%i' %(j+1)]))
+            plots_cav[i].legend[0].items[j].update(    label=dict(value = station['component_%i' %(j+1)]))
+    
+        for j in range(2):
+            plots_sa[i].legend[0].items[j].update( label=dict(value = station['component_%i' %(j+1)]))
+            plots_dva[i].legend[0].items[j].update(label=dict(value = station['component_%i' %(j+1)]))
 
 def update_spectra_options(attrname, old, new):
     global event
