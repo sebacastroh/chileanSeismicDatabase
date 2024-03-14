@@ -255,6 +255,19 @@ for i in range(len(axis_types)):
         plots_sa[i].line( 'x', 'y', source=sources_sa[j] , legend_label=spectrum_labels[j], line_width=lwidth, color=Spectral6[j])
         plots_dva[i].line('x', 'y', source=sources_dva[j], legend_label=spectrum_labels[j], line_width=lwidth, color=Spectral6[j])
 
+###################
+##  Minor grids  ##
+###################
+for i in range(3):
+    plots_acc[i].xgrid[0].minor_grid_line_color = '#e5e5e5'
+    plots_acc[i].ygrid[0].minor_grid_line_color = '#e5e5e5'
+
+    plots_vel[i].xgrid[0].minor_grid_line_color = '#e5e5e5'
+    plots_vel[i].ygrid[0].minor_grid_line_color = '#e5e5e5'
+
+    plots_dis[i].xgrid[0].minor_grid_line_color = '#e5e5e5'
+    plots_dis[i].ygrid[0].minor_grid_line_color = '#e5e5e5'
+
 ###########################
 ##  Interactive legends  ##
 ###########################
