@@ -328,15 +328,17 @@ panel_records = [TabPanel(child=layout([[plots_acc[i]], [plots_vel[i]], [plots_d
 tabs_records  = Tabs(tabs=panel_records,
     sizing_mode='stretch_width', width=pwdith)
 
-panel_plots   = [
-    TabPanel(child=plots_sa[0]     , title='Sa Spectra'),
-    TabPanel(child=plots_dva[0]    , title='D-V-A Spectrum'),
-    TabPanel(child=plots_fourier[0], title='Fourier Spectrum'),
-    TabPanel(child=plots_husid[0]  , title='Husid Plot'),
-    TabPanel(child=plots_cav[0]    , title='Cumulative Absolute Velocity')
-]
+panel_plots = []
+for i in range(len(axis_types)):
+    panel_plots.append([
+        TabPanel(child=plots_sa[i]     , title='Sa Spectra'),
+        TabPanel(child=plots_dva[i]    , title='D-V-A Spectrum'),
+        TabPanel(child=plots_fourier[i], title='Fourier Spectrum'),
+        TabPanel(child=plots_husid[i]  , title='Husid Plot'),
+        TabPanel(child=plots_cav[i]    , title='Cumulative Absolute Velocity')
+    ])
 
-tabs_plots    = Tabs(tabs=panel_plots,
+tabs_plots    = Tabs(tabs=panel_plots[0],
     sizing_mode='stretch_width', width=pwdith)
 
 ######################################
@@ -526,10 +528,6 @@ def update_station(attrname, old, new):
 def update_spectra_options(attrname, old, new):
     global event
 
-    # assert type(options_ta.value) == float
-    # assert type(options_tb.value) == float
-    # assert type(options_xi.value) == float
-
     if options_ta.value >= options_tb.value:
         return
 
@@ -540,7 +538,52 @@ def update_spectra_options(attrname, old, new):
     else:
         tn = np.linspace(options_ta.value, options_tb.value, npoints)
 
-    sa_spectra = compute_sa_spectra(station, tn, options_xi.value)
+    sa_spectra  = compute_sa_spectra(station, tn, options_xi.value)
+    dva_spectra = compute_dva_spectra(sa_spectra, tn)
+
+    for i in range(6):
+        sources_sa[i].data  = dict(x=tn, y=sa_spectra[i])
+        sources_dva[i].data = dict(x=tn, y=dva_spectra[i])
+
+def update_axis_options(attrname, old, new):
+    if len(options_ax.active) == 0:
+        ax = 0
+    elif len(options_ax.active) == 2:
+        ax = 3
+    elif 0 in options_ax.active:
+        ax = 2
+    else:
+        ax = 1
+
+    tabs_plots.tabs = panel_plots[ax]
+
+def update_grid_options(attrname, old, new):
+    if 0 in options_gr.active:
+        colorx = '#e5e5e5'
+    else:
+        colorx = None
+
+    if 1 in options_gr.active:
+        colory = '#e5e5e5'
+    else:
+        colory = None
+
+    for i in range(len(axis_types)):
+        plots_sa[i].xgrid[0].minor_grid_line_color = colorx
+        plots_sa[i].ygrid[0].minor_grid_line_color = colory
+
+        plots_dva[i].xgrid[0].minor_grid_line_color = colorx
+        plots_dva[i].ygrid[0].minor_grid_line_color = colory
+
+        plots_fourier[i].xgrid[0].minor_grid_line_color = colorx
+        plots_fourier[i].ygrid[0].minor_grid_line_color = colory
+        
+        plots_husid[i].xgrid[0].minor_grid_line_color = colorx
+        plots_husid[i].ygrid[0].minor_grid_line_color = colory
+
+        plots_cav[i].xgrid[0].minor_grid_line_color = colorx
+        plots_cav[i].ygrid[0].minor_grid_line_color = colory
+
 
 ####################################
 ##  Custom Javascript Functions   ##
@@ -606,8 +649,8 @@ select_station.on_change('value', update_station)
 options_ta.on_change('value', update_spectra_options)
 options_tb.on_change('value', update_spectra_options)
 options_xi.on_change('value', update_spectra_options)
-# checkbox_axis.on_change('active', update_axis)
-# checkbox_grid.on_change('active', update_grid)
+options_ax.on_change('active', update_axis_options)
+options_gr.on_change('active', update_grid_options)
 
 ######################
 ##  Export website  ##
