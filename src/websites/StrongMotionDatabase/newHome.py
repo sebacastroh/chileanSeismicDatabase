@@ -37,18 +37,36 @@ import seismic
 ################
 ##  Settings  ##
 ################
-g               = 9.81 # m/s**2
-npoints         = 250
-allowed         = False
-pwdith          = 1
-pheight         = 250
-lwidth          = 2
-nTheta          = 91
-nx              = 0
-ny              = 45
-formats         = ['Matlab (MAT-binary, *.mat)', 'Python (Numpy, *.npz)']
-axis_types      = [('linear', 'linear'), ('linear', 'log'), ('log', 'linear'), ('log', 'log')]
-spectrum_labels = ['1', '2', 'RotD50', 'RotD0', 'RotD100', 'Geometric mean']
+g                  = 9.81 # m/s**2
+npoints            = 250
+allowed            = False
+pwdith             = 1
+pheight            = 250
+lwidth             = 2
+nTheta             = 91
+nx                 = 0
+ny                 = 45
+formats            = ['Matlab (MAT-binary, *.mat)', 'Python (Numpy, *.npz)']
+axis_types         = [('linear', 'linear'), ('linear', 'log'), ('log', 'linear'), ('log', 'log')]
+spectrum_labels    = ['1', '2', 'RotD50', 'RotD0', 'RotD100', 'Geometric mean']
+station_attributes = [('starttime', 'Start time'),
+    ('magnitude', 'Magnitude [Mw]'),
+    ('hypocenter_lon', 'Longitude hypocenter'),
+    ('hypocenter_lat', 'Latitude hypocenter'),
+    ('event_type', 'Event type'),
+    ('depth', 'Depth [km]'),
+    ('station_name', 'Station name'),
+    ('station_lon', 'Longitude station'),
+    ('station_lat', 'Latitude station'),
+    ('dt', 'Time interval (dt) [s]'),
+    ('Rhypo', 'Hypocentral distance [km]'),
+    ('Repi', 'Epicentral distance [km]'),
+    ('Rrup', 'Rupture distance [km]'),
+    ('Rjb', 'Joyner-Boore distance [km]'),
+    ('vs30', 'Vs30 [m/s]'),
+    ('hvsr', 'HVSR'),
+    ('azimuth', 'Azimuth [o]'),
+    ('last_update', 'Last update')]
 
 ########################
 ##  Global variables  ##
@@ -259,8 +277,10 @@ inputs_plots = column([options_ta, options_tb, options_xi, options_ax, options_g
 #############
 ##  Table  ##
 #############
-columns = [TableColumn(field="fields", title="Parameter"), TableColumn(field="values", title="Value")]
-table   = DataTable(columns=columns, sizing_mode='stretch_width', width=pwdith*4//3, reorderable=False)
+source_table  = ColumnDataSource(data=dict(fields=[], values=[]))
+columns_table = [TableColumn(field="fields", title="Parameter"), TableColumn(field="values", title="Value")]
+data_table    = DataTable(source=source_table, columns=columns_table,
+    sizing_mode='stretch_width', width=pwdith*4//3, reorderable=False)
 
 ###########
 ##  Map  ##
@@ -445,6 +465,10 @@ def update_station(attrname, old, new):
             plots_sa[i].legend[0].items[j].update( label=dict(value = station['component_%i' %(j+1)]))
             plots_dva[i].legend[0].items[j].update(label=dict(value = station['component_%i' %(j+1)]))
 
+    # Update data table
+    source_table.data = dict(fields=[attribute[1] for attribute in station_attributes],
+        values=[station[attribute[0]] for attribute in station_attributes])
+
 def update_spectra_options(attrname, old, new):
     global event
 
@@ -545,7 +569,7 @@ distribution = grid([[div_filter, None, None, None],
                      [select_event, select_station, select_format, button_download],
                      [tabs_records],
                      [inputs_plots, tabs_plots],
-                     [table, plot_map, None]], sizing_mode='stretch_width')
+                     [data_table, plot_map, None]], sizing_mode='stretch_width')
 
 distribution.children[14] = (distribution.children[14][0], distribution.children[14][1], distribution.children[14][2]  , 1, 3)
 distribution.children[15] = (distribution.children[15][0], distribution.children[15][1], distribution.children[14][2]+3, 1, 9)
