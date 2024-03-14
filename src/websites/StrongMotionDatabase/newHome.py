@@ -323,7 +323,7 @@ plot_map.legend.location = 'top_left'
 ##  Tabs  ##
 ############
 panel_records = [TabPanel(child=layout([[plots_acc[i]], [plots_vel[i]], [plots_dis[i]]],
-    sizing_mode='stretch_width', width=pwdith)) for i in range(3)]
+    sizing_mode='stretch_width', width=pwdith), title='Component %i' %(i+1)) for i in range(3)]
 
 tabs_records  = Tabs(tabs=panel_records,
     sizing_mode='stretch_width', width=pwdith)
@@ -482,9 +482,9 @@ def update_station(attrname, old, new):
 
     # Update legend text
     for i in range(3):
-        plots_acc[i].legend[0].items[0].update(label=dict(value = station['station_name']))
-        plots_vel[i].legend[0].items[0].update(label=dict(value = station['station_name']))
-        plots_dis[i].legend[0].items[0].update(label=dict(value = station['station_name']))
+        plots_acc[i].legend[0].items[0].update(label=dict(value = station['component_%i' %(i+1)]))
+        plots_vel[i].legend[0].items[0].update(label=dict(value = station['component_%i' %(i+1)]))
+        plots_dis[i].legend[0].items[0].update(label=dict(value = station['component_%i' %(i+1)]))
 
     for i in range(len(axis_types)):
         for j in range(3):
