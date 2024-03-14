@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 import scipy.fftpack as spf
 import scipy.integrate as spi
+from pyproj import Transformer
 
 ###################
 ## Bokeh modules ##
@@ -49,6 +50,7 @@ ny                 = 45
 formats            = ['Matlab (MAT-binary, *.mat)', 'Python (Numpy, *.npz)']
 axis_types         = [('linear', 'linear'), ('linear', 'log'), ('log', 'linear'), ('log', 'log')]
 spectrum_labels    = ['1', '2', 'RotD50', 'RotD0', 'RotD100', 'Geometric mean']
+transformer        = Transformer.from_crs("EPSG:4326", "EPSG:3857")
 station_attributes = [('starttime', 'Start time'),
     ('magnitude', 'Magnitude [Mw]'),
     ('hypocenter_lon', 'Longitude hypocenter'),
@@ -121,7 +123,7 @@ filter_until = DatePicker(min_date=min_date, max_date=max_date, value=max_date,
     title='Show events until', sizing_mode='stretch_width', width=pwdith)
 
 filter_eType = Select(title='Event type', value=eTypes[0], options=eTypes,
-    sizing_mode='stretch_width', width=pwdith*2)
+    sizing_mode='stretch_width', width=pwdith)
 
 filter_minMw = NumericInput(title='Show events larger or equal than', value=min_mag, mode='float',
     sizing_mode='stretch_width', width=pwdith)
@@ -130,13 +132,13 @@ filter_maxMw = NumericInput(title='Show events smaller or equal than', value=max
     sizing_mode='stretch_width', width=pwdith)
 
 filter_sCode = Select(title='Recorded by station', value=sCodes[0], options=sCodes,
-    sizing_mode='stretch_width', width=pwdith*2)
+    sizing_mode='stretch_width', width=pwdith)
 
 #########################
 ##  Select components  ##
 #########################
 select_event   = Select(title='Seismic events', value=seismic_events[0], options=seismic_events,
-    sizing_mode='stretch_width', width=pwdith*2)
+    sizing_mode='stretch_width', width=pwdith)
 
 select_station = Select(title='Stations', value=station_codes[0], options=station_codes,
     sizing_mode='stretch_width', width=pwdith)
@@ -169,26 +171,26 @@ tooltips_cav = [('(t, CAV)', '($x, $y)'),]
 ##  Acceleration plots  ##
 ##########################
 plots_acc = [figure(title='Acceleration', x_axis_label='Time [s]', y_axis_label='Acceleration [g]',
-    tooltips=tooltips_a, height=pheight, sizing_mode='stretch_width', width=pwdith*4) for i in range(3)]
+    tooltips=tooltips_a, height=pheight, sizing_mode='stretch_width', width=pwdith) for i in range(3)]
 
 ######################
 ##  Velocity plots  ##
 ######################
 plots_vel = [figure(title='Velocity', x_axis_label='Time [s]', y_axis_label='Velocity [m/s]',
-    tooltips=tooltips_v, height=pheight, sizing_mode='stretch_width', width=pwdith*4) for i in range(3)]
+    tooltips=tooltips_v, height=pheight, sizing_mode='stretch_width', width=pwdith) for i in range(3)]
 
 ##########################
 ##  Displacement plots  ##
 ##########################
 plots_dis = [figure(title='Displacement', x_axis_label='Time [s]', y_axis_label='Displacement [m]',
-    tooltips=tooltips_d, height=pheight, sizing_mode='stretch_width', width=pwdith*4) for i in range(3)]
+    tooltips=tooltips_d, height=pheight, sizing_mode='stretch_width', width=pwdith) for i in range(3)]
 
 #########################
 ##  Sa Spectrum plots  ##
 #########################
 plots_sa = [figure(title='Pseudo-acceleration Response Spectrum',
     x_axis_label='Period [s]', y_axis_label='Spectral Acceleration [g]',
-    tooltips=tooltips_sa, sizing_mode='stretch_width', width=pwdith*3,
+    tooltips=tooltips_sa, sizing_mode='stretch_width', width=pwdith,
     x_axis_type=axis_type[0], y_axis_type=axis_type[1]) for axis_type in axis_types]
 
 ##########################
@@ -196,7 +198,7 @@ plots_sa = [figure(title='Pseudo-acceleration Response Spectrum',
 ##########################
 plots_dva = [figure(title='Combined D-V-A Spectrum',
     x_axis_label='Period [s]', y_axis_label='Spectral Velocity [m/s]',
-    tooltips=tooltips_sv, sizing_mode='stretch_width', width=pwdith*3,
+    tooltips=tooltips_sv, sizing_mode='stretch_width', width=pwdith,
     x_axis_type=axis_type[0], y_axis_type=axis_type[1]) for axis_type in axis_types]
 
 ##############################
@@ -204,7 +206,7 @@ plots_dva = [figure(title='Combined D-V-A Spectrum',
 ##############################
 plots_fourier = [figure(title='Fourier Spectrum',
     x_axis_label='Frequency [Hz]', y_axis_label='Amplitude [m/s]',
-    tooltips=tooltips_f, sizing_mode='stretch_width', width=pwdith*3,
+    tooltips=tooltips_f, sizing_mode='stretch_width', width=pwdith,
     x_axis_type=axis_type[0], y_axis_type=axis_type[1]) for axis_type in axis_types]
 
 ###################
@@ -212,7 +214,7 @@ plots_fourier = [figure(title='Fourier Spectrum',
 ###################
 plots_husid = [figure(title='Husid Plot',
     x_axis_label='Time [s]', y_axis_label='Arias intensity [m/s]',
-    tooltips=tooltips_ai, sizing_mode='stretch_width', width=pwdith*3,
+    tooltips=tooltips_ai, sizing_mode='stretch_width', width=pwdith,
     x_axis_type=axis_type[0], y_axis_type=axis_type[1]) for axis_type in axis_types]
 
 #################
@@ -220,7 +222,7 @@ plots_husid = [figure(title='Husid Plot',
 #################
 plots_cav = [figure(title='Cumulative Absolute Plot',
     x_axis_label='Time [s]', y_axis_label='CAV [m/s]',
-    tooltips=tooltips_cav, sizing_mode='stretch_width', width=pwdith*3,
+    tooltips=tooltips_cav, sizing_mode='stretch_width', width=pwdith,
     x_axis_type=axis_type[0], y_axis_type=axis_type[1]) for axis_type in axis_types]
 
 ###############
@@ -253,6 +255,16 @@ for i in range(len(axis_types)):
         plots_sa[i].line( 'x', 'y', source=sources_sa[j] , legend_label=spectrum_labels[j], line_width=lwidth, color=Spectral6[j])
         plots_dva[i].line('x', 'y', source=sources_dva[j], legend_label=spectrum_labels[j], line_width=lwidth, color=Spectral6[j])
 
+###########################
+##  Interactive legends  ##
+###########################
+for i in range(len(axis_types)):
+    plots_sa[i].legend.click_policy      = 'hide'
+    plots_dva[i].legend.click_policy     = 'hide'
+    plots_fourier[i].legend.click_policy = 'hide'
+    plots_husid[i].legend.click_policy   = 'hide'
+    plots_cav[i].legend.click_policy     = 'hide'
+
 ####################
 ##  Plots inputs  ##
 ####################
@@ -280,22 +292,28 @@ inputs_plots = column([options_ta, options_tb, options_xi, options_ax, options_g
 source_table  = ColumnDataSource(data=dict(fields=[], values=[]))
 columns_table = [TableColumn(field="fields", title="Parameter"), TableColumn(field="values", title="Value")]
 data_table    = DataTable(source=source_table, columns=columns_table,
-    sizing_mode='stretch_width', width=pwdith*4//3, reorderable=False)
+    sizing_mode='stretch_width', width=pwdith, reorderable=False, height=2*pheight)
 
 ###########
 ##  Map  ##
 ###########
-plot_map = figure(x_axis_type="mercator", y_axis_type="mercator", sizing_mode='stretch_width', width=pwdith*4*2//3)
+plot_map = figure(x_axis_type="mercator", y_axis_type="mercator", sizing_mode='stretch_width', width=pwdith)
 plot_map.add_tile("CartoDB Positron")
+source_hypo = ColumnDataSource(data=dict(lat=[], lon=[]))
+source_sta  = ColumnDataSource(data=dict(lat=[], lon=[]))
+
+plot_map.circle(x='lon', y='lat', size=15, fill_color='blue'  , line_color='black', fill_alpha=0.8, source=source_sta , legend_label='Station')
+plot_map.star(  x='lon', y='lat', size=25, fill_color='yellow', line_color='black', fill_alpha=0.8, source=source_hypo, legend_label='Hypocenter')
+plot_map.legend.location = 'top_left'
 
 ############
 ##  Tabs  ##
 ############
 panel_records = [TabPanel(child=layout([[plots_acc[i]], [plots_vel[i]], [plots_dis[i]]],
-    sizing_mode='stretch_width', width=pwdith*4)) for i in range(3)]
+    sizing_mode='stretch_width', width=pwdith)) for i in range(3)]
 
 tabs_records  = Tabs(tabs=panel_records,
-    sizing_mode='stretch_width', width=pwdith*4)
+    sizing_mode='stretch_width', width=pwdith)
 
 panel_plots   = [
     TabPanel(child=plots_sa[0]     , title='Sa Spectra'),
@@ -306,7 +324,7 @@ panel_plots   = [
 ]
 
 tabs_plots    = Tabs(tabs=panel_plots,
-    sizing_mode='stretch_width', width=pwdith*3)
+    sizing_mode='stretch_width', width=pwdith)
 
 ######################################
 ## Load and process data functions  ##
@@ -469,6 +487,29 @@ def update_station(attrname, old, new):
     source_table.data = dict(fields=[attribute[1] for attribute in station_attributes],
         values=[station[attribute[0]] for attribute in station_attributes])
 
+    # Update map plot
+    hypo_x, hypo_y = transformer.transform(station['hypocenter_lat'], station['hypocenter_lon'])
+    sta_x , sta_y  = transformer.transform(station['station_lat']   , station['station_lon'])
+
+    xmean = 0.5*(hypo_x + sta_x)
+    ymean = 0.5*(hypo_y + sta_y)
+
+    dist = max([abs(hypo_x-xmean), abs(sta_x-xmean), abs(hypo_y-ymean), abs(sta_y-ymean)])
+
+    xmin = xmean - dist - 30000
+    xmax = xmean + dist + 30000
+
+    ymin = ymean - dist - 30000
+    ymax = ymean + dist + 30000
+
+    plot_map.x_range.start = xmin
+    plot_map.x_range.end   = xmax
+    plot_map.y_range.start = ymin
+    plot_map.y_range.end   = ymax
+
+    source_hypo.data = dict(lat=[hypo_y], lon=[hypo_x])
+    source_sta.data  = dict(lat=[sta_y] , lon=[sta_x])
+
 def update_spectra_options(attrname, old, new):
     global event
 
@@ -562,19 +603,19 @@ _env = Environment(loader=FileSystemLoader('StrongMotionDatabase'))
 FILE = _env.get_template("siberrisk_seismicdatabase.html")
 curdoc().template = FILE
 
-distribution = grid([[div_filter, None, None, None],
+distribution = grid([[div_filter],
                      [filter_since, filter_minMw, filter_eType, button_filter],
                      [filter_until, filter_maxMw, filter_sCode, None],
                      [div_records],
                      [select_event, select_station, select_format, button_download],
                      [tabs_records],
-                     [inputs_plots, tabs_plots],
-                     [data_table, plot_map, None]], sizing_mode='stretch_width')
+                     [inputs_plots, tabs_plots, None, None],
+                     [data_table, plot_map, None, None]], sizing_mode='stretch_width')
 
-distribution.children[14] = (distribution.children[14][0], distribution.children[14][1], distribution.children[14][2]  , 1, 3)
-distribution.children[15] = (distribution.children[15][0], distribution.children[15][1], distribution.children[14][2]+3, 1, 9)
-distribution.children[16] = (distribution.children[16][0], distribution.children[16][1], distribution.children[16][2]  , 1, 4)
-distribution.children[17] = (distribution.children[17][0], distribution.children[17][1], distribution.children[16][2]+4, 1, 8)
+distribution.children[14] = (distribution.children[14][0], distribution.children[14][1], distribution.children[14][2]  , 1, 1)
+distribution.children[15] = (distribution.children[15][0], distribution.children[15][1], distribution.children[14][2]+1, 1, 3)
+distribution.children[16] = (distribution.children[16][0], distribution.children[16][1], distribution.children[16][2]  , 1, 1)
+distribution.children[17] = (distribution.children[17][0], distribution.children[17][1], distribution.children[16][2]+1, 1, 3)
 
 curdoc().add_root(distribution)
 curdoc().title = 'Strong Motion Database ' + u'\u2013' + ' SIBER-RISK'
