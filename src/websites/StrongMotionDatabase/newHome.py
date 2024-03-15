@@ -50,7 +50,7 @@ ny                 = 45
 formats            = ['Matlab (MAT-binary, *.mat)', 'Python (Numpy, *.npz)']
 axis_types         = [('linear', 'linear'), ('linear', 'log'), ('log', 'linear'), ('log', 'log')]
 spectrum_labels    = ['1', '2', 'RotD50', 'RotD0', 'RotD100', 'Geometric mean']
-transformer        = Transformer.from_crs("EPSG:4326", "EPSG:3857")
+transformer        = Transformer.from_crs('EPSG:4326', 'EPSG:3857')
 station_attributes = [('starttime', 'Start time'),
     ('magnitude', 'Magnitude [Mw]'),
     ('hypocenter_lon', 'Longitude hypocenter'),
@@ -75,30 +75,6 @@ station_attributes = [('starttime', 'Start time'),
 ########################
 event = {}
 
-################
-##  Database  ##
-################
-flatfile = pd.read_csv(os.path.join(dataPath, 'flatFile.csv'))
-
-# Dates
-flatfile['Earthquake date'] = pd.to_datetime(flatfile['Earthquake date']).dt.date
-min_date = flatfile['Earthquake date'].min()
-max_date = flatfile['Earthquake date'].max()
-
-# Earthquake types
-eTypes = ['Any'] + list(map(lambda x: x.capitalize(), np.sort(flatfile['Event type'].unique()).tolist()))
-
-# Magnitudes
-min_mag = flatfile['Magnitude [Mw]'].min()
-max_mag = flatfile['Magnitude [Mw]'].max()
-
-# Station codes
-sCodes = ['Any'] + np.sort(flatfile['Station code'].unique()).tolist()
-
-# Seismic events
-seismic_events = list(reversed(flatfile['Earthquake Name'].unique().tolist()))
-station_codes  = np.sort(flatfile[flatfile['Earthquake Name'] == seismic_events[0]]['Station code']).tolist()
-
 ############
 ##  Divs  ##
 ############
@@ -116,35 +92,26 @@ div_plots   = Div(text='<b>TIP:</b> You can hide/show the curves by pressing the
 #########################
 ##  Filter components  ##
 #########################
-filter_since = DatePicker(min_date=min_date, max_date=max_date, value=min_date,
-    title='Show events since', sizing_mode='stretch_width', width=pwdith)
+filter_since = DatePicker(title='Show events since', sizing_mode='stretch_width', width=pwdith)
 
-filter_until = DatePicker(min_date=min_date, max_date=max_date, value=max_date,
-    title='Show events until', sizing_mode='stretch_width', width=pwdith)
+filter_until = DatePicker(title='Show events until', sizing_mode='stretch_width', width=pwdith)
 
-filter_eType = Select(title='Event type', value=eTypes[0], options=eTypes,
-    sizing_mode='stretch_width', width=pwdith)
+filter_eType = Select(title='Event type',sizing_mode='stretch_width', width=pwdith)
 
-filter_minMw = NumericInput(title='Show events larger or equal than', value=min_mag, mode='float',
-    sizing_mode='stretch_width', width=pwdith)
+filter_minMw = NumericInput(title='Show events larger or equal than', mode='float', sizing_mode='stretch_width', width=pwdith)
 
-filter_maxMw = NumericInput(title='Show events smaller or equal than', value=max_mag, mode='float',
-    sizing_mode='stretch_width', width=pwdith)
+filter_maxMw = NumericInput(title='Show events smaller or equal than', mode='float', sizing_mode='stretch_width', width=pwdith)
 
-filter_sCode = Select(title='Recorded by station', value=sCodes[0], options=sCodes,
-    sizing_mode='stretch_width', width=pwdith)
+filter_sCode = Select(title='Recorded by station', sizing_mode='stretch_width', width=pwdith)
 
 #########################
 ##  Select components  ##
 #########################
-select_event   = Select(title='Seismic events', value=seismic_events[0], options=seismic_events,
-    sizing_mode='stretch_width', width=pwdith)
+select_event   = Select(title='Seismic events', sizing_mode='stretch_width', width=pwdith)
 
-select_station = Select(title='Stations', value=station_codes[0], options=station_codes,
-    sizing_mode='stretch_width', width=pwdith)
+select_station = Select(title='Stations', sizing_mode='stretch_width', width=pwdith)
 
-select_format = Select(title='File format', value=formats[0], options=formats,
-    sizing_mode='stretch_width', width=pwdith)
+select_format = Select(title='File format', sizing_mode='stretch_width', width=pwdith)
 
 ###############
 ##  Buttons  ##
@@ -303,15 +270,15 @@ inputs_plots = column([options_ta, options_tb, options_xi, options_ax, options_g
 ##  Table  ##
 #############
 source_table  = ColumnDataSource(data=dict(fields=[], values=[]))
-columns_table = [TableColumn(field="fields", title="Parameter"), TableColumn(field="values", title="Value")]
+columns_table = [TableColumn(field='fields', title='Parameter'), TableColumn(field='values', title='Value')]
 data_table    = DataTable(source=source_table, columns=columns_table,
     sizing_mode='stretch_width', width=pwdith, reorderable=False, height=2*pheight)
 
 ###########
 ##  Map  ##
 ###########
-plot_map = figure(x_axis_type="mercator", y_axis_type="mercator", sizing_mode='stretch_width', width=pwdith)
-plot_map.add_tile("CartoDB Positron")
+plot_map = figure(x_axis_type='mercator', y_axis_type='mercator', sizing_mode='stretch_width', width=pwdith)
+plot_map.add_tile('CartoDB Positron')
 source_hypo = ColumnDataSource(data=dict(lat=[], lon=[]))
 source_sta  = ColumnDataSource(data=dict(lat=[], lon=[]))
 
@@ -605,6 +572,8 @@ if (n == 0) {
 ##  Filter functions  ##
 ########################
 def filter_events():
+    global flatfile
+
     since = filter_since.value
     since = datetime.date(int(since[:4]), int(since[5:7]), int(since[8:]))
     
@@ -652,11 +621,48 @@ options_xi.on_change('value', update_spectra_options)
 options_ax.on_change('active', update_axis_options)
 options_gr.on_change('active', update_grid_options)
 
+################
+##  Database  ##
+################
+flatfile = pd.read_csv(os.path.join(dataPath, 'flatFile.csv'))
+
+# Dates
+flatfile['Earthquake date'] = pd.to_datetime(flatfile['Earthquake date']).dt.date
+min_date = flatfile['Earthquake date'].min()
+max_date = flatfile['Earthquake date'].max()
+
+# Earthquake types
+eTypes = ['Any'] + list(map(lambda x: x.capitalize(), np.sort(flatfile['Event type'].unique()).tolist()))
+
+# Magnitudes
+min_mag = flatfile['Magnitude [Mw]'].min()
+max_mag = flatfile['Magnitude [Mw]'].max()
+
+# Station codes
+sCodes = ['Any'] + np.sort(flatfile['Station code'].unique()).tolist()
+
+# Seismic events
+seismic_events = list(reversed(flatfile['Earthquake Name'].unique().tolist()))
+station_codes  = np.sort(flatfile[flatfile['Earthquake Name'] == seismic_events[0]]['Station code']).tolist()
+
+#############################
+##  Initial configuration  ##
+#############################
+filter_since.update(min_date=min_date, max_date=max_date, value=min_date)
+filter_until.update(min_date=min_date, max_date=max_date, value=max_date)
+filter_eType.update(value=eTypes[0], options=eTypes)
+filter_minMw.update(value=min_mag)
+filter_maxMw.update(value=max_mag)
+filter_sCode.update(value=sCodes[0], options=sCodes)
+select_event.update(value=seismic_events[0], options=seismic_events)
+select_station.update(value=station_codes[0], options=station_codes)
+select_format.update(value=formats[0], options=formats)
+
 ######################
 ##  Export website  ##
 ######################
 _env = Environment(loader=FileSystemLoader('StrongMotionDatabase'))
-FILE = _env.get_template("siberrisk_seismicdatabase.html")
+FILE = _env.get_template('siberrisk_seismicdatabase.html')
 curdoc().template = FILE
 
 distribution = grid([[div_filter],
