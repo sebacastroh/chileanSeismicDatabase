@@ -442,11 +442,29 @@ def update_station(attrname, old, new):
         sources_vel[i].data = dict(x=t, y=vel[i])
         sources_dis[i].data = dict(x=t, y=dis[i])
 
+        sources_fourier[i].data = dict(x=[], y=[])
+        sources_husid[i].data   = dict(x=[], y=[])
+        sources_cav[i].data     = dict(x=[], y=[])
+
+    for i in range(6):
+        sources_sa[i].data  = dict(x=[], y=[])
+        sources_dva[i].data = dict(x=[], y=[])
+
     # Update legend text
     for i in range(3):
         plots_acc[i].legend[0].items[0].update(label=dict(value = station['component_%i' %(i+1)]))
         plots_vel[i].legend[0].items[0].update(label=dict(value = station['component_%i' %(i+1)]))
         plots_dis[i].legend[0].items[0].update(label=dict(value = station['component_%i' %(i+1)]))
+
+    for i in range(len(axis_types)):
+        for j in range(3):
+            plots_fourier[i].legend[0].items[j].update(label=dict(value = 'Component %i' %(j+1)))
+            plots_husid[i].legend[0].items[j].update(  label=dict(value = 'Component %i' %(j+1)))
+            plots_cav[i].legend[0].items[j].update(    label=dict(value = 'Component %i' %(j+1)))
+    
+        for j in range(2):
+            plots_sa[i].legend[0].items[j].update( label=dict(value = 'Component %i' %(j+1)))
+            plots_dva[i].legend[0].items[j].update(label=dict(value = 'Component %i' %(j+1)))
 
     # Update data table
     source_table.data = dict(fields=[attribute[1] for attribute in station_attributes],
