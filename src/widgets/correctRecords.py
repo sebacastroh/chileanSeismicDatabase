@@ -2,7 +2,6 @@ import os
 import json
 import datetime
 import numpy as np
-import pandas as pd
 import multiprocessing
 import scipy.io as spio
 import lib.automaticCorrection as automaticCorrection
@@ -38,9 +37,6 @@ def correctRecords(window, widget, basePath, dataPath):
     widget.see('end')
     window.update_idletasks()
 
-    # Lista de eventos
-    df = pd.read_csv(os.path.join(basePath, 'data', 'events.csv'), dtype={'Identificador': str})
-
     # Registered P-Waves
     if os.path.exists(os.path.join(basePath, 'data', 'p_waves.json')):
         with open(os.path.join(basePath, 'data', 'p_waves.json')) as f:
@@ -48,30 +44,17 @@ def correctRecords(window, widget, basePath, dataPath):
     else:
         p_waves = {}
 
-    events_with_p_waves = list(p_waves.keys())
-
-    # List events with registered P-Waves
-    subdf = df[df['ID'].isin(events_with_p_waves)]
-
     # Select events and stations to correct
     to_correct = []
     widget.insert('end', 'Eventos y estaciones a corregir\n\n')
     widget.see('end')
     window.update_idletasks()
-    for r, row in subdf.iterrows():
-        event_id       = row['ID']
-        stations_codes = row['Estaciones'].split('; ')
-
-        for station_code in stations_codes:
-            station_info = p_waves.get(event_id).get(station_code)
-            if station_info is None:
-                continue
-            elif station_info.get('status') and station_info.get('corrected'):
-                continue
-            else:
-                to_correct.append([event_id, station_code])
-
-                widget.insert('end', event_id + ' - ' + station_code + '\n')
+    to_correct = []
+    for event_id, p_wave in p_waves.items():
+        for scode, sinfo in p_wave.items():
+             if sinfo['status'] and not sinfo['corrected']:
+                to_correct.append([event_id, scode])
+                widget.insert('end', event_id + ' - ' + scode + '\n')
                 widget.see('end')
                 window.update_idletasks()
 
@@ -80,6 +63,10 @@ def correctRecords(window, widget, basePath, dataPath):
         widget.see('end')
         window.update_idletasks()
         return False
+
+    widget.insert('end', '\nNúmero total de registros a corregir: %i\n' %len(to_correct))
+    widget.see('end')
+    window.update_idletasks()
 
     return True
 
