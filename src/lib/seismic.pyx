@@ -155,7 +155,7 @@ cpdef SpectraRot(double[::1] ax, double[::1] ay, double dt, double[::1] T, doubl
     cdef double *thisSa
     cdef np.ndarray Sa
     
-    n  = len(ax)
+    n  = min(len(ax), len(ay))
     nT = len(T)
     
     thisSa = <double *>malloc(nT * nTheta * sizeof(double))
