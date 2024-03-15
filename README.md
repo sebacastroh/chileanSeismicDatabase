@@ -64,7 +64,7 @@ La base de datos, ya sea corregida o no, se almacena en la ruta ```data```. Por 
 
 - [Sebastián Castro](https://github.com/sebacastroh)
 - [Roberto Benavente](https://github.com/robenavente)
-- Jorge G.F. Crempien
+- [Jorge G. F. Crempien](https://github.com/crempien)
 - [Gabriel Candia](https://github.com/gacandia)
 - Juan Carlos de la Llera
 
