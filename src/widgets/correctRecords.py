@@ -192,7 +192,7 @@ def parallel_run(combination):
     dataPath = data_path
 
     event_id, station_code = combination
-    with np.load(os.path.join(dataPath, 'data', 'seismicDatabase', 'npz', event_id + '.npz'), allow_pickle=True) as f:
+    with np.load(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz'), allow_pickle=True) as f:
         data = {}
         for key, value in f.items():
             data[key] = value.item()
