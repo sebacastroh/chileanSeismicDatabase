@@ -12,6 +12,8 @@ from pyproj import Transformer
 ###################
 ## Bokeh modules ##
 ###################
+from bokeh.events import ButtonClick
+
 from bokeh.io import curdoc
 
 from bokeh.layouts import column, grid, layout
@@ -600,6 +602,23 @@ if (n == 0) {
     alert(message);
 }""")
 
+Download = CustomJS(args=dict(source=select_event, extension=select_format),code="""
+if (extension.value == 'Matlab (MAT-binary, *.mat)') {
+    var filename = source.value.concat('.mat');
+    var path = 'data/seismicDatabase/mat/';
+} else {
+    var filename = source.value.concat('.npz');
+    var path = 'data/seismicDatabase/npz/';
+}
+
+var link = document.createElement('a');
+link.setAttribute('download', filename);
+link.href = '%s' + path + filename;
+document.body.appendChild(link);
+link.click();
+link.remove();
+""" %sys.argv[1])
+
 ########################
 ##  Filter functions  ##
 ########################
@@ -650,6 +669,7 @@ select_event.on_change('value', update_event)
 select_station.on_change('value', update_station)
 options_ax.on_change('active', update_axis_options)
 options_gr.on_change('active', update_grid_options)
+button_download.js_on_event(ButtonClick, Download)
 
 ################
 ##  Database  ##
