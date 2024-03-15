@@ -71,6 +71,7 @@ station_attributes = [('starttime', 'Start time'),
     ('hvsr', 'HVSR'),
     ('azimuth', 'Azimuth [o]'),
     ('last_update', 'Last update')]
+seismic_component  = 'acc_filtered_'
 
 ########################
 ##  Global variables  ##
@@ -343,9 +344,9 @@ def compute_vel_dis(station):
     displacements = []
     dt = station['dt']
     for i in range(3):
-        n = len(station['acc_uncorrected_%i' %(i+1)])
+        n = len(station[seismic_component + '%i' %(i+1)])
         t = np.linspace(0., (n-1)*dt, n)
-        acc = station['acc_uncorrected_%i' %(i+1)]
+        acc = station[seismic_component + '%i' %(i+1)]
         vel = spi.cumtrapz(acc, x=t, initial=0.)
         dis = spi.cumtrapz(vel, x=t, initial=0.)
         velocities.append(vel)
@@ -354,7 +355,7 @@ def compute_vel_dis(station):
     return velocities, displacements
 
 def compute_sa_spectra(station, tn, xi):
-    spectra = seismic.SpectraRot(station['acc_uncorrected_1'], station['acc_uncorrected_2'], station['dt'], tn, xi, nTheta)
+    spectra = seismic.SpectraRot(station[seismic_component + '1'], station[seismic_component + '2'], station['dt'], tn, xi, nTheta)
 
     spectrum_x       = spectra[nx]/g
     spectrum_y       = spectra[ny]/g
@@ -377,9 +378,9 @@ def compute_fourier_spectra(station):
     dt = station['dt']
     Fs = 1./dt
     for i in range(3):
-        L  = len(station['acc_uncorrected_%i' %(i+1)])
+        L  = len(station[seismic_component + '%i' %(i+1)])
         freq = Fs*np.linspace(0., L//2, L//2)/L
-        Fa = 2.*np.abs(spf.fft(station['acc_uncorrected_%i' %(i+1)])*dt)[:L//2]
+        Fa = 2.*np.abs(spf.fft(station[seismic_component + '%i' %(i+1)])*dt)[:L//2]
         fourier_spectra.extend([freq, Fa])
 
     return fourier_spectra
@@ -388,9 +389,9 @@ def compute_husid_plot(station):
     husid_plots = []
     dt = station['dt']
     for i in range(3):
-        n  = len(station['acc_uncorrected_%i' %(i+1)])
+        n  = len(station[seismic_component + '%i' %(i+1)])
         t  = np.linspace(0., (n-1)*dt, n)
-        ia = np.pi/(2.*g)*spi.cumtrapz(station['acc_uncorrected_%i' %(i+1)]**2, t, initial=0.)
+        ia = np.pi/(2.*g)*spi.cumtrapz(station[seismic_component + '%i' %(i+1)]**2, t, initial=0.)
         husid_plots.append(ia)
 
     return husid_plots
@@ -399,9 +400,9 @@ def compute_cav_plot(station):
     cav_plots = []
     dt = station['dt']
     for i in range(3):
-        n   = len(station['acc_uncorrected_%i' %(i+1)])
+        n   = len(station[seismic_component + '%i' %(i+1)])
         t   = np.linspace(0., (n-1)*dt, n)
-        cav = spi.cumtrapz(np.abs(station['acc_uncorrected_%i' %(i+1)]), t, initial=0.)
+        cav = spi.cumtrapz(np.abs(station[seismic_component + '%i' %(i+1)]), t, initial=0.)
         cav_plots.append(cav)
 
     return cav_plots
@@ -437,10 +438,10 @@ def update_station(attrname, old, new):
 
     # Update source data
     for i in range(3):
-        n  = len(station['acc_uncorrected_%i' %(i+1)])
+        n  = len(station[seismic_component + '%i' %(i+1)])
         dt = station['dt']
         t  = np.linspace(0., (n-1)*dt, n)
-        sources_acc[i].data = dict(x=t, y=station['acc_uncorrected_%i' %(i+1)]/g)
+        sources_acc[i].data = dict(x=t, y=station[seismic_component + '%i' %(i+1)]/g)
         sources_vel[i].data = dict(x=t, y=vel[i])
         sources_dis[i].data = dict(x=t, y=dis[i])
 
@@ -520,7 +521,7 @@ def update_plots():
     # Update source data
     if not plotted:
         for i in range(3):
-            n  = len(station['acc_uncorrected_%i' %(i+1)])
+            n  = len(station[seismic_component + '%i' %(i+1)])
             dt = station['dt']
             t  = np.linspace(0., (n-1)*dt, n)
 
