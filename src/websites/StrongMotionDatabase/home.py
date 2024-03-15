@@ -49,7 +49,7 @@ nx                 = 0
 ny                 = 45
 formats            = ['Matlab (MAT-binary, *.mat)', 'Python (Numpy, *.npz)']
 axis_types         = [('linear', 'linear'), ('linear', 'log'), ('log', 'linear'), ('log', 'log')]
-spectrum_labels    = ['1', '2', 'RotD50', 'RotD0', 'RotD100', 'Geometric mean']
+spectrum_labels    = ['Component 1', 'Component 2', 'RotD50', 'RotD0', 'RotD100', 'Geometric mean']
 transformer        = Transformer.from_crs('EPSG:4326', 'EPSG:3857')
 station_attributes = [('starttime', 'Start time'),
     ('magnitude', 'Magnitude [Mw]'),
@@ -73,7 +73,11 @@ station_attributes = [('starttime', 'Start time'),
 ########################
 ##  Global variables  ##
 ########################
-event = {}
+event   = {}
+ta      = None
+tb      = None
+xi      = None
+plotted = False
 
 ############
 ##  Divs  ##
@@ -120,6 +124,9 @@ button_filter   = Button(label='Apply filters', button_type='success',
     sizing_mode='stretch_width', width=pwdith, align='end')
 
 button_download = Button(label='Download', button_type='success',
+    sizing_mode='stretch_width', width=pwdith, align='end')
+
+button_plots    = Button(label='Generate plots', button_type='success',
     sizing_mode='stretch_width', width=pwdith, align='end')
 
 ################
@@ -214,9 +221,9 @@ for i in range(3):
 
 for i in range(len(axis_types)):
     for j in range(3):
-        plots_fourier[i].line('x', 'y', source=sources_fourier[j], legend_label=str(j), line_width=lwidth, color=Spectral6[j])
-        plots_husid[i].line(  'x', 'y', source=sources_husid[j]  , legend_label=str(j), line_width=lwidth, color=Spectral6[j])
-        plots_cav[i].line(    'x', 'y', source=sources_cav[j]    , legend_label=str(j), line_width=lwidth, color=Spectral6[j])
+        plots_fourier[i].line('x', 'y', source=sources_fourier[j], legend_label='Component %i' %(j+1), line_width=lwidth, color=Spectral6[j])
+        plots_husid[i].line(  'x', 'y', source=sources_husid[j]  , legend_label='Component %i' %(j+1), line_width=lwidth, color=Spectral6[j])
+        plots_cav[i].line(    'x', 'y', source=sources_cav[j]    , legend_label='Component %i' %(j+1), line_width=lwidth, color=Spectral6[j])
 
     for j in range(6):
         plots_sa[i].line( 'x', 'y', source=sources_sa[j] , legend_label=spectrum_labels[j], line_width=lwidth, color=Spectral6[j])
@@ -263,7 +270,7 @@ options_ax = CheckboxGroup(labels=['Logarithmic X axis', 'Logarithmic Y axis'],
 options_gr = CheckboxGroup(labels=['X axis minor grid', 'Y axis minor grid'],
     sizing_mode='stretch_width', width=pwdith)
 
-inputs_plots = column([options_ta, options_tb, options_xi, options_ax, options_gr, div_plots],
+inputs_plots = column([options_ta, options_tb, options_xi, button_plots, options_ax, options_gr, div_plots],
     sizing_mode='stretch_width', width=pwdith)
 
 #############
@@ -416,21 +423,15 @@ def update_event(attrname, old, new):
         select_station.value = station_codes[0]
     
 def update_station(attrname, old, new):
-    global event
+    global event, ta, tb, xi, plotted
 
-    station = event[select_station.value]
+    ta      = None
+    tb      = None
+    xi      = None
+    plotted = False
 
-    if 0 in options_ax.active:
-        tn = np.logspace(np.log10(max(options_ta.value, 0.001)), np.log10(options_tb.value), npoints)
-    else:
-        tn = np.linspace(options_ta.value, options_tb.value, npoints)
-
-    vel, dis        = compute_vel_dis(station)
-    sa_spectra      = compute_sa_spectra(station, tn, options_xi.value)
-    dva_spectra     = compute_dva_spectra(sa_spectra, tn)
-    fourier_spectra = compute_fourier_spectra(station)
-    husid_plot      = compute_husid_plot(station)
-    cav_plot        = compute_cav_plot(station)
+    station  = event[select_station.value]
+    vel, dis = compute_vel_dis(station)
 
     # Update source data
     for i in range(3):
@@ -441,29 +442,11 @@ def update_station(attrname, old, new):
         sources_vel[i].data = dict(x=t, y=vel[i])
         sources_dis[i].data = dict(x=t, y=dis[i])
 
-        sources_fourier[i].data = dict(x=fourier_spectra[2*i], y=fourier_spectra[2*i+1])
-        sources_husid[i].data   = dict(x=t, y=husid_plot[i])
-        sources_cav[i].data     = dict(x=t, y=cav_plot[i])
-
-    for i in range(6):
-        sources_sa[i].data  = dict(x=tn, y=sa_spectra[i])
-        sources_dva[i].data = dict(x=tn, y=dva_spectra[i])
-
     # Update legend text
     for i in range(3):
         plots_acc[i].legend[0].items[0].update(label=dict(value = station['component_%i' %(i+1)]))
         plots_vel[i].legend[0].items[0].update(label=dict(value = station['component_%i' %(i+1)]))
         plots_dis[i].legend[0].items[0].update(label=dict(value = station['component_%i' %(i+1)]))
-
-    for i in range(len(axis_types)):
-        for j in range(3):
-            plots_fourier[i].legend[0].items[j].update(label=dict(value = station['component_%i' %(j+1)]))
-            plots_husid[i].legend[0].items[j].update(  label=dict(value = station['component_%i' %(j+1)]))
-            plots_cav[i].legend[0].items[j].update(    label=dict(value = station['component_%i' %(j+1)]))
-    
-        for j in range(2):
-            plots_sa[i].legend[0].items[j].update( label=dict(value = station['component_%i' %(j+1)]))
-            plots_dva[i].legend[0].items[j].update(label=dict(value = station['component_%i' %(j+1)]))
 
     # Update data table
     source_table.data = dict(fields=[attribute[1] for attribute in station_attributes],
@@ -484,33 +467,64 @@ def update_station(attrname, old, new):
     ymin = ymean - dist - 30000
     ymax = ymean + dist + 30000
 
-    plot_map.x_range.start = xmin
-    plot_map.x_range.end   = xmax
-    plot_map.y_range.start = ymin
-    plot_map.y_range.end   = ymax
+    plot_map.x_range.update(start=xmin, end=xmax)
+    plot_map.y_range.update(start=ymin, end=ymax)
 
     source_hypo.data = dict(lat=[hypo_y], lon=[hypo_x])
     source_sta.data  = dict(lat=[sta_y] , lon=[sta_x])
 
-def update_spectra_options(attrname, old, new):
-    global event
+def update_plots():
+    global event, ta, tb, xi, plotted
 
-    if options_ta.value >= options_tb.value:
+    if (ta == options_ta.value) and (tb == options_tb.value) and (xi == options_xi.value):
         return
+
+    ta = options_ta.value
+    tb = options_tb.value
+    xi = options_xi.value
 
     station = event[select_station.value]
 
-    if 0 in options_ax.active:
-        tn = np.logspace(np.log10(max(options_ta.value, 0.001)), np.log10(options_tb.value), npoints)
-    else:
-        tn = np.linspace(options_ta.value, options_tb.value, npoints)
+    tn_log = np.logspace(np.log10(max(options_ta.value, 0.001)), np.log10(options_tb.value), int(npoints/2))
+    tn_lin = np.linspace(options_ta.value, options_tb.value, int(npoints/2))
+    tn     = np.unique(np.hstack((tn_log, tn_lin)))
 
     sa_spectra  = compute_sa_spectra(station, tn, options_xi.value)
     dva_spectra = compute_dva_spectra(sa_spectra, tn)
 
+    if not plotted:
+        fourier_spectra = compute_fourier_spectra(station)
+        husid_plot      = compute_husid_plot(station)
+        cav_plot        = compute_cav_plot(station)
+
+    # Update source data
+    if not plotted:
+        for i in range(3):
+            n  = len(station['acc_uncorrected_%i' %(i+1)])
+            dt = station['dt']
+            t  = np.linspace(0., (n-1)*dt, n)
+
+            sources_fourier[i].data = dict(x=fourier_spectra[2*i], y=fourier_spectra[2*i+1])
+            sources_husid[i].data   = dict(x=t, y=husid_plot[i])
+            sources_cav[i].data     = dict(x=t, y=cav_plot[i])
+
     for i in range(6):
         sources_sa[i].data  = dict(x=tn, y=sa_spectra[i])
         sources_dva[i].data = dict(x=tn, y=dva_spectra[i])
+
+    # Update legend text
+    for i in range(len(axis_types)):
+        if not plotted:
+            for j in range(3):
+                plots_fourier[i].legend[0].items[j].update(label=dict(value = station['component_%i' %(j+1)]))
+                plots_husid[i].legend[0].items[j].update(  label=dict(value = station['component_%i' %(j+1)]))
+                plots_cav[i].legend[0].items[j].update(    label=dict(value = station['component_%i' %(j+1)]))
+    
+        for j in range(2):
+            plots_sa[i].legend[0].items[j].update( label=dict(value = station['component_%i' %(j+1)]))
+            plots_dva[i].legend[0].items[j].update(label=dict(value = station['component_%i' %(j+1)]))
+
+    plotted = True
 
 def update_axis_options(attrname, old, new):
     if len(options_ax.active) == 0:
@@ -613,11 +627,9 @@ def filter_events():
 ########################
 button_filter.js_on_change('name', Alert)
 button_filter.on_click(filter_events)
+button_plots.on_click(update_plots)
 select_event.on_change('value', update_event)
 select_station.on_change('value', update_station)
-options_ta.on_change('value', update_spectra_options)
-options_tb.on_change('value', update_spectra_options)
-options_xi.on_change('value', update_spectra_options)
 options_ax.on_change('active', update_axis_options)
 options_gr.on_change('active', update_grid_options)
 
