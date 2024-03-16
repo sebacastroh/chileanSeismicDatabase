@@ -289,7 +289,8 @@ data_table    = DataTable(source=source_table, columns=columns_table,
 ###########
 ##  Map  ##
 ###########
-plot_map = figure(x_axis_type='mercator', y_axis_type='mercator', sizing_mode='stretch_width', width=pwdith)
+plot_map = figure(x_axis_type='mercator', y_axis_type='mercator', x_range=(0, 1), y_range=(0, 1),
+    sizing_mode='stretch_width', width=pwdith)
 plot_map.add_tile('CartoDB Positron')
 source_hypo = ColumnDataSource(data=dict(lat=[], lon=[]))
 source_sta  = ColumnDataSource(data=dict(lat=[], lon=[]))
