@@ -7,16 +7,10 @@ Created on Tue Nov 19 21:02:53 2019
 """
 import os
 import sys
-import json
 import pickle
-import numpy as np
-import pandas as pd
-import scipy.io as spio
-
 import pyperclip
 import webbrowser
 import subprocess
-import multiprocessing
 
 import tkinter
 from PIL import ImageTk, Image
@@ -342,12 +336,16 @@ class TkThread:
         def _serial_process():
             button_serial_process['state']   = 'disabled'
             button_parallel_process['state'] = 'disabled'
+            button_quit['state'] = 'disabled'
             applyCorrection(window, text, self.basePath, self.dataPath, False)
+            button_quit['state'] = 'enabled'
 
         def _parallel_process():
             button_serial_process['state']   = 'disabled'
             button_parallel_process['state'] = 'disabled'
+            button_quit['state'] = 'disabled'
             applyCorrection(window, text, self.basePath, self.dataPath, True)
+            button_quit['state'] = 'enabled'
 
         button_serial_process = tkinter.Button(master=window, text="Ejecución en serie",
                                   command=_serial_process)

@@ -17,12 +17,6 @@ def updateFlatFile(window, widget, basePath, dataPath):
         window.update_idletasks()
         return
 
-    filenames = sorted(os.listdir(os.path.join(dataPath, 'seismicDatabase', 'npz')))
-    if len(filenames) == 0:
-        widget.insert('end', 'No existen registros almacenados para registrar en la base de datos.\n')
-        window.update_idletasks()
-        return
-
     if not os.path.exists(os.path.join(basePath, 'data', 'p_waves.json')):
         widget.insert('end', 'No se ha encontrado el archivo p_waves.json necesario.\n')
         window.update_idletasks()
@@ -45,48 +39,36 @@ def updateFlatFile(window, widget, basePath, dataPath):
     else:
         df = pd.DataFrame([], columns=columns)
 
-    table = []
-    
     with open(os.path.join(basePath, 'data', 'p_waves.json')) as f:
         p_waves = json.load(f)
 
-    for filename in filenames:
-        subdf = df[df['Earthquake Name'] == filename[:-4]]
-        p_wave_info = p_waves.get(filename[:-4])
+    table = []
+    for event_id, p_wave in p_waves.items():
+        station_codes = []
+        for scode, sinfo in p_wave.items():
+            subdf = df[(df['Earthquake Name'] == event_id) & (df['Station code'] == scode)]
 
-        updateRows = False
-
-        if len(subdf) == 0:
-            updateRows = True
-        else:
-            if p_wave_info is None:
-                updateRows = True
+            if len(subdf) == 0:
+                station_codes.append(scode)
             else:
-                stations_codes_json = list(p_wave_info.keys())
-                station_codes_csv   = subdf['Station code'].tolist()
+                lastUpdateCSV  = datetime.datetime.strptime(subdf['Last update'].iloc[0], '%Y-%m-%d %H:%M:%S.%f')
+                lastUpdateJSON = datetime.datetime.strptime(sinfo['updated'], '%Y-%m-%dT%H:%M:%S.%f')
+                if lastUpdateCSV != lastUpdateJSON:
+                    station_codes.append(scode)
+                    df.drop(labels=subdf.index[0], inplace=True)
 
-                for station_code_json in stations_codes_json:
-                    if station_code_json not in station_codes_csv:
-                        updateRows = True
-                        break
-                    else:
-                        row = subdf[subdf['Station code'] == station_code_json]
-                        lastUpdateCSV  = datetime.datetime.strptime(row['Last update'].iloc[0], '%Y-%m-%d %H:%M:%S.%f')
-                        lastUpdateJSON = datetime.datetime.strptime(p_wave_info[station_code_json]['updated'], '%Y-%m-%dT%H:%M:%S.%f')
-
-                        if lastUpdateCSV != lastUpdateJSON:
-                            updateRows = True
-                            break
-
-        if not updateRows:
+        if len(station_codes) == 0:
             continue
 
-        with np.load(os.path.join(dataPath, 'seismicDatabase', 'npz', filename), allow_pickle=True) as stations:
+        with np.load(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz'), allow_pickle=True) as stations:
             for key in sorted(stations.keys()):
                 if not key.startswith('st'):
                     continue
 
                 station = stations.get(key).item()
+
+                if station.get('station_code') not in station_codes:
+                    continue
 
                 Rrup = station.get('Rrup')
                 Rjb  = station.get('Rjb')
@@ -102,20 +84,11 @@ def updateFlatFile(window, widget, basePath, dataPath):
                 if isinstance(azimuth, str):
                     azimuth = -1
 
-                if p_wave_info is not None:
-                    station_info = p_wave_info.get(station.get('station_code'))
-                    if station_info is None:
-                        corrected = False
-                    elif station_info.get('corrected'):
-                        corrected = True
-                    else:
-                        corrected = False
-                else:
-                    corrected = False
+                corrected = p_wave.get(station.get('station_code')).get('corrected')
 
                 table.append([
-                    filename[:-4],                                          # Earthquake name
-                    '-'.join([filename[:4], filename[4:6], filename[6:8]]), # Earthquake date
+                    event_id,
+                    '-'.join([event_id[:4], event_id[4:6], event_id[6:8]]), # Earthquake date
                     station.get('starttime').replace('T', ' ').replace('Z', ''),
                     station.get('magnitude'),
                     station.get('hypocenter_lat'),
@@ -138,18 +111,20 @@ def updateFlatFile(window, widget, basePath, dataPath):
                     station.get('last_update').replace('T', ' ').replace('Z', '')
                 ])
     
-    new_rows = pd.DataFrame(table, columns=columns)
-    df = pd.concat([df, new_rows], ignore_index=True)
-    
-    for col in df.columns[[3,4,5,6,10,11,12,13,14,15,16,17,18]]:
-        df[col] = df[col].astype(float) 
+    if len(table) > 0:
+        new_rows = pd.DataFrame(table, columns=columns)
+        df = pd.concat([df, new_rows], ignore_index=True)
+        df.sort_values(by=['Earthquake Name', 'Station code'], inplace=True)
+        
+        for col in df.columns[[3,4,5,6,10,11,12,13,14,15,16,17,18]]:
+            df[col] = df[col].astype(float)
 
-    df['Earthquake date'] = pd.to_datetime(df['Earthquake date'], format='%Y-%m-%d')
-    df['Start time record'] = pd.to_datetime(df['Start time record'], format='%Y-%m-%d %H:%M:%S.%f')
-    df['Last update'] = pd.to_datetime(df['Last update'], format='%Y-%m-%d %H:%M:%S.%f')
+        df['Earthquake date']   = pd.to_datetime(df['Earthquake date'], format='%Y-%m-%d')
+        df['Start time record'] = pd.to_datetime(df['Start time record'], format='%Y-%m-%d %H:%M:%S.%f')
+        df['Last update']       = pd.to_datetime(df['Last update'], format='%Y-%m-%d %H:%M:%S.%f')
 
-    df.to_excel(os.path.join(dataPath, 'flatFile.xlsx'), index=False)
-    df.to_csv(os.path.join(dataPath, 'flatFile.csv'), index=False)
+        df.to_excel(os.path.join(dataPath, 'flatFile.xlsx'), index=False)
+        df.to_csv(os.path.join(dataPath, 'flatFile.csv'), index=False)
     
     widget.insert('end', 'Flat file actualizado.\n')
     window.update_idletasks()
