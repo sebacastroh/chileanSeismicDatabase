@@ -1,5 +1,6 @@
 import os
 import sys
+import json
 import random
 import string
 import datetime
@@ -29,8 +30,9 @@ from jinja2 import Environment, FileSystemLoader
 
 # Paths
 currentDir = os.path.dirname(__file__)
-libPath    = os.path.abspath(os.path.join(currentDir, '..', '..', 'lib'))
 dataPath   = os.path.abspath(os.path.join(currentDir, '..', '..', '..', 'data'))
+libPath    = os.path.abspath(os.path.join(currentDir, '..', '..', 'lib'))
+srcPath    = os.path.abspath(os.path.join(currentDir, '..', '..'))
 
 if not libPath in sys.path:
     sys.path.append(libPath)
@@ -342,13 +344,21 @@ def load_event(event_name):
 def compute_vel_dis(station):
     velocities    = []
     displacements = []
-    dt = station['dt']
+    dt            = station['dt']
+    p_wave        = p_waves[select_event.value][select_station.value]['pos']
     for i in range(3):
         n = len(station[seismic_component + '%i' %(i+1)])
         t = np.linspace(0., (n-1)*dt, n)
         acc = station[seismic_component + '%i' %(i+1)]
+
         vel = spi.cumtrapz(acc, x=t, initial=0.)
+        if p_wave > 0:
+            vel -= vel[:p_wave].mean()
+
         dis = spi.cumtrapz(vel, x=t, initial=0.)
+        if p_wave > 0:
+            dis -= dis[:p_wave].mean()
+
         velocities.append(vel)
         displacements.append(dis)
 
@@ -675,6 +685,9 @@ button_download.js_on_event(ButtonClick, Download)
 ################
 ##  Database  ##
 ################
+with open(os.path.join(srcPath, 'data', 'p_waves.json')) as f:
+    p_waves = json.load(f)
+
 flatfile = pd.read_csv(os.path.join(dataPath, 'flatFile.csv'))
 
 # Dates
