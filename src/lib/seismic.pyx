@@ -87,7 +87,7 @@ cpdef Spectrum(double[::1] ax, double dt, double[::1] T, double xi):
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.cdivision(True)    
-cdef void _Spectrum(double *ax, double dt, double[::1] T, double xi, int npts, int nT, double *Sa, int pos) nogil:
+cdef int _Spectrum(double *ax, double dt, double[::1] T, double xi, int npts, int nT, double *Sa, int pos) nogil:
     '''
     Calculates the acceleration spectrum using the Newmark's method
     '''
