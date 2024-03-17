@@ -664,14 +664,16 @@
       "updated": "2024-03-03T00:21:26.757675"
     }
   },
-  "20010701_7.2M_latS_lonW_depthKM": {
+  "20010701_magM_latS_lonW_depthKM": {
     "AricaCementerio": {
       "corrected": false,
       "method": "Automatic",
       "pos": 1809,
       "status": false,
       "updated": "2024-03-03T00:21:27.147496"
-    },
+    }
+  },
+  "20010701_7.2M_latS_lonW_depthKM": {
     "AricaChacalluta": {
       "corrected": false,
       "method": "Automatic",
