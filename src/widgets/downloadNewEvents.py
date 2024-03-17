@@ -41,7 +41,7 @@ def downloadNewEvents(window, widget, basePath, dataPath):
         dataset_id = row['Fuente']
         element_id = row['Identificador']
         
-        widget.insert('end', 'Descargando archivo {element_id}... '.format(element_id=element_id))
+        widget.insert('end', 'Descargando archivo {element_id}... \n'.format(element_id=element_id))
         widget.see('end')
         window.update_idletasks()
 
