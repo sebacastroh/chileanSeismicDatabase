@@ -338,14 +338,14 @@ class TkThread:
             button_parallel_process['state'] = 'disabled'
             button_quit['state'] = 'disabled'
             applyCorrection(window, text, self.basePath, self.dataPath, False)
-            button_quit['state'] = 'enabled'
+            button_quit['state'] = 'normal'
 
         def _parallel_process():
             button_serial_process['state']   = 'disabled'
             button_parallel_process['state'] = 'disabled'
             button_quit['state'] = 'disabled'
             applyCorrection(window, text, self.basePath, self.dataPath, True)
-            button_quit['state'] = 'enabled'
+            button_quit['state'] = 'normal'
 
         button_serial_process = tkinter.Button(master=window, text="Ejecución en serie",
                                   command=_serial_process)
