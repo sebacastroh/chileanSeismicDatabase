@@ -36,6 +36,7 @@ def updateEventsList(window, widget, basePath, dataPath):
     df1['Fuente'] = '7c473f40d7862735'
     df2['Fuente'] = 'k2dimntt23gm0b7t'
     df3['Fuente'] = 'ZW5TFERBT8B0GMQ'
+    df2.rename(columns={'Magnitud': 'Magnitud [*]', 'Profundidad': 'Profundidad [km]'}, inplace=True)
 
     df = pd.concat([df1, df2, df3])
     events = []
