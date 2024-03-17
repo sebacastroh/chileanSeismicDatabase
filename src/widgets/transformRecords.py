@@ -89,7 +89,7 @@ def transformRecords(window, widget, basePath, dataPath):
         if os.path.exists(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz')):
             continue
 
-        widget.insert('end', 'Transformando evento {event_id}... '.format(event_id=event_id))
+        widget.insert('end', 'Transformando evento {event_id}... \n'.format(event_id=event_id))
         widget.see('end')
         window.update_idletasks()
         
