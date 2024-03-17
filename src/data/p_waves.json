@@ -664,15 +664,6 @@
       "updated": "2024-03-03T00:21:26.757675"
     }
   },
-  "20010701_magM_latS_lonW_depthKM": {
-    "AricaCementerio": {
-      "corrected": false,
-      "method": "Automatic",
-      "pos": 1809,
-      "status": false,
-      "updated": "2024-03-03T00:21:27.147496"
-    }
-  },
   "20010701_7.2M_latS_lonW_depthKM": {
     "AricaChacalluta": {
       "corrected": false,
@@ -680,6 +671,15 @@
       "pos": 2823,
       "status": true,
       "updated": "2024-03-03T00:21:27.218735"
+    }
+  },
+  "20010701_magM_latS_lonW_depthKM": {
+    "AricaCementerio": {
+      "corrected": false,
+      "method": "Automatic",
+      "pos": 1809,
+      "status": false,
+      "updated": "2024-03-03T00:21:27.147496"
     }
   },
   "20010724_5.1M_32.51S_71.46W_53.0KM": {
@@ -1886,6 +1886,15 @@
       "updated": "2024-03-03T00:21:38.539953"
     }
   },
+  "20080910_4.3M_latS_lonW_depthKM": {
+    "Pica": {
+      "corrected": false,
+      "method": "Manual",
+      "pos": 9910,
+      "status": true,
+      "updated": "2024-03-03T00:21:38.915836"
+    }
+  },
   "20080910_6.0M_20.26S_69.29W_34.2KM": {
     "AltoHospicio": {
       "corrected": false,
@@ -1921,15 +1930,6 @@
       "pos": 3730,
       "status": true,
       "updated": "2024-03-03T00:21:38.649148"
-    }
-  },
-  "20080910_4.3M_latS_lonW_depthKM": {
-    "Pica": {
-      "corrected": false,
-      "method": "Manual",
-      "pos": 9910,
-      "status": true,
-      "updated": "2024-03-03T00:21:38.915836"
     }
   },
   "20081219_5.8M_32.27S_71.56W_32.2KM": {
@@ -2062,6 +2062,15 @@
       "pos": 9706,
       "status": true,
       "updated": "2024-03-03T00:21:40.019681"
+    }
+  },
+  "20100227_6.1M_latS_lonW_depthKM": {
+    "VinadelMarElSalto": {
+      "corrected": false,
+      "method": "Automatic",
+      "pos": 3199,
+      "status": true,
+      "updated": "2024-03-03T00:21:41.641361"
     }
   },
   "20100227_8.8M_36.17S_73.14W_30.1KM": {
@@ -2211,15 +2220,6 @@
       "pos": 0,
       "status": true,
       "updated": "2024-03-03T00:21:40.228366"
-    }
-  },
-  "20100227_6.1M_latS_lonW_depthKM": {
-    "VinadelMarElSalto": {
-      "corrected": false,
-      "method": "Automatic",
-      "pos": 3199,
-      "status": true,
-      "updated": "2024-03-03T00:21:41.641361"
     }
   },
   "20100228_6.6M_latS_lonW_depthKM": {
@@ -82543,6 +82543,87 @@
       "pos": 8649,
       "status": true,
       "updated": "2024-03-15T20:01:25.697297"
+    }
+  },
+  "20240203_5.0M_32.74S_70.66W_92.0KM": {
+    "BO04": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-03-16T23:57:16.581527"
+    },
+    "MT07": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-03-16T23:57:16.581016"
+    },
+    "R08M": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-03-16T23:57:16.580414"
+    },
+    "ROC1": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-03-16T23:57:16.580797"
+    },
+    "V13A": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-03-16T23:57:16.581340"
+    },
+    "VA06": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-03-16T23:57:16.579973"
+    }
+  },
+  "20240211_5.7M_28.24S_71.32W_44.0KM": {
+    "AC04": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-03-16T23:57:17.342553"
+    },
+    "C16O": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-03-16T23:57:17.342219"
+    }
+  },
+  "20240214_5.8M_28.91S_71.44W_45.0KM": {
+    "A13C": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-03-16T23:57:17.832434"
+    },
+    "AC04": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-03-16T23:57:17.834317"
+    },
+    "AC05": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-03-16T23:57:17.831847"
+    },
+    "C16O": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-03-16T23:57:17.834070"
+    },
+    "C17O": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-03-16T23:57:17.833668"
+    },
+    "C26O": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-03-16T23:57:17.833220"
+    },
+    "CO05": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-03-16T23:57:17.832749"
     }
   }
 }
