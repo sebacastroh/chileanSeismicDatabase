@@ -173,7 +173,7 @@ def correctRecord(acc, dt, status, p_wave, saveInTemp=False, filename=''):
     vel_corr = new_vel - solution
     acc_corr = np.gradient(vel_corr, dt, edge_order=2)
     
-    if p_wave > 0:
+    if p_wave > 0 and non_zero_vel:
         acc_corr = acc_corr - acc_corr[:p_wave].mean()
         signal = acc_corr[p_wave:]
         noise = acc_corr[:p_wave]
