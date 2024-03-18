@@ -2057,43 +2057,43 @@
   },
   "20100113_5.3M_20.49S_69.33W_depthKM": {
     "Pica": {
-      "corrected": false,
+      "corrected": true,
       "method": "Automatic",
       "pos": 9706,
       "status": true,
-      "updated": "2024-03-03T00:21:40.019681"
+      "updated": "2024-03-18T17:32:30.161923"
     }
   },
   "20100227_6.1M_latS_lonW_depthKM": {
     "VinadelMarElSalto": {
-      "corrected": false,
+      "corrected": true,
       "method": "Automatic",
       "pos": 3199,
       "status": true,
-      "updated": "2024-03-03T00:21:41.641361"
+      "updated": "2024-03-18T17:32:30.429104"
     }
   },
   "20100227_8.8M_36.17S_73.14W_30.1KM": {
     "Angol": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 1800,
       "status": true,
-      "updated": "2024-03-03T00:21:40.220441"
+      "updated": "2024-03-18T17:32:30.715237"
     },
     "Concepcion": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-03-03T00:21:40.220929"
+      "updated": "2024-03-18T17:32:30.719515"
     },
     "Constitucion": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-03-03T00:21:40.221389"
+      "updated": "2024-03-18T17:32:30.723949"
     },
     "Copiapo": {
       "corrected": false,
@@ -2103,88 +2103,88 @@
       "updated": "2024-03-03T00:21:40.221633"
     },
     "Curico": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-03-03T00:21:40.221989"
+      "updated": "2024-03-18T17:32:30.727341"
     },
     "Hualane": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-03-03T00:21:40.222465"
+      "updated": "2024-03-18T17:32:30.731530"
     },
     "Llolleo": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-03-03T00:21:40.222890"
+      "updated": "2024-03-18T17:32:30.735258"
     },
     "Matanzas": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-03-03T00:21:40.223318"
+      "updated": "2024-03-18T17:32:30.739099"
     },
     "Papudo": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-03-03T00:21:40.223667"
+      "updated": "2024-03-18T17:32:30.742339"
     },
     "SantiagoCentro": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-03-03T00:21:40.224266"
+      "updated": "2024-03-18T17:32:30.747666"
     },
     "SantiagoLaFlorida": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-03-03T00:21:40.224871"
+      "updated": "2024-03-18T17:32:30.753169"
     },
     "SantiagoMaipu": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-03-03T00:21:40.225199"
+      "updated": "2024-03-18T17:32:30.756177"
     },
     "SantiagoPenalolen": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-03-03T00:21:40.225543"
+      "updated": "2024-03-18T17:32:30.759667"
     },
     "SantiagoPuenteAlto": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-03-03T00:21:40.225854"
+      "updated": "2024-03-18T17:32:30.762773"
     },
     "Talca": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-03-03T00:21:40.226342"
+      "updated": "2024-03-18T17:32:30.767415"
     },
     "Valdivia": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-03-03T00:21:40.226589"
+      "updated": "2024-03-18T17:32:30.770015"
     },
     "Vallenar": {
       "corrected": false,
@@ -2194,41 +2194,41 @@
       "updated": "2024-03-03T00:21:40.226861"
     },
     "ValparaisoAlmendral": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-03-03T00:21:40.227244"
+      "updated": "2024-03-18T17:32:30.773590"
     },
     "ValparaisoUTFSM": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-03-03T00:21:40.227552"
+      "updated": "2024-03-18T17:32:30.776640"
     },
     "VinadelMarCentro": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-03-03T00:21:40.227839"
+      "updated": "2024-03-18T17:32:30.779745"
     },
     "VinadelMarElSalto": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-03-03T00:21:40.228366"
+      "updated": "2024-03-18T17:32:30.784636"
     }
   },
   "20100228_6.6M_latS_lonW_depthKM": {
     "Curico": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 1907,
       "status": true,
-      "updated": "2024-03-03T00:21:41.739366"
+      "updated": "2024-03-18T17:32:34.510014"
     }
   },
   "20120303_5.6M_30.19S_71.45W_35.0KM": {
