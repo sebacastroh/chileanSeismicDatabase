@@ -85,7 +85,8 @@ def correctRecord(acc, dt, status, p_wave, saveInTemp=False, filename=''):
     weights = None
     
     # Pre
-    if p_wave > 0:
+    non_zero_vel = new_vel[:p_wave+1].max() > new_vel[:p_wave+1].min()
+    if p_wave > 0 and non_zero_vel:
         datasets = [np.column_stack((t[:p_wave+1], new_vel[:p_wave+1], smooth_std[:p_wave+1]))]
         samples = 100
         pd = (t[p_wave])*0.1
@@ -140,7 +141,7 @@ def correctRecord(acc, dt, status, p_wave, saveInTemp=False, filename=''):
     lp2 = results2.local_parameters[sol2].copy()
     
     # Adjust solutions
-    if p_wave > 0:
+    if p_wave > 0 and non_zero_vel:
         ym = 0.5*(y1[-1] + y2[0])
         
         m1 = (ym - y1[-2])/(b1[-1] - b1[-2])
@@ -154,6 +155,15 @@ def correctRecord(acc, dt, status, p_wave, saveInTemp=False, filename=''):
         lp = np.vstack((lp1, lp2))
         
         boundaries = np.hstack((b1, b2[1:]))
+    elif p_wave > 0 and not non_zero_vel:
+        ym = new_vel[:p_wave+1].max()
+        m2 = (y2[1] - ym)/(b2[1] - b2[0])
+        n2 = ym - m2*b2[0]
+        lp2[0] = np.array([m2, n2])
+
+        lp = np.vstack(([0, ym], lp2))
+
+        boundaries = np.hstack(([0], b2))
     else:
         lp = results2.local_parameters[sol2].copy()
         boundaries = results2.boundaries[sol2]
