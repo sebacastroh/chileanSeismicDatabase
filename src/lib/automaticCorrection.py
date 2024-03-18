@@ -67,7 +67,9 @@ def correctRecord(acc, dt, status, p_wave, saveInTemp=False, filename=''):
     fsamp = 1./dt # Hz
     vel_mean = np.convolve(new_vel, np.ones(int(fsamp/2.)+1)/(int(fsamp/2.)+1), 'same')
     vel_mean2 = np.convolve(new_vel**2, np.ones(int(fsamp/2.)+1)/(int(fsamp/2.)+1), 'same')
-    std = np.sqrt(vel_mean2 - vel_mean**2)
+    vel_dif = vel_mean2 - vel_mean**2
+    vel_dif[vel_dif < 0.] = 0.
+    std = np.sqrt(vel_dif)
     peaks = spsig.find_peaks(std, distance=int(2./dt))[0]
     smooth_std = np.interp(t, t[peaks], std[peaks])*alpha
     
