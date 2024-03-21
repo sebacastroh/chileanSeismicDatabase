@@ -44,7 +44,7 @@ def automatic_p_wave(window, widget, basePath, dataPath):
 
     if nStations > 0:
         widget.insert('end', 'Eventos con estaciones pendientes\n\n' + '\n'.join([event_id + ' - ' + station_code for event_id, station_code in stations]) + '\n\n')
-        widget.insert('end', 'Total de registros por revisar: ' str(nStations))
+        widget.insert('end', 'Total de registros por revisar: ' + str(nStations))
 
     if nStations == 0:
         widget.insert('end', 'No hay eventos pendientes por procesar.')
