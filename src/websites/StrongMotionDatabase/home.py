@@ -335,6 +335,9 @@ def load_event(event_name):
             station      = value.item()
             station_code = station['station_code']
 
+            if not p_waves[select_event.value][station_code]['status']:
+                continue
+
             stations_codes.append(station_code)
             event[station_code] = station
 
@@ -349,6 +352,11 @@ def compute_vel_dis(station):
     p_wave        = p_waves[select_event.value][select_station.value]['pos']
     for i in range(3):
         n = len(station[seismic_component + '%i' %(i+1)])
+        if n == 0:
+            velocities.append(np.empty(0))
+            displacements.append(np.empty(0))
+            continue
+
         t = np.linspace(0., (n-1)*dt, n)
         acc = station[seismic_component + '%i' %(i+1)]
 
@@ -690,6 +698,7 @@ with open(os.path.join(srcPath, 'data', 'p_waves.json')) as f:
     p_waves = json.load(f)
 
 flatfile = pd.read_csv(os.path.join(dataPath, 'flatFile.csv'))
+flatfile = flatfile[flatfile['Corrected records']]
 
 # Dates
 flatfile['Earthquake date'] = pd.to_datetime(flatfile['Earthquake date']).dt.date
