@@ -34733,7 +34733,9 @@
   "20160803_4.1M_21.24S_69.47W_74.0KM": {
     "T21A": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8058,
+      "status": true,
       "updated": "2024-03-03T00:34:42.922116"
     }
   },
