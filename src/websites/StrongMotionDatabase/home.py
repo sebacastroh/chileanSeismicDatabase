@@ -447,6 +447,9 @@ def update_event(attrname, old, new):
 def update_station(attrname, old, new):
     global event, ta, tb, xi, plotted
 
+    if select_station.value == '':
+        return
+
     ta      = None
     tb      = None
     xi      = None
