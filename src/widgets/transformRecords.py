@@ -172,7 +172,7 @@ def transformRecords(window, widget, basePath, dataPath):
                     stationDt = metadata.get('delta')
                     if stationDt is None:
                         x = channel.get('x')
-                        stationDt = np.mean(x[1:] - x[:-1])
+                        stationDt = np.mean(x[1:] - x[:-1]).astype('timedelta64[ns]').item()/1e9
                     
                     if channelCode.strip() in xChannels:
                         x1 = channel.get('x')[0]
