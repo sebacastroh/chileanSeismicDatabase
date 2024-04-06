@@ -188,18 +188,21 @@ def transformRecords(window, widget, basePath, dataPath):
                         component_3 = channelCode.strip()
                 
                 xini = np.min([x1, x2, x3])
-                if xini > x1:
-                    n = int((xini - x1)/stationDt)
+                if xini < x1:
+                    delta = x1 - xini
+                    n     = int(delta.astype('timedelta64[ns]').item()/1e9/stationDt)
                     if n > 0:
                         acc_1 = np.hstack((np.zeros(n), acc_1))
                 
-                if xini > x2:
-                    n = int((xini - x2)/stationDt)
+                if xini < x2:
+                    delta = x2 - xini
+                    n     = int(delta.astype('timedelta64[ns]').item()/1e9/stationDt)
                     if n > 0:
                         acc_2 = np.hstack((np.zeros(n), acc_2))
                 
-                if xini > x3:
-                    n = int((xini - x3)/stationDt)
+                if xini < x3:
+                    delta = x3 - xini
+                    n     = int(delta.astype('timedelta64[ns]').item()/1e9/stationDt)
                     if n > 0:
                         acc_3 = np.hstack((np.zeros(n), acc_3))
                 
