@@ -301,8 +301,8 @@ def transformRecords(window, widget, basePath, dataPath):
                     hvsr = 'Undetermined'
                     station_name = 'Unknown'
                 else:
-                    vs30 = properties[2]
-                    azimuth = properties[4]
+                    vs30 = properties[2] or np.nan
+                    azimuth = properties[4] or np.nan
                     hvsr = 'Undetermined'
                     station_name = properties[5]
                 
