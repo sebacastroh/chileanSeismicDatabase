@@ -666,7 +666,7 @@ def filter_events():
                  (flatfile['Earthquake date'] <= until)
 
     if eType != 'Any':
-        conditions &= (flatfile['Event type'] == eType.lower())
+        conditions &= (flatfile['Event type'].str.lower() == eType.lower())
 
     if sCode != 'Any':
         conditions &= (flatfile['Station code'] == sCode)
