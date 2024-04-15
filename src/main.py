@@ -19,12 +19,13 @@ sys.path.append(os.path.abspath(os.path.join('.', 'lib', 'pyrjmcmc')))
 sys.path.append(os.path.abspath(os.path.join('.', 'lib')))
 
 # Widgets
-from widgets.updateEventsList  import updateEventsList
-from widgets.downloadNewEvents import downloadNewEvents
-from widgets.transformRecords  import transformRecords
-from widgets.automatic_p_wave  import automatic_p_wave, detect_p_wave
-from widgets.correctRecords    import correctRecords, applyCorrection
-from widgets.updateFlatFile    import updateFlatFile
+from widgets.updateEventsList     import updateEventsList
+from widgets.downloadNewEvents    import downloadNewEvents
+from widgets.transformRecords     import transformRecords
+from widgets.automatic_p_wave     import automatic_p_wave, detect_p_wave
+from widgets.correctRecords       import correctRecords, applyCorrection
+from widgets.updateFlatFile       import updateFlatFile
+from widgets.updateSpectralValues import updateSpectralValues
 
 import copyreg
 from types import MethodType
@@ -105,6 +106,10 @@ class TkThread:
         button_flatfile = tkinter.Button(master=self.root, text="Actualizar Flat file",
                                  command=self._updateFlatFile)
         button_flatfile.pack(side=tkinter.TOP, pady=10)
+
+        button_spectral = tkinter.Button(master=self.root, text="Actualizar espectros",
+                                 command=self._updateSpectralValues)
+        button_spectral.pack(side=tkinter.TOP, pady=10)
         
         button_quit = tkinter.Button(master=self.root, text="Salir",
                                  command=self._quit)
@@ -380,6 +385,23 @@ class TkThread:
         
         updateFlatFile(window, text, self.basePath, self.dataPath)
         
+    def _updateSpectralValues(self):
+        
+        window = tkinter.Toplevel(self.root)
+        toolbar = tkinter.Frame(window)
+        toolbar.pack(side="top", fill="x")
+        text = tkinter.Text(toolbar, wrap="word")
+        text.pack(side="top", fill="both", expand=True)
+        text.tag_configure("stderr", foreground="#b22222")
+        
+        def _close():
+            window.destroy()
+        
+        button_quit = tkinter.Button(master=window, text="Close",
+                                 command=_close)
+        button_quit.pack(side=tkinter.BOTTOM)
+        
+        updateSpectralValues(window, text, self.basePath, self.dataPath)
     
     def _quit(self):
         self.root.quit()     # stops mainloop
