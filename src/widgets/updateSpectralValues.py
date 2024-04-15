@@ -62,8 +62,8 @@ def updateSpectralValues(window, widget, basePath, dataPath):
     else:
         computed = pd.DataFrame([], columns=['Earthquake Name', 'Station code', 'Component 1', 'Component 2', 'Component 3', 'Last update'])
 
-    pending = computed.merge(flatfile, how='right', on=['Earthquake Name', 'Station code'], suffixes=['_x', None])
-    pending = pending[pending['Last update_x'] != pending['Last update']][['Earthquake Name', 'Station code']]
+    pending = computed.merge(flatfile, how='right', on=['Earthquake Name', 'Station code'])
+    pending = pending[pending['Last update_x'] != pending['Last update_y']][['Earthquake Name', 'Station code']]
 
     if len(pending) == 0:
         widget.insert('end', 'No hay espectros nuevos que calcular.\n')
@@ -71,6 +71,8 @@ def updateSpectralValues(window, widget, basePath, dataPath):
         return
 
     new_rows = []
+
+    indices = pending.merge(computed.reset_index(), how='inner', on=['Earthquake Name', 'Station code'])['index'].tolist()
 
     for k, xi in enumerate(xis):
         foldername = os.path.join(dataPath, 'spectralValues', 'xi_%0.2f' %xi)
@@ -167,17 +169,15 @@ def updateSpectralValues(window, widget, basePath, dataPath):
             else:
                 spectrum_values = pd.DataFrame([], columns=columns)
 
+            spectral_values.drop(indices, inplace=True)
             spectrum_values = pd.concat([spectrum_values, new_spectrum_values], ignore_index=True)
             spectrum_values.sort_values(by=['Earthquake Name', 'Station code'], inplace=True)
 
-            #TODO: remove duplicated records
-
             spectrum_values.to_excel(filename, index=False)
 
+    computed.drop(indices, inplace=True)
     computed = pd.concat([computed, pd.DataFrame(new_rows, columns=['Earthquake Name', 'Station code', 'Component 1', 'Component 2', 'Component 3', 'Last update'])], ignore_index=True)
     computed.sort_values(by=['Earthquake Name', 'Station code'], inplace=True)
-
-    #TODO: remove duplicated records
 
     computed.to_excel(os.path.join(dataPath, 'spectralValues', 'computed.xlsx'), index=False)
 
