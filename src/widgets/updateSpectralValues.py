@@ -49,7 +49,7 @@ def updateSpectralValues(window, widget, basePath, dataPath):
     spectrum_names = ['component_1', 'component_2', 'component_3',
         'geometric_mean', 'rotd0', 'rotd50', 'rotd100']
 
-    columns = ['Earthquake Name', 'Station code'] + [str(tn) for tn in Tn.tolist()]
+    columns = ['Earthquake Name', 'Station code'] + Tn.tolist()
 
     flatfile = pd.read_csv(os.path.join(dataPath, 'flatFile.csv'), parse_dates=['Earthquake date', 'Start time record', 'Last update'])
     flatfile = flatfile[flatfile['Corrected records']]
@@ -161,7 +161,7 @@ def updateSpectralValues(window, widget, basePath, dataPath):
                 spectral_values[6].append(spectrum_r100)
 
         for i, spectrum_name in enumerate(spectrum_names):
-            new_spectrum_values = pd.concat([pending, pd.DataFrame(spectral_values[i], columns=[str(tn) for tn in Tn.tolist()])], axis=1)
+            new_spectrum_values = pd.concat([pending, pd.DataFrame(spectral_values[i], columns=columns[2:])], axis=1)
 
             filename = os.path.join(foldername, spectrum_name + '.xlsx')
             if os.path.exists(filename):
