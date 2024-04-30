@@ -8,6 +8,7 @@ import os
 import json
 import numpy as np
 import pandas as pd
+from types import NoneType
 import lib.SeismicCorrectionLibrary as SeismicCorrectionLibrary
 
 import tkinter
@@ -23,7 +24,7 @@ p_waves  = {}
 DEFAULT_INDENT = 2
 SORT_KEYS      = True
 
-def automatic_p_wave(window, widget, basePath, dataPath):
+def automatic_p_wave(window, widget, basePath, dataPath, statusType=NoneType):
     global stations, p_waves
 
     # Registered P-Waves
@@ -38,7 +39,7 @@ def automatic_p_wave(window, widget, basePath, dataPath):
         if event_id < '201808' or event_id > '20191122':
             continue
         for station_code, station_info in stations_info.items():
-            if station_info.get('status') is None:
+            if isinstance(station_info.get('status'), statusType):
                 stations.append([event_id, station_code])
 
     nStations = len(stations)
@@ -263,7 +264,20 @@ def plot_p_wave(masterWindow, event_id, station, basePath, dataPath):
         window.destroy()
 
     def _omit():
-        global action
+        global first, p_waves, action
+
+        if p_waves.get(event_id) is None:
+            p_waves[event_id] = {}
+
+        if first:
+            method = 'Automatic'
+        else:
+            method = 'Manual'
+
+        p_waves[event_id][station_code]['pos']    = int(this_pos[0])
+        p_waves[event_id][station_code]['status'] = 'postponed'
+        p_waves[event_id][station_code]['method'] = method
+
         action = 'continue'
         window.destroy()
 
