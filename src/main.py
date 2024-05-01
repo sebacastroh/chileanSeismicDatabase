@@ -98,6 +98,10 @@ class TkThread:
         button_pwave = tkinter.Button(master=self.root, text="Detección de onda P",
                                  command=self._pwave_detection)
         button_pwave.pack(side=tkinter.TOP, pady=10)
+
+        button_pwave_postponed = tkinter.Button(master=self.root, text="Detección de onda P registros pospuestos",
+                                 command=self._pwave_detection_postponed)
+        button_pwave_postponed.pack(side=tkinter.TOP, pady=10)
         
         button_correction = tkinter.Button(master=self.root, text="Corrección de línea base",
                                  command=self._correction)
@@ -321,6 +325,34 @@ class TkThread:
         if disable:
             button_process['state'] = 'disabled'
     
+    def _pwave_detection_postponed(self):
+        window = tkinter.Toplevel(self.root)
+        toolbar = tkinter.Frame(window)
+        toolbar.pack(side="top", fill="x")
+        text = tkinter.Text(toolbar, wrap="word")
+        text.pack(side="top", fill="both", expand=True)
+        text.tag_configure("stderr", foreground="#b22222")
+
+        def _close():
+            window.destroy()
+                           
+        button_quit = tkinter.Button(master=window, text="Cerrar",
+                                  command=_close)
+        button_quit.pack(side=tkinter.RIGHT)
+
+        def _process():
+            button_process['state'] = 'disabled'
+            detect_p_wave(window, self.basePath, self.dataPath)
+
+        button_process = tkinter.Button(master=window, text="Iniciar detección onda P registros pospuestos",
+                                  command=_process)
+        button_process.pack(side=tkinter.RIGHT)
+
+        window.update_idletasks()
+        disable = automatic_p_wave(window, text, self.basePath, self.dataPath, str)
+        if disable:
+            button_process['state'] = 'disabled'
+
     def _correction(self):
         window = tkinter.Toplevel(self.root)
         
