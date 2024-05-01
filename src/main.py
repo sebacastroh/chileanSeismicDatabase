@@ -8,7 +8,6 @@ Created on Tue Nov 19 21:02:53 2019
 import os
 import sys
 import pickle
-import pyperclip
 import webbrowser
 import subprocess
 
