@@ -36,8 +36,6 @@ def automatic_p_wave(window, widget, basePath, dataPath, statusType=NoneType):
 
     stations = []
     for event_id, stations_info in p_waves.items():
-        if event_id < '20191122':
-            continue
         for station_code, station_info in stations_info.items():
             if isinstance(station_info.get('status'), statusType):
                 stations.append([event_id, station_code])
