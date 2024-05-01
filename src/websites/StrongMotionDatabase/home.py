@@ -295,8 +295,8 @@ plot_map.add_tile('CartoDB Positron')
 source_hypo = ColumnDataSource(data=dict(lat=[], lon=[]))
 source_sta  = ColumnDataSource(data=dict(lat=[], lon=[]))
 
-plot_map.circle(x='lon', y='lat', size=15, fill_color='blue'  , line_color='black', fill_alpha=0.8, source=source_sta , legend_label='Station')
-plot_map.star(  x='lon', y='lat', size=25, fill_color='yellow', line_color='black', fill_alpha=0.8, source=source_hypo, legend_label='Hypocenter')
+plot_map.scatter(x='lon', y='lat', size=15, fill_color='blue'  , line_color='black', fill_alpha=0.8, source=source_sta , legend_label='Station')
+plot_map.scatter(x='lon', y='lat', size=25, fill_color='yellow', line_color='black', fill_alpha=0.8, source=source_hypo, legend_label='Hypocenter', marker='star')
 plot_map.legend.location = 'top_left'
 
 ############
