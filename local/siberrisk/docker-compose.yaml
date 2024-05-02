@@ -2,9 +2,7 @@ version: '3.8'
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: siberrisk.Dockerfile
+    image: siberrisk
     environment:
       DISPLAY:
     volumes:
@@ -15,9 +13,7 @@ services:
     depends_on:
       - pyrjmcmc
   web:
-    build:
-      context: .
-      dockerfile: siberrisk.Dockerfile
+    image: siberrisk
     working_dir: /usr/local/src/websites
     ports:
       - "5006:5006"
@@ -28,6 +24,7 @@ services:
     depends_on:
       - seismic
   python:
+    image: siberrisk
     build:
       context: .
       dockerfile: siberrisk.Dockerfile
@@ -35,18 +32,18 @@ services:
       - ../../src:/usr/local/src
     entrypoint: [ "python3" ]
   pyrjmcmc:
-    build:
-      context: .
-      dockerfile: siberrisk.Dockerfile
+    image: siberrisk
     volumes:
       - ../../src:/usr/local/src
     working_dir: /usr/local/src/lib/pyrjmcmc
     command: ["python3", "setup.py", "build_ext", "--inplace"]
+    depends_on:
+      - python
   seismic:
-    build:
-      context: .
-      dockerfile: siberrisk.Dockerfile
+    image: siberrisk
     volumes:
       - ../../src:/usr/local/src
     working_dir: /usr/local/src/lib
     command: ["python3", "setup.py", "build_ext", "--inplace"]
+    depends_on:
+      - python
