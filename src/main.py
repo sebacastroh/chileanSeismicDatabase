@@ -392,9 +392,9 @@ class TkThread:
         button_parallel_process.pack(side=tkinter.RIGHT)
 
         window.update_idletasks()
-        enable = correctRecords(window, text, self.basePath, self.dataPath)
+        disable = correctRecords(window, text, self.basePath, self.dataPath)
         
-        if not enable:
+        if disable:
             button_serial_process['state']   = 'disabled'
             button_parallel_process['state'] = 'disabled'
         
