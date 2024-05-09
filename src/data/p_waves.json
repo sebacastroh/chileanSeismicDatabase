@@ -91029,7 +91029,9 @@
   "20221207_3.2M_39.96S_72.77W_82.0KM": {
     "L11R": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10083,
+      "status": true,
       "updated": "2024-05-09T09:15:12.938424"
     }
   },
@@ -92270,7 +92272,9 @@
   "20230205_3.2M_40.09S_72.44W_5.0KM": {
     "L07R": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 11682,
+      "status": true,
       "updated": "2024-05-09T09:15:13.213869"
     }
   },
@@ -95275,7 +95279,9 @@
   "20231127_5.0M_24.56S_70.12W_49.0KM": {
     "A26F": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9869,
+      "status": true,
       "updated": "2024-05-09T09:15:13.497214"
     }
   },
@@ -95464,17 +95470,23 @@
   "20240128_4.5M_39.67S_72.53W_89.0KM": {
     "L01R": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9217,
+      "status": true,
       "updated": "2024-05-09T09:15:13.836382"
     },
     "L02R": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9769,
+      "status": true,
       "updated": "2024-05-09T09:15:13.836792"
     },
     "L11R": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10180,
+      "status": true,
       "updated": "2024-05-09T09:15:13.837128"
     }
   },
@@ -95661,19 +95673,25 @@
   "20240403_5.4M_36.97S_72.85W_38.0KM": {
     "BI05": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 6915,
+      "status": true,
       "updated": "2024-05-09T09:15:14.441411"
     }
   },
   "20240404_5.2M_24.43S_69.61W_83.0KM": {
     "PB15": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8380,
+      "status": true,
       "updated": "2024-05-09T09:15:14.629849"
     },
     "PB19": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7604,
+      "status": true,
       "updated": "2024-05-09T09:15:14.629527"
     }
   }
