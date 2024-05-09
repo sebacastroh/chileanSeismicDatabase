@@ -169,7 +169,7 @@ def updateSpectralValues(window, widget, basePath, dataPath):
             else:
                 spectrum_values = pd.DataFrame([], columns=columns)
 
-            spectral_values.drop(indices, inplace=True)
+            spectrum_values.drop(indices, inplace=True)
             spectrum_values = pd.concat([spectrum_values, new_spectrum_values], ignore_index=True)
             spectrum_values.sort_values(by=['Earthquake Name', 'Station code'], inplace=True)
 
