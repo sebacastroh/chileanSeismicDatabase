@@ -46,10 +46,6 @@ def correctRecords(window, widget, basePath, dataPath):
 
     # Select events and stations to correct
     to_correct = []
-    widget.insert('end', 'Eventos y estaciones a corregir\n\n')
-    widget.see('end')
-    window.update_idletasks()
-    to_correct = []
     for event_id, p_wave in p_waves.items():
         for scode, sinfo in p_wave.items():
              if isinstance(sinfo['status'], bool) and sinfo['status'] and not sinfo['corrected']:
