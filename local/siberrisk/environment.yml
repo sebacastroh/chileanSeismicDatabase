@@ -1,0 +1,14 @@
+name: base
+channels:
+  - conda-forge
+dependencies:
+  - pillow
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - pyproj
+  - cython
+  - obspy
+  - geojson
+  - bokeh

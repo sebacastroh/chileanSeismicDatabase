@@ -1,13 +1,13 @@
 # Data
-data
-src/data/rawEvents
+/data
+/src/data/rawEvents
 
 # Temporary files
-src/tmp
+/src/tmp
 
 # Secrets
-src/secrets/*
-!src/secrets/pdd-secrets.template.json
+/src/secrets/*
+/!src/secrets/pdd-secrets.template.json
 
 # Cython compilation related files
 *.c
@@ -15,9 +15,9 @@ src/secrets/*
 *.so
 
 # Cache
-src/__pycache__
-src/lib/__pycache__
-src/widgets/__pycache__
+/src/__pycache__
+/src/lib/__pycache__
+/src/widgets/__pycache__
 
 # Python compilation files
 *.pyc

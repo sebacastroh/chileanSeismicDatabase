@@ -172,7 +172,7 @@ def transformRecords(window, widget, basePath, dataPath):
                     stationDt = metadata.get('delta')
                     if stationDt is None:
                         x = channel.get('x')
-                        stationDt = np.mean(x[1:] - x[:-1])
+                        stationDt = np.mean(x[1:] - x[:-1]).astype('timedelta64[ns]').item()/1e9
                     
                     if channelCode.strip() in xChannels:
                         x1 = channel.get('x')[0]
@@ -188,18 +188,21 @@ def transformRecords(window, widget, basePath, dataPath):
                         component_3 = channelCode.strip()
                 
                 xini = np.min([x1, x2, x3])
-                if xini > x1:
-                    n = int((xini - x1)/stationDt)
+                if xini < x1:
+                    delta = x1 - xini
+                    n     = int(delta.astype('timedelta64[ns]').item()/1e9/stationDt)
                     if n > 0:
                         acc_1 = np.hstack((np.zeros(n), acc_1))
                 
-                if xini > x2:
-                    n = int((xini - x2)/stationDt)
+                if xini < x2:
+                    delta = x2 - xini
+                    n     = int(delta.astype('timedelta64[ns]').item()/1e9/stationDt)
                     if n > 0:
                         acc_2 = np.hstack((np.zeros(n), acc_2))
                 
-                if xini > x3:
-                    n = int((xini - x3)/stationDt)
+                if xini < x3:
+                    delta = x3 - xini
+                    n     = int(delta.astype('timedelta64[ns]').item()/1e9/stationDt)
                     if n > 0:
                         acc_3 = np.hstack((np.zeros(n), acc_3))
                 
@@ -298,8 +301,8 @@ def transformRecords(window, widget, basePath, dataPath):
                     hvsr = 'Undetermined'
                     station_name = 'Unknown'
                 else:
-                    vs30 = properties[2]
-                    azimuth = properties[4]
+                    vs30 = properties[2] or np.nan
+                    azimuth = properties[4] or np.nan
                     hvsr = 'Undetermined'
                     station_name = properties[5]
                 
