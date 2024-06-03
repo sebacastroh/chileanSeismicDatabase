@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: "lts/*"
       - name: Install dependencies
-        run: npm install semantic-release @semantic-release/git conventional-changelog-conventionalcommits@7.0.2 -D
+        run: npm install semantic-release @semantic-release/git conventional-changelog-conventionalcommits -D
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
