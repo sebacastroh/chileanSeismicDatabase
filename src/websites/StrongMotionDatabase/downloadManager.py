@@ -61,14 +61,6 @@ button_download = Button(label='Download', button_type='success',
 ####################################
 ##  Custom Javascript Functions   ##
 ####################################
-
-# Para chequear si se seleccionaron todas las filas
-# table.rows({selected: true})[0].length == n
-
-# # Para obtener los ids de las seleccionadas
-# for i in range(m):
-#     $('#earthquakes').DataTable().rows('.selected').data()[i][7]
-
 Download = CustomJS(args=dict(n=0, extension='mat'),code="""
 async function downloadFiles() {
     var table = $('#earthquakes').DataTable();
@@ -79,13 +71,13 @@ async function downloadFiles() {
         return;
     } else if (nSelected == n) {
         for (let i=0; i < n; i++) {
-            events.push(table.rows(i).data()[0][7]);
+            events.push(table.rows(i).data()[0][8]);
         }
         table.rows().data()
     } else {
         var selected = table.rows('.selected').data();
         for (let i=0; i < nSelected; i++) {
-            events.push(selected[i][7]);
+            events.push(selected[i][8]);
         }
     }
 
@@ -112,9 +104,18 @@ new DataTable(table, {
     pagingType: 'simple_numbers',
     columnDefs: [
         {
+            width: '2%',
             orderable: false,
             render: DataTable.render.select(),
             targets: 0
+        },
+        {
+            className: "dt-type-date",
+            targets: 7
+        },
+        {
+            width: '13.5%',
+            targets: [1, 2, 3, 4, 5, 6]
         },
         {
             targets: [ -1 ],
@@ -134,6 +135,7 @@ new DataTable(table, {
         { title: 'Longitude' },
         { title: 'Depth' },
         { title: 'Event type' },
+        { title: 'Last update' },
         { title: '' }
     ],
     data: data,
@@ -189,9 +191,10 @@ def filter_events():
 
     EarthquakeNames = flatfile[conditions]['Earthquake Name'].str.cat(flatfile[conditions]['Event type'], sep='_')
     EarthquakeNames = EarthquakeNames.drop_duplicates().values.tolist()
+    LastUpdates     = flatfile[conditions].groupby(['Earthquake Name'])['Last update'].max().tolist()
 
     rows = []
-    for earthquakeName in EarthquakeNames:
+    for earthquakeName, lastUpdate in zip(EarthquakeNames, LastUpdates):
         date, mag, lat, lon, depth, etype = earthquakeName.split('_')
         event_id = '_'.join([date, mag, lat, lon, depth])
         date  = '-'.join([date[:4], date[4:6], date[6:]])
@@ -200,7 +203,7 @@ def filter_events():
         lon   = '-' + lon.replace('lon','')[:-1]
         depth = depth.replace('depth','')[:-2]
         etype = etype.capitalize()
-        rows.append([None, date, mag, lat, lon, depth, etype, event_id])
+        rows.append([None, date, mag, lat, lon, depth, etype, lastUpdate, event_id])
     
     UpdateTable.args = dict(data=rows, n=len(EarthquakeNames))
     Download.args    = dict(n=len(EarthquakeNames), extension='mat')
@@ -251,9 +254,10 @@ filter_sCode.update(value=sCodes[0], options=sCodes)
 
 EarthquakeNames = flatfile['Earthquake Name'].str.cat(flatfile['Event type'], sep='_')
 EarthquakeNames = EarthquakeNames.drop_duplicates().values.tolist()
+LastUpdates     = flatfile.groupby(['Earthquake Name'])['Last update'].max().tolist()
 
 rows = []
-for earthquakeName in EarthquakeNames:
+for earthquakeName, lastUpdate in zip(EarthquakeNames, LastUpdates):
     date, mag, lat, lon, depth, etype = earthquakeName.split('_')
     event_id = '_'.join([date, mag, lat, lon, depth])
     date  = '-'.join([date[:4], date[4:6], date[6:]])
@@ -262,7 +266,7 @@ for earthquakeName in EarthquakeNames:
     lon   = '-' + lon.replace('lon','')[:-1]
     depth = depth.replace('depth','')[:-2]
     etype = etype.capitalize()
-    rows.append([None, date, mag, lat, lon, depth, etype, event_id])
+    rows.append([None, date, mag, lat, lon, depth, etype, lastUpdate, event_id])
 
 CreateTable.args = dict(data=rows)
 Download.args    = dict(n=len(EarthquakeNames), extension='mat')
