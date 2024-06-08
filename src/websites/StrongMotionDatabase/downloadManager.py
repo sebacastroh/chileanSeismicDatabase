@@ -14,12 +14,10 @@ from bokeh.events import ButtonClick, DocumentReady
 
 from bokeh.io import curdoc
 
-from bokeh.core.properties import String
+from bokeh.layouts import grid
 
-from bokeh.layouts import column, grid, layout
-
-from bokeh.models import ColumnDataSource, CustomJS, DatePicker, Tabs, TabPanel, Widget
-from bokeh.models.widgets import Button, CheckboxGroup, DataTable, Div, NumericInput, Select, TableColumn
+from bokeh.models import CustomJS, DatePicker
+from bokeh.models.widgets import Button, NumericInput, Select
 
 from jinja2 import Environment, FileSystemLoader
 
@@ -60,61 +58,58 @@ button_filter   = Button(label='Apply filters', button_type='primary',
 button_download = Button(label='Download', button_type='success',
     sizing_mode='stretch_width', width=pwdith, align='end')
 
-############
-##  Divs  ##
-############
-div_table = Div(text='<table id="earthquakes" class="table table-striped" style="width: 100%"></table>', styles={'width': '100%'})
-
-##################
-##  Checkboxes  ##
-##################
-checkbox_all   = CheckboxGroup(labels=['Select all'])
-
-checkbox_group = CheckboxGroup(labels=[], height=int(18.4*len([]))+1, height_policy='min')
-
 ####################################
 ##  Custom Javascript Functions   ##
 ####################################
-Alert = CustomJS(args=dict(n=0), code="""
-if (n == 0) {
-    alert('Zero events meet your criteria! Please try again');
-} else {
-    if (n == 1) {
-        var message = 'A total of 1 event meets your criteria';
-    } else {
-        var message = 'A total of '.concat(n.toString());
-        message = message.concat(' events meet your criteria');
-    }
-    alert(message);
-}""")
 
-Download = CustomJS(args=dict(source='', extension=''),code="""
-if (extension.value == 'Matlab (MAT-binary, *.mat)') {
-    var filename = source.value.concat('.mat');
-    var path = 'data/seismicDatabase/mat/';
+# Para chequear si se seleccionaron todas las filas
+# table.rows({selected: true})[0].length == n
+
+# # Para obtener los ids de las seleccionadas
+# for i in range(m):
+#     $('#earthquakes').DataTable().rows('.selected').data()[i][7]
+
+Download = CustomJS(args=dict(n=0, extension='mat'),code="""
+var table = $('#earthquakes').DataTable();
+var events = [];
+var nSelected = table.rows({selected: true})[0].length;
+if (nSelected == 0) {
+    alert("You must select at least one event");
+    return;
+} else if (nSelected == n) {
+    for (let i=0; i < n; i++) {
+        events.push(table.rows(i).data()[0][7]);
+    }
+    table.rows().data()
 } else {
-    var filename = source.value.concat('.npz');
-    var path = 'data/seismicDatabase/npz/';
+    var selected = table.rows('.selected').data();
+    for (let i=0; i < nSelected; i++) {
+        events.push(selected[i][7]);
+    }
 }
 
-var link = document.createElement('a');
-link.setAttribute('download', filename);
-link.href = '%s' + path + filename;
-document.body.appendChild(link);
-link.click();
-link.remove();
-""" %sys.argv[1])
+var url = '';
+var path = 'data/seismicDatabase/';
+for (let i=0; i < nSelected; i++) {
+    url = '%s' + path + extension + '/' + events[i] + '.' + extension;
+    console.log(url);
+}
+"""%sys.argv[1])
 
-Table = CustomJS(args=dict(data=[]), code="""
-var table = document.querySelector('.bk-Div').shadowRoot.querySelector('#earthquakes');
-var dt = new DataTable(table, {
+CreateTable = CustomJS(args=dict(data=[]), code="""
+var table = document.querySelector('#earthquakes');
+new DataTable(table, {
     searching: false,
     pagingType: 'simple_numbers',
     columnDefs: [
         {
-            orderable: true,
+            orderable: false,
             render: DataTable.render.select(),
             targets: 0
+        },
+        {
+            targets: [ -1 ],
+            "visible": false
         }
     ],
     select: {
@@ -129,11 +124,29 @@ var dt = new DataTable(table, {
         { title: 'Latitude' },
         { title: 'Longitude' },
         { title: 'Depth' },
-        { title: 'Event type' }
+        { title: 'Event type' },
+        { title: '' }
     ],
     data: data,
 });
-document.querySelector('.bk-Div').shadowRoot.querySelector('div').style.display = 'block';
+""")
+
+UpdateTable = CustomJS(args=dict(data=[], n=0), code="""
+if (n == 0) {
+    alert('Zero events meet your criteria! Please try again');
+} else {
+    if (n == 1) {
+        var message = 'A total of 1 event meets your criteria';
+    } else {
+        var message = 'A total of '.concat(n.toString());
+        message = message.concat(' events meet your criteria');
+    }
+    alert(message);
+}
+
+var table = $('#earthquakes').DataTable();
+table.clear();
+table.rows.add( data ).draw();
 """)
 
 ########################
@@ -166,33 +179,32 @@ def filter_events():
         conditions &= (flatfile['Station code'] == sCode)
 
     EarthquakeNames = flatfile[conditions]['Earthquake Name'].str.cat(flatfile[conditions]['Event type'], sep='_')
-    EarthquakeNames = sorted(EarthquakeNames.drop_duplicates().values.tolist(), reverse=True)
+    EarthquakeNames = EarthquakeNames.drop_duplicates().values.tolist()
 
     rows = []
     for earthquakeName in EarthquakeNames:
         date, mag, lat, lon, depth, etype = earthquakeName.split('_')
+        event_id = '_'.join([date, mag, lat, lon, depth])
         date  = '-'.join([date[:4], date[4:6], date[6:]])
-        mag   = mag[:-1]
-        lat   = '-' + lat[:-1]
-        lon   = '-' + lon[:-1]
-        depth = depth[:-2]
+        mag   = mag.replace('mag','')[:-1]
+        lat   = '-' + lat.replace('lat','')[:-1]
+        lon   = '-' + lon.replace('lon','')[:-1]
+        depth = depth.replace('depth','')[:-2]
         etype = etype.capitalize()
-        rows.append([None, date, mag, lat, lon, depth, etype])
+        rows.append([None, date, mag, lat, lon, depth, etype, event_id])
     
-    Table.args = dict(data=rows)
-    Alert.args = dict(n=len(EarthquakeNames))
+    UpdateTable.args = dict(data=rows, n=len(EarthquakeNames))
+    Download.args    = dict(n=len(EarthquakeNames), extension='mat')
     
     button_filter.name = ''.join(random.choice(lettersandnumbers) for i in range(10))
-    div_table.name     = ''.join(random.choice(lettersandnumbers) for i in range(10))
     
 ########################
 ## Javascript events  ##
 ########################
-button_filter.js_on_change('name', Alert)
+button_filter.js_on_change('name', UpdateTable)
 button_filter.on_click(filter_events)
 button_download.js_on_event(ButtonClick, Download)
-curdoc().js_on_event(DocumentReady, Table)
-div_table.js_on_change('name', Table)
+curdoc().js_on_event(DocumentReady, CreateTable)
 
 ################
 ##  Database  ##
@@ -227,24 +239,24 @@ filter_eType.update(value=eTypes[0], options=eTypes)
 filter_minMw.update(value=min_mag)
 filter_maxMw.update(value=max_mag)
 filter_sCode.update(value=sCodes[0], options=sCodes)
-checkbox_group.update(labels=seismic_events, height=int(18.4*len(seismic_events))+1)
 
 EarthquakeNames = flatfile['Earthquake Name'].str.cat(flatfile['Event type'], sep='_')
-EarthquakeNames = sorted(EarthquakeNames.drop_duplicates().values.tolist(), reverse=True)
+EarthquakeNames = EarthquakeNames.drop_duplicates().values.tolist()
 
 rows = []
 for earthquakeName in EarthquakeNames:
     date, mag, lat, lon, depth, etype = earthquakeName.split('_')
+    event_id = '_'.join([date, mag, lat, lon, depth])
     date  = '-'.join([date[:4], date[4:6], date[6:]])
-    mag   = mag[:-1]
-    lat   = '-' + lat[:-1]
-    lon   = '-' + lon[:-1]
-    depth = depth[:-2]
+    mag   = mag.replace('mag','')[:-1]
+    lat   = '-' + lat.replace('lat','')[:-1]
+    lon   = '-' + lon.replace('lon','')[:-1]
+    depth = depth.replace('depth','')[:-2]
     etype = etype.capitalize()
-    rows.append([None, date, mag, lat, lon, depth, etype])
+    rows.append([None, date, mag, lat, lon, depth, etype, event_id])
 
-Table.args = dict(data=rows)
-div_table.name = ''.join(random.choice(lettersandnumbers) for i in range(10))
+CreateTable.args = dict(data=rows)
+Download.args    = dict(n=len(EarthquakeNames), extension='mat')
 
 ######################
 ##  Export website  ##
@@ -257,5 +269,4 @@ distribution = grid([[filter_since, filter_minMw, filter_eType, button_filter],
                      [filter_until, filter_maxMw, filter_sCode, button_download]], sizing_mode='stretch_width')
 
 curdoc().add_root(distribution)
-curdoc().add_root(div_table)
 curdoc().title = 'Strong Motion Database Download Manager' + u'\u2013' + ' SIBER-RISK'
