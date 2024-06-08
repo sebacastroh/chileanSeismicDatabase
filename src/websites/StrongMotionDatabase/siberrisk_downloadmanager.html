@@ -221,6 +221,9 @@ that accepts these same parameters.
                   {{ embed(doc) if doc.elementid }}
                   {% for root in doc.roots %}
                     {% block root scoped %}
+                      {% if loop.revindex == 2 %}
+                        <table id="earthquakes" class="table table-striped" style="width: 100%"></table>
+                      {% endif %}
                       {{ embed(root) | indent(10) }}
                     {% endblock %}
                   {% endfor %}
@@ -228,7 +231,6 @@ that accepts these same parameters.
               {% endblock %}
               {{ plot_script | indent(8) }}
             {% endblock %}
-            <table id="earthquakes" class="table table-striped" style="width: 100%"></table>
           </div>
         </div>
 

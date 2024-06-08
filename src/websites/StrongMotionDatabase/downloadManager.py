@@ -17,7 +17,7 @@ from bokeh.io import curdoc
 from bokeh.layouts import grid
 
 from bokeh.models import CustomJS, DatePicker
-from bokeh.models.widgets import Button, NumericInput, Select
+from bokeh.models.widgets import Button, Div, NumericInput, RadioGroup, Select
 
 from jinja2 import Environment, FileSystemLoader
 
@@ -33,6 +33,17 @@ pwdith  = 1
 pheight = 250
 formats = ['Matlab (MAT-binary, *.mat)', 'Python (Numpy, *.npz)']
 lettersandnumbers  = string.ascii_lowercase + string.digits
+
+############
+##  Divs  ##
+############
+div_format   = Div(text='<h2>1. Choose the format of the files</h2>', sizing_mode='stretch_width', width=pwdith)
+
+div_filter   = Div(text='<h2>2. Filter the events table (optional)</h2>', sizing_mode='stretch_width', width=pwdith)
+
+div_select   = Div(text='<h2>3. Select the events to download</h2>', sizing_mode='stretch_width', width=pwdith)
+
+div_download = Div(text='<h2>4. Download your events</h2>', sizing_mode='stretch_width', width=pwdith)
 
 #########################
 ##  Filter components  ##
@@ -52,11 +63,13 @@ filter_sCode = Select(title='Recorded by station', sizing_mode='stretch_width', 
 ###############
 ##  Buttons  ##
 ###############
+button_format   = RadioGroup(labels=formats)
+
 button_filter   = Button(label='Apply filters', button_type='primary',
     sizing_mode='stretch_width', width=pwdith, align='end')
 
 button_download = Button(label='Download', button_type='success',
-    sizing_mode='stretch_width', width=pwdith, align='end')
+    width=pwdith, align='end', name='download', styles={'width': '10%', 'margin-left': '45%'})
 
 ####################################
 ##  Custom Javascript Functions   ##
@@ -199,8 +212,8 @@ def filter_events():
         event_id = '_'.join([date, mag, lat, lon, depth])
         date  = '-'.join([date[:4], date[4:6], date[6:]])
         mag   = mag.replace('mag','')[:-1]
-        lat   = '-' + lat.replace('lat','')[:-1]
-        lon   = '-' + lon.replace('lon','')[:-1]
+        lat   = ('-' + lat).replace('-lat','')[:-1]
+        lon   = ('-' + lon).replace('-lon','')[:-1]
         depth = depth.replace('depth','')[:-2]
         etype = etype.capitalize()
         rows.append([None, date, mag, lat, lon, depth, etype, lastUpdate, event_id])
@@ -262,8 +275,8 @@ for earthquakeName, lastUpdate in zip(EarthquakeNames, LastUpdates):
     event_id = '_'.join([date, mag, lat, lon, depth])
     date  = '-'.join([date[:4], date[4:6], date[6:]])
     mag   = mag.replace('mag','')[:-1]
-    lat   = '-' + lat.replace('lat','')[:-1]
-    lon   = '-' + lon.replace('lon','')[:-1]
+    lat   = ('-' + lat).replace('-lat','')[:-1]
+    lon   = ('-' + lon).replace('-lon','')[:-1]
     depth = depth.replace('depth','')[:-2]
     etype = etype.capitalize()
     rows.append([None, date, mag, lat, lon, depth, etype, lastUpdate, event_id])
@@ -279,7 +292,13 @@ FILE = _env.get_template('siberrisk_downloadmanager.html')
 curdoc().template = FILE
 
 distribution = grid([[filter_since, filter_minMw, filter_eType, button_filter],
-                     [filter_until, filter_maxMw, filter_sCode, button_download]], sizing_mode='stretch_width')
+                     [filter_until, filter_maxMw, filter_sCode, None]], sizing_mode='stretch_width')
 
+curdoc().add_root(div_format)
+curdoc().add_root(button_format)
+curdoc().add_root(div_filter)
 curdoc().add_root(distribution)
+curdoc().add_root(div_select)
+curdoc().add_root(div_download)
+curdoc().add_root(button_download)
 curdoc().title = 'Strong Motion Database Download Manager' + u'\u2013' + ' SIBER-RISK'
