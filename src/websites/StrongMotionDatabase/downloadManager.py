@@ -70,30 +70,39 @@ button_download = Button(label='Download', button_type='success',
 #     $('#earthquakes').DataTable().rows('.selected').data()[i][7]
 
 Download = CustomJS(args=dict(n=0, extension='mat'),code="""
-var table = $('#earthquakes').DataTable();
-var events = [];
-var nSelected = table.rows({selected: true})[0].length;
-if (nSelected == 0) {
-    alert("You must select at least one event");
-    return;
-} else if (nSelected == n) {
-    for (let i=0; i < n; i++) {
-        events.push(table.rows(i).data()[0][7]);
+async function downloadFiles() {
+    var table = $('#earthquakes').DataTable();
+    var events = [];
+    var nSelected = table.rows({selected: true})[0].length;
+    if (nSelected == 0) {
+        alert("You must select at least one event");
+        return;
+    } else if (nSelected == n) {
+        for (let i=0; i < n; i++) {
+            events.push(table.rows(i).data()[0][7]);
+        }
+        table.rows().data()
+    } else {
+        var selected = table.rows('.selected').data();
+        for (let i=0; i < nSelected; i++) {
+            events.push(selected[i][7]);
+        }
     }
-    table.rows().data()
-} else {
-    var selected = table.rows('.selected').data();
-    for (let i=0; i < nSelected; i++) {
-        events.push(selected[i][7]);
-    }
-}
 
-var url = '';
-var path = 'data/seismicDatabase/';
-for (let i=0; i < nSelected; i++) {
-    url = '%s' + path + extension + '/' + events[i] + '.' + extension;
-    console.log(url);
+    var url = '';
+    var path = 'data/seismicDatabase/';
+    for (let i=0; i < nSelected; i++) {
+        url = '%s' + path + extension + '/' + events[i] + '.' + extension;
+        let data = await fetch(url);
+        let content = await data.blob();
+        let a = document.createElement('a');
+        a.href = window.URL.createObjectURL(content);
+        a.download = events[i] + '.' + extension;
+        a.click();
+        a.remove();
+    }
 }
+downloadFiles();
 """%sys.argv[1])
 
 CreateTable = CustomJS(args=dict(data=[]), code="""
