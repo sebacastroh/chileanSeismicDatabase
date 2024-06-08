@@ -74,8 +74,18 @@ button_download = Button(label='Download', button_type='success',
 ####################################
 ##  Custom Javascript Functions   ##
 ####################################
-Download = CustomJS(args=dict(n=0, extension='mat'),code="""
+Download = CustomJS(args=dict(n=0, button_format=button_format),code="""
 async function downloadFiles() {
+
+    if (button_format.active == null) {
+        alert("You must choose a format to download");
+        return;
+    } else if (button_format.active == 0) {
+        var extension = 'mat';
+    } else {
+        var extension = 'npz';
+    }
+
     var table = $('#earthquakes').DataTable();
     var events = [];
     var nSelected = table.rows({selected: true})[0].length;
@@ -219,7 +229,7 @@ def filter_events():
         rows.append([None, date, mag, lat, lon, depth, etype, lastUpdate, event_id])
     
     UpdateTable.args = dict(data=rows, n=len(EarthquakeNames))
-    Download.args    = dict(n=len(EarthquakeNames), extension='mat')
+    Download.args    = dict(n=len(EarthquakeNames), button_format=button_format)
     
     button_filter.name = ''.join(random.choice(lettersandnumbers) for i in range(10))
     
@@ -282,7 +292,7 @@ for earthquakeName, lastUpdate in zip(EarthquakeNames, LastUpdates):
     rows.append([None, date, mag, lat, lon, depth, etype, lastUpdate, event_id])
 
 CreateTable.args = dict(data=rows)
-Download.args    = dict(n=len(EarthquakeNames), extension='mat')
+Download.args    = dict(n=len(EarthquakeNames), button_format=button_format)
 
 ######################
 ##  Export website  ##
