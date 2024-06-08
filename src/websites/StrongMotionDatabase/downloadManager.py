@@ -74,7 +74,7 @@ button_download = Button(label='Download', button_type='success',
 ####################################
 ##  Custom Javascript Functions   ##
 ####################################
-Download = CustomJS(args=dict(n=0, button_format=button_format),code="""
+Download = CustomJS(args=dict(n=0, button_format=button_format, sizes_npz={}, sizes_mat={}),code="""
 async function downloadFiles() {
 
     if (button_format.active == null) {
@@ -104,9 +104,36 @@ async function downloadFiles() {
         }
     }
 
+    // Get modal and elements
+    var button = document.getElementsByClassName("closeDownloadModal")[0];
+    button.style.display = "none";
+
+    var progress = document.getElementsByClassName("downloadProgress")[0];
+    progress.textContent = "Downloading event 0" + " of " + nSelected.toString();
+
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+
     var url = '';
     var path = 'data/seismicDatabase/';
+
+    var totalSize = 0;
     for (let i=0; i < nSelected; i++) {
+        if (button_format.active == 0) {
+            totalSize += sizes_mat[events[i]];
+        } else {
+            totalSize += sizes_npz[events[i]];
+        }
+    }
+
+    var partial_size = 0;
+    for (let i=0; i < nSelected; i++) {
+        if (button_format.active == 0) {
+            partial_size += sizes_mat[events[i]];
+        } else {
+            partial_size += sizes_npz[events[i]];
+        }
+        progress.textContent = "Downloading event " + (i+1).toString() + " of " + nSelected.toString() + " (" + partial_size.toString() + "MB / " + total_size.toString() + "MB)";
         url = '%s' + path + extension + '/' + events[i] + '.' + extension;
         let data = await fetch(url);
         let content = await data.blob();
@@ -116,6 +143,12 @@ async function downloadFiles() {
         a.click();
         a.remove();
     }
+    progress.textContent = "Download complete";
+
+    button.onclick = function() {
+      modal.style.display = "none";
+    }
+    button.style.display = "block";
 }
 downloadFiles();
 """%sys.argv[1])
@@ -229,7 +262,7 @@ def filter_events():
         rows.append([None, date, mag, lat, lon, depth, etype, lastUpdate, event_id])
     
     UpdateTable.args = dict(data=rows, n=len(EarthquakeNames))
-    Download.args    = dict(n=len(EarthquakeNames), button_format=button_format)
+    Download.args    = dict(n=len(EarthquakeNames), button_format=button_format, sizes_npz=sizes_npz, sizes_mat=sizes_mat)
     
     button_filter.name = ''.join(random.choice(lettersandnumbers) for i in range(10))
     
@@ -291,8 +324,11 @@ for earthquakeName, lastUpdate in zip(EarthquakeNames, LastUpdates):
     etype = etype.capitalize()
     rows.append([None, date, mag, lat, lon, depth, etype, lastUpdate, event_id])
 
+sizes_npz = {earthquakeName: os.path.getsize(os.path.join(dataPath, 'seismicDatabase', 'npz', earthquakeName + '.npz'))/1024**2 for earthquakeName in EarthquakeNames}
+sizes_mat = {earthquakeName: os.path.getsize(os.path.join(dataPath, 'seismicDatabase', 'mat', earthquakeName + '.mat'))/1024**2 for earthquakeName in EarthquakeNames}
+
 CreateTable.args = dict(data=rows)
-Download.args    = dict(n=len(EarthquakeNames), button_format=button_format)
+Download.args    = dict(n=len(EarthquakeNames), button_format=button_format, sizes_npz=sizes_npz, sizes_mat=sizes_mat)
 
 ######################
 ##  Export website  ##
