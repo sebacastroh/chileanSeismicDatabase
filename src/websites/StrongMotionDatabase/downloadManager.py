@@ -118,6 +118,7 @@ async function downloadFiles() {
     var path = 'data/seismicDatabase/';
 
     var totalSize = 0;
+    var tsf = "";
     for (let i=0; i < nSelected; i++) {
         if (button_format.active == 0) {
             totalSize += sizes_mat[events[i]];
@@ -126,14 +127,28 @@ async function downloadFiles() {
         }
     }
 
-    var partial_size = 0;
+    if (totalSize > 1024) {
+        tsf = (totalSize/1024).toFixed(2) + "GB";
+    } else {
+        tsf = totalSize.toFixed(2) + "MB"
+    }
+
+    var partialSize = 0;
+    var psf = "";
     for (let i=0; i < nSelected; i++) {
+
         if (button_format.active == 0) {
-            partial_size += sizes_mat[events[i]];
+            partialSize += sizes_mat[events[i]];
         } else {
-            partial_size += sizes_npz[events[i]];
+            partialSize += sizes_npz[events[i]];
         }
-        progress.textContent = "Downloading event " + (i+1).toString() + " of " + nSelected.toString() + " (" + partial_size.toString() + "MB / " + total_size.toString() + "MB)";
+        if (partialSize > 1024) {
+            psf = (partialSize/1024).toFixed(2) + "GB";
+        } else {
+            psf = partialSize.toFixed(2) + "MB";
+        }
+
+        progress.textContent = "Downloading event " + (i+1).toString() + " of " + nSelected.toString() + " (" + psf + " / " + tsf +  ")";
         url = '%s' + path + extension + '/' + events[i] + '.' + extension;
         let data = await fetch(url);
         let content = await data.blob();
