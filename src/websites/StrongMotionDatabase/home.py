@@ -89,10 +89,7 @@ plotted = False
 ############
 div_filter  = Div(text='<h2>Filter options</h2>', sizing_mode='stretch_width', width=pwdith)
 
-div_records = Div(text='<h2>Strong Motion Database</h2>\nTo download several files at once please ' +
-    'click <a href="downloadManager" target=' +
-    '"_blank">here</a>. Examples to read the database files are available for <a href="examplePython.py"' +
-    ' target="_blank">Python</a> and <a href="exampleMatlab.m" target="_blank">Matlab</a>.<br/>',
+div_records = Div(text='<h2>Strong Motion Database</h2>',
     sizing_mode='stretch_width', width=pwdith)
 
 div_secPlot = Div(text='<h2>Plots</h2>\nFill the options below and then click the button to generate the plots for the selected station.<br/>',
