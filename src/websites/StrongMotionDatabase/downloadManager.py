@@ -69,7 +69,7 @@ button_filter   = Button(label='Apply filters', button_type='primary',
     sizing_mode='stretch_width', width=pwdith, align='end')
 
 button_download = Button(label='Download', button_type='success',
-    width=pwdith, align='end', name='download', styles={'width': '10%', 'margin-left': '45%'})
+    width=pwdith, align='end', name='download', styles={'width': '10%', 'margin-left': '45%', 'margin-bottom': '10px'})
 
 ####################################
 ##  Custom Javascript Functions   ##
