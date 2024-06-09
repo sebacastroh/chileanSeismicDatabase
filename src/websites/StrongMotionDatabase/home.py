@@ -90,12 +90,18 @@ plotted = False
 div_filter  = Div(text='<h2>Filter options</h2>', sizing_mode='stretch_width', width=pwdith)
 
 div_records = Div(text='<h2>Strong Motion Database</h2>\nTo download several files at once please ' +
-    'click <a href="https://siberrisk.ing.puc.cl/StrongMotionDatabase/downloadManager" target=' +
+    'click <a href="downloadManager" target=' +
     '"_blank">here</a>. Examples to read the database files are available for <a href="examplePython.py"' +
     ' target="_blank">Python</a> and <a href="exampleMatlab.m" target="_blank">Matlab</a>.<br/>',
     sizing_mode='stretch_width', width=pwdith)
 
+div_secPlot = Div(text='<h2>Plots</h2>\nFill the options below and then click the button to generate the plots for the selected station.<br/>',
+    sizing_mode='stretch_width', width=pwdith, styles={'margin-bottom': '15px'})
+
 div_plots   = Div(text='<b>TIP:</b> You can hide/show the curves by pressing their names at the legend box!',
+    sizing_mode='stretch_width', width=pwdith)
+
+div_secSumm = Div(text='<h2>Summary</h2>',
     sizing_mode='stretch_width', width=pwdith)
 
 #########################
@@ -125,13 +131,13 @@ select_format = Select(title='File format', sizing_mode='stretch_width', width=p
 ###############
 ##  Buttons  ##
 ###############
-button_filter   = Button(label='Apply filters', button_type='success',
+button_filter   = Button(label='Apply filters', button_type='primary',
     sizing_mode='stretch_width', width=pwdith, align='end')
 
 button_download = Button(label='Download', button_type='success',
     sizing_mode='stretch_width', width=pwdith, align='end')
 
-button_plots    = Button(label='Generate plots', button_type='success',
+button_plots    = Button(label='Generate plots', button_type='primary',
     sizing_mode='stretch_width', width=pwdith, align='end')
 
 ################
@@ -742,19 +748,23 @@ _env = Environment(loader=FileSystemLoader('StrongMotionDatabase'))
 FILE = _env.get_template('siberrisk_seismicdatabase.html')
 curdoc().template = FILE
 
-distribution = grid([[div_filter],
-                     [filter_since, filter_minMw, filter_eType, button_filter],
-                     [filter_until, filter_maxMw, filter_sCode, None],
-                     [div_records],
-                     [select_event, select_station, select_format, button_download],
-                     [tabs_records],
-                     [inputs_plots, tabs_plots, None, None],
-                     [data_table, plot_map, None, None]], sizing_mode='stretch_width')
+grid_filter = grid([[filter_since , filter_minMw  , filter_eType , button_filter  ] ,
+                    [filter_until , filter_maxMw  , filter_sCode , None           ]], sizing_mode='stretch_width')
+grid_select  = grid([[select_event, select_station, select_format, button_download]], sizing_mode='stretch_width')
+grid_plots   = grid([[inputs_plots, tabs_plots]], sizing_mode='stretch_width')
+grid_details = grid([[data_table  , plot_map]], sizing_mode='stretch_width')
 
-distribution.children[14] = (distribution.children[14][0], distribution.children[14][1], distribution.children[14][2]  , 1, 1)
-distribution.children[15] = (distribution.children[15][0], distribution.children[15][1], distribution.children[14][2]+1, 1, 3)
-distribution.children[16] = (distribution.children[16][0], distribution.children[16][1], distribution.children[16][2]  , 1, 1)
-distribution.children[17] = (distribution.children[17][0], distribution.children[17][1], distribution.children[16][2]+1, 1, 3)
+grid_plots.children[0] = (grid_plots.children[0][0], 0, 0, 1, 1)
+grid_plots.children[1] = (grid_plots.children[1][0], 0, 2, 1, 5)
 
-curdoc().add_root(distribution)
+curdoc().add_root(div_filter)
+curdoc().add_root(grid_filter)
+curdoc().add_root(div_records)
+curdoc().add_root(grid_select)
+curdoc().add_root(tabs_records)
+curdoc().add_root(div_secPlot)
+curdoc().add_root(grid_plots)
+curdoc().add_root(div_secSumm)
+curdoc().add_root(grid_details)
+
 curdoc().title = 'Strong Motion Database ' + u'\u2013' + ' SIBER-RISK'
