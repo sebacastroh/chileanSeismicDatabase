@@ -313,6 +313,8 @@ EarthquakeNames = EarthquakeNames.drop_duplicates().values.tolist()
 LastUpdates     = flatfile.groupby(['Earthquake Name'])['Last update'].max().tolist()
 
 rows = []
+sizes_npz = {}
+sizes_mat = {}
 for earthquakeName, lastUpdate in zip(EarthquakeNames, LastUpdates):
     date, mag, lat, lon, depth, etype = earthquakeName.split('_')
     event_id = '_'.join([date, mag, lat, lon, depth])
@@ -323,9 +325,8 @@ for earthquakeName, lastUpdate in zip(EarthquakeNames, LastUpdates):
     depth = depth.replace('depth','')[:-2]
     etype = etype.capitalize()
     rows.append([None, date, mag, lat, lon, depth, etype, lastUpdate, event_id])
-
-sizes_npz = {earthquakeName: os.path.getsize(os.path.join(dataPath, 'seismicDatabase', 'npz', earthquakeName + '.npz'))/1024**2 for earthquakeName in EarthquakeNames}
-sizes_mat = {earthquakeName: os.path.getsize(os.path.join(dataPath, 'seismicDatabase', 'mat', earthquakeName + '.mat'))/1024**2 for earthquakeName in EarthquakeNames}
+    sizes_npz[event_id] = os.path.getsize(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz'))/1024**2
+    sizes_mat[event_id] = os.path.getsize(os.path.join(dataPath, 'seismicDatabase', 'mat', event_id + '.mat'))/1024**2
 
 CreateTable.args = dict(data=rows)
 Download.args    = dict(n=len(EarthquakeNames), button_format=button_format, sizes_npz=sizes_npz, sizes_mat=sizes_mat)
