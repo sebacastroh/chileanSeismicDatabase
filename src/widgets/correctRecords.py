@@ -46,29 +46,25 @@ def correctRecords(window, widget, basePath, dataPath):
 
     # Select events and stations to correct
     to_correct = []
-    widget.insert('end', 'Eventos y estaciones a corregir\n\n')
-    widget.see('end')
-    window.update_idletasks()
-    to_correct = []
     for event_id, p_wave in p_waves.items():
         for scode, sinfo in p_wave.items():
-             if isinstace(sinfo, bool) and sinfo['status'] and not sinfo['corrected']:
+             if isinstance(sinfo['status'], bool) and sinfo['status'] and not sinfo['corrected']:
                 to_correct.append([event_id, scode])
-                widget.insert('end', event_id + ' - ' + scode + '\n')
-                widget.see('end')
-                window.update_idletasks()
 
-    if len(to_correct) == 0:
+    nStations = len(to_correct)
+    disable   = False
+
+    if nStations > 0:
+        widget.insert('end', 'Eventos con estaciones pendientes\n\n' + '\n'.join([event_id + ' - ' + station_code for event_id, station_code in to_correct]) + '\n\n')
+        widget.insert('end', 'Total de registros por corregir: ' + str(nStations))
+    else:
         widget.insert('end', 'No hay registros que corregir.\n')
-        widget.see('end')
-        window.update_idletasks()
-        return False
+        disable = True
 
-    widget.insert('end', '\nNúmero total de registros a corregir: %i\n' %len(to_correct))
     widget.see('end')
     window.update_idletasks()
 
-    return True
+    return disable
 
 def applyCorrection(window, widget, basePath, dataPath, parallel):
     """
