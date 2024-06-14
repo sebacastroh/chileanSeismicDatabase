@@ -52,7 +52,7 @@ def correctRecords(window, widget, basePath, dataPath):
     to_correct = []
     for event_id, p_wave in p_waves.items():
         for scode, sinfo in p_wave.items():
-             if sinfo['status'] and not sinfo['corrected']:
+             if isinstace(sinfo, bool) and sinfo['status'] and not sinfo['corrected']:
                 to_correct.append([event_id, scode])
                 widget.insert('end', event_id + ' - ' + scode + '\n')
                 widget.see('end')
