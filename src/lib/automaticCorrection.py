@@ -58,7 +58,7 @@ def correctRecord(acc, dt, status, p_wave, saveInTemp=False, filename=''):
     else:
         new_acc = acc.copy()
     
-    new_vel = spin.cumtrapz(new_acc, dx=dt, initial=0.)
+    new_vel = spin.cumulative_trapezoid(new_acc, dx=dt, initial=0.)
     if p_wave > 0:
         new_vel -= new_vel[:p_wave].mean()
     
@@ -73,7 +73,7 @@ def correctRecord(acc, dt, status, p_wave, saveInTemp=False, filename=''):
     peaks = spsig.find_peaks(std, distance=int(2./dt))[0]
     smooth_std = np.interp(t, t[peaks], std[peaks])*alpha
     
-    energy = spin.cumtrapz(new_acc**2, dx=dt, initial=0.)
+    energy = spin.cumulative_trapezoid(new_acc**2, dx=dt, initial=0.)
     energy /= energy[-1]
     
     y = [p_wave]

@@ -363,11 +363,11 @@ def compute_vel_dis(station):
         t = np.linspace(0., (n-1)*dt, n)
         acc = station[seismic_component + '%i' %(i+1)]
 
-        vel = spi.cumtrapz(acc, x=t, initial=0.)
+        vel = spi.cumulative_trapezoid(acc, x=t, initial=0.)
         if p_wave > 0:
             vel -= vel[:p_wave].mean()
 
-        dis = spi.cumtrapz(vel, x=t, initial=0.)
+        dis = spi.cumulative_trapezoid(vel, x=t, initial=0.)
         if p_wave > 0:
             dis -= dis[:p_wave].mean()
 
@@ -413,7 +413,7 @@ def compute_husid_plot(station):
     for i in range(3):
         n  = len(station[seismic_component + '%i' %(i+1)])
         t  = np.linspace(0., (n-1)*dt, n)
-        ia = np.pi/(2.*g)*spi.cumtrapz(station[seismic_component + '%i' %(i+1)]**2, t, initial=0.)
+        ia = np.pi/(2.*g)*spi.cumulative_trapezoid(station[seismic_component + '%i' %(i+1)]**2, t, initial=0.)
         husid_plots.append(ia)
 
     return husid_plots
@@ -424,7 +424,7 @@ def compute_cav_plot(station):
     for i in range(3):
         n   = len(station[seismic_component + '%i' %(i+1)])
         t   = np.linspace(0., (n-1)*dt, n)
-        cav = spi.cumtrapz(np.abs(station[seismic_component + '%i' %(i+1)]), t, initial=0.)
+        cav = spi.cumulative_trapezoid(np.abs(station[seismic_component + '%i' %(i+1)]), t, initial=0.)
         cav_plots.append(cav)
 
     return cav_plots

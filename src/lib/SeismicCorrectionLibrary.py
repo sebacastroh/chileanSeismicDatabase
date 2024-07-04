@@ -54,7 +54,7 @@ def PWaveDetection(X, fsamp, WN=800, AIlim=0.5, seconds=2.,
     else:
         Z = X.copy()
     
-    arias = integrate.cumtrapz(Z**2, dx=1./fsamp, initial=0.)
+    arias = integrate.cumulative_trapezoid(Z**2, dx=1./fsamp, initial=0.)
     arias /= arias.max()
     
     energy_pos = np.where(arias <= AIlim)[0][-1]
