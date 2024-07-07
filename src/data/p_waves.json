@@ -61940,9 +61940,9 @@
     },
     "A11P": {
       "corrected": false,
-      "method": "Automatic",
-      "pos": 11998,
-      "status": "postponed",
+      "method": "Manual",
+      "pos": 11272,
+      "status": true,
       "updated": "2024-03-03T00:45:25.089242"
     },
     "A12P": {
@@ -62346,8 +62346,8 @@
     "L11R": {
       "corrected": false,
       "method": "Manual",
-      "pos": 6907,
-      "status": "postponed",
+      "pos": 6922,
+      "status": true,
       "updated": "2024-03-03T00:45:35.737384"
     }
   },
