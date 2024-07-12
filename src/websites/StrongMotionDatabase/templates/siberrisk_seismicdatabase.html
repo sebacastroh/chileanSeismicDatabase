@@ -122,34 +122,6 @@ that accepts these same parameters.
           width: 83% !important;
         }
       </style>
-
-      <style>
-        .collapsible {
-            cursor: pointer;
-            background-color: #CFE2FF;
-            padding: 2px;
-            margin-bottom: 0;
-            border:1px solid #f1f1f1;
-        }
-        .active, .collapsible:hover {
-        }
-        .collapsible:after {
-            content: '\002B';
-            font-weight: bold;
-            float: right;
-            margin-left: 5px;
-        }
-        .active:after {
-            content: "\2212";
-        }
-        .collapsibleContent {
-            padding: 0 18px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.2s ease-out;
-            background-color: #f1f1f1;
-        }
-      </style>
     </head>
   {% endblock %}
 
@@ -223,68 +195,8 @@ that accepts these same parameters.
         <div style="text-align: center;">
           <div style="display: inline-block; text-align: left;width:70%;">
 
-            SIBER-RISK (called by the initials of <b>SI</b>mulation <b>B</b>ased <b>E</b>arthquake <b>R</b>isk and <b>R</b>esilience of <b>I</b>nterdependent <b>S</b>ystems and <b>N</b>etwor<b>K</b>s) is a project led by professor Juan Carlos de la Llera and co-investigators Paula Aguirre and Gabriel Candia, and funded by Fondecyt grant #1170836. The project started in April 2017 and it aims to investigate, develop, and implement a conceptual framework to evaluate earthquake vulnerability, risk and resilience of geographically Distributed Network Systems (DNS).
-
-            <h2>F.A.Q.</h2>
-
-            <h3 class="collapsible">History</h3>
-            <div class="collapsibleContent">
-              <div style="margin:15px 0">
-                During the development of the project, the idea to create an extensive and well defined strong motion database of Chilean earthquakes arised. Used in different tasks, this database has proven to be incredibly useful for researchers and students in their projects.<br/><br/>
-                In order to reach more people, we finally have published it online, entirely free. We only ask you to follow our licensing terms. Finally, we do not take any responsibility in any result or analysis made from this database.
-              </div>
-            </div>
-
-            <h3 class="collapsible">Licensing terms</h3>
-            <div class="collapsibleContent">
-              <div style="margin:15px 0">
-                The SIBER-RISK Strong Motion Database uses the Attribution-NonCommercial-ShareAlike 4.0 International license from Creative Commons (CC BY-NC-SA 4.0). You are free to share and adapt the information provided here under the following terms:<br></br>
-                <ul style="list-style-type:disc;">
-                  <li><b>Attribution:</b> You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable  manner, but not in any way that suggests the licensor endorses you or your use.</li>
-                  <li><b>NonCommercial:</b> You may not use the material for commercial purposes.</li>
-                  <li><b>ShareAlike:</b> If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</li>
-                  <li><b>No additional restrictions:</b> You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.</li>
-                </ul>
-                You can see more details of the license <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode" target="_blank">here</a>. If you want to use it for commercial purposes, please contact us at srcastro@uc.cl.<br/>
-              </div>
-            </div>
-            
-            <h3 class="collapsible">How to cite this database</h3>
-            <div class="collapsibleContent">
-              <div style="margin:15px 0">
-                Please use the following cite: <br></br>
-                <ul>
-            	    <li><b>Sebastián Castro, Roberto Benavente, Jorge G. F. Crempien, Gabriel Candia, Juan Carlos de la Llera; A Consistently Processed Strong‐Motion Database for Chilean Earthquakes. Seismological Research Letters 2022;; 93 (5): 2700–2718. doi: <a href=https://doi.org/10.1785/0220200336 target="_blank">https://doi.org/10.1785/0220200336</a></b></li>
-                </ul>
-                and add the following line in your acknowledgements <br></br>
-                <ul>
-            	    <li><b>The strong motion database was provided by the SIBER-RISK project: Simulation Based Earthquake Risk and Resilience of Interdependent Systems and Networks ANID/FONDECYT/1170836. doi: <a href=https://doi.org/10.7764/datasetUC/ING-UC.1170836_1 target="_blank">https://doi.org/10.7764/datasetUC/ING-UC.1170836_1</a></b></li>
-                </ul>
-              </div>
-            </div>
-            
-            <h3 class="collapsible">Flat file</h3>
-            <div class="collapsibleContent">
-              <div style="margin:15px 0">
-                In this database you can find more than 3700 events and 14000 records.  The following parameters are tabulated for each record: start time of the record, magnitude, hypocenter location, type of event (crustal, interface or intraslab), depth, station name, station location, hypocentral distance, epicentral distance, rupture distance, Joyner-Boore distance, Vs30 (if available), and azimuth (if available). The table can be accesed here: <a href="https://siberrisk.ing.puc.cl/data/flatFile.xlsx" target="_blank"><b>flatFile.xlsx</b></a>. <!--Also, spectral accelerations with damping ratios of 0.02 and 0.05 are available for all records here: <a href="https://siberrisk.ing.puc.cl/data/SpectralValues.xlsx" target="_blank"><b>SpectralValues.xlsx</b></a>.-->
-              </div>
-            </div>
-
-            <h3 class="collapsible">Multiple downloads</h3>
-            <div class="collapsibleContent">
-              <div style="margin:15px 0">
-                The objective of this page is to visualize one event of the Strong Motion Database at time. If you need to download several events visit the <a href="downloadManager" target="_blank">Download Manager website</a>.
-              </div>
-            </div>
-
-            <h3 class="collapsible">Contact</h3>
-            <div class="collapsibleContent">
-              <div style="margin:15px 0">
-                  If you have any question, please feel free to contact us by e-mail to srcastro@uc.cl.
-              </div>
-            </div>
-
-            <h2>Strong Motion Database Viewer</h2>
+            <h2>Plot viewer</h2>
+            An interactive dashboard to visualize the corrected records of the database. Filter and select the event that you want to analyze and visualize its channels, spectral responses, D-V-A spectrum, map location and more. Remember that the SIBER-RISK Strong Motion Database uses the Attribution-NonCommercial-ShareAlike 4.0 International license from Creative Commons (CC BY-NC-SA 4.0). You can see more details of the license <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode" target="_blank">here</a>. If you want to use it for commercial purposes, please contact us at srcastro@uc.cl. For more information, go to the <a href="/StrongMotionDatabase" target="_blank">main site</a>.
 
             {% block inner_body %}
               {% block contents %}
@@ -353,21 +265,5 @@ that accepts these same parameters.
   	_stq = window._stq || [];
   	_stq.push([ 'view', {v:'ext',j:'1:8.8',blog:'142729530',post:'5',tz:'0',srv:'www.siberrisk.cl'} ]);
   	_stq.push([ 'clickTrackerInit', '142729530', '5' ]);
-  </script>
-  <script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight){
-          content.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-        } 
-      });
-    }
   </script>
 </html>

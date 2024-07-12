@@ -10,6 +10,7 @@ Este repositorio contiene los códigos y configuración necesarios para levantar
 │   └── seismicDatabase
 │       ├── npz
 │       └── mat
+├── examples
 ├── local
 │   └── siberrisk
 └── src
@@ -24,8 +25,10 @@ Este repositorio contiene los códigos y configuración necesarios para levantar
     ├── secrets
     ├── tmp
     ├── websites
-    │   ├── StrongMotionDatabase
-    │   └── StrongMotionDatabaseDownloadManager
+    │   └── StrongMotionDatabase
+    │      ├── static
+    │      │  └── images
+    │      └── templates
     └── widgets
 ```
 

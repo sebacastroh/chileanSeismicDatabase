@@ -350,7 +350,7 @@ Download.args    = dict(n=len(EarthquakeNames), button_format=button_format, siz
 ##  Export website  ##
 ######################
 _env = Environment(loader=FileSystemLoader('StrongMotionDatabase'))
-FILE = _env.get_template('siberrisk_downloadmanager.html')
+FILE = _env.get_template(os.path.join('templates', 'siberrisk_downloadmanager.html'))
 curdoc().template = FILE
 
 distribution = grid([[filter_since, filter_minMw, filter_eType, button_filter],

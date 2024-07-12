@@ -742,7 +742,7 @@ select_format.update(value=formats[0], options=formats)
 ##  Export website  ##
 ######################
 _env = Environment(loader=FileSystemLoader('StrongMotionDatabase'))
-FILE = _env.get_template('siberrisk_seismicdatabase.html')
+FILE = _env.get_template(os.path.join('templates', 'siberrisk_seismicdatabase.html'))
 curdoc().template = FILE
 
 grid_filter = grid([[filter_since , filter_minMw  , filter_eType , button_filter  ] ,
