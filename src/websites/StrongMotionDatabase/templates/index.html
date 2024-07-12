@@ -133,7 +133,7 @@
       .collapsible {
           cursor: pointer;
           background-color: #CFE2FF;
-          padding: 2px;
+          padding: 2px 10px;
           margin-bottom: 0;
           border:1px solid #f1f1f1;
       }
@@ -212,21 +212,16 @@
       <div style="text-align: center;">
         <div style="display: inline-block; text-align: left;width:70%;">
 
-          SIBER-RISK (called by the initials of <b>SI</b>mulation <b>B</b>ased <b>E</b>arthquake <b>R</b>isk and <b>R</b>esilience of <b>I</b>nterdependent <b>S</b>ystems and <b>N</b>etwor<b>K</b>s) is a project led by professor Juan Carlos de la Llera and co-investigators Paula Aguirre and Gabriel Candia, and funded by Fondecyt grant #1170836. The project started in April 2017 and it aims to investigate, develop, and implement a conceptual framework to evaluate earthquake vulnerability, risk and resilience of geographically Distributed Network Systems (DNS).<br/><br/>
-
-          During the development of the project, the idea to create an extensive and well defined strong motion database of Chilean earthquakes arised. Used in different tasks, this database has proven to be incredibly useful for researchers and students in their projects.<br/><br/>
-
-          In order to reach more people, we finally have published it online, entirely free. We only ask you to follow our licensing terms. Finally, we do not take any responsibility in any result or analysis made from this database.<br/>
-
           <h2>Resources</h2>
 
           Click on the card to open each page in a new tab.<br/><br/>
 
           <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- PLOT VIEWER -->
             <div class="col">
               <div class="card h-100">
                 <img src="{{ prefix }}/static/images/database_viewer.png" class="card-img-top" style="padding: 10px 10px 0 10px;" alt="Plot viewer">
-                <div class="card-body" style="padding-top: 0;">
+                <div class="card-body">
                   <h5 class="card-title">Plot viewer</h5>
                   <p class="card-text">
                     <a href="{{ prefix }}/home" target="_blank" class="stretched-link" style="color: inherit;">
@@ -236,10 +231,12 @@
                 </div>
               </div>
             </div>
+            <!-- END PLOT VIEWER -->
+            <!-- DOWNLOAD MANAGER -->
             <div class="col">
               <div class="card h-100">
                 <img src="{{ prefix }}/static/images/database_download_manager.png" class="card-img-top" style="padding: 10px 10px 0 10px;" alt="Download manager">
-                <div class="card-body" style="padding-top: 0;">
+                <div class="card-body">
                   <h5 class="card-title">Download manager</h5>
                   <p class="card-text">
                     <a href="{{ prefix }}/downloadManager" target="_blank" class="stretched-link" style="color: inherit;">
@@ -249,10 +246,12 @@
                 </div>
               </div>
             </div>
+            <!-- END DOWNLOAD MANAGER -->
+            <!-- GITHUB -->
             <div class="col">
               <div class="card h-100">
                 <img src="{{ prefix }}/static/images/database_github.png" class="card-img-top" style="padding: 10px 10px 0 10px;" alt="Github repository">
-                <div class="card-body" style="padding-top: 0;">
+                <div class="card-body">
                   <h5 class="card-title">Github repository</h5>
                   <p class="card-text">
                     <a href="https://github.com/sebacastroh/chileanSeismicDatabase" target="_blank" class="stretched-link" style="color: inherit;">
@@ -262,24 +261,143 @@
                 </div>
               </div>
             </div>
+            <!-- END GITHUB -->
+            <!-- METHODOLOGY -->
+            <div class="col">
+              <div class="card mb-3 h-100" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{{ prefix }}/static/images/m_srl_93_5_cover.png" class="img-fluid rounded-start"
+                    style="margin-left: 25%; margin-top: 12.5%; width: 75%;" alt="Methodology">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Methodology</h5>
+                      <p class="card-text">
+                        <a href="https://doi.org/10.1785/0220200336" target="_blank" class="stretched-link" style="color: inherit;">
+                          Read all the details in our article in SRL.
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END METHODOLOGY -->
+            <!-- PYTHON EXAMPLE -->
+            <div class="col">
+              <div class="card mb-3 h-100" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{{ prefix }}/static/images/python-logo-only.svg" class="img-fluid rounded-start"
+                    style="margin-left: 25%; margin-top: 12.5%; width: 75%;" alt="Python">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Python example</h5>
+                      <p class="card-text">
+                        <a href="https://nbviewer.org/github/sebacastroh/chileanSeismicDatabase/blob/main/examples/example-python.ipynb" target="_blank" class="stretched-link" style="color: inherit;">
+                          Jupyter notebook for Python users.
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END PYTHON EXAMPLE -->
+            <!-- MATLAB EXAMPLE -->
+            <div class="col">
+              <div class="card mb-3 h-100" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{{ prefix }}/static/images/Matlab_icon.png" class="img-fluid rounded-start"
+                    style="margin-left: 25%; margin-top: 12.5%; width: 75%;" alt="MATLAB">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">MATLAB example</h5>
+                      <p class="card-text">
+                        <a href="https://nbviewer.org/github/sebacastroh/chileanSeismicDatabase/blob/main/examples/example-matlab.ipynb" target="_blank" class="stretched-link" style="color: inherit;">
+                          Jupyter notebook for MATLAB users.
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END MATLAB EXAMPLE -->
+            <!-- FLATFILE -->
+            <div class="col">
+              <div class="card mb-3 h-100" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{{ prefix }}/static/images/Microsoft_Office_Excel_(2019–present).svg" class="img-fluid rounded-start"
+                    style="margin-left: 25%; margin-top: 12.5%; width: 75%;" alt="Database registry">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Database registry</h5>
+                      <p class="card-text">
+                        <a href="/data/flatFile.xlsx" target="_blank" class="stretched-link" style="color: inherit;">
+                          Excel file with the metadata for all records.
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END FLATFILE -->
+            <!-- SPECTRAL VALUES -->
+            <div class="col">
+              <div class="card mb-3 h-100" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{{ prefix }}/static/images/spectralValues.png" class="img-fluid rounded-start"
+                    style="margin-left: 25%; margin-top: 12.5%; width: 75%;" alt="Spectral values">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Spectral values</h5>
+                      <p class="card-text">
+                        <a href="/data/spectralValues.zip" target="_blank" class="stretched-link" style="color: inherit;">
+                          Spectral values computed for the database records.
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END SPECTRAL VALUES -->
+            <!-- LICENSING -->
+            <div class="col">
+              <div class="card mb-3 h-100" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{{ prefix }}/static/images/cc.svg" class="img-fluid rounded-start"
+                    style="margin-left: 25%; margin-top: 12.5%; width: 75%;" alt="Creative Commons">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Licensing terms</h5>
+                      <p class="card-text">
+                        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode" target="_blank" class="stretched-link" style="color: inherit;">
+                          We use the CC BY-NC-SA 4.0 license. Read more here.
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END LICENSING -->
           </div>
           <br/>
 
           <h2>Frequently Asked Questions</h2>
-
-          <h3 class="collapsible">Licensing terms</h3>
-          <div class="collapsibleContent">
-            <div style="margin:15px 0">
-              The SIBER-RISK Strong Motion Database uses the Attribution-NonCommercial-ShareAlike 4.0 International license from Creative Commons (CC BY-NC-SA 4.0). You are free to share and adapt the information provided here under the following terms:<br></br>
-              <ul style="list-style-type:disc;">
-                <li><b>Attribution:</b> You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable  manner, but not in any way that suggests the licensor endorses you or your use.</li>
-                <li><b>NonCommercial:</b> You may not use the material for commercial purposes.</li>
-                <li><b>ShareAlike:</b> If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</li>
-                <li><b>No additional restrictions:</b> You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.</li>
-              </ul>
-              You can see more details of the license <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode" target="_blank">here</a>. If you want to use it for commercial purposes, please contact us at srcastro@uc.cl.<br/>
-            </div>
-          </div>
           
           <h3 class="collapsible">How to cite this database</h3>
           <div class="collapsibleContent">
@@ -292,13 +410,6 @@
               <ul>
                 <li><b>The strong motion database was provided by the SIBER-RISK project: Simulation Based Earthquake Risk and Resilience of Interdependent Systems and Networks ANID/FONDECYT/1170836. doi: <a href=https://doi.org/10.7764/datasetUC/ING-UC.1170836_1 target="_blank">https://doi.org/10.7764/datasetUC/ING-UC.1170836_1</a></b></li>
               </ul>
-            </div>
-          </div>
-          
-          <h3 class="collapsible">Flat file</h3>
-          <div class="collapsibleContent">
-            <div style="margin:15px 0">
-              In this database you can find more than 3700 events and 14000 records.  The following parameters are tabulated for each record: start time of the record, magnitude, hypocenter location, type of event (crustal, interface or intraslab), depth, station name, station location, hypocentral distance, epicentral distance, rupture distance, Joyner-Boore distance, Vs30 (if available), and azimuth (if available). The table can be accesed here: <a href="/data/flatFile.xlsx" target="_blank"><b>flatFile.xlsx</b></a>.
             </div>
           </div>
 
