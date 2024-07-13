@@ -84,3 +84,10 @@ En caso de utilizar la base de datos, por favor utilice la siguiente cita
 y añada las siguientes líneas en la sección de agradecimientos
 
     The strong motion database was provided by the SIBER-RISK project: Simulation Based Earthquake Risk and Resilience of Interdependent Systems and Networks ANID/FONDECYT/1170836. doi: https://doi.org/10.7764/datasetUC/ING-UC.1170836_1
+
+## Librerías
+
+Para el desarrollo de este trabajo se han utilizado dos librerías adicionales
+
+- [**pyrjmcmc**](https://github.com/robenavente/pyrjmcmc): Librería desarrollada en el proyecto Anillo ACT192169 para ejecutar modelos de *Reversible-jump Markov chain Monte Carlo*, la cual a su vez está inspirada en el código de [iEarth](https://www.iearth.edu.au/codes/).
+- [**pytrend**](https://github.com/ItrendCL/pytrend): Librería desarrollada por [Itrend](https://itrend.cl) para descargar los datos disponibles en la [Plataforma de Datos para la Resieliencia](https://www.plataformadedatos.cl).
