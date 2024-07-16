@@ -104,15 +104,15 @@ div_secSumm = Div(text='<h2>Summary</h2>',
 #########################
 ##  Filter components  ##
 #########################
-filter_since = DatePicker(title='Show events since', sizing_mode='stretch_width', width=pwdith)
+filter_since = DatePicker(title='Date between', sizing_mode='stretch_width', width=pwdith)
 
-filter_until = DatePicker(title='Show events until', sizing_mode='stretch_width', width=pwdith)
+filter_until = DatePicker(title='and', sizing_mode='stretch_width', width=pwdith)
 
 filter_eType = Select(title='Event type',sizing_mode='stretch_width', width=pwdith)
 
-filter_minMw = NumericInput(title='Show events larger or equal than', mode='float', sizing_mode='stretch_width', width=pwdith)
+filter_minMw = NumericInput(title='Magnitude between', mode='float', sizing_mode='stretch_width', width=pwdith)
 
-filter_maxMw = NumericInput(title='Show events smaller or equal than', mode='float', sizing_mode='stretch_width', width=pwdith)
+filter_maxMw = NumericInput(title='and', mode='float', sizing_mode='stretch_width', width=pwdith)
 
 filter_sCode = Select(title='Recorded by station', sizing_mode='stretch_width', width=pwdith)
 
@@ -153,19 +153,19 @@ tooltips_cav = [('(t, CAV)', '($x, $y)'),]
 ##  Acceleration plots  ##
 ##########################
 plots_acc = [figure(title='Acceleration', x_axis_label='Time [s]', y_axis_label='Acceleration [g]',
-    tooltips=tooltips_a, height=pheight, sizing_mode='stretch_width', width=pwdith) for i in range(3)]
+    tooltips=tooltips_a, height=pheight, sizing_mode='stretch_width', width=pwdith, min_border_left=100) for i in range(3)]
 
 ######################
 ##  Velocity plots  ##
 ######################
 plots_vel = [figure(title='Velocity', x_axis_label='Time [s]', y_axis_label='Velocity [m/s]',
-    tooltips=tooltips_v, height=pheight, sizing_mode='stretch_width', width=pwdith) for i in range(3)]
+    tooltips=tooltips_v, height=pheight, sizing_mode='stretch_width', width=pwdith, min_border_left=100) for i in range(3)]
 
 ##########################
 ##  Displacement plots  ##
 ##########################
 plots_dis = [figure(title='Displacement', x_axis_label='Time [s]', y_axis_label='Displacement [m]',
-    tooltips=tooltips_d, height=pheight, sizing_mode='stretch_width', width=pwdith) for i in range(3)]
+    tooltips=tooltips_d, height=pheight, sizing_mode='stretch_width', width=pwdith, min_border_left=100) for i in range(3)]
 
 #########################
 ##  Sa Spectrum plots  ##

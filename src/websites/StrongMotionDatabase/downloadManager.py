@@ -48,15 +48,15 @@ div_download = Div(text='<h2>4. Download your events</h2>', sizing_mode='stretch
 #########################
 ##  Filter components  ##
 #########################
-filter_since = DatePicker(title='Show events since', sizing_mode='stretch_width', width=pwdith)
+filter_since = DatePicker(title='Date betweeen', sizing_mode='stretch_width', width=pwdith)
 
-filter_until = DatePicker(title='Show events until', sizing_mode='stretch_width', width=pwdith)
+filter_until = DatePicker(title='and', sizing_mode='stretch_width', width=pwdith)
 
 filter_eType = Select(title='Event type',sizing_mode='stretch_width', width=pwdith)
 
-filter_minMw = NumericInput(title='Show events larger or equal than', mode='float', sizing_mode='stretch_width', width=pwdith)
+filter_minMw = NumericInput(title='Magnitude between', mode='float', sizing_mode='stretch_width', width=pwdith)
 
-filter_maxMw = NumericInput(title='Show events smaller or equal than', mode='float', sizing_mode='stretch_width', width=pwdith)
+filter_maxMw = NumericInput(title='and', mode='float', sizing_mode='stretch_width', width=pwdith)
 
 filter_sCode = Select(title='Recorded by station', sizing_mode='stretch_width', width=pwdith)
 
