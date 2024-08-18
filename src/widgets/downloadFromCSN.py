@@ -37,10 +37,7 @@ def downloadNewEvents(window, widget, basePath, dataPath):
                 records.append([event_id, station_id])
 
     failed_files = []
-    for r, record in enumerate(records):
-        if (r % 100) == 0:
-            print('%i/%i' %(r,len(records)))
-        
+    for r, record in enumerate(records):        
         event_id, station_id = record
 
         if not os.path.exists(os.path.join(basePath, 'data', 'rawEvents', 'mseed', event_id + '.zip')):
@@ -61,15 +58,17 @@ def downloadNewEvents(window, widget, basePath, dataPath):
 
     failed_files = pd.DataFrame(failed_files, columns=['Identificador', 'Estación'])
     # failed_files.to_csv(os.path.join('data', 'failed_files.csv'), index=False)
-    #%%
+
     current_event = None
     data = {}
     save = False
     for event_id, stations in registry.items():
-        if event_id != current_event:       
-            
+        if event_id != current_event:            
             if save:
                 np.savez_compressed(os.path.join(basePath, 'data', 'rawEvents', current_event + '.npz'), **data)
+                widget.insert('end', 'Archivo creado o modificado {element_id}.npz\n'.format(element_id=current_event))
+                widget.see('end')
+                window.update_idletasks()
                 save = False
             
             current_event = event_id
@@ -140,7 +139,7 @@ def downloadNewEvents(window, widget, basePath, dataPath):
                     txt.close()
                     
                     npts = len(acc)
-                            
+
                     starttime = pd.Timestamp(lines[0].strip().split()[-1])
                     dt = 1./float(lines[1].strip().split()[4])
                     endtime = starttime + datetime.timedelta(seconds=(npts-1)*dt)
@@ -209,3 +208,6 @@ def downloadNewEvents(window, widget, basePath, dataPath):
                                 record[channel]['metadata']['kinemetrics_evt'][key] = str(record[channel]['metadata']['kinemetrics_evt'][key])
                 
                 data[station_id] = record.copy()
+
+    widget.insert('end', 'Proceso completado.\n')
+    window.update_idletasks()
