@@ -55,6 +55,9 @@ def transformRecords(window, widget, basePath, dataPath):
     with open(os.path.join(basePath, 'data', 'fault_plane_properties.json')) as f:
         fpp = json.load(f)
 
+    with open(os.path.join(basePath, 'data', 'eventLists', 'registry.json')) as f:
+        registry = json.load(f)
+
     xChannels = ['LONGITUDINAL', '350', 'NORTH-SOUTH', '340', '290 DEG', '100',
                  '140', '170', '280', '160', '290', '100 DEGREES', 'L', 'NS', 'N-S',
                  'HNN', 'HN1', 'HLN']
@@ -86,32 +89,56 @@ def transformRecords(window, widget, basePath, dataPath):
     slab = np.load(os.path.join(basePath, 'data', 'sam_slab2.npz'))
     for event_id in event_ids.tolist():
 
-        if os.path.exists(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz')):
-            continue
-
-        widget.insert('end', 'Transformando evento {event_id}... \n'.format(event_id=event_id))
-        widget.see('end')
-        window.update_idletasks()
-
-        info = df[df['ID'] == event_id]
-        st = 0
-        event = {
-            'event_id': event_id,
-            'licensing': licensing,
-            'cite': cite,
-            'databaseURL': database_doi
-        }
+        info  = df[df['ID'] == event_id]
+        save  = False
+        event = None
 
         if p_waves.get(event_id) is None:
             p_waves[event_id] = {}
 
         for r, row in info.iterrows():
-            filename = row['Identificador'] + '.npz'
+            identifier = row['Identificador']
+            stations   = row['Estaciones'].split('; ')
             
-            with np.load(os.path.join(basePath, 'data', 'rawEvents', filename), allow_pickle=True) as f:
+            to_transform = []
+            for station in stations:
+                 if registry.get(identifier) is not None and not registry.get(identifier).get(station):
+                     to_transform.append(station)
+
+            if len(to_transform) == 0:
+                continue
+
+            if not os.path.exists(os.path.join(basePath, 'data', 'rawEvents', identifier + '.npz')):
+                continue
+
+            with np.load(os.path.join(basePath, 'data', 'rawEvents', identifier + '.npz'), allow_pickle=True) as f:
                 data = {}
                 for key, value in f.items():
-                    data[key] = value.item()
+                    if key in to_transform:
+                        data[key] = value.item()
+
+            if len(data) == 0:
+                continue
+
+            save = True
+
+            if r == 0:
+                widget.insert('end', 'Transformando evento {event_id}... \n'.format(event_id=event_id))
+                widget.see('end')
+                window.update_idletasks()
+
+            if event is None and os.path.exists(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz')):
+                with np.load(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz'), allow_pickle=True) as f:
+                    event = {}
+                    for key, value in f.items():
+                        event[key] = value.item()
+            else:
+                event = {
+                    'event_id': event_id,
+                    'licensing': licensing,
+                    'cite': cite,
+                    'databaseURL': database_doi
+                }
 
             event_mag = row['Magnitud [*]']
             event_lon = row['Longitud']
@@ -143,6 +170,16 @@ def transformRecords(window, widget, basePath, dataPath):
                 hypocenter = computeDistances.LatLonDepth2XYZNum(event_lat, event_lon, event_dep)
 
             for i, (stationCode, station) in enumerate(data.items()):
+                st = 0
+                for event_key, event_value in event.items():
+                    if not event_key.startswith('st'):
+                        continue
+                    if event_value['station_code'] == stationCode:
+                        st = int(event_key[2:])
+                        break
+                    else:
+                        st += 1
+
                 acc_1 = np.empty(0)
                 acc_2 = np.empty(0)
                 acc_3 = np.empty(0)
@@ -348,14 +385,15 @@ def transformRecords(window, widget, basePath, dataPath):
                     'last_update': update
                 }
                 event['st%0.2i' %st] = station_dict
-                st += 1
 
                 p_waves[event_id][stationCode] = {
                     "status": None,
                     "corrected": False,
                     'updated': update
                 }
+                registry[identifier][stationCode] = True
 
+        if save:
             np.savez_compressed(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id), **event)
             spio.savemat(os.path.join(dataPath, 'seismicDatabase', 'mat', event_id + '.mat'), event, do_compression=True)
 
@@ -368,6 +406,9 @@ def transformRecords(window, widget, basePath, dataPath):
     # Save p_waves info
     with open(os.path.join(basePath, 'data', 'p_waves.json'), 'w') as f:
         json.dump(p_waves, f, indent=DEFAULT_INDENT, sort_keys=SORT_KEYS)
+
+    with open(os.path.join(basePath, 'data', 'eventLists', 'registry.json'), 'w') as f:
+        json.dump(registry, f, indent=DEFAULT_INDENT, sort_keys=SORT_KEYS)
 
     widget.insert('end', '\nProceso finalizado.')
     
