@@ -70,24 +70,24 @@ def downloadNewEvents(window, widget, basePath, dataPath):
                 widget.see('end')
                 window.update_idletasks()
                 save = False
-            
+
             current_event = event_id
-            
+
             filename = os.path.join(basePath, 'data', 'rawEvents', event_id + '.npz')
             data = {}
-            
+
             if os.path.exists(filename):
                 with np.load(filename, allow_pickle=True) as f:
                     for key, value in f.items():
                         data[key] = value.item()
-        
+
         for station_id, status in stations.items():
             if status:
                 continue
-            
+
             if not os.path.exists(os.path.join(basePath, 'data', 'rawEvents', 'txt', event_id + '_' + station_id + '.zip')):
                 continue
-            
+
             save = True
             with zipfile.ZipFile(os.path.join(basePath, 'data', 'rawEvents', 'mseed', event_id + '.zip')) as zf:
                 filenames = zf.namelist()
@@ -137,26 +137,24 @@ def downloadNewEvents(window, widget, basePath, dataPath):
                             break
                         lines.append(line)
                     txt.close()
-                    
                     npts = len(acc)
 
                     starttime = pd.Timestamp(lines[0].strip().split()[-1])
                     dt = 1./float(lines[1].strip().split()[4])
                     endtime = starttime + datetime.timedelta(seconds=(npts-1)*dt)
-                    
+
                     t = pd.to_datetime(np.linspace(starttime.value, endtime.value, npts)).strftime("%Y-%m-%d %H:%M:%S.%f")
-                    
                     channel = filename.split('-')[-1][:-4]
-                    
+
                     latitude  = None
                     longitude = None
-                    
+
                     if metadata:
                         for trace in stream.traces:
                             this_station = trace.meta['station'].strip()
                             if station_id != this_station:
                                 continue
-                            
+
                             this_channel = trace.meta['channel']
                             if this_channel != channel:
                                 if this_channel.isdigit():
@@ -168,7 +166,7 @@ def downloadNewEvents(window, widget, basePath, dataPath):
                                         continue
                                 else:
                                     continue
-                            
+
                             kinemetrics = trace.meta.get('kinemetrics_evt')
                             if kinemetrics is not None:
                                 latitude  = trace.meta['kinemetrics_evt']['latitude']
@@ -177,12 +175,12 @@ def downloadNewEvents(window, widget, basePath, dataPath):
                                 latitude  = float(lines[4].split()[2])
                                 longitude = float(lines[4].split()[4])
                             break
-                    
+
                     if metadata:
                         meta = dict(trace.meta)
                     else:
                         meta = {}
-                    
+
                     record[channel] = {'x': np.array(t, dtype=np.datetime64),
                                         'y': acc.copy(),
                                         'metadata': meta,
@@ -191,14 +189,14 @@ def downloadNewEvents(window, widget, basePath, dataPath):
                                         'labels': {'x': 'Fecha (UTC)',
                                                 'y': 'Aceleración m/s/s'}
                                         }
-                    
+
                     try:
                         record[channel]['metadata']['starttime'] = str(record[channel]['m']['starttime'])
                         record[channel]['metadata']['endtime']   = str(record[channel]['m']['endtime'])
                     except:
                         record[channel]['metadata']['starttime'] = starttime.strftime('%Y-%m-%dT%H:%M:%S.%fZ')
                         record[channel]['metadata']['endtime']   = endtime.strftime('%Y-%m-%dT%H:%M:%S.%fZ')
-            
+
                     if metadata and 'mseed' in record[channel]['metadata'].keys():
                         record[channel]['metadata']['mseed'] = dict(record[channel]['metadata']['mseed'])
                     elif metadata:
@@ -206,7 +204,7 @@ def downloadNewEvents(window, widget, basePath, dataPath):
                         for key in record[channel]['metadata']['kinemetrics_evt'].keys():
                             if not is_json(record[channel]['metadata']['kinemetrics_evt'][key]):
                                 record[channel]['metadata']['kinemetrics_evt'][key] = str(record[channel]['metadata']['kinemetrics_evt'][key])
-                
+
                 data[station_id] = record.copy()
 
     widget.insert('end', 'Proceso completado.\n')
