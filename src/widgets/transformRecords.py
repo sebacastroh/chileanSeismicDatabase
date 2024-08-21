@@ -89,8 +89,12 @@ def transformRecords(window, widget, basePath, dataPath):
     slab = np.load(os.path.join(basePath, 'data', 'sam_slab2.npz'))
     for event_id in event_ids.tolist():
 
+        if event_id < '20231219':
+            continue
+
         info  = df[df['ID'] == event_id]
         save  = False
+        skipped  = False
         event = None
 
         if p_waves.get(event_id) is None:
@@ -120,10 +124,8 @@ def transformRecords(window, widget, basePath, dataPath):
             if len(data) == 0:
                 continue
 
-            save = True
-
-            if r == 0:
-                widget.insert('end', 'Transformando evento {event_id}... \n'.format(event_id=event_id))
+            if event is None:
+                widget.insert('end', 'Transformando evento {event_id}... '.format(event_id=event_id))
                 widget.see('end')
                 window.update_idletasks()
 
@@ -169,17 +171,25 @@ def transformRecords(window, widget, basePath, dataPath):
                 # Distance
                 hypocenter = computeDistances.LatLonDepth2XYZNum(event_lat, event_lon, event_dep)
 
+            skipped = False
             for i, (stationCode, station) in enumerate(data.items()):
+                skip = False
                 st = 0
                 for event_key, event_value in event.items():
                     if not event_key.startswith('st'):
                         continue
                     if event_value['station_code'] == stationCode:
-                        st = int(event_key[2:])
+                        skip = True
+                        skipped = True
+                        registry[identifier][stationCode] = True
                         break
                     else:
                         st += 1
 
+                if skip:
+                    continue
+
+                save  = True
                 acc_1 = np.empty(0)
                 acc_2 = np.empty(0)
                 acc_3 = np.empty(0)
@@ -398,6 +408,10 @@ def transformRecords(window, widget, basePath, dataPath):
             spio.savemat(os.path.join(dataPath, 'seismicDatabase', 'mat', event_id + '.mat'), event, do_compression=True)
 
             widget.insert('end', 'Listo\n')
+            widget.see('end')
+            window.update_idletasks()
+        elif not save and skipped:
+            widget.insert('end', 'Omitido\n')
             widget.see('end')
             window.update_idletasks()
 
