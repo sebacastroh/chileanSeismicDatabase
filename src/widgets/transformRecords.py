@@ -89,9 +89,6 @@ def transformRecords(window, widget, basePath, dataPath):
     slab = np.load(os.path.join(basePath, 'data', 'sam_slab2.npz'))
     for event_id in event_ids.tolist():
 
-        if event_id < '20231219':
-            continue
-
         info  = df[df['ID'] == event_id]
         save  = False
         skipped  = False
