@@ -19,7 +19,6 @@ sys.path.append(os.path.abspath(os.path.join('.', 'lib')))
 
 # Widgets
 from widgets.updateEventsList     import updateEventsList
-# from widgets.downloadNewEvents    import downloadNewEvents
 from widgets.downloadFromCSN      import downloadNewEvents
 from widgets.transformRecords     import transformRecords
 from widgets.automatic_p_wave     import automatic_p_wave, detect_p_wave
