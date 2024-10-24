@@ -94888,7 +94888,9 @@
     },
     "T22A": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 8080,
+      "status": true,
       "updated": "2024-10-24T00:36:34.549683"
     },
     "T23A": {
@@ -99443,7 +99445,9 @@
     },
     "T22A": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 6865,
+      "status": true,
       "updated": "2024-10-24T00:36:51.714958"
     },
     "T23A": {
@@ -104306,7 +104310,9 @@
     },
     "T22A": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8173,
+      "status": true,
       "updated": "2024-10-24T00:37:11.963353"
     },
     "T23A": {
