@@ -117524,11 +117524,11 @@
   },
   "20210905_4.1M_20.14S_70.46W_34.0KM": {
     "T07A": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 10042,
       "status": true,
-      "updated": "2024-10-24T00:37:25.635474"
+      "updated": "2024-10-24T09:48:59.030570"
     }
   },
   "20210906_3.5M_32.35S_71.14W_88.0KM": {
@@ -117839,11 +117839,11 @@
       "updated": "2024-03-28T14:40:15.468721"
     },
     "T07A": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-10-24T00:37:26.851038"
+      "updated": "2024-10-24T09:49:00.142889"
     },
     "T11A": {
       "corrected": true,
@@ -118360,11 +118360,11 @@
       "updated": "2024-10-13T14:17:35.118124"
     },
     "T07A": {
-      "corrected": false,
+      "corrected": true,
       "method": "Automatic",
       "pos": 9196,
       "status": true,
-      "updated": "2024-10-24T00:37:36.786640"
+      "updated": "2024-10-24T09:49:10.352801"
     },
     "T11A": {
       "corrected": true,
@@ -118471,11 +118471,11 @@
       "updated": "2024-10-13T14:30:04.166982"
     },
     "T07A": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 8221,
       "status": true,
-      "updated": "2024-10-24T00:37:38.846850"
+      "updated": "2024-10-24T09:49:12.633598"
     },
     "T20A": {
       "corrected": true,
@@ -118565,11 +118565,11 @@
   },
   "20211014_3.6M_20.09S_70.12W_55.0KM": {
     "T07A": {
-      "corrected": false,
+      "corrected": true,
       "method": "Automatic",
       "pos": 10616,
       "status": true,
-      "updated": "2024-10-24T00:37:39.807956"
+      "updated": "2024-10-24T09:49:13.847253"
     }
   },
   "20211014_4.1M_27.64S_70.91W_46.0KM": {
@@ -120389,11 +120389,11 @@
   },
   "20211118_4.5M_20.93S_68.87W_127.0KM": {
     "T07A": {
-      "corrected": false,
+      "corrected": true,
       "method": "Automatic",
       "pos": 8484,
       "status": true,
-      "updated": "2024-10-24T00:37:40.207064"
+      "updated": "2024-10-24T09:49:14.431595"
     },
     "T13A": {
       "corrected": true,
@@ -120529,11 +120529,11 @@
       "updated": "2024-10-13T14:50:48.331606"
     },
     "T07A": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 12128,
       "status": true,
-      "updated": "2024-10-24T00:37:41.650901"
+      "updated": "2024-10-24T09:49:16.045034"
     },
     "T11A": {
       "corrected": true,
@@ -121971,11 +121971,11 @@
   },
   "20211230_4.8M_19.61S_69.20W_105.0KM": {
     "T07A": {
-      "corrected": false,
+      "corrected": true,
       "method": "Automatic",
       "pos": 9139,
       "status": true,
-      "updated": "2024-10-24T00:37:44.062202"
+      "updated": "2024-10-24T09:49:18.628532"
     },
     "T11A": {
       "corrected": true,
