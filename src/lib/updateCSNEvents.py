@@ -5,16 +5,22 @@ Created on Tue Jul 16 11:50:36 2024
 @author: sebac
 """
 import os
+import json
 import time
 import urllib
 import pandas as pd
 
-def updateCSNEvents(basePath, dataPath):
-    events = pd.read_csv(os.path.join(basePath, 'data', 'eventLists', 'ZW5TFERBT8B0GMQ.csv') , dtype={'Identificador': str})
+DEFAULT_INDENT = 2
+SORT_KEYS      = True
+
+def updateCSNEvents(basePath, dataPath, filename):
 
     new_events = []
     all_done = False
     i = 1
+
+    with open(os.path.join(basePath, 'data', 'eventLists', 'registry.json')) as f:
+        registry = json.load(f)
 
     while not all_done:
         time.sleep(1)
@@ -86,6 +92,9 @@ def updateCSNEvents(basePath, dataPath):
         url = 'http://evtdb.csn.uchile.cl/event/' + event_id
         urllib.request.urlretrieve(url, filename=os.path.join('tmp', 'download.wget'))
         
+        if registry.get(event_id) is None:
+            registry[event_id] = {}
+
         stations = []
         with open(os.path.join('tmp', 'download.wget'), 'r') as fopen:
             for line in fopen:
@@ -95,10 +104,16 @@ def updateCSNEvents(basePath, dataPath):
                     evt = sl[2]
                     sta = sl[3][:-2].strip()
                     stations.append(sta)
+
+                    if not isinstance(registry[event_id].get(sta), bool):
+                        registry[event_id][sta] = None
                     
-        stations = '; '.join(list(set(stations)))
+        stations = '; '.join(sorted(set(stations)))
         new_events.iloc[r,5] = stations
         
         os.remove(os.path.join('tmp', 'download.wget'))
 
-    new_events.to_csv(os.path.join(basePath, 'data', 'eventLists', 'ZW5TFERBT8B0GMQ.csv'), index=False)
+    new_events.to_csv(os.path.join(basePath, 'data', 'eventLists', filename + '.csv'), index=False)
+
+    with open(os.path.join(basePath, 'data', 'eventLists', 'registry.json'), 'w') as f:
+        json.dump(registry, f, indent=DEFAULT_INDENT, sort_keys=SORT_KEYS)
