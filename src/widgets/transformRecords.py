@@ -205,6 +205,10 @@ def transformRecords(window, widget, basePath, dataPath):
                     stationLon = location.get('lon')
                     stationLat = location.get('lat')
 
+                    if stationLat is None or stationLon is None:
+                        stationLat = sinfo.get(stationCode)[0]
+                        stationLon = sinfo.get(stationCode)[1]
+
                     metadata = channel.get('metadata')
                     if metadata is None:
                         metadata = channel.get('m')
