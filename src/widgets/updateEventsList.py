@@ -5,37 +5,28 @@ Created on Wed Oct 26 20:56:28 2022
 @author: sebac
 """
 import os
-import json
 import numpy as np
 import pandas as pd
-import lib.pytrend as pytrend
+from lib.updateCSNEvents import updateCSNEvents
 
 def updateEventsList(window, widget, basePath, dataPath):
 
     if not os.path.exists(os.path.join(basePath, 'tmp')):
         os.mkdir(os.path.join(basePath, 'tmp'))
 
-    with open(os.path.join(basePath, 'secrets', 'pdd-secrets.json')) as f:
-        credentials = json.load(f)
+    filename_COSMOS  = '7c473f40d7862735'
+    filename_RENADIC = 'k2dimntt23gm0b7t'
+    filename_CSN     = 'ZW5TFERBT8B0GMQ'
 
-    session = pytrend.itrend_developer_tools()
+    updateCSNEvents(basePath, dataPath, filename_CSN)
 
-    session.set_credentials(
-        access_key_id     = credentials['access_key_id'],
-        secret_access_key = credentials['secret_access_key'],
-    )
+    df1 = pd.read_csv(os.path.join(basePath, 'data', 'eventLists', filename_COSMOS  + '.csv'), dtype={'Identificador': str}) # 1985
+    df2 = pd.read_csv(os.path.join(basePath, 'data', 'eventLists', filename_RENADIC + '.csv'), dtype={'Identificador': str}) # 1994 a 2010
+    df3 = pd.read_csv(os.path.join(basePath, 'data', 'eventLists', filename_CSN     + '.csv'), dtype={'Identificador': str}) # 2012 a la fecha
 
-    session.download_file('7c473f40d7862735', 'csv', filename = os.path.join(basePath, 'data', 'eventLists', '7c473f40d7862735.csv'))
-    session.download_file('k2dimntt23gm0b7t', 'csv', filename = os.path.join(basePath, 'data', 'eventLists', 'k2dimntt23gm0b7t.csv'))
-    session.download_file('ZW5TFERBT8B0GMQ' , 'csv', filename = os.path.join(basePath, 'data', 'eventLists', 'ZW5TFERBT8B0GMQ.csv'))
-
-    df1 = pd.read_csv(os.path.join(basePath, 'data', 'eventLists', '7c473f40d7862735.csv'), dtype={'Identificador': str}) # 1985
-    df2 = pd.read_csv(os.path.join(basePath, 'data', 'eventLists', 'k2dimntt23gm0b7t.csv'), dtype={'Identificador': str}) # 1994 a 2010
-    df3 = pd.read_csv(os.path.join(basePath, 'data', 'eventLists', 'ZW5TFERBT8B0GMQ.csv') , dtype={'Identificador': str}) # 2012 a la fecha
-
-    df1['Fuente'] = '7c473f40d7862735'
-    df2['Fuente'] = 'k2dimntt23gm0b7t'
-    df3['Fuente'] = 'ZW5TFERBT8B0GMQ'
+    df1['Fuente'] = filename_COSMOS
+    df2['Fuente'] = filename_RENADIC
+    df3['Fuente'] = filename_CSN
 
     df = pd.concat([df1, df2, df3])
     events = []
