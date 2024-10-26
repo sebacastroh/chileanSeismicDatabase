@@ -22,7 +22,6 @@ Este repositorio contiene los códigos y configuración necesarios para levantar
     │      └── models
     │         ├── multiple_partition
     │         └── single_partition
-    ├── secrets
     ├── tmp
     ├── websites
     │   └── StrongMotionDatabase
@@ -89,5 +88,10 @@ y añada las siguientes líneas en la sección de agradecimientos
 
 Para el desarrollo de este trabajo se han utilizado dos librerías adicionales
 
+### Uso vigente
+
 - [**pyrjmcmc**](https://github.com/robenavente/pyrjmcmc): Librería desarrollada en el proyecto Anillo ACT192169 para ejecutar modelos de *Reversible-jump Markov chain Monte Carlo*, la cual a su vez está inspirada en el código de [iEarth](https://www.iearth.edu.au/codes/).
+
+### Utilizadas en versiones anteriores
+
 - [**pytrend**](https://github.com/ItrendCL/pytrend): Librería desarrollada por [Itrend](https://itrend.cl) para descargar los datos disponibles en la [Plataforma de Datos para la Resieliencia](https://www.plataformadedatos.cl).
