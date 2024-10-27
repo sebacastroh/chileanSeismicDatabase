@@ -118555,21 +118555,19 @@
     }
   },
   "20211014_3.6M_20.09S_70.12W_54.0KM": {
-    "T15A": {
-      "corrected": true,
-      "method": "Automatic",
-      "pos": 10701,
-      "status": true,
-      "updated": "2024-03-27T20:44:50.544136"
-    }
-  },
-  "20211014_3.6M_20.09S_70.12W_55.0KM": {
     "T07A": {
       "corrected": true,
       "method": "Automatic",
       "pos": 10616,
       "status": true,
       "updated": "2024-10-24T09:49:13.847253"
+    },
+    "T15A": {
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10701,
+      "status": true,
+      "updated": "2024-03-27T20:44:50.544136"
     }
   },
   "20211014_4.1M_27.64S_70.91W_46.0KM": {
