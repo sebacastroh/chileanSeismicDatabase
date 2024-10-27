@@ -1,132 +1,132 @@
 Fecha (UTC),Latitud,Longitud,Profundidad [km],Magnitud [*],Tipo magnitud,Estaciones,Identificador,Fuente,ID
-1985-03-03 22:47:07,-33.135,-71.871,33.0,7.8,Ms,Cauquenes; Chillán Institute; Colbún; Constitución; Hualane; Illapel; Iloca; La Ligua; Llayllay; Llolleo; Los Vilos; Melipilla; Papudo; Pichilemu; Quintay; Rapel; San Felipe; San Fernando; San Isidro; Santiago (Endesa Bldg); Talca; Valparaíso El Almendral; Valparaíso; Ventanas; Viña del Mar; Zapallar,151,7c473f40d7862735,19850303_7.8M_33.13S_71.87W_33.0KM
-1985-03-03 23:38:31,-32.738,-71.215,33.0,6.3,-,Llolleo; Valparaíso; Viña del Mar,152,7c473f40d7862735,19850303_6.3M_32.74S_71.22W_33.0KM
+1985-03-03 22:47:07,-33.135,-71.871,33.0,7.8,Ms,Cauquenes; ChillanInstitute; Colbun; Constitucion; Hualane; Illapel; Iloca; LaLigua; Llayllay; Llolleo; LosVilos; Melipilla; Papudo; Pichilemu; Quintay; Rapel; SanFelipe; SanFernando; SanIsidro; SantiagoEndesaBldg; Talca; ValparaisoElAlmendral; Valparaiso; Ventanas; VinadelMar; Zapallar,151,7c473f40d7862735,19850303_7.8M_33.13S_71.87W_33.0KM
+1985-03-03 23:38:31,-32.738,-71.215,33.0,6.3,-,Llolleo; Valparaiso; VinadelMar,152,7c473f40d7862735,19850303_6.3M_32.74S_71.22W_33.0KM
 1985-04-08 23:27:25,-33.025,-71.974,33.0,5.0,-,Llolleo,153,7c473f40d7862735,19850408_5.0M_33.02S_71.97W_33.0KM
-1985-04-09 01:56:59,-34.131,-71.618,37.8,7.2,Ms,Cauquenes; Constitución; Iloca; Quintay; Rapel; San Fernando; Santiago (Endesa Bldg); Santiago; Ventanas,154,7c473f40d7862735,19850409_7.2M_34.13S_71.62W_37.8KM
+1985-04-09 01:56:59,-34.131,-71.618,37.8,7.2,Ms,Cauquenes; Constitucion; Iloca; Quintay; Rapel; SanFernando; SantiagoEndesaBldg; Santiago; Ventanas,154,7c473f40d7862735,19850409_7.2M_34.13S_71.62W_37.8KM
 1994-05-01 04:00:00,,,,,,Cuya,9405001,k2dimntt23gm0b7t,19940501_magM_latS_lonW_depthKM
 1994-05-02 04:00:00,,,,,,Cuya,9405002,k2dimntt23gm0b7t,19940502_magM_latS_lonW_depthKM
-1994-11-01 03:00:00,,,,,,Arica Costanera,9411000,k2dimntt23gm0b7t,19941101_magM_latS_lonW_depthKM
+1994-11-01 03:00:00,,,,,,AricaCostanera,9411000,k2dimntt23gm0b7t,19941101_magM_latS_lonW_depthKM
 1995-07-01 04:00:00,-33.932,-72.397,36.0,5.0,,Illapel,9507000,k2dimntt23gm0b7t,19950701_5.0M_33.93S_72.40W_36.0KM
 1995-07-30 05:11:21,-23.34,-70.36,33.0,7.8,,Tocopilla,9507301,k2dimntt23gm0b7t,19950730_7.8M_23.34S_70.36W_33.0KM
 1995-11-01 03:00:00,,,,,,Illapel,9511001,k2dimntt23gm0b7t,19951101_magM_latS_lonW_depthKM
 1995-11-02 03:00:00,,,,,,Illapel,9511002,k2dimntt23gm0b7t,19951102_magM_latS_lonW_depthKM
-1996-02-22 13:50:55,-33.38,-71.36,46.0,5.9,,Llolleo; Santiago Centro,9602221,k2dimntt23gm0b7t,19960222_5.9M_33.38S_71.36W_46.0KM
+1996-02-22 13:50:55,-33.38,-71.36,46.0,5.9,,Llolleo; SantiagoCentro,9602221,k2dimntt23gm0b7t,19960222_5.9M_33.38S_71.36W_46.0KM
 1996-04-01 04:00:00,,,,,,Tocopilla,9604000,k2dimntt23gm0b7t,19960401_magM_latS_lonW_depthKM
-1997-02-01 03:00:00,,,,,,Arica Costanera,9702000,k2dimntt23gm0b7t,19970201_magM_latS_lonW_depthKM
-1997-03-25 00:14:46,-33.28,-70.47,80.0,5.3,,Santiago Centro,9703241,k2dimntt23gm0b7t,19970325_5.3M_33.28S_70.47W_80.0KM
+1997-02-01 03:00:00,,,,,,AricaCostanera,9702000,k2dimntt23gm0b7t,19970201_magM_latS_lonW_depthKM
+1997-03-25 00:14:46,-33.28,-70.47,80.0,5.3,,SantiagoCentro,9703241,k2dimntt23gm0b7t,19970325_5.3M_33.28S_70.47W_80.0KM
 1997-04-01 04:00:00,,,,,,Llolleo; Illapel,9704001,k2dimntt23gm0b7t,19970401_magM_latS_lonW_depthKM
-1997-04-01 18:33:31,-18.12,-69.49,125.0,6.2,,Arica Cementerio; Putre,9704011,k2dimntt23gm0b7t,19970401_6.2M_18.12S_69.49W_125.0KM
-1997-10-15 01:03:30,-30.44,-71.19,55.0,6.8,,Illapel; Papudo; Santiago Centro,9710141,k2dimntt23gm0b7t,19971015_6.8M_30.44S_71.19W_55.0KM
+1997-04-01 18:33:31,-18.12,-69.49,125.0,6.2,,AricaCementerio; Putre,9704011,k2dimntt23gm0b7t,19970401_6.2M_18.12S_69.49W_125.0KM
+1997-10-15 01:03:30,-30.44,-71.19,55.0,6.8,,Illapel; Papudo; SantiagoCentro,9710141,k2dimntt23gm0b7t,19971015_6.8M_30.44S_71.19W_55.0KM
 1997-10-22 06:27:00,,,,4.6,,Illapel,9710221,k2dimntt23gm0b7t,19971022_4.6M_latS_lonW_depthKM
 1997-11-03 19:17:28,,,,6.4,,Illapel,9711031,k2dimntt23gm0b7t,19971103_6.4M_latS_lonW_depthKM
 1998-01-30 12:16:09,-23.3,-69.49,44.0,6.3,,Antofagasta,9801301,k2dimntt23gm0b7t,19980130_6.3M_23.30S_69.49W_44.0KM
 1998-02-01 03:00:00,,,,,,Cuya,9802000,k2dimntt23gm0b7t,19980201_magM_latS_lonW_depthKM
 1998-04-17 19:48:53,-32.47,-71.31,36.0,5.1,,Papudo,9804171,k2dimntt23gm0b7t,19980417_5.1M_32.47S_71.31W_36.0KM
 1998-07-29 07:14:24,-32.22,-71.27,36.0,6.2,,Llolleo,9807291,k2dimntt23gm0b7t,19980729_6.2M_32.22S_71.27W_36.0KM
-1998-10-29 19:55:56,-32.52,-70.39,89.0,5.0,,Viña del Mar El Salto,9810291,k2dimntt23gm0b7t,19981029_5.0M_32.52S_70.39W_89.0KM
+1998-10-29 19:55:56,-32.52,-70.39,89.0,5.0,,VinadelMarElSaltoCerro,9810291,k2dimntt23gm0b7t,19981029_5.0M_32.52S_70.39W_89.0KM
 1998-12-01 03:00:00,,,,,,Papudo,9812000,k2dimntt23gm0b7t,19981201_magM_latS_lonW_depthKM
-1999-01-01 03:00:00,,,,,,La Serena,9901000,k2dimntt23gm0b7t,19990101_magM_latS_lonW_depthKM
+1999-01-01 03:00:00,,,,,,LaSerena,9901000,k2dimntt23gm0b7t,19990101_magM_latS_lonW_depthKM
 1999-02-06 06:37:15,-22.2,-69.54,51.0,5.4,,Tocopilla,9902061,k2dimntt23gm0b7t,19990206_5.4M_22.20S_69.54W_51.0KM
-1999-08-02 01:06:39,-33.07,-70.21,98.0,5.1,,Santiago La Florida,9908011,k2dimntt23gm0b7t,19990802_5.1M_33.07S_70.21W_98.0KM
-1999-11-04 05:38:57,-32.41,-71.42,30.0,4.7,,Viña del Mar El Salto,9911041,k2dimntt23gm0b7t,19991104_4.7M_32.41S_71.42W_30.0KM
-1999-11-30 04:01:53,-18.46,-69.02,128.0,6.6,,Arica; Arica Cementerio; Arica Costanera,9911301,k2dimntt23gm0b7t,19991130_6.6M_18.46S_69.02W_128.0KM
-2000-06-16 07:55:56,-33.53,-70.13,112.0,6.4,,Llolleo; Papudo; Santiago La Florida,0006161,k2dimntt23gm0b7t,20000616_6.4M_33.53S_70.13W_112.0KM
+1999-08-02 01:06:39,-33.07,-70.21,98.0,5.1,,SantiagoLaFlorida,9908011,k2dimntt23gm0b7t,19990802_5.1M_33.07S_70.21W_98.0KM
+1999-11-04 05:38:57,-32.41,-71.42,30.0,4.7,,VinadelMarElSaltoCerro,9911041,k2dimntt23gm0b7t,19991104_4.7M_32.41S_71.42W_30.0KM
+1999-11-30 04:01:53,-18.46,-69.02,128.0,6.6,,Arica; AricaCementerio; AricaCostanera,9911301,k2dimntt23gm0b7t,19991130_6.6M_18.46S_69.02W_128.0KM
+2000-06-16 07:55:56,-33.53,-70.13,112.0,6.4,,Llolleo; Papudo; SantiagoLaFlorida,0006161,k2dimntt23gm0b7t,20000616_6.4M_33.53S_70.13W_112.0KM
 2000-08-11 14:31:12,,,,5.2,,Arica,0008111,k2dimntt23gm0b7t,20000811_5.2M_latS_lonW_depthKM
 2001-02-01 03:00:00,-32.57,-70.2,106.0,4.4,,Cuya,0102000,k2dimntt23gm0b7t,20010201_4.4M_32.57S_70.20W_106.0KM
-2001-06-23 20:33:15,-17.21,-70.02,25.7,8.4,,Arica; Arica Cementerio; Arica Costanera; Poconchile; Putre; Pisagua; Cuya,0106231,k2dimntt23gm0b7t,20010623_8.4M_17.21S_70.02W_25.7KM
-2001-07-01 04:00:00,,,,,,Arica Cementerio,0107000,k2dimntt23gm0b7t,20010701_magM_latS_lonW_depthKM
-2001-07-01 09:38:50,,,,7.2,,Arica Chacalluta,0107071,k2dimntt23gm0b7t,20010701_7.2M_latS_lonW_depthKM
-2001-07-24 05:00:02,-32.56,-71.34,41.0,6.1,,Arica Chacalluta; Iquique; Pica,0107241,k2dimntt23gm0b7t,20010724_6.1M_32.56S_71.34W_41.0KM
-2001-07-24 17:42:41,-32.51,-71.46,53.0,5.1,,Viña del Mar El Salto,0107242,k2dimntt23gm0b7t,20010724_5.1M_32.51S_71.46W_53.0KM
-2001-08-09 03:33:43,,,,5.6,,Arica Chacalluta,0108081,k2dimntt23gm0b7t,20010809_5.6M_latS_lonW_depthKM
+2001-06-23 20:33:15,-17.21,-70.02,25.7,8.4,,Arica; AricaCementerio; AricaCostanera; Poconchile; Putre; Pisagua; Cuya,0106231,k2dimntt23gm0b7t,20010623_8.4M_17.21S_70.02W_25.7KM
+2001-07-01 04:00:00,,,,,,AricaCementerio,0107000,k2dimntt23gm0b7t,20010701_magM_latS_lonW_depthKM
+2001-07-01 09:38:50,,,,7.2,,AricaChacalluta,0107071,k2dimntt23gm0b7t,20010701_7.2M_latS_lonW_depthKM
+2001-07-24 05:00:02,-32.56,-71.34,41.0,6.1,,AricaChacalluta; Iquique; Pica,0107241,k2dimntt23gm0b7t,20010724_6.1M_32.56S_71.34W_41.0KM
+2001-07-24 17:42:41,-32.51,-71.46,53.0,5.1,,VinadelMarElSaltoCerro,0107242,k2dimntt23gm0b7t,20010724_5.1M_32.51S_71.46W_53.0KM
+2001-08-09 03:33:43,,,,5.6,,AricaChacalluta,0108081,k2dimntt23gm0b7t,20010809_5.6M_latS_lonW_depthKM
 2001-09-01 04:00:00,,,,,,Papudo; Illapel,0109003,k2dimntt23gm0b7t,20010901_magM_latS_lonW_depthKM
-2001-11-28 10:54:31,-32.43,-71.44,29.0,4.6,,Viña del Mar El Salto,0111281,k2dimntt23gm0b7t,20011128_4.6M_32.43S_71.44W_29.0KM
+2001-11-28 10:54:31,-32.43,-71.44,29.0,4.6,,VinadelMarElSaltoCerro,0111281,k2dimntt23gm0b7t,20011128_4.6M_32.43S_71.44W_29.0KM
 2001-12-01 20:21:00,,,,,,Pica,0112031,k2dimntt23gm0b7t,20011201_magM_latS_lonW_depthKM
-2001-12-28 21:30:20,-32.52,-71.36,39.0,4.5,,Viña del Mar El Salto,0112281,k2dimntt23gm0b7t,20011228_4.5M_32.52S_71.36W_39.0KM
-2002-01-01 03:00:00,,,,,,Cuya; Tocopilla; El Loa,0201001,k2dimntt23gm0b7t,20020101_magM_latS_lonW_depthKM
-2002-02-26 08:32:51,-18.27,-69.57,87.0,5.6,,Arica; Arica Cerro La Cruz; Arica Chacalluta,0202261,k2dimntt23gm0b7t,20020226_5.6M_18.27S_69.57W_87.0KM
+2001-12-28 21:30:20,-32.52,-71.36,39.0,4.5,,VinadelMarElSaltoCerro,0112281,k2dimntt23gm0b7t,20011228_4.5M_32.52S_71.36W_39.0KM
+2002-01-01 03:00:00,,,,,,Cuya; Tocopilla; ElLoa,0201001,k2dimntt23gm0b7t,20020101_magM_latS_lonW_depthKM
+2002-02-26 08:32:51,-18.27,-69.57,87.0,5.6,,Arica; AricaCerroLaCruz; AricaChacalluta,0202261,k2dimntt23gm0b7t,20020226_5.6M_18.27S_69.57W_87.0KM
 2002-04-01 04:00:00,-29.37,-71.26,69.0,6.2,,Papudo,0204000,k2dimntt23gm0b7t,20020401_6.2M_29.37S_71.26W_69.0KM
-2002-05-23 15:52:15,-30.43,-71.22,58.0,5.8,,Puente Amolanas,0205231,k2dimntt23gm0b7t,20020523_5.8M_30.43S_71.22W_58.0KM
-2002-05-24 04:45:00,-32.11,-71.07,40.0,5.8,,Viña del Mar El Salto,0205232,k2dimntt23gm0b7t,20020524_5.8M_32.11S_71.07W_40.0KM
+2002-05-23 15:52:15,-30.43,-71.22,58.0,5.8,,PuenteAmolanas,0205231,k2dimntt23gm0b7t,20020523_5.8M_30.43S_71.22W_58.0KM
+2002-05-24 00:23:00,-32.11,-71.07,40.0,5.8,,VinadelMarElSaltoCerro,0205232,k2dimntt23gm0b7t,20020524_5.8M_32.11S_71.07W_40.0KM
 2002-06-14 04:45:00,-17.64,-71.34,,,,Pisagua,0206141,k2dimntt23gm0b7t,20020614_magM_17.64S_71.34W_depthKM
-2002-06-18 13:56:24,-30.49,-71.2,53.0,6.3,,La Serena; Puente Amolanas,0206181,k2dimntt23gm0b7t,20020618_6.3M_30.49S_71.20W_53.0KM
-2002-07-01 04:00:00,,,,,,Arica Costanera; Poconchile; Illapel; Papudo,0207001,k2dimntt23gm0b7t,20020701_magM_latS_lonW_depthKM
+2002-06-18 13:56:24,-30.49,-71.2,53.0,6.3,,LaSerena; PuenteAmolanas,0206181,k2dimntt23gm0b7t,20020618_6.3M_30.49S_71.20W_53.0KM
+2002-07-01 04:00:00,,,,,,AricaCostanera; Poconchile; Illapel; Papudo,0207001,k2dimntt23gm0b7t,20020701_magM_latS_lonW_depthKM
 2002-11-12 13:07:19,,,,5.1,,Pica,0211121,k2dimntt23gm0b7t,20021112_5.1M_latS_lonW_depthKM
-2003-06-20 13:30:00,-30.38,-71.48,24.1,6.2,,Puente Amolanas,0306201,k2dimntt23gm0b7t,20030620_6.2M_30.38S_71.48W_24.1KM
-2003-07-09 19:23:00,-32.41,-71.31,27.5,4.6,,Viña del Mar El Salto,0307091,k2dimntt23gm0b7t,20030709_4.6M_32.41S_71.31W_27.5KM
-2003-10-20 19:13:00,-18.32,-70.31,,,,Arica Chacalluta,0310201,k2dimntt23gm0b7t,20031020_magM_18.32S_70.31W_depthKM
+2003-06-20 13:30:00,-30.38,-71.48,24.1,6.2,,PuenteAmolanas,0306201,k2dimntt23gm0b7t,20030620_6.2M_30.38S_71.48W_24.1KM
+2003-07-09 19:23:00,-32.41,-71.31,27.5,4.6,,VinadelMarElSaltoCerro,0307091,k2dimntt23gm0b7t,20030709_4.6M_32.41S_71.31W_27.5KM
+2003-10-20 19:13:00,-18.32,-70.31,,,,AricaChacalluta,0310201,k2dimntt23gm0b7t,20031020_magM_18.32S_70.31W_depthKM
 2004-01-05 21:19:00,,,,,,Pica,0401051,k2dimntt23gm0b7t,20040105_magM_latS_lonW_depthKM
-2004-01-10 07:25:00,-30.55,-71.5,47.8,6.0,,Amolanas,0401101,k2dimntt23gm0b7t,20040110_6.0M_30.55S_71.50W_47.8KM
+2004-01-10 07:25:00,-30.55,-71.5,47.8,6.0,,PuenteAmolanas,0401101,k2dimntt23gm0b7t,20040110_6.0M_30.55S_71.50W_47.8KM
 2004-04-23 21:39:00,,,,,,Pica,0402231,k2dimntt23gm0b7t,20040423_magM_latS_lonW_depthKM
 2004-04-30 10:03:00,-33.3,-70.33,95.8,5.4,,Talagante,0404301,k2dimntt23gm0b7t,20040430_5.4M_33.30S_70.33W_95.8KM
-2004-07-01 04:00:00,,,,,,Papudo; Concepción,0407001,k2dimntt23gm0b7t,20040701_magM_latS_lonW_depthKM
+2004-07-01 04:00:00,,,,,,Papudo; Concepcion,0407001,k2dimntt23gm0b7t,20040701_magM_latS_lonW_depthKM
 2004-08-05 13:25:00,-18.2,-69.56,,,,Poconchile,0408051,k2dimntt23gm0b7t,20040805_magM_18.20S_69.56W_depthKM
 2004-08-25 05:12:50,,,,5.2,,Pica,0408251,k2dimntt23gm0b7t,20040825_5.2M_latS_lonW_depthKM
 2004-08-28 13:41:25,-35.1,-70.31,5.0,6.4,,Curico,0408281,k2dimntt23gm0b7t,20040828_6.4M_35.10S_70.31W_5.0KM
-2004-09-27 22:57:00,-32.35,-71.5,30.0,5.2,,Viña del Mar Centro; Viña del Mar El Salto ,0409271,k2dimntt23gm0b7t,20040927_5.2M_32.35S_71.50W_30.0KM
+2004-09-27 22:57:00,-32.35,-71.5,30.0,5.2,,VinadelMarCentro; VinadelMarElSaltoCerro,0409271,k2dimntt23gm0b7t,20040927_5.2M_32.35S_71.50W_30.0KM
 2004-10-01 04:00:00,,,,,,Cuya,0410000,k2dimntt23gm0b7t,20041001_magM_latS_lonW_depthKM
-2005-03-13 20:39:00,-32.43,-71.42,11.3,5.2,,Viña del Mar El Salto,0503131,k2dimntt23gm0b7t,20050313_5.2M_32.43S_71.42W_11.3KM
+2005-03-13 20:39:00,-32.43,-71.42,11.3,5.2,,VinadelMarElSalto,0503131,k2dimntt23gm0b7t,20050313_5.2M_32.43S_71.42W_11.3KM
 2005-03-19 01:35:00,-20.26,-68.34,108.2,5.4,,Pica,0503181,k2dimntt23gm0b7t,20050319_5.4M_20.26S_68.34W_108.2KM
 2005-03-25 03:54:00,-20.15,-68.47,95.0,5.1,,Pica,0503241,k2dimntt23gm0b7t,20050325_5.1M_20.15S_68.47W_95.0KM
-2005-06-13 22:44:33,-19.54,-69.07,111.0,7.9,,Arica Cementerio; Arica Costanera; Arica Cerro La Cruz; Poconchile; Putre; Cuya; Pisagua; Iquique; Iquique Plaza; Pica; El Loa; Calama; Mejillones,0506131,k2dimntt23gm0b7t,20050613_7.9M_19.54S_69.07W_111.0KM
+2005-06-13 22:44:33,-19.54,-69.07,111.0,7.9,,AricaCementerio; AricaCostanera; AricaCerroLaCruz; Poconchile; Putre; Cuya; Pisagua; Iquique; IquiquePlaza; Pica; ElLoa; Calama; Mejillones,0506131,k2dimntt23gm0b7t,20050613_7.9M_19.54S_69.07W_111.0KM
 2005-06-27 00:53:00,-19.58,-70.1,78.0,4.9,,Pisagua,0506261,k2dimntt23gm0b7t,20050627_4.9M_19.58S_70.10W_78.0KM
-2005-07-05 17:06:00,-32.51,-71.17,53.9,4.8,,Viña del Mar El Salto,0507051,k2dimntt23gm0b7t,20050705_4.8M_32.51S_71.17W_53.9KM
-2005-07-13 12:06:00,-17.48,-69.58,84.0,5.9,,Arica; Arica Cementerio; Arica Costanera; Chacalluta; Arica Cerro La Cruz; Poconchile,0507131,k2dimntt23gm0b7t,20050713_5.9M_17.48S_69.58W_84.0KM
+2005-07-05 17:06:00,-32.51,-71.17,53.9,4.8,,VinadelMarElSalto,0507051,k2dimntt23gm0b7t,20050705_4.8M_32.51S_71.17W_53.9KM
+2005-07-13 12:06:00,-17.48,-69.58,84.0,5.9,,Arica; AricaCementerio; AricaCostanera; AricaChacalluta; AricaCerroLaCruz; Poconchile,0507131,k2dimntt23gm0b7t,20050713_5.9M_17.48S_69.58W_84.0KM
 2005-08-14 02:39:00,-19.45,-68.53,113.6,5.9,,Pica,0508131,k2dimntt23gm0b7t,20050814_5.9M_19.45S_68.53W_113.6KM
-2005-10-17 19:23:00,-18.16,-69.47,77.0,5.6,,Arica; Arica Chacalluta; Arica Cerro La Cruz; Poconchile,0510171,k2dimntt23gm0b7t,20051017_5.6M_18.16S_69.47W_77.0KM
-2006-02-10 17:51:00,-32.35,-71.33,33.8,5.2,,Viña del Mar El Salto,0602101,k2dimntt23gm0b7t,20060210_5.2M_32.35S_71.33W_33.8KM
+2005-10-17 19:23:00,-18.16,-69.47,77.0,5.6,,Arica; AricaChacalluta; AricaCerroLaCruz; Poconchile,0510171,k2dimntt23gm0b7t,20051017_5.6M_18.16S_69.47W_77.0KM
+2006-02-10 17:51:00,-32.35,-71.33,33.8,5.2,,VinadelMarElSalto; VinadelMarElSaltoCerro,0602101,k2dimntt23gm0b7t,20060210_5.2M_32.35S_71.33W_33.8KM
 2006-03-27 05:23:00,-20.47,-69.23,58.6,5.3,,Pica,0603271,k2dimntt23gm0b7t,20060327_5.3M_20.47S_69.23W_58.6KM
-2006-04-07 04:54:57,,,,,,Fuerte Baquedano,0604071,k2dimntt23gm0b7t,20060407_magM_latS_lonW_depthKM
-2006-04-09 20:50:00,-20.23,-70.11,34.2,5.6,,Alto Hospicio; Pica,0604091,k2dimntt23gm0b7t,20060409_5.6M_20.23S_70.11W_34.2KM
+2006-04-07 04:54:57,,,,,,FuerteBaquedano,0604071,k2dimntt23gm0b7t,20060407_magM_latS_lonW_depthKM
+2006-04-09 20:50:00,-20.23,-70.11,34.2,5.6,,AltoHospicio; Pica,0604091,k2dimntt23gm0b7t,20060409_5.6M_20.23S_70.11W_34.2KM
 2006-04-30 19:17:12,-27.05,-71.23,5.7,6.3,,Copiapo,0604301,k2dimntt23gm0b7t,20060430_6.3M_27.05S_71.23W_5.7KM
 2006-04-30 21:40:51,-26.5,-71.08,18.0,6.3,,Copiapo,0604302,k2dimntt23gm0b7t,20060430_6.3M_26.50S_71.08W_18.0KM
 2006-06-01 04:00:00,,,,,,Cuya,0606000,k2dimntt23gm0b7t,20060601_magM_latS_lonW_depthKM
 2006-06-06 13:58:01,-20.51,-69.28,98.0,,,Pica,0606061,k2dimntt23gm0b7t,20060606_magM_20.51S_69.28W_98.0KM
-2006-06-20 02:14:07,-32.55,-71.38,42.0,4.9,,Viña del Mar El Salto,0606191,k2dimntt23gm0b7t,20060620_4.9M_32.55S_71.38W_42.0KM
-2006-10-12 18:05:56,-31.2,-71.42,37.2,6.2,,Amolanas,0610121,k2dimntt23gm0b7t,20061012_6.2M_31.20S_71.42W_37.2KM
+2006-06-20 02:14:07,-32.55,-71.38,42.0,4.9,,VinadelMarElSalto; VinadelMarElSaltoCerro,0606191,k2dimntt23gm0b7t,20060620_4.9M_32.55S_71.38W_42.0KM
+2006-10-12 18:05:56,-31.2,-71.42,37.2,6.2,,PuenteAmolanas,0610121,k2dimntt23gm0b7t,20061012_6.2M_31.20S_71.42W_37.2KM
 2006-11-01 03:00:00,,,,,,Illapel,0611000,k2dimntt23gm0b7t,20061101_magM_latS_lonW_depthKM
-2006-11-20 14:38:27,-17.45,-70.33,48.0,5.8,,Arica Cerro La Cruz; Chacalluta; Poconchile,0611201,k2dimntt23gm0b7t,20061120_5.8M_17.45S_70.33W_48.0KM
-2007-02-14 11:22:00,-19.4,-70.07,78.0,5.4,,Fuerte Baquedano,0702141,k2dimntt23gm0b7t,20070214_5.4M_19.40S_70.07W_78.0KM
-2007-03-02 13:07:29,-30.52,-71.4,33.1,5.7,,Puente Amolanas,0703021,k2dimntt23gm0b7t,20070302_5.7M_30.52S_71.40W_33.1KM
-2007-04-01 04:00:00,,,,,,Arica Cementerio; Arica Costanera; Cuya,0704001,k2dimntt23gm0b7t,20070401_magM_latS_lonW_depthKM
-2007-04-22 10:22:02,-32.23,-71.26,25.6,5.6,,Viña del Mar El Salto,0704221,k2dimntt23gm0b7t,20070422_5.6M_32.23S_71.26W_25.6KM
+2006-11-20 14:38:27,-17.45,-70.33,48.0,5.8,,AricaCerroLaCruz; AricaChacalluta; Poconchile,0611201,k2dimntt23gm0b7t,20061120_5.8M_17.45S_70.33W_48.0KM
+2007-02-14 11:22:00,-19.4,-70.07,78.0,5.4,,FuerteBaquedano,0702141,k2dimntt23gm0b7t,20070214_5.4M_19.40S_70.07W_78.0KM
+2007-03-02 13:07:29,-30.52,-71.4,33.1,5.7,,PuenteAmolanas,0703021,k2dimntt23gm0b7t,20070302_5.7M_30.52S_71.40W_33.1KM
+2007-04-01 04:00:00,,,,,,AricaCementerio; AricaCostanera; Cuya,0704001,k2dimntt23gm0b7t,20070401_magM_latS_lonW_depthKM
+2007-04-22 10:22:02,-32.23,-71.26,25.6,5.6,,VinadelMarElSalto,0704221,k2dimntt23gm0b7t,20070422_5.6M_32.23S_71.26W_25.6KM
 2007-04-26 12:13:29,-28.09,-70.46,45.4,5.4,,Vallenar,0704261,k2dimntt23gm0b7t,20070426_5.4M_28.09S_70.46W_45.4KM
-2007-05-10 05:31:31,-32.37,-71.21,58.8,5.0,,Viña del Mar El Salto,0705101,k2dimntt23gm0b7t,20070510_5.0M_32.37S_71.21W_58.8KM
+2007-05-10 05:31:31,-32.37,-71.21,58.8,5.0,,VinadelMarElSalto,0705101,k2dimntt23gm0b7t,20070510_5.0M_32.37S_71.21W_58.8KM
 2007-06-01 04:00:00,,,,,,Talca,0706000,k2dimntt23gm0b7t,20070601_magM_latS_lonW_depthKM
 2007-08-15 12:00:23,,,,,,Pica,0708151,k2dimntt23gm0b7t,20070815_magM_latS_lonW_depthKM
 2007-10-25 08:35:17,-20.35,-68.43,99.0,5.1,,Pica,0710251,k2dimntt23gm0b7t,20071025_5.1M_20.35S_68.43W_99.0KM
-2007-11-14 15:40:48,-22.41,-70.12,38.9,7.7,,Poconchile; Pisagua; Iquique; Iquique E. Chipana; Pica; El Loa; Calama; San Pedro de Atacama; Tocopilla; Tocopilla Puerto; Mejillones; Antofagasta; Alto Hospicio; Fuerte Baquedano; Puerto Patache; Copiapo,0711141,k2dimntt23gm0b7t,20071114_7.7M_22.41S_70.12W_38.9KM
+2007-11-14 15:40:48,-22.41,-70.12,38.9,7.7,,Poconchile; Pisagua; Iquique; IquiqueE.Chipana; Pica; ElLoa; Calama; SanPedrodeAtacama; Tocopilla; TocopillaPuerto; Mejillones; Antofagasta; AltoHospicio; FuerteBaquedano; PuertoPatache; Copiapo,0711141,k2dimntt23gm0b7t,20071114_7.7M_22.41S_70.12W_38.9KM
 2007-11-14 16:12:41,,,,,,Mejillones,0711142,k2dimntt23gm0b7t,20071114_magM_latS_lonW_depthKM
 2007-11-15 15:03:07,-22.57,-70.31,38.7,5.9,,Mejillones,0711151,k2dimntt23gm0b7t,20071115_5.9M_22.57S_70.31W_38.7KM
 2007-11-15 15:05:57,-23.07,-70.31,,6.8,,Mejillones,0711152,k2dimntt23gm0b7t,20071115_6.8M_23.07S_70.31W_depthKM
 2007-11-17 03:07:32,-23.02,-70.17,34.5,5.4,,Mejillones,0711171,k2dimntt23gm0b7t,20071117_5.4M_23.02S_70.17W_34.5KM
 2007-11-18 07:02:38,-18.31,-69.27,64.0,5.5,,Poconchile,0711181,k2dimntt23gm0b7t,20071118_5.5M_18.31S_69.27W_64.0KM
-2007-11-20 14:55:21,-22.56,-70.49,37.7,6.3,,Mejillones Puerto,0711201,k2dimntt23gm0b7t,20071120_6.3M_22.56S_70.49W_37.7KM
-2007-12-13 07:23:38,-23.17,-70.44,43.1,6.2,,Mejillones Puerto,0712131,k2dimntt23gm0b7t,20071213_6.2M_23.17S_70.44W_43.1KM
-2007-12-15 18:22:27,-32.48,-71.44,45.0,5.8,,Viña del Mar Centro; Viña del Mar El Salto; Valparaíso,0712151,k2dimntt23gm0b7t,20071215_5.8M_32.48S_71.44W_45.0KM
-2007-12-16 08:09:17,-22.56,-70.1,42.0,6.7,,Tocopilla Puerto; Michilla; Mejillones; Mejillones Puerto; Mejillones Central,0712161,k2dimntt23gm0b7t,20071216_6.7M_22.56S_70.10W_42.0KM
+2007-11-20 14:55:21,-22.56,-70.49,37.7,6.3,,MejillonesPuerto,0711201,k2dimntt23gm0b7t,20071120_6.3M_22.56S_70.49W_37.7KM
+2007-12-13 07:23:38,-23.17,-70.44,43.1,6.2,,MejillonesPuerto,0712131,k2dimntt23gm0b7t,20071213_6.2M_23.17S_70.44W_43.1KM
+2007-12-15 18:22:27,-32.48,-71.44,45.0,5.8,,VinadelMarCentro; VinadelMarElSalto; Valparaiso,0712151,k2dimntt23gm0b7t,20071215_5.8M_32.48S_71.44W_45.0KM
+2007-12-16 08:09:17,-22.56,-70.1,42.0,6.7,,TocopillaPuerto; Michilla; Mejillones; MejillonesPuerto; MejillonesCentral,0712161,k2dimntt23gm0b7t,20071216_6.7M_22.56S_70.10W_42.0KM
 2008-01-01 03:00:00,,,,,,Papudo,0801000,k2dimntt23gm0b7t,20080101_magM_latS_lonW_depthKM
-2008-01-22 09:09:27,-19.57,-70.06,49.4,5.2,,Pisagua; Alto Hospicio; Iquique; Iquique E. Chipana,0801221,k2dimntt23gm0b7t,20080122_5.2M_19.57S_70.06W_49.4KM
-2008-02-04 17:01:29,-20.16,-70.15,45.6,6.3,,Alto Hospicio; Iquique; Iquique E. Chipana; Pica,0802041,k2dimntt23gm0b7t,20080204_6.3M_20.16S_70.15W_45.6KM
-2008-03-01 19:51:58,-20.24,-70.11,43.8,5.8,,Alto Hospicio; Iquique; Iquique E. Chipana; Pica,0803011,k2dimntt23gm0b7t,20080301_5.8M_20.24S_70.11W_43.8KM
-2008-03-24 20:39:05,-20.12,-69.21,123.7,6.2,,Fuerte Baquedano; Iquique E. Chipana; Pica,0803241,k2dimntt23gm0b7t,20080324_6.2M_20.12S_69.21W_123.7KM
+2008-01-22 09:09:27,-19.57,-70.06,49.4,5.2,,Pisagua; AltoHospicio; Iquique; IquiqueE.Chipana,0801221,k2dimntt23gm0b7t,20080122_5.2M_19.57S_70.06W_49.4KM
+2008-02-04 17:01:29,-20.16,-70.15,45.6,6.3,,AltoHospicio; Iquique; IquiqueE.Chipana; Pica,0802041,k2dimntt23gm0b7t,20080204_6.3M_20.16S_70.15W_45.6KM
+2008-03-01 19:51:58,-20.24,-70.11,43.8,5.8,,AltoHospicio; Iquique; IquiqueE.Chipana; Pica,0803011,k2dimntt23gm0b7t,20080301_5.8M_20.24S_70.11W_43.8KM
+2008-03-24 20:39:05,-20.12,-69.21,123.7,6.2,,FuerteBaquedano; IquiqueE.Chipana; Pica,0803241,k2dimntt23gm0b7t,20080324_6.2M_20.12S_69.21W_123.7KM
 2008-05-01 04:00:00,,,,,,Iquique; Tocopilla,0805001,k2dimntt23gm0b7t,20080501_magM_latS_lonW_depthKM
 2008-07-15 19:17:44,-22.35,-70.04,23.5,4.9,,Michilla,0807151,k2dimntt23gm0b7t,20080715_4.9M_22.35S_70.04W_23.5KM
 2008-07-31 00:03:36,,,,4.2,,Pisagua,0807301,k2dimntt23gm0b7t,20080731_4.2M_latS_lonW_depthKM
-2008-09-10 16:12:03,-20.26,-69.29,34.2,6.0,,Fuerte Baquedano; Alto Hospicio; Iquique E. Chipana; Pica; Puerto,0809101,k2dimntt23gm0b7t,20080910_6.0M_20.26S_69.29W_34.2KM
+2008-09-10 16:12:03,-20.26,-69.29,34.2,6.0,,FuerteBaquedano; AltoHospicio; IquiqueE.Chipana; Pica; PuertoPatache,0809101,k2dimntt23gm0b7t,20080910_6.0M_20.26S_69.29W_34.2KM
 2008-09-10 16:28:18,,,,4.3,,Pica,0809102,k2dimntt23gm0b7t,20080910_4.3M_latS_lonW_depthKM
-2008-12-19 09:36:04,-32.27,-71.56,32.2,5.8,,Viña del Mar El Salto,0812191,k2dimntt23gm0b7t,20081219_5.8M_32.27S_71.56W_32.2KM
+2008-12-19 09:36:04,-32.27,-71.56,32.2,5.8,,VinadelMarElSalto,0812191,k2dimntt23gm0b7t,20081219_5.8M_32.27S_71.56W_32.2KM
 2009-02-11 20:45:31,-20.2,-69.13,116.8,5.5,,Pica,0902111,k2dimntt23gm0b7t,20090211_5.5M_20.20S_69.13W_116.8KM
 2009-04-01 04:00:00,,,,,,Cuya; Huara,0904001,k2dimntt23gm0b7t,20090401_magM_latS_lonW_depthKM
 2009-04-17 02:07:30,-19.4,-70.41,35.7,6.0,,Pisagua,0904161,k2dimntt23gm0b7t,20090417_6.0M_19.40S_70.41W_35.7KM
 2009-05-25 05:10:12,-28.33,-71.27,50.1,5.4,,Vallenar,0905251,k2dimntt23gm0b7t,20090525_5.4M_28.33S_71.27W_50.1KM
 2009-07-15 15:21:26,-20.26,-69.2,119.9,5.6,,Pica,0907151,k2dimntt23gm0b7t,20090715_5.6M_20.26S_69.20W_119.9KM
 2009-10-29 01:25:13,-20.45,-69.37,66.5,5.0,,Pica,0910281,k2dimntt23gm0b7t,20091029_5.0M_20.45S_69.37W_66.5KM
-2009-11-13 03:05:57,-19.3,-70.31,38.1,6.4,,Arica; Cuya; Pisagua; Huara; Alto Hospicio; Chipana,0911131,k2dimntt23gm0b7t,20091113_6.4M_19.30S_70.31W_38.1KM
+2009-11-13 03:05:57,-19.3,-70.31,38.1,6.4,,Arica; Cuya; Pisagua; Huara; AltoHospicio; IquiqueE.Chipana,0911131,k2dimntt23gm0b7t,20091113_6.4M_19.30S_70.31W_38.1KM
 2009-12-22 23:01:11,-28.36,-71.02,45.0,5.1,,Vallenar,0912221,k2dimntt23gm0b7t,20091222_5.1M_28.36S_71.02W_45.0KM
 2010-01-13 03:52:23,-20.49,-69.33,,5.3,,Pica,1001131,k2dimntt23gm0b7t,20100113_5.3M_20.49S_69.33W_depthKM
-2010-02-27 06:24:08,-36.17,-73.14,30.1,8.8,,Copiapo; Vallenar; Papudo; Viña del Mar Centro; Viña del Mar El Salto; Valparaíso Almendral; Valparaíso UTFSM; Llolleo; Santiago Centro; Santiago Maipu; Santiago La Florida; Santiago Peñalolen; Santiago Puente Alto; Matanzas; Hualañe; Talca; Constitución; Concepción; Angol; Valdivia; Curico,1002271,k2dimntt23gm0b7t,20100227_8.8M_36.17S_73.14W_30.1KM
-2010-02-27 10:30:36,,,,6.1,,Viña del Mar El Salto,1002273,k2dimntt23gm0b7t,20100227_6.1M_latS_lonW_depthKM
+2010-02-27 06:24:08,-36.17,-73.14,30.1,8.8,,Copiapo; Vallenar; Papudo; VinadelMarCentro; VinadelMarElSalto; ValparaisoAlmendral; ValparaisoUTFSM; Llolleo; SantiagoCentro; SantiagoMaipu; SantiagoLaFlorida; SantiagoPenalolen; SantiagoPuenteAlto; Matanzas; Hualane; Talca; Constitucion; Concepcion; Angol; Valdivia; Curico,1002271,k2dimntt23gm0b7t,20100227_8.8M_36.17S_73.14W_30.1KM
+2010-02-27 10:30:36,,,,6.1,,VinadelMarElSalto,1002273,k2dimntt23gm0b7t,20100227_6.1M_latS_lonW_depthKM
 2010-02-28 11:25:34,,,,6.6,,Curico,1002281,k2dimntt23gm0b7t,20100228_6.6M_latS_lonW_depthKM
 2012-03-03 11:01:47,-30.19,-71.45,35.0,5.6,,GO04,6c5752b76db0f46280949a798634e3cd,ZW5TFERBT8B0GMQ,20120303_5.6M_30.19S_71.45W_35.0KM
 2012-03-04 16:27:20,-21.6,-70.06,47.0,5.3,,PB02; PB07,6c5752b76db0f46280949a798634dffb,ZW5TFERBT8B0GMQ,20120304_5.3M_21.60S_70.06W_47.0KM
