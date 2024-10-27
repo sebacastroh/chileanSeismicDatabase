@@ -113,6 +113,31 @@ def updateCSNEvents(basePath, dataPath, filename):
         
         os.remove(os.path.join('tmp', 'download.wget'))
 
+    old_events = pd.read_csv(os.path.join(basePath, 'data', 'eventLists', filename + '.csv'))
+    removed_rows = []
+    for r, row in old_events.iterrows():
+        identifier    = row['Identificador']
+        new_event_rows = new_events[new_events['Identificador'] == identifier]
+
+        if len(new_event_rows) == 0:
+            removed_rows.append(row)
+            continue
+        
+        new_stations = new_event_rows.iloc[0]['Estaciones'].split('; ')
+
+        changed = False
+        for station in row['Estaciones'].split('; '):
+            if station not in new_stations:
+                new_stations.append(station)
+                changed = True
+
+        if changed:
+            new_events.loc[new_event_rows.iloc[0].name, 'Estaciones'] = '; '.join(sorted(set(new_stations)))
+
+    if len(removed_rows) > 0:
+        new_events = pd.concat([new_events, pd.DataFrame(removed_rows)], ignore_index=True)
+
+    new_events.sort_values(by=['Fecha (UTC)', 'Identificador'], inplace=True)
     new_events.to_csv(os.path.join(basePath, 'data', 'eventLists', filename + '.csv'), index=False)
 
     with open(os.path.join(basePath, 'data', 'eventLists', 'registry.json'), 'w') as f:
