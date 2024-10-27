@@ -822,21 +822,21 @@
     }
   },
   "20020523_5.8M_30.43S_71.22W_58.0KM": {
-    "VinadelMarElSaltoCerro": {
-      "corrected": true,
-      "method": "Automatic",
-      "pos": 3210,
-      "status": true,
-      "updated": "2024-04-11T11:12:44.390734"
-    }
-  },
-  "20020524_5.8M_32.11S_71.07W_40.0KM": {
     "PuenteAmolanas": {
       "corrected": true,
       "method": "Automatic",
       "pos": 3321,
       "status": true,
-      "updated": "2024-04-11T11:12:44.622489"
+      "updated": "2024-10-27T10:42:38.967305"
+    }
+  },
+  "20020524_5.8M_32.11S_71.07W_40.0KM": {
+    "VinadelMarElSaltoCerro": {
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 3210,
+      "status": true,
+      "updated": "2024-10-27T10:43:29.543119"
     }
   },
   "20020614_magM_17.64S_71.34W_depthKM": {
