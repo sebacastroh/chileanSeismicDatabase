@@ -8,12 +8,13 @@ import os
 import json
 import time
 import urllib
+import datetime
 import pandas as pd
 
 DEFAULT_INDENT = 2
 SORT_KEYS      = True
 
-def updateCSNEvents(basePath, dataPath, filename):
+def updateCSNEvents(window, widget, basePath, dataPath, filename, tmp_file=None, start_event=''):
 
     new_events = []
     all_done = False
@@ -22,7 +23,20 @@ def updateCSNEvents(basePath, dataPath, filename):
     with open(os.path.join(basePath, 'data', 'eventLists', 'registry.json')) as f:
         registry = json.load(f)
 
+    if tmp_file is not None:
+        widget.insert('end', 'Cargando archivo temporal %s.\n' %tmp_file)
+        widget.see('end')
+        window.update_idletasks()
+        new_events = pd.read_csv(os.path.join(basePath, 'tmp', tmp_file))
+    else:
+        widget.insert('end', 'Revisión de eventos disponibles en sitio web https://evtdb.csn.uchile.cl/.\n')
+        widget.see('end')
+        window.update_idletasks()
+
     while not all_done:
+        if tmp_file is not None:
+            break
+
         time.sleep(1)
         url = 'http://evtdb.csn.uchile.cl/?page=%i' %i
         try:
@@ -30,6 +44,11 @@ def updateCSNEvents(basePath, dataPath, filename):
         except:
             all_done = True
             break
+
+        widget.insert('end', 'Página número %0.3i completada.\n' %i)
+        widget.see('end')
+        window.update_idletasks()
+
         next_line = ''
         saved = False
         with open(os.path.join(basePath, 'tmp', 'download.wget'), 'r') as fopen:
@@ -84,13 +103,44 @@ def updateCSNEvents(basePath, dataPath, filename):
             i += 1
             os.remove(os.path.join('tmp', 'download.wget'))
             
-    new_events = pd.DataFrame(new_events, columns=['Fecha', 'Latitud', 'Longitud', 'Profundidad', 'Magnitud', 'Estaciones', 'Identificador'])
+    new_events = pd.DataFrame(new_events, columns=['Fecha (UTC)', 'Latitud', 'Longitud', 'Profundidad [km]', 'Magnitud [*]', 'Estaciones', 'Identificador'])
+
+    widget.insert('end', '\nRevisión de estaciones dentro de eventos\n')
+    widget.see('end')
+    window.update_idletasks()
 
     for r, row in new_events.iterrows():
         time.sleep(1)
-        event_id = row['ID']
+        event_id = row['Identificador']
         url = 'http://evtdb.csn.uchile.cl/event/' + event_id
-        urllib.request.urlretrieve(url, filename=os.path.join('tmp', 'download.wget'))
+
+        if event_id < start_event:
+            if registry.get(event_id) is None:
+                registry[event_id] = {}
+
+            stations = row['Estaciones'].split('; ')
+            for station in stations:
+                if not isinstance(registry[event_id].get(sta), bool):
+                    registry[event_id][sta] = None
+
+            continue
+
+        widget.insert('end', 'Obteniendo estaciones del evento %s\n' %event_id)
+        widget.see('end')
+        window.update_idletasks()
+
+        try:
+            urllib.request.urlretrieve(url, filename=os.path.join('tmp', 'download.wget'))
+        except:
+            timestamp = datetime.datetime.utcnow().strftime('%Y%m%d%H%M%S')
+            new_events.to_csv(os.path.join(basePath, 'tmp', filename + '_' + timestamp + '.csv'), index=False)
+
+            widget.insert('end', '\n¡Ha ocurrido un error al descargar la página del evento %s!.\n' %event_id)
+            widget.insert('end', 'Se han guardado los resultados parciales en la ruta %s.\n' %(os.path.join(basePath, 'tmp', filename + '_' + timestamp + '.csv')))
+            widget.see('end')
+            window.update_idletasks()
+
+            return False
         
         if registry.get(event_id) is None:
             registry[event_id] = {}
@@ -116,7 +166,7 @@ def updateCSNEvents(basePath, dataPath, filename):
     old_events = pd.read_csv(os.path.join(basePath, 'data', 'eventLists', filename + '.csv'))
     removed_rows = []
     for r, row in old_events.iterrows():
-        identifier    = row['Identificador']
+        identifier     = row['Identificador']
         new_event_rows = new_events[new_events['Identificador'] == identifier]
 
         if len(new_event_rows) == 0:
@@ -142,3 +192,5 @@ def updateCSNEvents(basePath, dataPath, filename):
 
     with open(os.path.join(basePath, 'data', 'eventLists', 'registry.json'), 'w') as f:
         json.dump(registry, f, indent=DEFAULT_INDENT, sort_keys=SORT_KEYS)
+
+    return True

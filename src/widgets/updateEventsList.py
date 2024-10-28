@@ -18,7 +18,10 @@ def updateEventsList(window, widget, basePath, dataPath):
     filename_RENADIC = 'k2dimntt23gm0b7t'
     filename_CSN     = 'ZW5TFERBT8B0GMQ'
 
-    updateCSNEvents(basePath, dataPath, filename_CSN)
+    status = updateCSNEvents(window, widget, basePath, dataPath, filename_CSN)
+
+    if not status:
+        return
 
     df1 = pd.read_csv(os.path.join(basePath, 'data', 'eventLists', filename_COSMOS  + '.csv'), dtype={'Identificador': str}) # 1985
     df2 = pd.read_csv(os.path.join(basePath, 'data', 'eventLists', filename_RENADIC + '.csv'), dtype={'Identificador': str}) # 1994 a 2010
