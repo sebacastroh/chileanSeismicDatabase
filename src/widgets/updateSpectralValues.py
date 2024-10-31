@@ -5,9 +5,7 @@ Created on Tus Mar 26 11:45:34 2024
 @author: sebac
 """
 import os
-import json
 import seismic
-import datetime
 import numpy as np
 import pandas as pd
 
@@ -64,6 +62,7 @@ def updateSpectralValues(window, widget, basePath, dataPath):
 
     pending = computed.merge(flatfile, how='right', on=['Earthquake Name', 'Station code'])
     pending = pending[pending['Last update_x'] != pending['Last update_y']][['Earthquake Name', 'Station code']]
+    pending.drop_duplicates(keep=False, inplace=True)
 
     if len(pending) == 0:
         widget.insert('end', 'No hay espectros nuevos que calcular.\n')
@@ -75,6 +74,10 @@ def updateSpectralValues(window, widget, basePath, dataPath):
     indices = pending.merge(computed.reset_index(), how='inner', on=['Earthquake Name', 'Station code'])['index'].tolist()
 
     for k, xi in enumerate(xis):
+        widget.insert('end', 'Calculando espectro para xi = %0.2f.\n' %xi)
+        widget.see('end')
+        window.update_idletasks()
+
         foldername = os.path.join(dataPath, 'spectralValues', 'xi_%0.2f' %xi)
         if not os.path.exists(foldername):
             os.mkdir(foldername)
@@ -161,7 +164,11 @@ def updateSpectralValues(window, widget, basePath, dataPath):
                 spectral_values[6].append(spectrum_r100)
 
         for i, spectrum_name in enumerate(spectrum_names):
-            new_spectrum_values = pd.concat([pending, pd.DataFrame(spectral_values[i], columns=columns[2:])], axis=1)
+            widget.insert('end', 'Guardando espectro %s.\n' %spectrum_name)
+            widget.see('end')
+            window.update_idletasks()
+
+            new_spectrum_values = pd.concat([pending.reset_index(drop=True), pd.DataFrame(spectral_values[i], columns=columns[2:])], axis=1)
 
             filename = os.path.join(foldername, spectrum_name + '.xlsx')
             if os.path.exists(filename):
@@ -175,11 +182,16 @@ def updateSpectralValues(window, widget, basePath, dataPath):
 
             spectrum_values.to_excel(filename, index=False)
 
+    widget.insert('end', 'Guardando tabla índice.\n\n' %spectrum_name)
+    widget.see('end')
+    window.update_idletasks()
+
     computed.drop(indices, inplace=True)
     computed = pd.concat([computed, pd.DataFrame(new_rows, columns=['Earthquake Name', 'Station code', 'Component 1', 'Component 2', 'Component 3', 'Last update'])], ignore_index=True)
     computed.sort_values(by=['Earthquake Name', 'Station code'], inplace=True)
 
     computed.to_excel(os.path.join(dataPath, 'spectralValues', 'computed.xlsx'), index=False)
 
-    widget.insert('end', 'Espectros actualizado.\n')
+    widget.insert('end', 'Espectros actualizados.\n')
+    widget.see('end')
     window.update_idletasks()
