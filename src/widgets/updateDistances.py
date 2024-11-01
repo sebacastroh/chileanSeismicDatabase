@@ -155,8 +155,8 @@ def updateDistances(window, widget, basePath, dataPath):
 
         if data.get('event_id') != event_id:
             if modified:
-                np.savez_compressed(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '_test.npz'), **data)
-                spio.savemat(os.path.join(dataPath, 'seismicDatabase', 'mat', event_id + '_test.mat'), data, do_compression=True)
+                np.savez_compressed(os.path.join(dataPath, 'seismicDatabase', 'npz', data.get('event_id') + '.npz'), **data)
+                spio.savemat(os.path.join(dataPath, 'seismicDatabase', 'mat', data.get('event_id') + '.mat'), data, do_compression=True)
 
             with np.load(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz'), allow_pickle=True) as f:
                 data = {}
@@ -200,7 +200,7 @@ def updateDistances(window, widget, basePath, dataPath):
                 flatfile.loc[c, 'Epicentral distance [km]']   = Repi
                 flatfile.loc[c, 'Rupture distance [km]']      = Rrup
                 flatfile.loc[c, 'Joyner-Boore distance [km]'] = Rjb
-                
+
                 modified = True
 
                 widget.insert('end', 'Distancias actualizadas.\n')
@@ -212,18 +212,18 @@ def updateDistances(window, widget, basePath, dataPath):
                 window.update_idletasks()
 
     if modified:
-        np.savez_compressed(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '_test.npz'), **data)
-        spio.savemat(os.path.join(dataPath, 'seismicDatabase', 'mat', event_id + '_test.mat'), data, do_compression=True)
+        np.savez_compressed(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz'), **data)
+        spio.savemat(os.path.join(dataPath, 'seismicDatabase', 'mat', event_id + '.mat'), data, do_compression=True)
 
     with open(os.path.join(basePath, 'data', 'p_waves.json'), 'w') as f:
         json.dump(p_waves, f, indent=DEFAULT_INDENT, sort_keys=SORT_KEYS)
 
-    # flatfile.to_excel(os.path.join(dataPath, 'flatFile.xlsx'), index=False)
-    # flatfile.to_csv(os.path.join(dataPath, 'flatFile.csv'), index=False)
+    flatfile.to_excel(os.path.join(dataPath, 'flatFile.xlsx'), index=False)
+    flatfile.to_csv(os.path.join(dataPath, 'flatFile.csv'), index=False)
     flatfile.to_csv(os.path.join(basePath, 'data', 'flatFile - backup.csv'), index=False)
 
-    # if computed is not None:
-        # computed.to_excel(os.path.join(dataPath, 'spectralValues', 'computed.xlsx'), index=False)
+    if computed is not None:
+        computed.to_excel(os.path.join(dataPath, 'spectralValues', 'computed.xlsx'), index=False)
 
     widget.insert('end', '\nProceso finalizado.')
     widget.see('end')
