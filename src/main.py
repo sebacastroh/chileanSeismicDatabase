@@ -23,6 +23,7 @@ from widgets.automatic_p_wave     import automatic_p_wave, detect_p_wave
 from widgets.correctRecords       import correctRecords, applyCorrection
 from widgets.updateFlatFile       import updateFlatFile
 from widgets.updateSpectralValues import updateSpectralValues
+from widgets.updateDistances      import updateDistances
 
 import copyreg
 from types import MethodType
@@ -64,7 +65,7 @@ class TkThread:
     
     def run_tk(self):
         self.root.wm_title("SIBER-RISK Strong Motion Database")
-        self.root.geometry("400x600")
+        self.root.geometry("400x670")
         self.root.configure(background='white')
         
         logo = ImageTk.PhotoImage(file="assets/logo.png")
@@ -107,6 +108,10 @@ class TkThread:
         button_spectral = tkinter.Button(master=self.root, text="Actualizar espectros",
                                  command=self._updateSpectralValues)
         button_spectral.pack(side=tkinter.TOP, pady=10)
+        
+        button_distances = tkinter.Button(master=self.root, text="Actualizar distancias",
+                                 command=self._updateDistances)
+        button_distances.pack(side=tkinter.TOP, pady=10)
         
         button_quit = tkinter.Button(master=self.root, text="Salir",
                                  command=self._quit)
@@ -302,6 +307,25 @@ class TkThread:
         button_quit.pack(side=tkinter.BOTTOM)
         
         updateSpectralValues(window, text, self.basePath, self.dataPath)
+        
+    def _updateDistances(self):
+        
+        window = tkinter.Toplevel(self.root)
+        window.geometry("800x350")
+        toolbar = tkinter.Frame(window)
+        toolbar.pack(side="top", fill="x")
+        text = tkinter.Text(toolbar, wrap="word")
+        text.pack(side="top", fill="both", expand=True)
+        text.tag_configure("stderr", foreground="#b22222")
+        
+        def _close():
+            window.destroy()
+        
+        button_quit = tkinter.Button(master=window, text="Close",
+                                 command=_close)
+        button_quit.pack(side=tkinter.BOTTOM)
+        
+        updateDistances(window, text, self.basePath, self.dataPath)
     
     def _quit(self):
         self.root.quit()     # stops mainloop
