@@ -30,7 +30,7 @@
           },
           {
             "type": "data",
-            "release": false
+            "release": "patch"
           },
           {
             "type": "perf",
