@@ -325,12 +325,12 @@ filter_sCode.update(value=sCodes[0], options=sCodes)
 
 EarthquakeNames = flatfile['Earthquake Name'].str.cat(flatfile['Event type'], sep='_')
 EarthquakeNames = EarthquakeNames.drop_duplicates().values.tolist()
-LastUpdates     = flatfile.groupby(['Earthquake Name'])['Last update'].max().tolist()
+LastUpdates     = flatfile.groupby(['Earthquake Name'])['Last update'].max()
 
 rows = []
 sizes_npz = {}
 sizes_mat = {}
-for earthquakeName, lastUpdate in zip(EarthquakeNames, LastUpdates):
+for earthquakeName in EarthquakeNames:
     date, mag, lat, lon, depth, etype = earthquakeName.split('_')
     event_id = '_'.join([date, mag, lat, lon, depth])
     date  = '-'.join([date[:4], date[4:6], date[6:]])
@@ -339,6 +339,7 @@ for earthquakeName, lastUpdate in zip(EarthquakeNames, LastUpdates):
     lon   = ('-' + lon).replace('-lon','')[:-1]
     depth = depth.replace('depth','')[:-2]
     etype = etype.capitalize()
+    lastUpdate = LastUpdates.loc[event_id]
     rows.append([None, date, mag, lat, lon, depth, etype, lastUpdate, event_id])
     sizes_npz[event_id] = os.path.getsize(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz'))/1024**2
     sizes_mat[event_id] = os.path.getsize(os.path.join(dataPath, 'seismicDatabase', 'mat', event_id + '.mat'))/1024**2
