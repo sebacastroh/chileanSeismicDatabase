@@ -109,22 +109,26 @@ def updateCSNEvents(window, widget, basePath, dataPath, filename, tmp_file=None,
     widget.see('end')
     window.update_idletasks()
 
+    if start_event is not None:
+        start_event_pos = new_events[new_events['Identificador'] == start_event].iloc[0].name
+    else:
+        start_event_pos = None
+
     for r, row in new_events.iterrows():
-        time.sleep(1)
         event_id = row['Identificador']
         url = 'http://evtdb.csn.uchile.cl/event/' + event_id
 
-        if event_id < start_event:
+        if r < start_event_pos:
             if registry.get(event_id) is None:
                 registry[event_id] = {}
 
             stations = row['Estaciones'].split('; ')
             for station in stations:
-                if not isinstance(registry[event_id].get(sta), bool):
-                    registry[event_id][sta] = None
+                if not isinstance(registry[event_id].get(station), bool):
+                    registry[event_id][station] = None
 
             continue
-
+        time.sleep(1)
         widget.insert('end', 'Obteniendo estaciones del evento %s\n' %event_id)
         widget.see('end')
         window.update_idletasks()
