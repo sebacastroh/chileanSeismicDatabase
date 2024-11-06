@@ -182,7 +182,7 @@ def updateSpectralValues(window, widget, basePath, dataPath):
 
             spectrum_values.to_excel(filename, index=False)
 
-    widget.insert('end', 'Guardando tabla índice.\n\n' %spectrum_name)
+    widget.insert('end', 'Guardando tabla índice.\n\n')
     widget.see('end')
     window.update_idletasks()
 
