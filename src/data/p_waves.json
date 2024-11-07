@@ -322,7 +322,7 @@
       "method": "Automatic",
       "pos": 3316,
       "status": false,
-      "updated": "2024-11-01T00:52:05.684371"
+      "updated": "2024-11-07T08:40:10.085042"
     }
   },
   "19951101_magM_latS_lonW_depthKM": {
@@ -349,14 +349,14 @@
       "method": "Manual",
       "pos": 800,
       "status": true,
-      "updated": "2024-11-01T00:52:05.797146"
+      "updated": "2024-11-07T08:40:10.191103"
     },
     "SantiagoCentro": {
       "corrected": true,
       "method": "Automatic",
       "pos": 2971,
       "status": true,
-      "updated": "2024-11-01T00:52:05.854598"
+      "updated": "2024-11-07T08:40:10.191119"
     }
   },
   "19960401_magM_latS_lonW_depthKM": {
@@ -383,7 +383,7 @@
       "method": "Automatic",
       "pos": 2860,
       "status": true,
-      "updated": "2024-11-01T00:52:06.033437"
+      "updated": "2024-11-07T08:40:10.368025"
     }
   },
   "19970401_6.2M_18.12S_69.49W_125.0KM": {
@@ -424,21 +424,21 @@
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:06.369114"
+      "updated": "2024-11-07T08:40:10.546688"
     },
     "Papudo": {
       "corrected": false,
       "method": "Automatic",
       "pos": 3768,
       "status": false,
-      "updated": "2024-11-01T00:52:06.434817"
+      "updated": "2024-11-07T08:40:10.546706"
     },
     "SantiagoCentro": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:06.492316"
+      "updated": "2024-11-07T08:40:10.546712"
     }
   },
   "19971022_4.6M_latS_lonW_depthKM": {
@@ -465,7 +465,7 @@
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:06.818251"
+      "updated": "2024-11-07T08:40:10.868951"
     }
   },
   "19980201_magM_latS_lonW_depthKM": {
@@ -483,7 +483,7 @@
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:06.933397"
+      "updated": "2024-11-07T08:40:10.974312"
     }
   },
   "19980729_6.2M_32.22S_71.27W_36.0KM": {
@@ -492,7 +492,7 @@
       "method": "Automatic",
       "pos": 1005,
       "status": false,
-      "updated": "2024-11-01T00:52:07.046675"
+      "updated": "2024-11-07T08:40:11.078100"
     }
   },
   "19981029_5.0M_32.52S_70.39W_89.0KM": {
@@ -501,7 +501,7 @@
       "method": "Automatic",
       "pos": 788,
       "status": true,
-      "updated": "2024-11-01T00:52:07.124037"
+      "updated": "2024-11-07T08:40:11.141904"
     }
   },
   "19981201_magM_latS_lonW_depthKM": {
@@ -528,7 +528,7 @@
       "method": "Automatic",
       "pos": 0,
       "status": false,
-      "updated": "2024-11-01T00:52:07.244936"
+      "updated": "2024-11-07T08:40:11.252056"
     }
   },
   "19990802_5.1M_33.07S_70.21W_98.0KM": {
@@ -537,7 +537,7 @@
       "method": "Automatic",
       "pos": 4061,
       "status": true,
-      "updated": "2024-11-01T00:52:07.314852"
+      "updated": "2024-11-07T08:40:11.309822"
     }
   },
   "19991104_4.7M_32.41S_71.42W_30.0KM": {
@@ -546,7 +546,7 @@
       "method": "Manual",
       "pos": 2826,
       "status": true,
-      "updated": "2024-11-01T00:52:07.473418"
+      "updated": "2024-11-07T08:40:11.445908"
     }
   },
   "19991130_6.6M_18.46S_69.02W_128.0KM": {
@@ -619,49 +619,49 @@
       "method": "Automatic",
       "pos": 2672,
       "status": true,
-      "updated": "2024-11-01T00:52:08.367270"
+      "updated": "2024-11-07T08:40:11.698813"
     },
     "AricaCementerio": {
       "corrected": false,
       "method": "Automatic",
       "pos": 2780,
       "status": false,
-      "updated": "2024-11-01T00:52:08.449146"
+      "updated": "2024-11-07T08:40:11.698826"
     },
     "AricaCostanera": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:08.524664"
+      "updated": "2024-11-07T08:40:11.698832"
     },
     "Cuya": {
       "corrected": false,
       "method": "Automatic",
       "pos": 2655,
       "status": false,
-      "updated": "2024-11-01T00:52:08.599366"
+      "updated": "2024-11-07T08:40:11.698837"
     },
     "Pisagua": {
       "corrected": false,
       "method": "Automatic",
       "pos": 1883,
       "status": false,
-      "updated": "2024-11-01T00:52:08.681927"
+      "updated": "2024-11-07T08:40:11.698842"
     },
     "Poconchile": {
       "corrected": false,
       "method": "Automatic",
       "pos": 2964,
       "status": false,
-      "updated": "2024-11-01T00:52:08.776567"
+      "updated": "2024-11-07T08:40:11.698849"
     },
     "Putre": {
       "corrected": false,
       "method": "Automatic",
       "pos": 880,
       "status": false,
-      "updated": "2024-11-01T00:52:08.854111"
+      "updated": "2024-11-07T08:40:11.698854"
     }
   },
   "20010701_magM_latS_lonW_depthKM": {
@@ -697,21 +697,21 @@
       "method": "Automatic",
       "pos": 4674,
       "status": true,
-      "updated": "2024-11-01T00:52:09.612105"
+      "updated": "2024-11-07T08:40:12.367899"
     },
     "Iquique": {
       "corrected": true,
       "method": "Automatic",
       "pos": 6716,
       "status": true,
-      "updated": "2024-11-01T00:52:09.675228"
+      "updated": "2024-11-07T08:40:12.367922"
     },
     "Pica": {
       "corrected": true,
       "method": "Automatic",
       "pos": 6293,
       "status": true,
-      "updated": "2024-11-01T00:52:09.731374"
+      "updated": "2024-11-07T08:40:12.367929"
     }
   },
   "20010809_5.6M_latS_lonW_depthKM": {
@@ -745,7 +745,7 @@
       "method": "Manual",
       "pos": 2485,
       "status": true,
-      "updated": "2024-11-01T00:52:10.168639"
+      "updated": "2024-11-07T08:40:12.790145"
     }
   },
   "20011201_magM_latS_lonW_depthKM": {
@@ -763,7 +763,7 @@
       "method": "Automatic",
       "pos": 3989,
       "status": true,
-      "updated": "2024-11-01T00:52:10.291222"
+      "updated": "2024-11-07T08:40:12.903702"
     }
   },
   "20020101_magM_latS_lonW_depthKM": {
@@ -795,21 +795,21 @@
       "method": "Automatic",
       "pos": 7916,
       "status": true,
-      "updated": "2024-11-01T00:52:10.440976"
+      "updated": "2024-11-07T08:40:13.046969"
     },
     "AricaCerroLaCruz": {
       "corrected": true,
       "method": "Automatic",
       "pos": 9911,
       "status": true,
-      "updated": "2024-11-01T00:52:10.497731"
+      "updated": "2024-11-07T08:40:13.046985"
     },
     "AricaChacalluta": {
       "corrected": true,
       "method": "Automatic",
       "pos": 9835,
       "status": true,
-      "updated": "2024-11-01T00:52:10.555036"
+      "updated": "2024-11-07T08:40:13.046991"
     }
   },
   "20020401_6.2M_29.37S_71.26W_69.0KM": {
@@ -827,7 +827,7 @@
       "method": "Automatic",
       "pos": 3321,
       "status": true,
-      "updated": "2024-11-01T00:52:11.052699"
+      "updated": "2024-11-07T08:40:13.495958"
     }
   },
   "20020524_5.8M_32.11S_71.07W_40.0KM": {
@@ -836,7 +836,7 @@
       "method": "Automatic",
       "pos": 3210,
       "status": true,
-      "updated": "2024-11-01T00:52:11.203565"
+      "updated": "2024-11-07T08:40:13.632608"
     }
   },
   "20020614_magM_17.64S_71.34W_depthKM": {
@@ -854,14 +854,14 @@
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:11.381812"
+      "updated": "2024-11-07T08:40:13.803151"
     },
     "PuenteAmolanas": {
       "corrected": true,
       "method": "Automatic",
       "pos": 3692,
       "status": true,
-      "updated": "2024-11-01T00:52:11.434789"
+      "updated": "2024-11-07T08:40:13.803164"
     }
   },
   "20020701_magM_latS_lonW_depthKM": {
@@ -909,7 +909,7 @@
       "method": "Automatic",
       "pos": 3181,
       "status": true,
-      "updated": "2024-11-01T00:52:11.659960"
+      "updated": "2024-11-07T08:40:14.020962"
     }
   },
   "20030709_4.6M_32.41S_71.31W_27.5KM": {
@@ -918,7 +918,7 @@
       "method": "Manual",
       "pos": 3841,
       "status": true,
-      "updated": "2024-11-01T00:52:11.866645"
+      "updated": "2024-11-07T08:40:14.204518"
     }
   },
   "20031020_magM_18.32S_70.31W_depthKM": {
@@ -1006,7 +1006,7 @@
       "method": "Manual",
       "pos": 805,
       "status": false,
-      "updated": "2024-11-01T00:52:12.206999"
+      "updated": "2024-11-07T08:40:14.392879"
     }
   },
   "20040927_5.2M_32.35S_71.50W_30.0KM": {
@@ -1015,14 +1015,14 @@
       "method": "Automatic",
       "pos": 1021,
       "status": false,
-      "updated": "2024-11-01T00:52:12.284530"
+      "updated": "2024-11-07T08:40:14.466151"
     },
     "VinadelMarElSaltoCerro": {
       "corrected": true,
       "method": "Manual",
       "pos": 3492,
       "status": true,
-      "updated": "2024-11-01T00:52:12.354225"
+      "updated": "2024-11-07T08:40:14.466167"
     }
   },
   "20041001_magM_latS_lonW_depthKM": {
@@ -1040,7 +1040,7 @@
       "method": "Automatic",
       "pos": 2705,
       "status": true,
-      "updated": "2024-11-01T00:52:12.500536"
+      "updated": "2024-11-07T08:40:14.604903"
     }
   },
   "20050319_5.4M_20.26S_68.34W_108.2KM": {
@@ -1049,7 +1049,7 @@
       "method": "Automatic",
       "pos": 10022,
       "status": true,
-      "updated": "2024-11-01T00:52:12.631782"
+      "updated": "2024-11-07T08:40:14.730659"
     }
   },
   "20050325_5.1M_20.15S_68.47W_95.0KM": {
@@ -1058,7 +1058,7 @@
       "method": "Manual",
       "pos": 9932,
       "status": true,
-      "updated": "2024-11-01T00:52:12.845305"
+      "updated": "2024-11-07T08:40:14.927309"
     }
   },
   "20050613_7.9M_19.54S_69.07W_111.0KM": {
@@ -1169,7 +1169,7 @@
       "method": "Automatic",
       "pos": 3904,
       "status": true,
-      "updated": "2024-11-01T00:52:16.748582"
+      "updated": "2024-11-07T08:40:15.208847"
     }
   },
   "20050713_5.9M_17.48S_69.58W_84.0KM": {
@@ -1178,42 +1178,42 @@
       "method": "Manual",
       "pos": 9249,
       "status": true,
-      "updated": "2024-11-01T00:52:16.920655"
+      "updated": "2024-11-07T08:40:15.363590"
     },
     "AricaCementerio": {
       "corrected": false,
       "method": "Automatic",
       "pos": 2175,
       "status": false,
-      "updated": "2024-11-01T00:52:16.975821"
+      "updated": "2024-11-07T08:40:15.363603"
     },
     "AricaCerroLaCruz": {
       "corrected": true,
       "method": "Automatic",
       "pos": 7644,
       "status": true,
-      "updated": "2024-11-01T00:52:17.032819"
+      "updated": "2024-11-07T08:40:15.363609"
     },
     "AricaChacalluta": {
       "corrected": true,
       "method": "Automatic",
       "pos": 9807,
       "status": true,
-      "updated": "2024-11-01T00:52:17.085607"
+      "updated": "2024-11-07T08:40:15.363614"
     },
     "AricaCostanera": {
       "corrected": false,
       "method": "Automatic",
       "pos": 863,
       "status": false,
-      "updated": "2024-11-01T00:52:17.144602"
+      "updated": "2024-11-07T08:40:15.363619"
     },
     "Poconchile": {
       "corrected": true,
       "method": "Automatic",
       "pos": 9916,
       "status": true,
-      "updated": "2024-11-01T00:52:17.198654"
+      "updated": "2024-11-07T08:40:15.363624"
     }
   },
   "20050814_5.9M_19.45S_68.53W_113.6KM": {
@@ -1222,7 +1222,7 @@
       "method": "Automatic",
       "pos": 9256,
       "status": true,
-      "updated": "2024-11-01T00:52:17.900987"
+      "updated": "2024-11-07T08:40:16.060680"
     }
   },
   "20051017_5.6M_18.16S_69.47W_77.0KM": {
@@ -1231,28 +1231,28 @@
       "method": "Manual",
       "pos": 9954,
       "status": true,
-      "updated": "2024-11-01T00:52:18.160792"
+      "updated": "2024-11-07T08:40:16.309351"
     },
     "AricaCerroLaCruz": {
       "corrected": true,
       "method": "Automatic",
       "pos": 9964,
       "status": true,
-      "updated": "2024-11-01T00:52:18.223253"
+      "updated": "2024-11-07T08:40:16.309371"
     },
     "AricaChacalluta": {
       "corrected": true,
       "method": "Manual",
       "pos": 9783,
       "status": true,
-      "updated": "2024-11-01T00:52:18.282177"
+      "updated": "2024-11-07T08:40:16.309377"
     },
     "Poconchile": {
       "corrected": true,
       "method": "Manual",
       "pos": 10048,
       "status": true,
-      "updated": "2024-11-01T00:52:18.344875"
+      "updated": "2024-11-07T08:40:16.309384"
     }
   },
   "20060210_5.2M_32.35S_71.33W_33.8KM": {
@@ -1261,14 +1261,14 @@
       "method": "Automatic",
       "pos": 2644,
       "status": true,
-      "updated": "2024-11-01T00:52:19.006797"
+      "updated": "2024-11-07T08:40:16.958402"
     },
     "VinadelMarElSaltoCerro": {
       "corrected": true,
       "method": "Manual",
       "pos": 2542,
       "status": true,
-      "updated": "2024-11-01T00:52:19.064074"
+      "updated": "2024-11-07T08:40:16.958419"
     }
   },
   "20060327_5.3M_20.47S_69.23W_58.6KM": {
@@ -1277,7 +1277,7 @@
       "method": "Automatic",
       "pos": 8848,
       "status": true,
-      "updated": "2024-11-01T00:52:19.248560"
+      "updated": "2024-11-07T08:40:17.129413"
     }
   },
   "20060407_magM_latS_lonW_depthKM": {
@@ -1295,14 +1295,14 @@
       "method": "Automatic",
       "pos": 866,
       "status": false,
-      "updated": "2024-11-01T00:52:19.462032"
+      "updated": "2024-11-07T08:40:17.334017"
     },
     "Pica": {
       "corrected": true,
       "method": "Automatic",
       "pos": 9982,
       "status": true,
-      "updated": "2024-11-01T00:52:19.516572"
+      "updated": "2024-11-07T08:40:17.334030"
     }
   },
   "20060430_6.3M_26.50S_71.08W_18.0KM": {
@@ -1311,7 +1311,7 @@
       "method": "Manual",
       "pos": 1738,
       "status": true,
-      "updated": "2024-11-01T00:52:19.735462"
+      "updated": "2024-11-07T08:40:17.543775"
     }
   },
   "20060430_6.3M_27.05S_71.23W_5.7KM": {
@@ -1320,7 +1320,7 @@
       "method": "Manual",
       "pos": 1522,
       "status": true,
-      "updated": "2024-11-01T00:52:19.845049"
+      "updated": "2024-11-07T08:40:17.648025"
     }
   },
   "20060601_magM_latS_lonW_depthKM": {
@@ -1347,14 +1347,14 @@
       "method": "Automatic",
       "pos": 3997,
       "status": true,
-      "updated": "2024-11-01T00:52:19.963448"
+      "updated": "2024-11-07T08:40:17.800153"
     },
     "VinadelMarElSaltoCerro": {
       "corrected": true,
       "method": "Automatic",
       "pos": 2939,
       "status": true,
-      "updated": "2024-11-01T00:52:20.020680"
+      "updated": "2024-11-07T08:40:17.800173"
     }
   },
   "20061012_6.2M_31.20S_71.42W_37.2KM": {
@@ -1363,7 +1363,7 @@
       "method": "Automatic",
       "pos": 3775,
       "status": true,
-      "updated": "2024-11-01T00:52:20.197917"
+      "updated": "2024-11-07T08:40:17.967821"
     }
   },
   "20061101_magM_latS_lonW_depthKM": {
@@ -1381,21 +1381,21 @@
       "method": "Automatic",
       "pos": 9894,
       "status": true,
-      "updated": "2024-11-01T00:52:20.384261"
+      "updated": "2024-11-07T08:40:18.145434"
     },
     "AricaChacalluta": {
       "corrected": true,
       "method": "Manual",
       "pos": 9856,
       "status": true,
-      "updated": "2024-11-01T00:52:20.438018"
+      "updated": "2024-11-07T08:40:18.145451"
     },
     "Poconchile": {
       "corrected": true,
       "method": "Automatic",
       "pos": 9844,
       "status": true,
-      "updated": "2024-11-01T00:52:20.495375"
+      "updated": "2024-11-07T08:40:18.145457"
     }
   },
   "20070214_5.4M_19.40S_70.07W_78.0KM": {
@@ -1413,7 +1413,7 @@
       "method": "Automatic",
       "pos": 3510,
       "status": true,
-      "updated": "2024-11-01T00:52:21.103890"
+      "updated": "2024-11-07T08:40:18.694078"
     }
   },
   "20070401_magM_latS_lonW_depthKM": {
@@ -1445,7 +1445,7 @@
       "method": "Automatic",
       "pos": 3850,
       "status": true,
-      "updated": "2024-11-01T00:52:21.243617"
+      "updated": "2024-11-07T08:40:18.825288"
     }
   },
   "20070426_5.4M_28.09S_70.46W_45.4KM": {
@@ -1454,7 +1454,7 @@
       "method": "Manual",
       "pos": 1969,
       "status": true,
-      "updated": "2024-11-01T00:52:21.388955"
+      "updated": "2024-11-07T08:40:18.957593"
     }
   },
   "20070510_5.0M_32.37S_71.21W_58.8KM": {
@@ -1463,7 +1463,7 @@
       "method": "Automatic",
       "pos": 2100,
       "status": true,
-      "updated": "2024-11-01T00:52:21.490165"
+      "updated": "2024-11-07T08:40:19.042809"
     }
   },
   "20070601_magM_latS_lonW_depthKM": {
@@ -1490,7 +1490,7 @@
       "method": "Automatic",
       "pos": 9642,
       "status": true,
-      "updated": "2024-11-01T00:52:21.618502"
+      "updated": "2024-11-07T08:40:19.162077"
     }
   },
   "20071114_7.7M_22.41S_70.12W_38.9KM": {
@@ -1499,112 +1499,112 @@
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:22.019656"
+      "updated": "2024-11-07T08:40:19.563069"
     },
     "Antofagasta": {
       "corrected": true,
       "method": "Automatic",
       "pos": 7975,
       "status": true,
-      "updated": "2024-11-01T00:52:22.091954"
+      "updated": "2024-11-07T08:40:19.563091"
     },
     "Calama": {
       "corrected": true,
       "method": "Automatic",
       "pos": 9713,
       "status": true,
-      "updated": "2024-11-01T00:52:22.164898"
+      "updated": "2024-11-07T08:40:19.563101"
     },
     "Copiapo": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:22.235189"
+      "updated": "2024-11-07T08:40:19.563107"
     },
     "ElLoa": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:22.306388"
+      "updated": "2024-11-07T08:40:19.563112"
     },
     "FuerteBaquedano": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:22.375198"
+      "updated": "2024-11-07T08:40:19.563120"
     },
     "Iquique": {
       "corrected": true,
       "method": "Automatic",
       "pos": 8633,
       "status": true,
-      "updated": "2024-11-01T00:52:22.453801"
+      "updated": "2024-11-07T08:40:19.563125"
     },
     "IquiqueE.Chipana": {
       "corrected": true,
       "method": "Manual",
       "pos": 6868,
       "status": true,
-      "updated": "2024-11-01T00:52:22.528959"
+      "updated": "2024-11-07T08:40:19.563130"
     },
     "Mejillones": {
       "corrected": true,
       "method": "Automatic",
       "pos": 9739,
       "status": true,
-      "updated": "2024-11-01T00:52:22.606821"
+      "updated": "2024-11-07T08:40:19.563144"
     },
     "Pica": {
       "corrected": true,
       "method": "Automatic",
       "pos": 9429,
       "status": true,
-      "updated": "2024-11-01T00:52:22.681475"
+      "updated": "2024-11-07T08:40:19.563154"
     },
     "Pisagua": {
       "corrected": true,
       "method": "Manual",
       "pos": 1507,
       "status": true,
-      "updated": "2024-11-01T00:52:22.756995"
+      "updated": "2024-11-07T08:40:19.563158"
     },
     "Poconchile": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:22.835067"
+      "updated": "2024-11-07T08:40:19.563163"
     },
     "PuertoPatache": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:22.914348"
+      "updated": "2024-11-07T08:40:19.563149"
     },
     "SanPedrodeAtacama": {
       "corrected": true,
       "method": "Manual",
       "pos": 7463,
       "status": true,
-      "updated": "2024-11-01T00:52:22.991185"
+      "updated": "2024-11-07T08:40:19.563168"
     },
     "Tocopilla": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:23.074248"
+      "updated": "2024-11-07T08:40:19.563172"
     },
     "TocopillaPuerto": {
       "corrected": true,
       "method": "Automatic",
       "pos": 7956,
       "status": true,
-      "updated": "2024-11-01T00:52:23.149923"
+      "updated": "2024-11-07T08:40:19.563177"
     }
   },
   "20071114_magM_latS_lonW_depthKM": {
@@ -1622,7 +1622,7 @@
       "method": "Automatic",
       "pos": 9365,
       "status": true,
-      "updated": "2024-11-01T00:52:26.258570"
+      "updated": "2024-11-07T08:40:22.655979"
     }
   },
   "20071115_6.8M_23.07S_70.31W_depthKM": {
@@ -1640,7 +1640,7 @@
       "method": "Automatic",
       "pos": 9876,
       "status": true,
-      "updated": "2024-11-01T00:52:26.495723"
+      "updated": "2024-11-07T08:40:22.882551"
     }
   },
   "20071118_5.5M_18.31S_69.27W_64.0KM": {
@@ -1649,7 +1649,7 @@
       "method": "Automatic",
       "pos": 9726,
       "status": true,
-      "updated": "2024-11-01T00:52:26.694447"
+      "updated": "2024-11-07T08:40:23.067900"
     }
   },
   "20071120_6.3M_22.56S_70.49W_37.7KM": {
@@ -1676,21 +1676,21 @@
       "method": "Automatic",
       "pos": 836,
       "status": false,
-      "updated": "2024-11-01T00:52:27.301159"
+      "updated": "2024-11-07T08:40:23.344654"
     },
     "VinadelMarCentro": {
       "corrected": true,
       "method": "Manual",
       "pos": 796,
       "status": true,
-      "updated": "2024-11-01T00:52:27.358311"
+      "updated": "2024-11-07T08:40:23.344672"
     },
     "VinadelMarElSalto": {
       "corrected": true,
       "method": "Manual",
       "pos": 3469,
       "status": true,
-      "updated": "2024-11-01T00:52:27.419032"
+      "updated": "2024-11-07T08:40:23.344679"
     }
   },
   "20071216_6.7M_22.56S_70.10W_42.0KM": {
@@ -1699,35 +1699,35 @@
       "method": "Automatic",
       "pos": 9627,
       "status": true,
-      "updated": "2024-11-01T00:52:27.678765"
+      "updated": "2024-11-07T08:40:23.589100"
     },
     "MejillonesCentral": {
       "corrected": true,
       "method": "Automatic",
       "pos": 7755,
       "status": true,
-      "updated": "2024-11-01T00:52:27.735296"
+      "updated": "2024-11-07T08:40:23.589116"
     },
     "MejillonesPuerto": {
       "corrected": true,
       "method": "Automatic",
       "pos": 7902,
       "status": true,
-      "updated": "2024-11-01T00:52:27.792923"
+      "updated": "2024-11-07T08:40:23.589122"
     },
     "Michilla": {
       "corrected": true,
       "method": "Automatic",
       "pos": 7770,
       "status": true,
-      "updated": "2024-11-01T00:52:27.850053"
+      "updated": "2024-11-07T08:40:23.589127"
     },
     "TocopillaPuerto": {
       "corrected": true,
       "method": "Manual",
       "pos": 7670,
       "status": true,
-      "updated": "2024-11-01T00:52:27.916047"
+      "updated": "2024-11-07T08:40:23.589131"
     }
   },
   "20080101_magM_latS_lonW_depthKM": {
@@ -1745,28 +1745,28 @@
       "method": "Automatic",
       "pos": 930,
       "status": true,
-      "updated": "2024-11-01T00:52:28.904445"
+      "updated": "2024-11-07T08:40:24.573848"
     },
     "Iquique": {
       "corrected": true,
       "method": "Automatic",
       "pos": 9826,
       "status": true,
-      "updated": "2024-11-01T00:52:28.962263"
+      "updated": "2024-11-07T08:40:24.573871"
     },
     "IquiqueE.Chipana": {
       "corrected": true,
       "method": "Automatic",
       "pos": 7897,
       "status": true,
-      "updated": "2024-11-01T00:52:29.020407"
+      "updated": "2024-11-07T08:40:24.573879"
     },
     "Pisagua": {
       "corrected": true,
       "method": "Automatic",
       "pos": 8572,
       "status": true,
-      "updated": "2024-11-01T00:52:29.086720"
+      "updated": "2024-11-07T08:40:24.573884"
     }
   },
   "20080204_6.3M_20.16S_70.15W_45.6KM": {
@@ -1775,28 +1775,28 @@
       "method": "Manual",
       "pos": 926,
       "status": true,
-      "updated": "2024-11-01T00:52:29.601881"
+      "updated": "2024-11-07T08:40:25.075801"
     },
     "Iquique": {
       "corrected": true,
       "method": "Manual",
       "pos": 9935,
       "status": true,
-      "updated": "2024-11-01T00:52:29.664022"
+      "updated": "2024-11-07T08:40:25.075819"
     },
     "IquiqueE.Chipana": {
       "corrected": true,
       "method": "Manual",
       "pos": 7760,
       "status": true,
-      "updated": "2024-11-01T00:52:29.719544"
+      "updated": "2024-11-07T08:40:25.075825"
     },
     "Pica": {
       "corrected": true,
       "method": "Automatic",
       "pos": 9913,
       "status": true,
-      "updated": "2024-11-01T00:52:29.774214"
+      "updated": "2024-11-07T08:40:25.075829"
     }
   },
   "20080301_5.8M_20.24S_70.11W_43.8KM": {
@@ -1805,28 +1805,28 @@
       "method": "Manual",
       "pos": 446,
       "status": true,
-      "updated": "2024-11-01T00:52:30.384303"
+      "updated": "2024-11-07T08:40:25.671451"
     },
     "Iquique": {
       "corrected": true,
       "method": "Automatic",
       "pos": 9900,
       "status": true,
-      "updated": "2024-11-01T00:52:30.450297"
+      "updated": "2024-11-07T08:40:25.671470"
     },
     "IquiqueE.Chipana": {
       "corrected": true,
       "method": "Manual",
       "pos": 7704,
       "status": true,
-      "updated": "2024-11-01T00:52:30.513580"
+      "updated": "2024-11-07T08:40:25.671476"
     },
     "Pica": {
       "corrected": true,
       "method": "Automatic",
       "pos": 7657,
       "status": true,
-      "updated": "2024-11-01T00:52:30.573690"
+      "updated": "2024-11-07T08:40:25.671481"
     }
   },
   "20080324_6.2M_20.12S_69.21W_123.7KM": {
@@ -1874,7 +1874,7 @@
       "method": "Automatic",
       "pos": 6893,
       "status": true,
-      "updated": "2024-11-01T00:52:31.700267"
+      "updated": "2024-11-07T08:40:26.184807"
     }
   },
   "20080731_4.2M_latS_lonW_depthKM": {
@@ -1901,35 +1901,35 @@
       "method": "Manual",
       "pos": 963,
       "status": true,
-      "updated": "2024-11-01T00:52:31.901529"
+      "updated": "2024-11-07T08:40:26.378830"
     },
     "FuerteBaquedano": {
       "corrected": true,
       "method": "Automatic",
       "pos": 932,
       "status": true,
-      "updated": "2024-11-01T00:52:31.956802"
+      "updated": "2024-11-07T08:40:26.378873"
     },
     "IquiqueE.Chipana": {
       "corrected": true,
       "method": "Manual",
       "pos": 7921,
       "status": true,
-      "updated": "2024-11-01T00:52:32.013096"
+      "updated": "2024-11-07T08:40:26.378879"
     },
     "Pica": {
       "corrected": true,
       "method": "Automatic",
       "pos": 10030,
       "status": true,
-      "updated": "2024-11-01T00:52:32.071992"
+      "updated": "2024-11-07T08:40:26.378893"
     },
     "PuertoPatache": {
       "corrected": true,
       "method": "Manual",
       "pos": 3730,
       "status": true,
-      "updated": "2024-11-01T00:52:32.125581"
+      "updated": "2024-11-07T08:40:26.378885"
     }
   },
   "20081219_5.8M_32.27S_71.56W_32.2KM": {
@@ -1938,7 +1938,7 @@
       "method": "Manual",
       "pos": 1994,
       "status": true,
-      "updated": "2024-11-01T00:52:32.756651"
+      "updated": "2024-11-07T08:40:26.985089"
     }
   },
   "20090211_5.5M_20.20S_69.13W_116.8KM": {
@@ -1972,7 +1972,7 @@
       "method": "Automatic",
       "pos": 9459,
       "status": true,
-      "updated": "2024-11-01T00:52:33.114012"
+      "updated": "2024-11-07T08:40:27.150509"
     }
   },
   "20090525_5.4M_28.33S_71.27W_50.1KM": {
@@ -1999,7 +1999,7 @@
       "method": "Automatic",
       "pos": 8308,
       "status": true,
-      "updated": "2024-11-01T00:52:33.622041"
+      "updated": "2024-11-07T08:40:27.408394"
     }
   },
   "20091113_6.4M_19.30S_70.31W_38.1KM": {
@@ -2008,42 +2008,42 @@
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:33.851132"
+      "updated": "2024-11-07T08:40:27.622347"
     },
     "Arica": {
       "corrected": true,
       "method": "Manual",
       "pos": 9866,
       "status": true,
-      "updated": "2024-11-01T00:52:33.905910"
+      "updated": "2024-11-07T08:40:27.622365"
     },
     "Cuya": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:33.970745"
+      "updated": "2024-11-07T08:40:27.622373"
     },
     "Huara": {
       "corrected": true,
       "method": "Manual",
       "pos": 2053,
       "status": true,
-      "updated": "2024-11-01T00:52:34.030718"
+      "updated": "2024-11-07T08:40:27.622378"
     },
     "IquiqueE.Chipana": {
       "corrected": true,
       "method": "Manual",
       "pos": 7658,
       "status": true,
-      "updated": "2024-11-01T00:52:34.087653"
+      "updated": "2024-11-07T08:40:27.622383"
     },
     "Pisagua": {
       "corrected": true,
       "method": "Automatic",
       "pos": 9886,
       "status": true,
-      "updated": "2024-11-01T00:52:34.138751"
+      "updated": "2024-11-07T08:40:27.622387"
     }
   },
   "20091222_5.1M_28.36S_71.02W_45.0KM": {
@@ -2052,7 +2052,7 @@
       "method": "Manual",
       "pos": 1335,
       "status": true,
-      "updated": "2024-11-01T00:52:34.802924"
+      "updated": "2024-11-07T08:40:28.269003"
     }
   },
   "20100113_5.3M_20.49S_69.33W_depthKM": {
@@ -2079,147 +2079,147 @@
       "method": "Manual",
       "pos": 1800,
       "status": true,
-      "updated": "2024-11-01T00:52:35.126894"
+      "updated": "2024-11-07T08:40:28.549362"
     },
     "Concepcion": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:35.214502"
+      "updated": "2024-11-07T08:40:28.549388"
     },
     "Constitucion": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:35.303840"
+      "updated": "2024-11-07T08:40:28.549395"
     },
     "Copiapo": {
       "corrected": false,
       "method": "Automatic",
       "pos": 1897,
       "status": false,
-      "updated": "2024-11-01T00:52:35.387868"
+      "updated": "2024-11-07T08:40:28.549402"
     },
     "Curico": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:35.471007"
+      "updated": "2024-11-07T08:40:28.549408"
     },
     "Hualane": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:35.554445"
+      "updated": "2024-11-07T08:40:28.549413"
     },
     "Llolleo": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:35.639732"
+      "updated": "2024-11-07T08:40:28.549418"
     },
     "Matanzas": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:35.721543"
+      "updated": "2024-11-07T08:40:28.549424"
     },
     "Papudo": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:35.803541"
+      "updated": "2024-11-07T08:40:28.549430"
     },
     "SantiagoCentro": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:35.886383"
+      "updated": "2024-11-07T08:40:28.549434"
     },
     "SantiagoLaFlorida": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:35.972152"
+      "updated": "2024-11-07T08:40:28.549440"
     },
     "SantiagoMaipu": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:36.054889"
+      "updated": "2024-11-07T08:40:28.549444"
     },
     "SantiagoPenalolen": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:36.209403"
+      "updated": "2024-11-07T08:40:28.549449"
     },
     "SantiagoPuenteAlto": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:36.295128"
+      "updated": "2024-11-07T08:40:28.549454"
     },
     "Talca": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:36.379481"
+      "updated": "2024-11-07T08:40:28.549458"
     },
     "Valdivia": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:36.464946"
+      "updated": "2024-11-07T08:40:28.549462"
     },
     "Vallenar": {
       "corrected": false,
       "method": "Automatic",
       "pos": 2092,
       "status": false,
-      "updated": "2024-11-01T00:52:36.548573"
+      "updated": "2024-11-07T08:40:28.549467"
     },
     "ValparaisoAlmendral": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:36.628239"
+      "updated": "2024-11-07T08:40:28.549471"
     },
     "ValparaisoUTFSM": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:36.710180"
+      "updated": "2024-11-07T08:40:28.549476"
     },
     "VinadelMarCentro": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:36.791860"
+      "updated": "2024-11-07T08:40:28.549482"
     },
     "VinadelMarElSalto": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-01T00:52:36.873920"
+      "updated": "2024-11-07T08:40:28.549486"
     }
   },
   "20100228_6.6M_34.90S_71.62W_44.0KM": {
