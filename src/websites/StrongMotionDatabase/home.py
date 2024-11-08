@@ -19,7 +19,7 @@ from bokeh.io import curdoc
 
 from bokeh.layouts import column, grid, layout
 
-from bokeh.models import ColumnDataSource, CustomJS, DatePicker, Tabs, TabPanel
+from bokeh.models import ColorBar, ColumnDataSource, CustomJS, DatePicker, GeoJSONDataSource, LinearColorMapper, Tabs, TabPanel
 from bokeh.models.widgets import Button, CheckboxGroup, DataTable, Div, NumericInput, Select, TableColumn
 
 from bokeh.palettes import Spectral6
@@ -292,15 +292,36 @@ data_table    = DataTable(source=source_table, columns=columns_table,
 ###########
 ##  Map  ##
 ###########
+empty_geojson = json.dumps({
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": {"slip": 0}
+        }
+    ]
+})
+
 plot_map = figure(x_axis_type='mercator', y_axis_type='mercator', x_range=(0, 1), y_range=(0, 1),
     sizing_mode='stretch_width', width=pwdith)
 plot_map.add_tile('CartoDB Positron')
 source_hypo = ColumnDataSource(data=dict(lat=[], lon=[]))
 source_sta  = ColumnDataSource(data=dict(lat=[], lon=[]))
+source_ffm  = GeoJSONDataSource(geojson=empty_geojson)
 
+color_mapper = LinearColorMapper(palette="Plasma256", low=0, high=20)
+
+plot_map.patches(xs='xs', ys='ys', source=source_ffm, line_color='black', line_width=1, fill_alpha=0.75, fill_color={'field': 'slip', 'transform': color_mapper})
 plot_map.scatter(x='lon', y='lat', size=15, fill_color='blue'  , line_color='black', fill_alpha=0.8, source=source_sta , legend_label='Station')
 plot_map.scatter(x='lon', y='lat', size=25, fill_color='yellow', line_color='black', fill_alpha=0.8, source=source_hypo, legend_label='Hypocenter', marker='star')
 plot_map.legend.location = 'top_left'
+
+color_bar = ColorBar(color_mapper=color_mapper, location=(0,0), title='Slip [m]', visible=False)
+plot_map.add_layout(color_bar, 'left')
 
 ############
 ##  Tabs  ##
@@ -502,10 +523,41 @@ def update_station(attrname, old, new):
     hypo_x, hypo_y = transformer.transform(station['hypocenter_lat'], station['hypocenter_lon'])
     sta_x , sta_y  = transformer.transform(station['station_lat']   , station['station_lon'])
 
-    xmean = 0.5*(hypo_x + sta_x)
-    ymean = 0.5*(hypo_y + sta_y)
+    minx = min(hypo_x, sta_x)
+    maxx = max(hypo_x, sta_x)
+    miny = min(hypo_y, sta_y)
+    maxy = max(hypo_y, sta_y)
 
-    dist = max([abs(hypo_x-xmean), abs(sta_x-xmean), abs(hypo_y-ymean), abs(sta_y-ymean)])
+    low  = np.inf
+    high = -np.inf
+
+    if os.path.exists(os.path.join(srcPath, 'data', 'ffm', select_event.value + '.geojson')):
+        with open(os.path.join(srcPath, 'data', 'ffm', select_event.value + '.geojson')) as f:
+            ffm = json.load(f)
+
+        for feature in ffm['features']:
+            low  = min(low , feature['properties']['slip'])
+            high = max(high, feature['properties']['slip'])
+
+            if feature['geometry']['type'] == 'Polygon':
+                feature['geometry']['coordinates'] = [[transformer.transform(lat, lon) for lon, lat, dep in ring] for ring in feature['geometry']['coordinates']]
+                for ring in feature['geometry']['coordinates']:
+                    for point in ring:
+                        minx = min(minx, point[0])
+                        maxx = max(maxx, point[0])
+                        miny = min(miny, point[1])
+                        maxy = max(maxy, point[1])
+
+        color_bar_status = True
+        ffm_geojson      = json.dumps(ffm)
+    else:
+        color_bar_status = False
+        ffm_geojson      = empty_geojson
+
+    xmean = 0.5*(minx + maxx)
+    ymean = 0.5*(miny + maxy)
+
+    dist = max([abs(minx-xmean), abs(maxx-xmean), abs(miny-ymean), abs(maxy-ymean)])
 
     xmin = xmean - dist - 30000
     xmax = xmean + dist + 30000
@@ -516,8 +568,13 @@ def update_station(attrname, old, new):
     plot_map.x_range.update(start=xmin, end=xmax)
     plot_map.y_range.update(start=ymin, end=ymax)
 
-    source_hypo.data = dict(lat=[hypo_y], lon=[hypo_x])
-    source_sta.data  = dict(lat=[sta_y] , lon=[sta_x])
+    color_mapper.low  = low
+    color_mapper.high = high
+    color_bar.visible = color_bar_status
+
+    source_hypo.data   = dict(lat=[hypo_y], lon=[hypo_x])
+    source_sta.data    = dict(lat=[sta_y] , lon=[sta_x])
+    source_ffm.geojson = ffm_geojson
 
 def update_plots():
     global event, ta, tb, xi, plotted
