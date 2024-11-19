@@ -31,7 +31,7 @@ def updateDistances(window, widget, basePath, dataPath):
     :type dataPath: str
     """
 
-    flatfile = pd.read_csv(os.path.join(dataPath, 'flatFile.csv'), parse_dates=['Earthquake date', 'Start time record', 'Last update'])
+    flatfile = pd.read_csv(os.path.join(basePath, 'data', 'flatFile - backup.csv'), parse_dates=['Earthquake date', 'Start time record', 'Last update'])
     if os.path.exists(os.path.join(dataPath, 'spectralValues', 'computed.xlsx')):
         computed = pd.read_excel(os.path.join(dataPath, 'spectralValues', 'computed.xlsx'))
     else:
