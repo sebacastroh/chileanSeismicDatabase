@@ -18,19 +18,25 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          label_name="pending deployment"
+          encoded_label_name=$(echo $label_name | sed 's/ /%20/g')
+          
           # Extrae la descripción del PR
           pr_body="${{ github.event.pull_request.body }}"
           # Busca números de issues referenciados con la sintaxis #123
-          issues=$(echo "$pr_body" | grep -oE "#[0-9]+" | tr -d "#")
-          
-          for issue in $issues; do
-            # Verifica si el issue tiene la etiqueta y luego la elimina
-            curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
-              -H "Accept: application/vnd.github+json" \
-              https://api.github.com/repos/${{ github.repository }}/issues/$issue/labels \
-              | grep -q '"pending release"' && \
-            curl -X DELETE \
-              -H "Authorization: Bearer $GITHUB_TOKEN" \
-              -H "Accept: application/vnd.github+json" \
-              https://api.github.com/repos/${{ github.repository }}/issues/$issue/labels/nombre-de-la-etiqueta
-          done
+          issues=$(echo "$pr_body" | grep -oE "#[0-9]+" | tr -d "#" || echo "")
+
+          if [ -z "$issues" ]; then
+            echo "No linked issues found. Skipping label removal."
+          else
+            for issue in $issues; do
+              curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
+                -H "Accept: application/vnd.github+json" \
+                https://api.github.com/repos/${{ github.repository }}/issues/$issue/labels \
+                | grep -q "\"$label_name\"" && \
+              curl -X DELETE \
+                -H "Authorization: Bearer $GITHUB_TOKEN" \
+                -H "Accept: application/vnd.github+json" \
+                "https://api.github.com/repos/${{ github.repository }}/issues/$issue/labels/$encoded_label_name"
+            done
+          fi
