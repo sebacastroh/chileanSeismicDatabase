@@ -1,5 +1,5 @@
 Fecha (UTC),Latitud,Longitud,Profundidad [km],Magnitud [*],Tipo magnitud,Estaciones,Identificador,Fuente,ID
-1985-03-03 22:47:07,-33.135,-71.871,33.0,7.8,Ms,Cauquenes; ChillanInstitute; Colbun; Constitucion; Hualane; Illapel; Iloca; LaLigua; Llayllay; Llolleo; LosVilos; Melipilla; Papudo; Pichilemu; Quintay; Rapel; SanFelipe; SanFernando; SanIsidro; SantiagoEndesaBldg; Talca; ValparaisoElAlmendral; Valparaiso; Ventanas; VinadelMar; Zapallar,151,7c473f40d7862735,19850303_7.8M_33.13S_71.87W_33.0KM
+1985-03-03 22:47:07,-33.135,-71.871,33.0,8.0,Mw,Cauquenes; ChillanInstitute; Colbun; Constitucion; Hualane; Illapel; Iloca; LaLigua; Llayllay; Llolleo; LosVilos; Melipilla; Papudo; Pichilemu; Quintay; Rapel; SanFelipe; SanFernando; SanIsidro; SantiagoEndesaBldg; Talca; ValparaisoElAlmendral; Valparaiso; Ventanas; VinadelMar; Zapallar,151,7c473f40d7862735,19850303_8.0M_33.13S_71.87W_33.0KM
 1985-03-03 23:38:31,-32.738,-71.215,33.0,6.3,-,Llolleo; Valparaiso; VinadelMar,152,7c473f40d7862735,19850303_6.3M_32.74S_71.22W_33.0KM
 1985-04-08 23:27:25,-33.025,-71.974,33.0,5.0,-,Llolleo,153,7c473f40d7862735,19850408_5.0M_33.02S_71.97W_33.0KM
 1985-04-09 01:56:59,-34.131,-71.618,37.8,7.2,Ms,Cauquenes; Constitucion; Iloca; Quintay; Rapel; SanFernando; SantiagoEndesaBldg; Santiago; Ventanas,154,7c473f40d7862735,19850409_7.2M_34.13S_71.62W_37.8KM
@@ -33,7 +33,7 @@ Fecha (UTC),Latitud,Longitud,Profundidad [km],Magnitud [*],Tipo magnitud,Estacio
 2000-06-16 07:55:56,-33.53,-70.13,112.0,6.4,,Llolleo; Papudo; SantiagoLaFlorida,0006161,k2dimntt23gm0b7t,20000616_6.4M_33.53S_70.13W_112.0KM
 2000-08-11 14:31:12,,,,5.2,,Arica,0008111,k2dimntt23gm0b7t,20000811_5.2M_latS_lonW_depthKM
 2001-02-01 03:00:00,-32.57,-70.2,106.0,4.4,,Cuya,0102000,k2dimntt23gm0b7t,20010201_4.4M_32.57S_70.20W_106.0KM
-2001-06-23 20:33:15,-17.21,-70.02,25.7,8.4,,Arica; AricaCementerio; AricaCostanera; Poconchile; Putre; Pisagua; Cuya,0106231,k2dimntt23gm0b7t,20010623_8.4M_17.21S_70.02W_25.7KM
+2001-06-23 20:33:15,-16.265,-73.641,33.0,8.4,,Arica; AricaCementerio; AricaCostanera; Poconchile; Putre; Pisagua; Cuya,0106231,k2dimntt23gm0b7t,20010623_8.4M_16.27S_73.64W_33.0KM
 2001-07-01 04:00:00,,,,,,AricaCementerio,0107000,k2dimntt23gm0b7t,20010701_magM_latS_lonW_depthKM
 2001-07-07 09:38:50,-17.54,-72.08,33.0,7.6,,AricaChacalluta,0107071,k2dimntt23gm0b7t,20010707_7.6M_17.54S_72.08W_33.0KM
 2001-07-24 05:00:02,-32.56,-71.34,41.0,6.1,,AricaChacalluta; Iquique; Pica,0107241,k2dimntt23gm0b7t,20010724_6.1M_32.56S_71.34W_41.0KM
