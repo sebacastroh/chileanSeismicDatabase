@@ -10,7 +10,7 @@ import datetime
 import numpy as np
 import pandas as pd
 
-def updateFlatFile(window, widget, basePath, dataPath):
+def updateFlatFile(window, widget, basePath, dataPath, draftPath):
 
     if not os.path.exists(os.path.join(dataPath, 'seismicDatabase', 'npz')):
         widget.insert('end', 'No existen registros almacenados para registrar en la base de datos.\n')
@@ -34,7 +34,9 @@ def updateFlatFile(window, widget, basePath, dataPath):
         'Joyner-Boore distance [km]', 'Vs30 [m/s]',
         'Azimuth [o]', 'HVSR', 'Corrected records', 'Last update']
 
-    if os.path.exists(os.path.join(dataPath, 'flatFile.csv')):
+    if os.path.exists(os.path.join(draftPath, 'flatFile.csv')):
+        df = pd.read_csv(os.path.join(draftPath, 'flatFile.csv'))
+    elif os.path.exists(os.path.join(dataPath, 'flatFile.csv')):
         df = pd.read_csv(os.path.join(dataPath, 'flatFile.csv'))
     else:
         df = pd.DataFrame([], columns=columns)
@@ -60,7 +62,12 @@ def updateFlatFile(window, widget, basePath, dataPath):
         if len(station_codes) == 0:
             continue
 
-        with np.load(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz'), allow_pickle=True) as stations:
+        if os.path.exists(os.path.join(draftPath, 'seismicDatabase', 'npz', event_id + '.npz')):
+            filename = os.path.join(draftPath, 'seismicDatabase', 'npz', event_id + '.npz')
+        else:
+            filename = os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz')
+
+        with np.load(filename, allow_pickle=True) as stations:
             for key in sorted(stations.keys()):
                 if not key.startswith('st'):
                     continue
@@ -123,8 +130,8 @@ def updateFlatFile(window, widget, basePath, dataPath):
         df['Start time record'] = pd.to_datetime(df['Start time record'], format='%Y-%m-%d %H:%M:%S.%f')
         df['Last update']       = pd.to_datetime(df['Last update'], format='%Y-%m-%d %H:%M:%S.%f')
 
-        df.to_excel(os.path.join(dataPath, 'flatFile.xlsx'), index=False)
-        df.to_csv(os.path.join(dataPath, 'flatFile.csv'), index=False)
+        df.to_excel(os.path.join(draftPath, 'flatFile.xlsx'), index=False)
+        df.to_csv(os.path.join(draftPath, 'flatFile.csv'), index=False)
         df.to_csv(os.path.join(basePath, 'data', 'flatFile - backup.csv'), index=False)
     
     widget.insert('end', 'Flat file actualizado.\n')

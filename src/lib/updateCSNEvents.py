@@ -14,7 +14,7 @@ import pandas as pd
 DEFAULT_INDENT = 2
 SORT_KEYS      = True
 
-def updateCSNEvents(window, widget, basePath, dataPath, filename, tmp_file=None, start_event=''):
+def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp_file=None, start_event=''):
 
     new_events = []
     all_done = False

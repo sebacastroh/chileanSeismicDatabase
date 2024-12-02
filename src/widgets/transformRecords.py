@@ -10,7 +10,7 @@ import lib.computeDistances as computeDistances
 DEFAULT_INDENT = 2
 SORT_KEYS      = True
 
-def transformRecords(window, widget, basePath, dataPath):
+def transformRecords(window, widget, basePath, dataPath, draftPath):
     """
     Función que ejecuta la transformación de los registros listados en el archivo ```siberrisk.csv```.
 
@@ -77,14 +77,25 @@ def transformRecords(window, widget, basePath, dataPath):
     else:
         p_waves = {}
 
+    # data folders
     if not os.path.exists(os.path.join(dataPath, 'seismicDatabase')):
         os.mkdir(os.path.join(dataPath, 'seismicDatabase'))
-    
+
     if not os.path.exists(os.path.join(dataPath, 'seismicDatabase', 'npz')):
         os.mkdir(os.path.join(dataPath, 'seismicDatabase', 'npz'))
-    
+
     if not os.path.exists(os.path.join(dataPath, 'seismicDatabase', 'mat')):
         os.mkdir(os.path.join(dataPath, 'seismicDatabase', 'mat'))
+
+    # draft folders
+    if not os.path.exists(os.path.join(draftPath, 'seismicDatabase')):
+        os.mkdir(os.path.join(draftPath, 'seismicDatabase'))
+
+    if not os.path.exists(os.path.join(draftPath, 'seismicDatabase', 'npz')):
+        os.mkdir(os.path.join(draftPath, 'seismicDatabase', 'npz'))
+
+    if not os.path.exists(os.path.join(draftPath, 'seismicDatabase', 'mat')):
+        os.mkdir(os.path.join(draftPath, 'seismicDatabase', 'mat'))
 
     slab = np.load(os.path.join(basePath, 'data', 'sam_slab2.npz'))
     for event_id in event_ids.tolist():
@@ -126,7 +137,12 @@ def transformRecords(window, widget, basePath, dataPath):
                 widget.see('end')
                 window.update_idletasks()
 
-            if event is None and os.path.exists(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz')):
+            if event is None and os.path.exists(os.path.join(draftPath, 'seismicDatabase', 'npz', event_id + '.npz')):
+                with np.load(os.path.join(draftPath, 'seismicDatabase', 'npz', event_id + '.npz'), allow_pickle=True) as f:
+                    event = {}
+                    for key, value in f.items():
+                        event[key] = value.item()
+            elif event is None and os.path.exists(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz')):
                 with np.load(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz'), allow_pickle=True) as f:
                     event = {}
                     for key, value in f.items():
@@ -405,8 +421,8 @@ def transformRecords(window, widget, basePath, dataPath):
                 registry[identifier][stationCode] = True
 
         if save:
-            np.savez_compressed(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id), **event)
-            spio.savemat(os.path.join(dataPath, 'seismicDatabase', 'mat', event_id + '.mat'), event, do_compression=True)
+            np.savez_compressed(os.path.join(draftPath, 'seismicDatabase', 'npz', event_id), **event)
+            spio.savemat(os.path.join(draftPath, 'seismicDatabase', 'mat', event_id + '.mat'), event, do_compression=True)
 
             widget.insert('end', 'Listo\n')
             widget.see('end')

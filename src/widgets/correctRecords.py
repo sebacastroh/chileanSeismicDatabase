@@ -10,11 +10,12 @@ p_waves    = {}
 to_correct = []
 base_path  = ''
 data_path  = ''
+draft_path = ''
 
 DEFAULT_INDENT = 2
 SORT_KEYS      = True
 
-def correctRecords(window, widget, basePath, dataPath):
+def correctRecords(window, widget, basePath, dataPath, draftPath):
     """
     Función que determina las estaciones que deben ser corregidasde acuerdo al archivo ```siberrisk.csv```.
 
@@ -66,7 +67,7 @@ def correctRecords(window, widget, basePath, dataPath):
 
     return disable
 
-def applyCorrection(window, widget, basePath, dataPath, parallel):
+def applyCorrection(window, widget, basePath, dataPath, draftPath, parallel):
     """
     Función que aplica la corrección de línea base a los registros identificados.
 
@@ -83,9 +84,10 @@ def applyCorrection(window, widget, basePath, dataPath, parallel):
     Este proceso puede requerir un alto espacio de memoria en el disco. Por defecto es ```False```.
     :type parallel: bool
     """
-    global p_waves, to_correct, base_path, data_path
-    base_path = basePath
-    data_path = dataPath
+    global p_waves, to_correct, base_path, data_path, draft_path
+    base_path  = basePath
+    data_path  = dataPath
+    draft_path = draftPath
 
     widget.insert('end', '\nIniciando proceso de corrección.\n')
     widget.see('end')
@@ -112,14 +114,20 @@ def applyCorrection(window, widget, basePath, dataPath, parallel):
     for event_id, station_code in to_correct:
         if current_event_id != event_id:
             if save:
-                np.savez_compressed(os.path.join(dataPath, 'seismicDatabase', 'npz', current_event_id), **data)
-                spio.savemat(os.path.join(dataPath, 'seismicDatabase', 'mat', current_event_id + '.mat'), data, do_compression=True)
+                np.savez_compressed(os.path.join(draftPath, 'seismicDatabase', 'npz', current_event_id), **data)
+                spio.savemat(os.path.join(draftPath, 'seismicDatabase', 'mat', current_event_id + '.mat'), data, do_compression=True)
                 
                 with open(os.path.join(basePath, 'data', 'p_waves.json'), 'w') as f:
                     json.dump(p_waves, f, indent=DEFAULT_INDENT, sort_keys=SORT_KEYS)
 
             current_event_id = event_id
-            with np.load(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz'), allow_pickle=True) as f:
+
+            if os.path.exists(os.path.join(draftPath, 'seismicDatabase', 'npz', event_id + '.npz')):
+                filename = os.path.join(draftPath, 'seismicDatabase', 'npz', event_id + '.npz')
+            else:
+                filename = os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz')
+
+            with np.load(filename, allow_pickle=True) as f:
                 data = {}
                 for key, value in f.items():
                     data[key] = value.item()
@@ -171,8 +179,8 @@ def applyCorrection(window, widget, basePath, dataPath, parallel):
                 break
 
     if save:
-        np.savez_compressed(os.path.join(dataPath, 'seismicDatabase', 'npz', current_event_id), **data)
-        spio.savemat(os.path.join(dataPath, 'seismicDatabase', 'mat', current_event_id + '.mat'), data, do_compression=True)
+        np.savez_compressed(os.path.join(draftPath, 'seismicDatabase', 'npz', current_event_id), **data)
+        spio.savemat(os.path.join(draftPath, 'seismicDatabase', 'mat', current_event_id + '.mat'), data, do_compression=True)
         
         with open(os.path.join(basePath, 'data', 'p_waves.json'), 'w') as f:
             json.dump(p_waves, f, indent=DEFAULT_INDENT, sort_keys=SORT_KEYS)
@@ -183,12 +191,19 @@ def applyCorrection(window, widget, basePath, dataPath, parallel):
 
 
 def parallel_run(combination):
-    global base_path, data_path
-    basePath = base_path
-    dataPath = data_path
+    global base_path, data_path, draft_path
+    basePath  = base_path
+    dataPath  = data_path
+    draftPath = draft_path
 
     event_id, station_code = combination
-    with np.load(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz'), allow_pickle=True) as f:
+
+    if os.path.exists(os.path.join(draftPath, 'seismicDatabase', 'npz', event_id + '.npz')):
+        filename = os.path.join(draftPath, 'seismicDatabase', 'npz', event_id + '.npz')
+    else:
+        filename = os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz')
+
+    with np.load(filename, allow_pickle=True) as f:
         data = {}
         for key, value in f.items():
             data[key] = value.item()

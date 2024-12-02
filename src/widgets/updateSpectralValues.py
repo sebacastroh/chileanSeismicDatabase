@@ -9,7 +9,7 @@ import seismic
 import numpy as np
 import pandas as pd
 
-def updateSpectralValues(window, widget, basePath, dataPath):
+def updateSpectralValues(window, widget, basePath, dataPath, drafPath):
 
     if not os.path.exists(os.path.join(dataPath, 'seismicDatabase', 'npz')):
         widget.insert('end', 'No existen registros almacenados para registrar en la base de datos.\n')
@@ -49,13 +49,21 @@ def updateSpectralValues(window, widget, basePath, dataPath):
 
     columns = ['Earthquake Name', 'Station code'] + Tn.tolist()
 
-    flatfile = pd.read_csv(os.path.join(dataPath, 'flatFile.csv'), parse_dates=['Earthquake date', 'Start time record', 'Last update'])
+    if os.path.exists(os.path.join(draftPath, 'flatFile.csv')):
+        flatfile = pd.read_csv(os.path.join(draftPath, 'flatFile.csv'), parse_dates=['Earthquake date', 'Start time record', 'Last update'])
+    else:
+        flatfile = pd.read_csv(os.path.join(dataPath, 'flatFile.csv'), parse_dates=['Earthquake date', 'Start time record', 'Last update'])
     flatfile = flatfile[flatfile['Corrected records']]
+
+    if not os.path.exists(os.path.join(draftPath, 'spectralValues')):
+        os.mkdir(os.path.join(draftPath, 'spectralValues'))
 
     if not os.path.exists(os.path.join(dataPath, 'spectralValues')):
         os.mkdir(os.path.join(dataPath, 'spectralValues'))
 
-    if os.path.exists(os.path.join(dataPath, 'spectralValues', 'computed.xlsx')):
+    if os.path.exists(os.path.join(draftPath, 'spectralValues', 'computed.xlsx')):
+        computed = pd.read_excel(os.path.join(draftPath, 'spectralValues', 'computed.xlsx'))
+    elif os.path.exists(os.path.join(dataPath, 'spectralValues', 'computed.xlsx')):
         computed = pd.read_excel(os.path.join(dataPath, 'spectralValues', 'computed.xlsx'))
     else:
         computed = pd.DataFrame([], columns=['Earthquake Name', 'Station code', 'Component 1', 'Component 2', 'Component 3', 'Last update'])
@@ -82,6 +90,10 @@ def updateSpectralValues(window, widget, basePath, dataPath):
         if not os.path.exists(foldername):
             os.mkdir(foldername)
 
+        foldernameDraft = os.path.join(draftPath, 'spectralValues', 'xi_%0.2f' %xi)
+        if not os.path.exists(foldernameDraft):
+            os.mkdir(foldernameDraft)
+
         spectral_values = [[] for i in range(7)]
 
         old_event_id = None
@@ -90,7 +102,12 @@ def updateSpectralValues(window, widget, basePath, dataPath):
             station_code = row['Station code']
 
             if event_id != old_event_id:
-                with np.load(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz'), allow_pickle=True) as f:
+                if os.path.exists(os.path.join(draftPath, 'seismicDatabase', 'npz', event_id + '.npz')):
+                    filename = os.path.join(draftPath, 'seismicDatabase', 'npz', event_id + '.npz')
+                else:
+                    filename = os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz')
+
+                with np.load(filename, allow_pickle=True) as f:
                     data = {}
                     for key, value in f.items():
                         data[key] = value.item()
@@ -170,11 +187,14 @@ def updateSpectralValues(window, widget, basePath, dataPath):
 
             new_spectrum_values = pd.concat([pending.reset_index(drop=True), pd.DataFrame(spectral_values[i], columns=columns[2:])], axis=1)
 
-            filename = os.path.join(foldername, spectrum_name + '.xlsx')
-            if os.path.exists(filename):
-                spectrum_values = pd.read_excel(filename)
+            if os.path.exists(os.path.join(foldernameDraft, spectrum_name + '.xlsx')):
+                spectrum_values = pd.read_excel(os.path.join(foldernameDraft, spectrum_name + '.xlsx'))
+            elif os.path.exists(os.path.join(foldername, spectrum_name + '.xlsx')):
+                spectrum_values = pd.read_excel(os.path.join(foldername, spectrum_name + '.xlsx'))
             else:
                 spectrum_values = pd.DataFrame([], columns=columns)
+
+            filename = os.path.join(foldernameDraft, spectrum_name + '.xlsx')
 
             spectrum_values.drop(indices, inplace=True)
             spectrum_values = pd.concat([spectrum_values, new_spectrum_values], ignore_index=True)
@@ -190,7 +210,7 @@ def updateSpectralValues(window, widget, basePath, dataPath):
     computed = pd.concat([computed, pd.DataFrame(new_rows, columns=['Earthquake Name', 'Station code', 'Component 1', 'Component 2', 'Component 3', 'Last update'])], ignore_index=True)
     computed.sort_values(by=['Earthquake Name', 'Station code'], inplace=True)
 
-    computed.to_excel(os.path.join(dataPath, 'spectralValues', 'computed.xlsx'), index=False)
+    computed.to_excel(os.path.join(draftPath, 'spectralValues', 'computed.xlsx'), index=False)
 
     widget.insert('end', 'Espectros actualizados.\n')
     widget.see('end')
