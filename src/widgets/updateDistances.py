@@ -10,7 +10,7 @@ import lib.computeDistances as computeDistances
 DEFAULT_INDENT = 2
 SORT_KEYS      = True
 
-def updateDistances(window, widget, basePath, dataPath):
+def updateDistances(window, widget, basePath, dataPath, draftPath):
     """
     Función que intenta recalcular las cuatro distancias definidas para cada estación en un evento.
 
@@ -32,7 +32,10 @@ def updateDistances(window, widget, basePath, dataPath):
     """
 
     flatfile = pd.read_csv(os.path.join(basePath, 'data', 'flatFile - backup.csv'), parse_dates=['Earthquake date', 'Start time record', 'Last update'])
-    if os.path.exists(os.path.join(dataPath, 'spectralValues', 'computed.xlsx')):
+
+    if os.path.exists(os.path.join(draftPath, 'spectralValues', 'computed.xlsx')):
+        computed = pd.read_excel(os.path.join(draftPath, 'spectralValues', 'computed.xlsx'))
+    elif os.path.exists(os.path.join(dataPath, 'spectralValues', 'computed.xlsx')):
         computed = pd.read_excel(os.path.join(dataPath, 'spectralValues', 'computed.xlsx'))
     else:
         computed = None
@@ -155,10 +158,15 @@ def updateDistances(window, widget, basePath, dataPath):
 
         if data.get('event_id') != event_id:
             if modified:
-                np.savez_compressed(os.path.join(dataPath, 'seismicDatabase', 'npz', data.get('event_id') + '.npz'), **data)
-                spio.savemat(os.path.join(dataPath, 'seismicDatabase', 'mat', data.get('event_id') + '.mat'), data, do_compression=True)
+                np.savez_compressed(os.path.join(draftPath, 'seismicDatabase', 'npz', data.get('event_id') + '.npz'), **data)
+                spio.savemat(os.path.join(draftPath, 'seismicDatabase', 'mat', data.get('event_id') + '.mat'), data, do_compression=True)
 
-            with np.load(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz'), allow_pickle=True) as f:
+            if os.path.exists(os.path.join(draftPath, 'seismicDatabase', 'npz', event_id + '.npz')):
+                filename = os.path.join(draftPath, 'seismicDatabase', 'npz', event_id + '.npz')
+            else:
+                filename = os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz')
+
+            with np.load(filename, allow_pickle=True) as f:
                 data = {}
                 for key, value in f.items():
                     data[key] = value.item()
@@ -212,18 +220,18 @@ def updateDistances(window, widget, basePath, dataPath):
                 window.update_idletasks()
 
     if modified:
-        np.savez_compressed(os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz'), **data)
-        spio.savemat(os.path.join(dataPath, 'seismicDatabase', 'mat', event_id + '.mat'), data, do_compression=True)
+        np.savez_compressed(os.path.join(draftPath, 'seismicDatabase', 'npz', event_id + '.npz'), **data)
+        spio.savemat(os.path.join(draftPath, 'seismicDatabase', 'mat', event_id + '.mat'), data, do_compression=True)
 
     with open(os.path.join(basePath, 'data', 'p_waves.json'), 'w') as f:
         json.dump(p_waves, f, indent=DEFAULT_INDENT, sort_keys=SORT_KEYS)
 
-    flatfile.to_excel(os.path.join(dataPath, 'flatFile.xlsx'), index=False)
-    flatfile.to_csv(os.path.join(dataPath, 'flatFile.csv'), index=False)
+    flatfile.to_excel(os.path.join(draftPath, 'flatFile.xlsx'), index=False)
+    flatfile.to_csv(os.path.join(draftPath, 'flatFile.csv'), index=False)
     flatfile.to_csv(os.path.join(basePath, 'data', 'flatFile - backup.csv'), index=False)
 
     if computed is not None:
-        computed.to_excel(os.path.join(dataPath, 'spectralValues', 'computed.xlsx'), index=False)
+        computed.to_excel(os.path.join(draftPath, 'spectralValues', 'computed.xlsx'), index=False)
 
     widget.insert('end', '\nProceso finalizado.')
     widget.see('end')
@@ -241,4 +249,3 @@ def distant_distances(d1, d2):
         return False
     
     return True
-

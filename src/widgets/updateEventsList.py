@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 from lib.updateCSNEvents import updateCSNEvents
 
-def updateEventsList(window, widget, basePath, dataPath):
+def updateEventsList(window, widget, basePath, dataPath, draftPath):
 
     if not os.path.exists(os.path.join(basePath, 'tmp')):
         os.mkdir(os.path.join(basePath, 'tmp'))
@@ -18,7 +18,7 @@ def updateEventsList(window, widget, basePath, dataPath):
     filename_RENADIC = 'k2dimntt23gm0b7t'
     filename_CSN     = 'ZW5TFERBT8B0GMQ'
 
-    status = updateCSNEvents(window, widget, basePath, dataPath, filename_CSN)
+    status = updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename_CSN)
 
     if not status:
         return
