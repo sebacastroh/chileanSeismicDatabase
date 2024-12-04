@@ -24,6 +24,7 @@ from widgets.correctRecords       import correctRecords, applyCorrection
 from widgets.updateFlatFile       import updateFlatFile
 from widgets.updateSpectralValues import updateSpectralValues
 from widgets.updateDistances      import updateDistances
+from widgets.draftToMain          import draftToMain
 
 import copyreg
 from types import MethodType
@@ -66,7 +67,7 @@ class TkThread:
     
     def run_tk(self):
         self.root.wm_title("SIBER-RISK Strong Motion Database")
-        self.root.geometry("400x670")
+        self.root.geometry("400x700")
         self.root.configure(background='white')
         
         logo = ImageTk.PhotoImage(file="assets/logo.png")
@@ -113,6 +114,10 @@ class TkThread:
         button_distances = tkinter.Button(master=self.root, text="Actualizar distancias",
                                  command=self._updateDistances)
         button_distances.pack(side=tkinter.TOP, pady=10)
+
+        button_draft2main = tkinter.Button(master=self.root, text="Traspasar borrador a producción",
+                                 command=self._draftToMain)
+        button_draft2main.pack(side=tkinter.TOP, pady=10)
         
         button_quit = tkinter.Button(master=self.root, text="Salir",
                                  command=self._quit)
@@ -328,6 +333,25 @@ class TkThread:
         
         updateDistances(window, text, self.basePath, self.dataPath, self.draftPath)
     
+    def _draftToMain(self):
+        
+        window = tkinter.Toplevel(self.root)
+        window.geometry("800x350")
+        toolbar = tkinter.Frame(window)
+        toolbar.pack(side="top", fill="x")
+        text = tkinter.Text(toolbar, wrap="word")
+        text.pack(side="top", fill="both", expand=True)
+        text.tag_configure("stderr", foreground="#b22222")
+        
+        def _close():
+            window.destroy()
+        
+        button_quit = tkinter.Button(master=window, text="Close",
+                                 command=_close)
+        button_quit.pack(side=tkinter.BOTTOM)
+        
+        draftToMain(window, text, self.basePath, self.dataPath, self.draftPath)
+
     def _quit(self):
         self.root.quit()     # stops mainloop
         self.root.destroy()  # this is necessary on Windows to prevent

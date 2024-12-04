@@ -36,7 +36,7 @@ def downloadNewEvents(window, widget, basePath, dataPath, drafPath):
             if not isinstance(status, bool):
                 records.append([event_id, station_id])
 
-   if not os.path.exists(os.path.join(basePath, 'data', 'rawEvents')):
+    if not os.path.exists(os.path.join(basePath, 'data', 'rawEvents')):
         os.mkdir(os.path.join(basePath, 'data', 'rawEvents'))
 
     if not os.path.exists(os.path.join(basePath, 'data', 'rawEvents', 'mseed')):
