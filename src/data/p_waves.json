@@ -144394,18 +144394,18 @@
   },
   "20230909_4.2M_33.93S_71.30W_55.0KM": {
     "B01O": {
-      "corrected": false,
+      "corrected": true,
       "method": "Automatic",
       "pos": 10301,
       "status": true,
-      "updated": "2024-12-04T18:46:56.235702"
+      "updated": "2024-12-04T20:48:08.200792"
     },
     "B03O": {
-      "corrected": false,
+      "corrected": true,
       "method": "Automatic",
       "pos": 10076,
       "status": true,
-      "updated": "2024-12-04T18:46:56.236651"
+      "updated": "2024-12-04T20:48:08.207374"
     },
     "R10M": {
       "corrected": true,
@@ -144952,11 +144952,11 @@
   },
   "20231008_4.5M_34.67S_71.85W_39.0KM": {
     "B03O": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 8857,
       "status": true,
-      "updated": "2024-12-04T18:46:57.276747"
+      "updated": "2024-12-04T20:48:09.563022"
     },
     "B10O": {
       "corrected": true,
@@ -148923,11 +148923,11 @@
   },
   "20240626_5.0M_26.09S_70.97W_46.0KM": {
     "A04C": {
-      "corrected": false,
+      "corrected": true,
       "method": "Automatic",
       "pos": 8385,
       "status": true,
-      "updated": "2024-12-04T18:46:59.412983"
+      "updated": "2024-12-04T20:48:11.217219"
     },
     "AC01": {
       "corrected": true,
@@ -149694,18 +149694,18 @@
   },
   "20240908_4.4M_34.12S_70.50W_107.0KM": {
     "B01O": {
-      "corrected": false,
+      "corrected": true,
       "method": "Automatic",
       "pos": 9665,
       "status": true,
-      "updated": "2024-12-04T18:47:00.664784"
+      "updated": "2024-12-04T20:48:12.020760"
     },
     "B03O": {
-      "corrected": false,
+      "corrected": true,
       "method": "Automatic",
       "pos": 9619,
       "status": true,
-      "updated": "2024-12-04T18:47:00.665110"
+      "updated": "2024-12-04T20:48:12.024594"
     }
   },
   "20240913_3.6M_32.48S_71.56W_30.0KM": {
@@ -149905,69 +149905,69 @@
   },
   "20241007_3.9M_34.43S_71.56W_53.0KM": {
     "B10O": {
-      "corrected": false,
+      "corrected": true,
       "method": "Automatic",
       "pos": 10593,
       "status": true,
-      "updated": "2024-12-04T18:47:01.189826"
+      "updated": "2024-12-04T20:48:13.014842"
     }
   },
   "20241126_5.6M_30.44S_71.26W_48.0KM": {
     "C16O": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 14560,
       "status": true,
-      "updated": "2024-12-04T18:47:01.640391"
+      "updated": "2024-12-04T20:48:13.681454"
     },
     "C26O": {
-      "corrected": false,
+      "corrected": true,
       "method": "Automatic",
       "pos": 13782,
       "status": true,
-      "updated": "2024-12-04T18:47:01.640940"
+      "updated": "2024-12-04T20:48:13.689221"
     },
     "C28O": {
-      "corrected": false,
+      "corrected": true,
       "method": "Manual",
       "pos": 16051,
       "status": true,
-      "updated": "2024-12-04T18:47:01.641446"
+      "updated": "2024-12-04T20:48:13.696525"
     },
     "CO01": {
-      "corrected": false,
+      "corrected": true,
       "method": "Automatic",
       "pos": 8165,
       "status": true,
-      "updated": "2024-12-04T18:47:01.641767"
+      "updated": "2024-12-04T20:48:13.700734"
     },
     "CO02": {
-      "corrected": false,
+      "corrected": true,
       "method": "Automatic",
       "pos": 7574,
       "status": true,
-      "updated": "2024-12-04T18:47:01.642071"
+      "updated": "2024-12-04T20:48:13.704872"
     },
     "CO03": {
-      "corrected": false,
+      "corrected": true,
       "method": "Automatic",
       "pos": 7389,
       "status": true,
-      "updated": "2024-12-04T18:47:01.642382"
+      "updated": "2024-12-04T20:48:13.708915"
     },
     "CO05": {
-      "corrected": false,
+      "corrected": true,
       "method": "Automatic",
       "pos": 7216,
       "status": true,
-      "updated": "2024-12-04T18:47:01.642656"
+      "updated": "2024-12-04T20:48:13.713521"
     },
     "GO04": {
-      "corrected": false,
+      "corrected": true,
       "method": "Automatic",
       "pos": 7260,
       "status": true,
-      "updated": "2024-12-04T18:47:01.642941"
+      "updated": "2024-12-04T20:48:13.718363"
     }
   }
 }
