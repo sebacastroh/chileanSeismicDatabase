@@ -14,7 +14,7 @@ import pandas as pd
 DEFAULT_INDENT = 2
 SORT_KEYS      = True
 
-def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp_file=None, start_event=''):
+def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp_file=None, start_event=None):
 
     new_events = []
     all_done = False
@@ -118,7 +118,7 @@ def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp
         event_id = row['Identificador']
         url = 'http://evtdb.csn.uchile.cl/event/' + event_id
 
-        if r < start_event_pos:
+        if start_event_pos is not None and r < start_event_pos:
             if registry.get(event_id) is None:
                 registry[event_id] = {}
 
@@ -129,7 +129,7 @@ def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp
 
             continue
         time.sleep(1)
-        widget.insert('end', 'Obteniendo estaciones del evento %s\n' %event_id)
+        widget.insert('end', 'Obteniendo estaciones del evento %s (%i/%i)\n' %(event_id, r+1, len(new_events)))
         widget.see('end')
         window.update_idletasks()
 
