@@ -107,7 +107,7 @@
     "T13A": true
   },
   "030cd73d4cf743e322b7bc88f10abd9e": {
-    "A04C": null,
+    "A04C": true,
     "AC01": true
   },
   "030cd73d4cf743e322b7bc88f10acd1e": {
@@ -8599,7 +8599,7 @@
     "B10O": true
   },
   "581c166b2ae676db69334bc9e7022cc9": {
-    "B03O": null,
+    "B03O": true,
     "B10O": true,
     "B12O": true,
     "M15L": true
@@ -24380,8 +24380,8 @@
     "V13A": true
   },
   "bb570e105e6d75e93470d23dfd00386c": {
-    "B01O": null,
-    "B03O": null,
+    "B01O": true,
+    "B03O": true,
     "R10M": true
   },
   "bb570e105e6d75e93470d23dfd004138": {
@@ -24400,21 +24400,21 @@
     "A31C": true
   },
   "bb570e105e6d75e93470d23dfd0a274b": {
-    "C16O": null,
-    "C26O": null,
-    "C28O": null,
-    "CO01": null,
-    "CO02": null,
-    "CO03": null,
-    "CO05": null,
-    "GO04": null
+    "C16O": true,
+    "C26O": true,
+    "C28O": true,
+    "CO01": true,
+    "CO02": true,
+    "CO03": true,
+    "CO05": true,
+    "GO04": true
   },
   "bb570e105e6d75e93470d23dfd0a3385": {
-    "B01O": null,
-    "B03O": null
+    "B01O": true,
+    "B03O": true
   },
   "bb570e105e6d75e93470d23dfd0a35c7": {
-    "B10O": null
+    "B10O": true
   },
   "df2a076225125497eab3b8f487001290": {
     "C08O": true

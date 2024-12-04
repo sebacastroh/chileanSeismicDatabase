@@ -144393,6 +144393,16 @@
     }
   },
   "20230909_4.2M_33.93S_71.30W_55.0KM": {
+    "B01O": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-12-04T18:46:56.235702"
+    },
+    "B03O": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-12-04T18:46:56.236651"
+    },
     "R10M": {
       "corrected": true,
       "method": "Automatic",
@@ -144937,6 +144947,11 @@
     }
   },
   "20231008_4.5M_34.67S_71.85W_39.0KM": {
+    "B03O": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-12-04T18:46:57.276747"
+    },
     "B10O": {
       "corrected": true,
       "method": "Automatic",
@@ -148901,6 +148916,11 @@
     }
   },
   "20240626_5.0M_26.09S_70.97W_46.0KM": {
+    "A04C": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-12-04T18:46:59.412983"
+    },
     "AC01": {
       "corrected": true,
       "method": "Automatic",
@@ -149664,6 +149684,18 @@
       "updated": "2024-10-24T10:47:52.871562"
     }
   },
+  "20240908_4.4M_34.12S_70.50W_107.0KM": {
+    "B01O": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-12-04T18:47:00.664784"
+    },
+    "B03O": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-12-04T18:47:00.665110"
+    }
+  },
   "20240913_3.6M_32.48S_71.56W_30.0KM": {
     "V13A": {
       "corrected": true,
@@ -149857,6 +149889,55 @@
       "pos": 7365,
       "status": true,
       "updated": "2024-11-05T23:53:44.983271"
+    }
+  },
+  "20241007_3.9M_34.43S_71.56W_53.0KM": {
+    "B10O": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-12-04T18:47:01.189826"
+    }
+  },
+  "20241126_5.6M_30.44S_71.26W_48.0KM": {
+    "C16O": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-12-04T18:47:01.640391"
+    },
+    "C26O": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-12-04T18:47:01.640940"
+    },
+    "C28O": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-12-04T18:47:01.641446"
+    },
+    "CO01": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-12-04T18:47:01.641767"
+    },
+    "CO02": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-12-04T18:47:01.642071"
+    },
+    "CO03": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-12-04T18:47:01.642382"
+    },
+    "CO05": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-12-04T18:47:01.642656"
+    },
+    "GO04": {
+      "corrected": false,
+      "status": null,
+      "updated": "2024-12-04T18:47:01.642941"
     }
   }
 }
