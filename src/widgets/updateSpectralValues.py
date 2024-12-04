@@ -9,7 +9,7 @@ import seismic
 import numpy as np
 import pandas as pd
 
-def updateSpectralValues(window, widget, basePath, dataPath, drafPath):
+def updateSpectralValues(window, widget, basePath, dataPath, draftPath):
 
     if not os.path.exists(os.path.join(dataPath, 'seismicDatabase', 'npz')):
         widget.insert('end', 'No existen registros almacenados para registrar en la base de datos.\n')
