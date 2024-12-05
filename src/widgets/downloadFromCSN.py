@@ -25,7 +25,7 @@ def is_json(val):
     except (TypeError, OverflowError):
         return False
 
-def downloadNewEvents(window, widget, basePath, dataPath):
+def downloadNewEvents(window, widget, basePath, dataPath, drafPath):
 
     with open(os.path.join(basePath, 'data', 'eventLists', 'registry.json')) as f:
         registry = json.load(f)
@@ -35,6 +35,15 @@ def downloadNewEvents(window, widget, basePath, dataPath):
         for station_id, status in stations.items():
             if not isinstance(status, bool):
                 records.append([event_id, station_id])
+
+    if not os.path.exists(os.path.join(basePath, 'data', 'rawEvents')):
+        os.mkdir(os.path.join(basePath, 'data', 'rawEvents'))
+
+    if not os.path.exists(os.path.join(basePath, 'data', 'rawEvents', 'mseed')):
+        os.mkdir(os.path.join(basePath, 'data', 'rawEvents', 'mseed'))
+
+    if not os.path.exists(os.path.join(basePath, 'data', 'rawEvents', 'txt')):
+        os.mkdir(os.path.join(basePath, 'data', 'rawEvents', 'txt'))
 
     failed_files = []
     for r, record in enumerate(records):        

@@ -24,6 +24,7 @@ from widgets.correctRecords       import correctRecords, applyCorrection
 from widgets.updateFlatFile       import updateFlatFile
 from widgets.updateSpectralValues import updateSpectralValues
 from widgets.updateDistances      import updateDistances
+from widgets.draftToMain          import draftToMain
 
 import copyreg
 from types import MethodType
@@ -58,14 +59,15 @@ def run_correction(inp):
     return output
 
 class TkThread:
-    def __init__(self, basePath = None, dataPath = None):
+    def __init__(self, basePath = None, dataPath = None, draftPath = None):
         self.root = tkinter.Tk()
         self.basePath = basePath
         self.dataPath = dataPath
+        self.draftPath = draftPath
     
     def run_tk(self):
         self.root.wm_title("SIBER-RISK Strong Motion Database")
-        self.root.geometry("400x670")
+        self.root.geometry("400x700")
         self.root.configure(background='white')
         
         logo = ImageTk.PhotoImage(file="assets/logo.png")
@@ -112,6 +114,10 @@ class TkThread:
         button_distances = tkinter.Button(master=self.root, text="Actualizar distancias",
                                  command=self._updateDistances)
         button_distances.pack(side=tkinter.TOP, pady=10)
+
+        button_draft2main = tkinter.Button(master=self.root, text="Traspasar borrador a producción",
+                                 command=self._draftToMain)
+        button_draft2main.pack(side=tkinter.TOP, pady=10)
         
         button_quit = tkinter.Button(master=self.root, text="Salir",
                                  command=self._quit)
@@ -134,7 +140,7 @@ class TkThread:
                                   command=_close)
         button_quit.pack(side=tkinter.BOTTOM)
         window.update_idletasks()
-        updateEventsList(window, text, self.basePath, self.dataPath)
+        updateEventsList(window, text, self.basePath, self.dataPath, self.draftPath)
 
     def _download(self):
         window = tkinter.Toplevel(self.root)
@@ -151,7 +157,7 @@ class TkThread:
                                   command=_close)
         button_quit.pack(side=tkinter.BOTTOM)
         window.update_idletasks()
-        downloadNewEvents(window, text, self.basePath, self.dataPath)
+        downloadNewEvents(window, text, self.basePath, self.dataPath, self.draftPath)
     
     def _transformRecords(self):        
         window = tkinter.Toplevel(self.root)
@@ -168,7 +174,7 @@ class TkThread:
                                   command=_close)
         button_quit.pack(side=tkinter.BOTTOM)
         window.update_idletasks()
-        transformRecords(window, text, self.basePath, self.dataPath)
+        transformRecords(window, text, self.basePath, self.dataPath, self.draftPath)
     
     def _pwave_detection(self):
         window = tkinter.Toplevel(self.root)
@@ -187,14 +193,14 @@ class TkThread:
 
         def _process():
             button_process['state'] = 'disabled'
-            detect_p_wave(window, self.basePath, self.dataPath)
+            detect_p_wave(window, self.basePath, self.dataPath, self.draftPath)
 
         button_process = tkinter.Button(master=window, text="Iniciar detección onda P",
                                   command=_process)
         button_process.pack(side=tkinter.RIGHT)
 
         window.update_idletasks()
-        disable = automatic_p_wave(window, text, self.basePath, self.dataPath)
+        disable = automatic_p_wave(window, text, self.basePath, self.dataPath, self.draftPath)
         if disable:
             button_process['state'] = 'disabled'
     
@@ -215,14 +221,14 @@ class TkThread:
 
         def _process():
             button_process['state'] = 'disabled'
-            detect_p_wave(window, self.basePath, self.dataPath)
+            detect_p_wave(window, self.basePath, self.dataPath, self.draftPath)
 
         button_process = tkinter.Button(master=window, text="Iniciar detección onda P registros pospuestos",
                                   command=_process)
         button_process.pack(side=tkinter.RIGHT)
 
         window.update_idletasks()
-        disable = automatic_p_wave(window, text, self.basePath, self.dataPath, str)
+        disable = automatic_p_wave(window, text, self.basePath, self.dataPath, self.draftPath, str)
         if disable:
             button_process['state'] = 'disabled'
 
@@ -247,14 +253,14 @@ class TkThread:
             button_serial_process['state']   = 'disabled'
             button_parallel_process['state'] = 'disabled'
             button_quit['state'] = 'disabled'
-            applyCorrection(window, text, self.basePath, self.dataPath, False)
+            applyCorrection(window, text, self.basePath, self.dataPath, self.draftPath, False)
             button_quit['state'] = 'normal'
 
         def _parallel_process():
             button_serial_process['state']   = 'disabled'
             button_parallel_process['state'] = 'disabled'
             button_quit['state'] = 'disabled'
-            applyCorrection(window, text, self.basePath, self.dataPath, True)
+            applyCorrection(window, text, self.basePath, self.dataPath, self.draftPath, True)
             button_quit['state'] = 'normal'
 
         button_serial_process = tkinter.Button(master=window, text="Ejecución en serie",
@@ -266,7 +272,7 @@ class TkThread:
         button_parallel_process.pack(side=tkinter.RIGHT)
 
         window.update_idletasks()
-        disable = correctRecords(window, text, self.basePath, self.dataPath)
+        disable = correctRecords(window, text, self.basePath, self.dataPath, self.draftPath)
         
         if disable:
             button_serial_process['state']   = 'disabled'
@@ -288,7 +294,7 @@ class TkThread:
                                  command=_close)
         button_quit.pack(side=tkinter.BOTTOM)
         
-        updateFlatFile(window, text, self.basePath, self.dataPath)
+        updateFlatFile(window, text, self.basePath, self.dataPath, self.draftPath)
         
     def _updateSpectralValues(self):
         
@@ -306,7 +312,7 @@ class TkThread:
                                  command=_close)
         button_quit.pack(side=tkinter.BOTTOM)
         
-        updateSpectralValues(window, text, self.basePath, self.dataPath)
+        updateSpectralValues(window, text, self.basePath, self.dataPath, self.draftPath)
         
     def _updateDistances(self):
         
@@ -325,8 +331,27 @@ class TkThread:
                                  command=_close)
         button_quit.pack(side=tkinter.BOTTOM)
         
-        updateDistances(window, text, self.basePath, self.dataPath)
+        updateDistances(window, text, self.basePath, self.dataPath, self.draftPath)
     
+    def _draftToMain(self):
+        
+        window = tkinter.Toplevel(self.root)
+        window.geometry("800x350")
+        toolbar = tkinter.Frame(window)
+        toolbar.pack(side="top", fill="x")
+        text = tkinter.Text(toolbar, wrap="word")
+        text.pack(side="top", fill="both", expand=True)
+        text.tag_configure("stderr", foreground="#b22222")
+        
+        def _close():
+            window.destroy()
+        
+        button_quit = tkinter.Button(master=window, text="Close",
+                                 command=_close)
+        button_quit.pack(side=tkinter.BOTTOM)
+        
+        draftToMain(window, text, self.basePath, self.dataPath, self.draftPath)
+
     def _quit(self):
         self.root.quit()     # stops mainloop
         self.root.destroy()  # this is necessary on Windows to prevent
@@ -334,9 +359,10 @@ class TkThread:
 
 if __name__ == '__main__':
 
-    basePath = os.path.abspath('.')
-    dataPath = os.path.abspath(os.path.join('.', '..', 'data'))
+    basePath  = os.path.abspath('.')
+    dataPath  = os.path.abspath(os.path.join('.', '..', 'data'))
+    draftPath = os.path.abspath(os.path.join('.', '..', 'draft'))
 
     copyreg.pickle(MethodType, _pickle_method, _unpickle_method)
-    tk_thread = TkThread(basePath, dataPath)
+    tk_thread = TkThread(basePath, dataPath, draftPath)
     tk_thread.run_tk()

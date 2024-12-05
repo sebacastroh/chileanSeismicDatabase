@@ -31,6 +31,7 @@ from jinja2 import Environment, FileSystemLoader
 # Paths
 currentDir = os.path.dirname(__file__)
 dataPath   = os.path.abspath(os.path.join(currentDir, '..', '..', '..', 'data'))
+draftPath  = os.path.abspath(os.path.join(currentDir, '..', '..', '..', 'draft'))
 libPath    = os.path.abspath(os.path.join(currentDir, '..', '..', 'lib'))
 srcPath    = os.path.abspath(os.path.join(currentDir, '..', '..'))
 
@@ -74,6 +75,15 @@ station_attributes = [('starttime', 'Start time'),
     ('azimuth', 'Azimuth [o]'),
     ('last_update', 'Last update')]
 seismic_component  = 'acc_filtered_'
+
+##################
+##  Draft mode  ##
+##################
+args = curdoc().session_context.request.arguments
+try:
+    draft = True if args.get('draft')[0].decode() == 'True' else False
+except:
+    draft = False
 
 ########################
 ##  Global variables  ##
@@ -350,7 +360,11 @@ tabs_plots    = Tabs(tabs=panel_plots[0],
 ######################################
 def load_event(event_name):
     stations_codes = []
-    with np.load(os.path.join(dataPath, 'seismicDatabase', 'npz', event_name + '.npz'), allow_pickle=True) as f:
+    if draft and os.path.exists(os.path.join(draftPath, 'seismicDatabase', 'npz', event_name + '.npz')):
+        filename = os.path.join(draftPath, 'seismicDatabase', 'npz', event_name + '.npz')
+    else:
+        filename = os.path.join(dataPath, 'seismicDatabase', 'npz', event_name + '.npz')
+    with np.load(filename, allow_pickle=True) as f:
         event = {}
         for key, value in f.items():
             if not key.startswith('st'):
@@ -760,7 +774,10 @@ button_download.js_on_event(ButtonClick, Download)
 with open(os.path.join(srcPath, 'data', 'p_waves.json')) as f:
     p_waves = json.load(f)
 
-flatfile = pd.read_csv(os.path.join(dataPath, 'flatFile.csv'))
+if draft and os.path.exists(os.path.join(draftPath, 'flatFile.csv')):
+    flatfile = pd.read_csv(os.path.join(draftPath, 'flatFile.csv'))
+else:
+    flatfile = pd.read_csv(os.path.join(dataPath, 'flatFile.csv'))
 flatfile = flatfile[flatfile['Corrected records']]
 
 # Dates
