@@ -6,17 +6,32 @@ Este repositorio contiene los códigos y configuración necesarios para levantar
 
 ```bash
 .
-├── data
-│   └── seismicDatabase
-│       ├── npz
-│       └── mat
+├── data¹
+│   ├── seismicDatabase
+│   │   ├── npz
+│   │   └── mat
+│   └── spectralValues
+│       ├── xi_0.02
+│       ├── xi_0.03
+│       ├── xi_0.05
+│       ├── xi_0.08
+│       ├── xi_0.10
+│       ├── xi_0.15
+│       ├── xi_0.20
+│       ├── xi_0.30
+│       └── xi_0.50
+├── draft¹˒²
 ├── examples
 ├── local
 │   └── siberrisk
 └── src
     ├── assets
     ├── data
-    │   └── ffm
+    │   ├── eventLists
+    │   ├── ffm
+    │   └── rawEvents¹
+    │      ├── mseed
+    │      └── txt
     ├── lib
     │   └── pyrjmcmc
     │      └── models
@@ -30,6 +45,9 @@ Este repositorio contiene los códigos y configuración necesarios para levantar
     │      └── templates
     └── widgets
 ```
+¹ *Carpeta no sincronizada con Github*
+
+² *Tiene la misma estructura que ```data```*
 
 ## Código fuente
 
@@ -39,10 +57,10 @@ Todo el código relacionado tanto a la detección de la onda P, la corrección p
 python3 main.py
 ````
 
-En tanto, para levantar la página web del servidor se debe levantar un servidor local de ```bokeh``` con el archivo ```src/websites/StrongMotionDatabase/home.py```, por ejemplo desde la ruta ```src/websites``` ejecutar el siguiente comando:
+En tanto, para levantar la página web del servidor se debe levantar un servidor local de ```bokeh``` con los archivos ```src/websites/StrongMotionDatabase/home.py``` y ```src/websites/StrongMotionDatabase/downloadManager.py```. Desde la ruta ```src/websites``` se puede ejecutar el siguiente comando:
 
 ```shell
-bokeh serve StrongMotionDatabase/home.py --allow-websocket-origin=* --prefix=StrongMotionDatabase
+bokeh serve StrongMotionDatabase/home.py StrongMotionDatabase/downloadManager.py --port 5100 --allow-websocket-origin siberrisk.ing.puc.cl --use-xheaders --index=src/websites/StrongMotionDatabase/templates/index.html --prefix=StrongMotionDatabase --args http://localhost:5006/
 ```
 
 La ejecución del código crea carpetas que no se sincronizan con GitHub necesariamente.
@@ -60,7 +78,7 @@ Los servicios que se levantan se detallan en ```local/siberrisk/docker-compose.y
 
 ## Base de datos
 
-La base de datos, ya sea corregida o no, se almacena en la ruta ```data```. Por razones de tamaño, esta carpeta no se sincroniza con GitHub. Los registros corregidos se guardan en archivos ```.npz``` para ser leidos en Python utilizando la librería NumPy, y en archivos ```.mat``` para ser leidos a través del programa MATLAB.
+La base de datos, ya sea corregida o no, se almacena en la ruta ```data```. Por razones de tamaño, esta carpeta no se sincroniza con GitHub. Los registros corregidos se guardan en archivos ```.npz``` para ser leídos en Python utilizando la librería NumPy, y en archivos ```.mat``` para ser leidos a través del programa MATLAB.
 
 ## Equipo
 
