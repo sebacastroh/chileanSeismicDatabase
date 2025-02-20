@@ -1,5 +1,5 @@
 # Use official miniconda image as the base image
-FROM continuumio/miniconda3 as miniconda3
+FROM continuumio/miniconda3 AS miniconda3
 
 # Set the working directory
 WORKDIR /usr/local/src
