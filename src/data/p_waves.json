@@ -81677,7 +81677,9 @@
     },
     "M02L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 5955,
+      "status": true,
       "updated": "2025-03-05T14:49:45.050698"
     },
     "M03L": {
@@ -83657,7 +83659,9 @@
     },
     "M02L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 2555,
+      "status": true,
       "updated": "2025-03-05T14:50:08.270039"
     },
     "M04L": {
@@ -90350,7 +90354,9 @@
     },
     "M02L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8120,
+      "status": true,
       "updated": "2025-03-05T14:50:46.082474"
     },
     "M03L": {
@@ -101250,7 +101256,9 @@
     },
     "M02L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9830,
+      "status": true,
       "updated": "2025-03-05T14:50:59.438103"
     },
     "M03L": {
@@ -103272,7 +103280,9 @@
     },
     "M02L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 7425,
+      "status": true,
       "updated": "2025-03-05T14:51:13.721215"
     },
     "M03L": {
@@ -107537,7 +107547,9 @@
     },
     "M02L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 7062,
+      "status": true,
       "updated": "2025-03-05T14:51:37.218830"
     },
     "M05L": {
@@ -114875,7 +114887,9 @@
     },
     "M02L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9683,
+      "status": true,
       "updated": "2025-03-05T14:51:59.087835"
     },
     "M04L": {
@@ -125575,7 +125589,9 @@
     },
     "M02L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9811,
+      "status": true,
       "updated": "2025-03-05T14:52:05.871497"
     },
     "M03L": {
@@ -130297,12 +130313,16 @@
     },
     "M02L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 11985,
+      "status": true,
       "updated": "2025-03-05T14:52:12.359345"
     },
     "M11L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 7997,
+      "status": true,
       "updated": "2025-03-05T14:52:12.360266"
     },
     "M15L": {
@@ -130784,7 +130804,9 @@
     },
     "M11L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 10451,
+      "status": true,
       "updated": "2025-03-05T14:52:31.696132"
     },
     "M15L": {
@@ -130812,7 +130834,9 @@
     },
     "M05L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10568,
+      "status": true,
       "updated": "2025-03-05T14:52:33.319541"
     }
   },
@@ -131167,7 +131191,9 @@
     },
     "M05L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 12024,
+      "status": true,
       "updated": "2025-03-05T14:52:34.318294"
     },
     "M09L": {
@@ -131179,7 +131205,9 @@
     },
     "M11L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 11995,
+      "status": true,
       "updated": "2025-03-05T14:52:34.319144"
     },
     "M15L": {
@@ -131265,7 +131293,9 @@
     },
     "M11L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9494,
+      "status": true,
       "updated": "2025-03-05T14:52:36.438881"
     },
     "M13L": {
@@ -132209,7 +132239,9 @@
     },
     "L09L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 11771,
+      "status": true,
       "updated": "2025-03-05T14:52:37.640987"
     },
     "L11R": {
@@ -134296,7 +134328,9 @@
     },
     "L02C": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 5646,
+      "status": true,
       "updated": "2025-03-05T14:52:41.309088"
     },
     "L02R": {
@@ -134315,7 +134349,9 @@
     },
     "L05C": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 5913,
+      "status": true,
       "updated": "2025-03-05T14:52:41.309885"
     },
     "L05R": {
@@ -134355,17 +134391,23 @@
     },
     "M08L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 4636,
+      "status": true,
       "updated": "2025-03-05T14:52:41.310650"
     },
     "M09L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 4397,
+      "status": true,
       "updated": "2025-03-05T14:52:41.311400"
     },
     "M13L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 6017,
+      "status": true,
       "updated": "2025-03-05T14:52:41.312160"
     }
   },
@@ -134940,42 +134982,58 @@
     },
     "M01L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10223,
+      "status": true,
       "updated": "2025-03-05T14:52:46.418286"
     },
     "M02L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9608,
+      "status": true,
       "updated": "2025-03-05T14:52:46.419067"
     },
     "M03L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10024,
+      "status": true,
       "updated": "2025-03-05T14:52:46.419821"
     },
     "M05L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10001,
+      "status": true,
       "updated": "2025-03-05T14:52:46.420574"
     },
     "M08L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8083,
+      "status": true,
       "updated": "2025-03-05T14:52:46.421320"
     },
     "M09L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9365,
+      "status": true,
       "updated": "2025-03-05T14:52:46.422063"
     },
     "M11L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 11962,
+      "status": true,
       "updated": "2025-03-05T14:52:46.422857"
     },
     "M13L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9085,
+      "status": true,
       "updated": "2025-03-05T14:52:46.423608"
     },
     "M15L": {
@@ -134987,7 +135045,9 @@
     },
     "M17L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9574,
+      "status": true,
       "updated": "2025-03-05T14:52:46.424376"
     },
     "ML03": {
@@ -135190,7 +135250,9 @@
     },
     "M17L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 11135,
+      "status": true,
       "updated": "2025-03-05T14:52:51.907083"
     }
   },
@@ -135493,7 +135555,9 @@
   "20221208_4.3M_35.54S_71.52W_75.0KM": {
     "M11L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10334,
+      "status": true,
       "updated": "2025-03-05T14:52:52.504098"
     }
   },
@@ -138891,7 +138955,9 @@
   "20230301_3.9M_34.80S_71.83W_41.0KM": {
     "M17L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10767,
+      "status": true,
       "updated": "2025-03-05T14:52:52.837726"
     }
   },
@@ -139243,7 +139309,9 @@
     },
     "L09L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 11996,
+      "status": true,
       "updated": "2025-03-05T14:52:53.311340"
     },
     "L11L": {
@@ -139496,17 +139564,23 @@
     },
     "M01L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 6489,
+      "status": true,
       "updated": "2025-03-05T14:52:58.072847"
     },
     "M03L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 8325,
+      "status": true,
       "updated": "2025-03-05T14:52:58.073663"
     },
     "M11L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 6617,
+      "status": true,
       "updated": "2025-03-05T14:52:58.074429"
     },
     "M15L": {
@@ -139518,7 +139592,9 @@
     },
     "M17L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 7803,
+      "status": true,
       "updated": "2025-03-05T14:52:58.075202"
     },
     "MT01": {
@@ -140163,7 +140239,9 @@
     },
     "M08L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10009,
+      "status": true,
       "updated": "2025-03-05T14:53:23.010734"
     },
     "M10L": {
@@ -140175,7 +140253,9 @@
     },
     "M13L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9444,
+      "status": true,
       "updated": "2025-03-05T14:53:23.011532"
     }
   },
@@ -140282,17 +140362,23 @@
     },
     "M05L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 4468,
+      "status": true,
       "updated": "2025-03-05T14:53:27.645391"
     },
     "M08L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 8304,
+      "status": true,
       "updated": "2025-03-05T14:53:27.646195"
     },
     "M09L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 8411,
+      "status": true,
       "updated": "2025-03-05T14:53:27.646935"
     },
     "M10L": {
@@ -140304,7 +140390,9 @@
     },
     "M11L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 5118,
+      "status": true,
       "updated": "2025-03-05T14:53:27.647678"
     },
     "M15L": {
@@ -141037,27 +141125,37 @@
     },
     "M01L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9907,
+      "status": true,
       "updated": "2025-03-05T14:53:32.033027"
     },
     "M02L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9174,
+      "status": true,
       "updated": "2025-03-05T14:53:32.033867"
     },
     "M03L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9494,
+      "status": true,
       "updated": "2025-03-05T14:53:32.034637"
     },
     "M05L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9426,
+      "status": true,
       "updated": "2025-03-05T14:53:32.035369"
     },
     "M09L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9225,
+      "status": true,
       "updated": "2025-03-05T14:53:32.036093"
     },
     "M10L": {
@@ -141069,12 +141167,16 @@
     },
     "M11L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 11872,
+      "status": true,
       "updated": "2025-03-05T14:53:32.036858"
     },
     "M13L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9592,
+      "status": true,
       "updated": "2025-03-05T14:53:32.037597"
     },
     "M15L": {
@@ -141086,12 +141188,16 @@
     },
     "M16L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9907,
+      "status": true,
       "updated": "2025-03-05T14:53:32.038323"
     },
     "M17L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9329,
+      "status": true,
       "updated": "2025-03-05T14:53:32.039049"
     },
     "ML02": {
@@ -142167,32 +142273,44 @@
     },
     "M01L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9510,
+      "status": true,
       "updated": "2025-03-05T14:53:37.312583"
     },
     "M02L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9355,
+      "status": true,
       "updated": "2025-03-05T14:53:37.313387"
     },
     "M03L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9916,
+      "status": true,
       "updated": "2025-03-05T14:53:37.314141"
     },
     "M05L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9933,
+      "status": true,
       "updated": "2025-03-05T14:53:37.314892"
     },
     "M09L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 8592,
+      "status": true,
       "updated": "2025-03-05T14:53:37.315642"
     },
     "M11L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9428,
+      "status": true,
       "updated": "2025-03-05T14:53:37.316408"
     },
     "M15L": {
@@ -142276,32 +142394,44 @@
     },
     "M01L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9170,
+      "status": true,
       "updated": "2025-03-05T14:53:45.509279"
     },
     "M02L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 11916,
+      "status": true,
       "updated": "2025-03-05T14:53:45.509580"
     },
     "M03L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9759,
+      "status": true,
       "updated": "2025-03-05T14:53:45.509850"
     },
     "M05L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9812,
+      "status": true,
       "updated": "2025-03-05T14:53:45.510091"
     },
     "M11L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9179,
+      "status": true,
       "updated": "2025-03-05T14:53:45.510326"
     },
     "M17L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9122,
+      "status": true,
       "updated": "2025-03-05T14:53:45.510558"
     }
   },
@@ -142451,7 +142581,9 @@
   "20230706_3.7M_35.09S_71.31W_80.0KM": {
     "M11L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9939,
+      "status": true,
       "updated": "2025-03-05T14:53:47.295356"
     }
   },
@@ -143090,7 +143222,9 @@
   "20230713_3.9M_34.91S_71.80W_42.0KM": {
     "M17L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10802,
+      "status": true,
       "updated": "2025-03-05T14:53:48.200397"
     }
   },
@@ -143365,7 +143499,9 @@
     },
     "L02C": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 4485,
+      "status": true,
       "updated": "2025-03-05T14:53:50.758969"
     },
     "L02L": {
@@ -143398,7 +143534,9 @@
     },
     "L05C": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7352,
+      "status": true,
       "updated": "2025-03-05T14:53:50.759809"
     },
     "L05L": {
@@ -143431,7 +143569,9 @@
     },
     "L09L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9136,
+      "status": true,
       "updated": "2025-03-05T14:53:50.760580"
     },
     "L10L": {
@@ -143513,22 +143653,30 @@
     },
     "M01L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 4708,
+      "status": true,
       "updated": "2025-03-05T14:53:50.761363"
     },
     "M03L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 3801,
+      "status": true,
       "updated": "2025-03-05T14:53:50.762104"
     },
     "M05L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 3782,
+      "status": true,
       "updated": "2025-03-05T14:53:50.762849"
     },
     "M09L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 11646,
+      "status": true,
       "updated": "2025-03-05T14:53:50.763735"
     },
     "M10L": {
@@ -143540,12 +143688,16 @@
     },
     "M11L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 11648,
+      "status": true,
       "updated": "2025-03-05T14:53:50.764613"
     },
     "M13L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 11838,
+      "status": true,
       "updated": "2025-03-05T14:53:50.765504"
     },
     "M15L": {
@@ -143557,12 +143709,16 @@
     },
     "M16L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 4050,
+      "status": true,
       "updated": "2025-03-05T14:53:50.766248"
     },
     "M17L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 3553,
+      "status": true,
       "updated": "2025-03-05T14:53:50.767004"
     },
     "ML03": {
@@ -143859,17 +144015,23 @@
   "20230725_4.2M_35.62S_71.46W_93.0KM": {
     "M01L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9777,
+      "status": true,
       "updated": "2025-03-05T14:54:15.347155"
     },
     "M11L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9979,
+      "status": true,
       "updated": "2025-03-05T14:54:15.347509"
     },
     "M13L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9461,
+      "status": true,
       "updated": "2025-03-05T14:54:15.348031"
     }
   },
@@ -143922,27 +144084,37 @@
   "20230730_4.1M_34.91S_71.72W_56.0KM": {
     "M01L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10311,
+      "status": true,
       "updated": "2025-03-05T14:54:16.033130"
     },
     "M03L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10274,
+      "status": true,
       "updated": "2025-03-05T14:54:16.033468"
     },
     "M05L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10468,
+      "status": true,
       "updated": "2025-03-05T14:54:16.033763"
     },
     "M09L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9400,
+      "status": true,
       "updated": "2025-03-05T14:54:16.033991"
     },
     "M11L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 11983,
+      "status": true,
       "updated": "2025-03-05T14:54:16.034289"
     },
     "M15L": {
@@ -144062,7 +144234,9 @@
   "20230805_3.9M_41.73S_73.90W_28.0KM": {
     "L09L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 11061,
+      "status": true,
       "updated": "2025-03-05T14:54:17.298872"
     }
   },
@@ -144415,7 +144589,9 @@
     },
     "R14M": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9866,
+      "status": true,
       "updated": "2025-03-05T14:54:18.100641"
     },
     "R16M": {
@@ -144611,7 +144787,9 @@
   "20230828_4.0M_41.64S_73.94W_28.0KM": {
     "L09L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10845,
+      "status": true,
       "updated": "2025-03-05T14:54:22.343128"
     }
   },
@@ -144817,7 +144995,9 @@
     },
     "M13L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9871,
+      "status": true,
       "updated": "2025-03-05T14:54:22.919767"
     }
   },
@@ -145988,27 +146168,37 @@
     },
     "M01L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 10086,
+      "status": true,
       "updated": "2025-03-05T14:54:26.594714"
     },
     "M03L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10347,
+      "status": true,
       "updated": "2025-03-05T14:54:26.595512"
     },
     "M05L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10353,
+      "status": true,
       "updated": "2025-03-05T14:54:26.596258"
     },
     "M09L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 8886,
+      "status": true,
       "updated": "2025-03-05T14:54:26.596994"
     },
     "M11L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9977,
+      "status": true,
       "updated": "2025-03-05T14:54:26.597739"
     },
     "M15L": {
@@ -146020,7 +146210,9 @@
     },
     "M17L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 12108,
+      "status": true,
       "updated": "2025-03-05T14:54:26.598490"
     }
   },
@@ -147225,12 +147417,16 @@
     },
     "M03L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10508,
+      "status": true,
       "updated": "2025-03-05T14:54:29.200812"
     },
     "M05L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10660,
+      "status": true,
       "updated": "2025-03-05T14:54:29.201081"
     }
   },
@@ -147246,7 +147442,9 @@
   "20231112_4.0M_34.91S_71.72W_43.0KM": {
     "M05L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10537,
+      "status": true,
       "updated": "2025-03-05T14:54:29.941111"
     }
   },
@@ -147280,17 +147478,23 @@
   "20231118_4.0M_35.03S_71.80W_44.0KM": {
     "M01L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10468,
+      "status": true,
       "updated": "2025-03-05T14:54:30.202895"
     },
     "M05L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10476,
+      "status": true,
       "updated": "2025-03-05T14:54:30.203233"
     },
     "M11L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 10395,
+      "status": true,
       "updated": "2025-03-05T14:54:30.203459"
     }
   },
@@ -148087,7 +148291,9 @@
     },
     "L01C": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 7761,
+      "status": true,
       "updated": "2025-03-05T14:54:31.232723"
     },
     "LC02": {
@@ -148211,19 +148417,25 @@
   "20240111_4.4M_34.77S_71.70W_50.0KM": {
     "M03L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10503,
+      "status": true,
       "updated": "2025-03-05T14:54:32.262106"
     },
     "M05L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10506,
+      "status": true,
       "updated": "2025-03-05T14:54:32.262418"
     }
   },
   "20240112_2.6M_35.07S_70.61W_20.0KM": {
     "M19L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 11690,
+      "status": true,
       "updated": "2025-03-05T14:54:32.690768"
     }
   },
@@ -148426,7 +148638,9 @@
   "20240128_4.5M_39.67S_72.53W_89.0KM": {
     "L01C": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9112,
+      "status": true,
       "updated": "2025-03-05T14:54:33.046074"
     },
     "L01R": {
@@ -149126,12 +149340,16 @@
   "20240227_4.0M_35.01S_71.06W_105.0KM": {
     "M05L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9777,
+      "status": true,
       "updated": "2025-03-05T14:54:34.314389"
     },
     "M11L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9299,
+      "status": true,
       "updated": "2025-03-05T14:54:34.314693"
     }
   },
@@ -149165,7 +149383,9 @@
   "20240303_3.8M_35.07S_71.09W_96.0KM": {
     "M11L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9505,
+      "status": true,
       "updated": "2025-03-05T14:54:34.783278"
     }
   },
@@ -149751,12 +149971,16 @@
     },
     "L01C": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 6475,
+      "status": true,
       "updated": "2025-03-05T14:54:35.496481"
     },
     "M13L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 8625,
+      "status": true,
       "updated": "2025-03-05T14:54:35.497282"
     }
   },
@@ -150050,7 +150274,9 @@
   "20240513_5.2M_35.41S_73.28W_36.0KM": {
     "M09L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9170,
+      "status": true,
       "updated": "2025-03-05T14:54:38.084555"
     }
   },
@@ -150504,7 +150730,9 @@
   "20240706_4.2M_41.95S_73.52W_59.0KM": {
     "L09L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 10706,
+      "status": true,
       "updated": "2025-03-05T14:54:38.405960"
     }
   },
@@ -151031,12 +151259,16 @@
   "20240810_4.0M_35.92S_71.81W_78.0KM": {
     "M01L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 9931,
+      "status": true,
       "updated": "2025-03-05T14:54:39.410553"
     },
     "M13L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 10188,
+      "status": true,
       "updated": "2025-03-05T14:54:39.410884"
     }
   },
@@ -151188,7 +151420,9 @@
     },
     "V19A": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8590,
+      "status": true,
       "updated": "2025-03-05T14:54:40.075124"
     },
     "VA01": {
@@ -151241,12 +151475,16 @@
   "20240830_4.1M_36.02S_71.78W_70.0KM": {
     "M01L": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 9915,
+      "status": true,
       "updated": "2025-03-05T14:54:42.701623"
     },
     "M13L": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 10218,
+      "status": true,
       "updated": "2025-03-05T14:54:42.701958"
     }
   },
@@ -151545,7 +151783,9 @@
     },
     "V19A": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 8023,
+      "status": true,
       "updated": "2025-03-05T14:54:43.500158"
     },
     "VA06": {
@@ -152329,78 +152569,106 @@
   "20250202_5.1M_30.74S_71.41W_44.0KM": {
     "C16O": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 15337,
+      "status": true,
       "updated": "2025-03-05T14:54:47.074402"
     },
     "C26O": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 14279,
+      "status": true,
       "updated": "2025-03-05T14:54:47.074897"
     },
     "CO02": {
       "corrected": false,
-      "status": null,
+      "method": "Manual",
+      "pos": 7311,
+      "status": true,
       "updated": "2025-03-05T14:54:47.075204"
     },
     "CO03": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7345,
+      "status": true,
       "updated": "2025-03-05T14:54:47.075469"
     },
     "CO06": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 6789,
+      "status": true,
       "updated": "2025-03-05T14:54:47.075715"
     },
     "GO04": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7522,
+      "status": true,
       "updated": "2025-03-05T14:54:47.075954"
     }
   },
   "20250216_5.2M_38.48S_74.12W_31.0KM": {
     "LC02": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7222,
+      "status": true,
       "updated": "2025-03-05T14:54:47.916517"
     }
   },
   "20250218_5.5M_26.29S_70.74W_35.0KM": {
     "A02C": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 15385,
+      "status": true,
       "updated": "2025-03-05T14:54:48.089816"
     },
     "AC01": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 6764,
+      "status": true,
       "updated": "2025-03-05T14:54:48.090178"
     }
   },
   "20250220_5.0M_19.69S_69.37W_114.0KM": {
     "GO01": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7586,
+      "status": true,
       "updated": "2025-03-05T14:54:48.477610"
     },
     "PB08": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 7769,
+      "status": true,
       "updated": "2025-03-05T14:54:48.477970"
     },
     "T07A": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 15806,
+      "status": true,
       "updated": "2025-03-05T14:54:48.478441"
     },
     "T24A": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 16283,
+      "status": true,
       "updated": "2025-03-05T14:54:48.478793"
     },
     "TA02": {
       "corrected": false,
-      "status": null,
+      "method": "Automatic",
+      "pos": 8141,
+      "status": true,
       "updated": "2025-03-05T14:54:48.479014"
     }
   }
