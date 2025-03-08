@@ -134,9 +134,9 @@ def updateFlatFile(window, widget, basePath, dataPath, draftPath):
         if os.path.exists(os.path.join(draftPath, 'flatFile.csv')):
             df_old = pd.read_csv(os.path.join(draftPath, 'flatFile.csv'), parse_dates=['Earthquake date', 'Start time record', 'Last update'])
             df_old_path = os.path.join(draftPath, 'flatFile.csv')
-        elif os.path.exists(os.path.join(dataPath, 'flatFile.csv')):
-            df_old = pd.read_csv(os.path.join(dataPath, 'flatFile.csv'), parse_dates=['Earthquake date', 'Start time record', 'Last update'])
-            df_old_path = os.path.join(dataPath, 'flatFile.csv')
+        elif os.path.exists(os.path.join(basePath, 'data', 'flatFile - backup.csv')):
+            df_old = pd.read_csv(os.path.join(basePath, 'data', 'flatFile - backup.csv'), parse_dates=['Earthquake date', 'Start time record', 'Last update'])
+            df_old_path = os.path.join(basePath, 'data', 'flatFile - backup.csv')
         else:
             df_old = pd.DataFrame([], columns=columns)
             df_old_path = None
