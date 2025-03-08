@@ -36,8 +36,8 @@ def updateFlatFile(window, widget, basePath, dataPath, draftPath):
 
     if os.path.exists(os.path.join(draftPath, 'flatFile.csv')):
         df = pd.read_csv(os.path.join(draftPath, 'flatFile.csv'))
-    elif os.path.exists(os.path.join(dataPath, 'flatFile.csv')):
-        df = pd.read_csv(os.path.join(dataPath, 'flatFile.csv'))
+    elif os.path.exists(os.path.join(basePath, 'data', 'flatFile - backup.csv')):
+        df = pd.read_csv(os.path.join(basePath, 'data', 'flatFile - backup.csv'))
     else:
         df = pd.DataFrame([], columns=columns)
 
@@ -122,6 +122,7 @@ def updateFlatFile(window, widget, basePath, dataPath, draftPath):
         new_rows = pd.DataFrame(table, columns=columns)
         df = pd.concat([df, new_rows], ignore_index=True)
         df.sort_values(by=['Earthquake Name', 'Station code'], inplace=True)
+        df.reset_index(drop=True, inplace=True)
         
         for col in df.columns[[3,4,5,6,10,11,12,13,14,15,16,17,18]]:
             df[col] = df[col].astype(float)
@@ -130,9 +131,81 @@ def updateFlatFile(window, widget, basePath, dataPath, draftPath):
         df['Start time record'] = pd.to_datetime(df['Start time record'], format='%Y-%m-%d %H:%M:%S.%f')
         df['Last update']       = pd.to_datetime(df['Last update'], format='%Y-%m-%d %H:%M:%S.%f')
 
+        # Load original flatfile
+        if os.path.exists(os.path.join(draftPath, 'flatFile.csv')):
+            df_old = pd.read_csv(os.path.join(draftPath, 'flatFile.csv'), parse_dates=['Earthquake date', 'Start time record', 'Last update'])
+            df_old_path = os.path.join(draftPath, 'flatFile.csv')
+        elif os.path.exists(os.path.join(basePath, 'data', 'flatFile - backup.csv')):
+            df_old = pd.read_csv(os.path.join(basePath, 'data', 'flatFile - backup.csv'), parse_dates=['Earthquake date', 'Start time record', 'Last update'])
+            df_old_path = os.path.join(basePath, 'data', 'flatFile - backup.csv')
+        else:
+            df_old = pd.DataFrame([], columns=columns)
+            df_old_path = None
+
+        # Save new/modified lines
+        df_merge = pd.merge(df_old, df, how='right', on=['Earthquake Name', 'Station code'])
+        new_rows = df.loc[df_merge.apply(lambda row: row['Last update_x'] != row['Last update_y'], axis=1)]
+
+        new_rows.to_csv(os.path.join(basePath, 'tmp', 'new_rows.csv'), index=False)
+
+        with open(os.path.join(basePath, 'tmp', 'new_rows.csv')) as f:
+            new_lines = f.read().split('\n')[1:]
+
+        for i, new_line in enumerate(new_lines):
+            indices = []
+            if new_line.strip() == '':
+                indices.append(i)
+
+        for i in reversed(indices):
+            new_lines.pop(i)
+
+        os.remove(os.path.join(basePath, 'tmp', 'new_rows.csv'))
+
+        # Insert new lines in original flatfile
+        if df_old_path is not None:
+            with open(df_old_path) as f:
+                new_csv = f.readline()
+                for line in f:
+                    event_id     = line.split(',')[0]
+                    station_code = line.split(',')[9]
+                    skip = False
+
+                    if len(new_lines) > 0:
+                        new_event_id     = new_lines[0].split(',')[0]
+                        new_station_code = new_lines[0].split(',')[9]
+
+                    while len(new_lines) > 0 and event_id >= new_event_id and station_code >= new_station_code:
+                        new_csv += new_lines[0].strip() + '\n'
+
+                        if event_id == new_event_id and station_code == new_station_code:
+                            skip = True
+
+                        new_lines.pop(0)
+
+                        if len(new_lines) > 0:
+                            new_event_id     = new_lines[0].split(',')[0]
+                            new_station_code = new_lines[0].split(',')[9]
+
+                    if skip:
+                        continue
+
+                    new_csv += line
+
+            for new_line in new_lines:
+                new_csv += new_line.strip() + '\n'
+
+        # Save flatfile
         df.to_excel(os.path.join(draftPath, 'flatFile.xlsx'), index=False)
-        df.to_csv(os.path.join(draftPath, 'flatFile.csv'), index=False)
-        df.to_csv(os.path.join(basePath, 'data', 'flatFile - backup.csv'), index=False)
-    
+
+        if df_old_path is None:
+            df.to_csv(os.path.join(draftPath, 'flatFile.csv'), index=False)
+            df.to_csv(os.path.join(basePath, 'data', 'flatFile - backup.csv'), index=False)
+        else:
+            with open(os.path.join(draftPath, 'flatFile.csv'), 'w') as f:
+                f.write(new_csv)
+
+            with open(os.path.join(basePath, 'data', 'flatFile - backup.csv'), 'w') as f:
+                f.write(new_csv)
+
     widget.insert('end', 'Flat file actualizado.\n')
     window.update_idletasks()
