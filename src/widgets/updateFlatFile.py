@@ -122,6 +122,7 @@ def updateFlatFile(window, widget, basePath, dataPath, draftPath):
         new_rows = pd.DataFrame(table, columns=columns)
         df = pd.concat([df, new_rows], ignore_index=True)
         df.sort_values(by=['Earthquake Name', 'Station code'], inplace=True)
+        df.reset_index(drop=True, inplace=True)
         
         for col in df.columns[[3,4,5,6,10,11,12,13,14,15,16,17,18]]:
             df[col] = df[col].astype(float)
@@ -143,13 +144,21 @@ def updateFlatFile(window, widget, basePath, dataPath, draftPath):
 
         # Save new/modified lines
         df_merge = pd.merge(df_old, df, how='right', on=['Earthquake Name', 'Station code'])
-        new_rows = df[df_merge.apply(lambda row: row['Last update_x'] != row['Last update_y'], axis=1)]
+        new_rows = df.loc[df_merge.apply(lambda row: row['Last update_x'] != row['Last update_y'], axis=1)]
 
         new_rows.to_csv(os.path.join(basePath, 'tmp', 'new_rows.csv'), index=False)
 
         with open(os.path.join(basePath, 'tmp', 'new_rows.csv')) as f:
             new_lines = f.read().split('\n')[1:]
-            
+
+        for i, new_line in enumerate(new_lines):
+            indices = []
+            if new_line.strip() == '':
+                indices.append(i)
+
+        for i in reversed(indices):
+            new_lines.pop(i)
+
         os.remove(os.path.join(basePath, 'tmp', 'new_rows.csv'))
 
         # Insert new lines in original flatfile
