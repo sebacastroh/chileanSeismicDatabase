@@ -36,8 +36,8 @@ def updateFlatFile(window, widget, basePath, dataPath, draftPath):
 
     if os.path.exists(os.path.join(draftPath, 'flatFile.csv')):
         df = pd.read_csv(os.path.join(draftPath, 'flatFile.csv'))
-    elif os.path.exists(os.path.join(dataPath, 'flatFile.csv')):
-        df = pd.read_csv(os.path.join(dataPath, 'flatFile.csv'))
+    elif os.path.exists(os.path.join(basePath, 'data', 'flatFile - backup.csv')):
+        df = pd.read_csv(os.path.join(basePath, 'data', 'flatFile - backup.csv'))
     else:
         df = pd.DataFrame([], columns=columns)
 
