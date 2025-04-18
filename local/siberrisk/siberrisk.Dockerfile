@@ -1,5 +1,5 @@
 # Use official miniconda image as the base image
-FROM continuumio/miniconda3 AS miniconda3
+FROM condaforge/miniforge3:24.11.3-2 AS miniforge3
 
 # Set the working directory
 WORKDIR /usr/local/src
@@ -8,7 +8,6 @@ WORKDIR /usr/local/src
 RUN apt-get update && apt-get install build-essential -y
 
 # Install python libraries
-RUN conda install -y python=3.11
 COPY ./environment.yml /usr/local/src/environment.yml
 RUN conda env update --name base --file /usr/local/src/environment.yml
 
