@@ -108,11 +108,11 @@
   },
   "030cd73d4cf743e322b7bc88f10abd9e": {
     "A04C": true,
-    "A21F": null,
+    "A21F": true,
     "AC01": true
   },
   "030cd73d4cf743e322b7bc88f10acd1e": {
-    "A21F": null,
+    "A21F": true,
     "PB15": true,
     "PB19": true
   },
@@ -1296,8 +1296,8 @@
   "0b42f01c3f0b83d5edcc41696b011dba": {
     "A01C": true,
     "A03C": true,
-    "A21F": null,
-    "A26F": null,
+    "A21F": true,
+    "A26F": true,
     "AC01": true
   },
   "0b42f01c3f0b83d5edcc41696b012858": {
@@ -2803,59 +2803,59 @@
     "B05O": true
   },
   "13e017bae925c90fe5a16ddfe007cc98": {
-    "T24A": null,
-    "TA02": null
+    "T24A": true,
+    "TA02": true
   },
   "13e017bae925c90fe5a16ddfe007db8f": {
-    "AF01": null,
-    "PB06": null,
-    "PB15": null,
-    "PB19": null
+    "AF01": true,
+    "PB06": true,
+    "PB15": true,
+    "PB19": true
   },
   "13e017bae925c90fe5a16ddfe007e135": {
-    "CO02": null,
-    "CO06": null,
-    "GO04": null
+    "CO02": true,
+    "CO06": true,
+    "GO04": true
   },
   "13e017bae925c90fe5a16ddfe007ee6b": {
-    "A17P": null
+    "A17P": true
   },
   "13e017bae925c90fe5a16ddfe007fb03": {
-    "M17L": null
+    "M17L": true
   },
   "13e017bae925c90fe5a16ddfe007ff4c": {
-    "A07Y": null
+    "A07Y": true
   },
   "13e017bae925c90fe5a16ddfe0080647": {
-    "A07Y": null
+    "A07Y": true
   },
   "13e017bae925c90fe5a16ddfe0080b44": {
-    "A21F": null
+    "A21F": true
   },
   "13e017bae925c90fe5a16ddfe00815ca": {
-    "A21F": null
+    "A21F": true
   },
   "13e017bae925c90fe5a16ddfe00820ca": {
-    "A21F": null
+    "A21F": true
   },
   "13e017bae925c90fe5a16ddfe0082d8f": {
-    "A21F": null
+    "A21F": true
   },
   "13e017bae925c90fe5a16ddfe00830a2": {
-    "A21F": null
+    "A21F": true
   },
   "13e017bae925c90fe5a16ddfe0083d96": {
-    "A21F": null,
-    "A26F": null
+    "A21F": true,
+    "A26F": true
   },
   "13e017bae925c90fe5a16ddfe008402b": {
-    "A21F": null
+    "A21F": true
   },
   "13e017bae925c90fe5a16ddfe0084bac": {
-    "A26F": null
+    "A26F": true
   },
   "13e017bae925c90fe5a16ddfe0084c06": {
-    "A26F": null
+    "A26F": true
   },
   "151": {
     "Cauquenes": true,
@@ -22964,7 +22964,7 @@
     "CO04": true
   },
   "89cca925abb9ed7fdb2c8df66d0104e9": {
-    "A21F": null,
+    "A21F": true,
     "AF01": true,
     "PB02": true,
     "PB03": true,
@@ -24797,7 +24797,7 @@
     "CO04": true,
     "FAR1": true,
     "LMEL": true,
-    "M17L": null,
+    "M17L": true,
     "ML02": true,
     "MT01": true,
     "MT02": true,
@@ -24816,7 +24816,7 @@
     "V05A": true,
     "V13A": true,
     "V16A": true,
-    "V25A": null,
+    "V25A": true,
     "VA01": true,
     "VA05": true,
     "VA06": true
@@ -24996,7 +24996,7 @@
   },
   "bb570e105e6d75e93470d23dfd10d26e": {
     "A02C": true,
-    "A21F": null,
+    "A21F": true,
     "AC01": true
   },
   "bb570e105e6d75e93470d23dfd10e0a9": {
