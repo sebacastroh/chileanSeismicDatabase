@@ -798,9 +798,9 @@ with open(os.path.join(srcPath, 'data', 'p_waves.json')) as f:
     p_waves = json.load(f)
 
 if draft and os.path.exists(os.path.join(draftPath, 'flatFile.csv')):
-    flatfile = pd.read_csv(os.path.join(draftPath, 'flatFile.csv'))
+    flatfile = pd.read_csv(os.path.join(draftPath, 'flatFile.csv'), usecols=['Earthquake Name','Earthquake date','Magnitude [Mw]','Event type','Station code','Corrected records'])
 else:
-    flatfile = pd.read_csv(os.path.join(dataPath, 'flatFile.csv'))
+    flatfile = pd.read_csv(os.path.join(dataPath, 'flatFile.csv'), usecols=['Earthquake Name','Earthquake date','Magnitude [Mw]','Event type','Station code','Corrected records'])
 flatfile = flatfile[flatfile['Corrected records']]
 
 # Dates
