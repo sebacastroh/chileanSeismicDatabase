@@ -383,33 +383,29 @@ def load_event(event_name):
 
     return event, stations_codes
 
-def compute_vel_dis(station):
-    velocities    = []
-    displacements = []
-    dt            = station['dt']
-    p_wave        = p_waves[select_event.value][select_station.value]['pos']
-    for i in range(3):
-        n = len(station[seismic_component + '%i' %(i+1)])
-        if n == 0:
-            velocities.append(np.empty(0))
-            displacements.append(np.empty(0))
-            continue
+def compute_vel_dis(station, channel):
+    dt     = station['dt']
+    p_wave = p_waves[select_event.value][select_station.value]['pos']
+    
+    n = len(station[seismic_component + '%i' %(channel+1)])
+    if n == 0:
+        vel = np.empty(0)
+        dis = np.empty(0)
+        
+        return vel, dis
 
-        t = np.linspace(0., (n-1)*dt, n)
-        acc = station[seismic_component + '%i' %(i+1)]
+    t   = np.linspace(0., (n-1)*dt, n)
+    acc = station[seismic_component + '%i' %(channel+1)]
 
-        vel = spi.cumulative_trapezoid(acc, x=t, initial=0.)
-        if p_wave > 0:
-            vel -= vel[:p_wave].mean()
+    vel = spi.cumulative_trapezoid(acc, x=t, initial=0.)
+    if p_wave > 0:
+        vel -= vel[:p_wave].mean()
 
-        dis = spi.cumulative_trapezoid(vel, x=t, initial=0.)
-        if p_wave > 0:
-            dis -= dis[:p_wave].mean()
+    dis = spi.cumulative_trapezoid(vel, x=t, initial=0.)
+    if p_wave > 0:
+        dis -= dis[:p_wave].mean()
 
-        velocities.append(vel)
-        displacements.append(dis)
-
-    return velocities, displacements
+    return vel, dis
 
 def compute_sa_spectra(station, tn, xi):
     spectra = seismic.SpectraRot(station[seismic_component + '1'], station[seismic_component + '2'], station['dt'], tn, xi, nTheta)
@@ -493,21 +489,28 @@ def update_station(attrname, old, new):
     xi      = None
     plotted = False
 
-    station  = event[select_station.value]
-    vel, dis = compute_vel_dis(station)
-
-    # Update source data
+    # Clear source data
     for i in range(3):
-        n  = len(station[seismic_component + '%i' %(i+1)])
-        dt = station['dt']
-        t  = np.linspace(0., (n-1)*dt, n)
-        sources_acc[i].data = dict(x=t, y=station[seismic_component + '%i' %(i+1)]/g)
-        sources_vel[i].data = dict(x=t, y=vel[i])
-        sources_dis[i].data = dict(x=t, y=dis[i])
+        sources_acc[i].data = dict(x=[], y=[])
+        sources_vel[i].data = dict(x=[], y=[])
+        sources_dis[i].data = dict(x=[], y=[])
 
         sources_fourier[i].data = dict(x=[], y=[])
         sources_husid[i].data   = dict(x=[], y=[])
         sources_cav[i].data     = dict(x=[], y=[])
+
+    # Update source data for active tab
+    channel  = tabs_records.active
+    station  = event[select_station.value]
+    vel, dis = compute_vel_dis(station, channel)
+
+    n  = len(station[seismic_component + '%i' %(channel+1)])
+    dt = station['dt']
+    t  = np.linspace(0., (n-1)*dt, n)
+
+    sources_acc[channel].data = dict(x=t, y=station[seismic_component + '%i' %(channel+1)]/g)
+    sources_vel[channel].data = dict(x=t, y=vel)
+    sources_dis[channel].data = dict(x=t, y=dis)
 
     for i in range(6):
         sources_sa[i].data  = dict(x=[], y=[])
@@ -589,6 +592,25 @@ def update_station(attrname, old, new):
     source_hypo.data   = dict(lat=[hypo_y], lon=[hypo_x])
     source_sta.data    = dict(lat=[sta_y] , lon=[sta_x])
     source_ffm.geojson = ffm_geojson
+
+def update_channel(attrname, old, new):
+    global event
+
+    # Update source data for active tab
+    channel = tabs_records.active
+    if len(sources_acc[channel].data['x']) != 0:
+        return
+
+    station  = event[select_station.value]
+    vel, dis = compute_vel_dis(station, channel)
+
+    n  = len(station[seismic_component + '%i' %(channel+1)])
+    dt = station['dt']
+    t  = np.linspace(0., (n-1)*dt, n)
+
+    sources_acc[channel].data = dict(x=t, y=station[seismic_component + '%i' %(channel+1)]/g)
+    sources_vel[channel].data = dict(x=t, y=vel)
+    sources_dis[channel].data = dict(x=t, y=dis)
 
 def update_plots():
     global event, ta, tb, xi, plotted
@@ -764,6 +786,7 @@ button_filter.on_click(filter_events)
 button_plots.on_click(update_plots)
 select_event.on_change('value', update_event)
 select_station.on_change('value', update_station)
+tabs_records.on_change('active', update_channel)
 options_ax.on_change('active', update_axis_options)
 options_gr.on_change('active', update_grid_options)
 button_download.js_on_event(ButtonClick, Download)
@@ -775,9 +798,9 @@ with open(os.path.join(srcPath, 'data', 'p_waves.json')) as f:
     p_waves = json.load(f)
 
 if draft and os.path.exists(os.path.join(draftPath, 'flatFile.csv')):
-    flatfile = pd.read_csv(os.path.join(draftPath, 'flatFile.csv'))
+    flatfile = pd.read_csv(os.path.join(draftPath, 'flatFile.csv'), usecols=['Earthquake Name','Earthquake date','Magnitude [Mw]','Event type','Station code','Corrected records'])
 else:
-    flatfile = pd.read_csv(os.path.join(dataPath, 'flatFile.csv'))
+    flatfile = pd.read_csv(os.path.join(dataPath, 'flatFile.csv'), usecols=['Earthquake Name','Earthquake date','Magnitude [Mw]','Event type','Station code','Corrected records'])
 flatfile = flatfile[flatfile['Corrected records']]
 
 # Dates
