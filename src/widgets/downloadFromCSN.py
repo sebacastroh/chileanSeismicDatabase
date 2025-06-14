@@ -9,9 +9,9 @@ import os
 import time
 import json
 import obspy
-import urllib
 import zipfile
 import datetime
+import requests
 import numpy as np
 import pandas as pd
 
@@ -51,16 +51,21 @@ def downloadNewEvents(window, widget, basePath, dataPath, drafPath):
 
         if not os.path.exists(os.path.join(basePath, 'data', 'rawEvents', 'mseed', event_id + '.zip')):
             url = 'https://evtdb.csn.uchile.cl/raw/' + event_id
-            urllib.request.urlretrieve(url, filename=os.path.join(basePath, 'data', 'rawEvents', 'mseed', event_id + '.zip'))
+            response = requests.get(url)
+            with open(os.path.join(basePath, 'data', 'rawEvents', 'mseed', event_id + '.zip'), 'wb') as f:
+                f.write(response.content)
             time.sleep(0.5)
 
         if not os.path.exists(os.path.join(basePath, 'data', 'rawEvents', 'txt', event_id + '_' + station_id + '.zip')):
+            url = 'https://evtdb.csn.uchile.cl/write/{event_id}/{station_id}'.format(
+                event_id   = event_id,
+                station_id = station_id
+            )
+            response = requests.get(url)
             try:
-                url = 'https://evtdb.csn.uchile.cl/write/{event_id}/{station_id}'.format(
-                    event_id   = event_id,
-                    station_id = station_id
-                )
-                urllib.request.urlretrieve(url, filename=os.path.join(basePath, 'data', 'rawEvents', 'txt', event_id + '_' + station_id + '.zip'))
+                response.raise_for_status()
+                with open(os.path.join(basePath, 'data', 'rawEvents', 'txt', event_id + '_' + station_id + '.zip'), 'wb') as f:
+                    f.write(response.content)
                 time.sleep(0.5)
             except:
                 failed_files.append([event_id, station_id])
