@@ -167,7 +167,7 @@ def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp
                     pos = line.find("/write/")
                     sl = line[pos:].split("/")
                     evt = sl[2]
-                    sta = sl[3][:-2].strip()
+                    sta = sl[3].split('"')[0].strip()
                     stations.append(sta)
 
                     if not isinstance(registry[event_id].get(sta), bool):
