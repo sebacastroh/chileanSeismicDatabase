@@ -60,7 +60,7 @@ def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp
                 if line.find('"/event/') >= 0:
                     event = line
                     pos = event.find('/event/')
-                    uid = event[pos+7:-3]
+                    uid = event[pos+7:-2]
                     next_line = 'date'
                     continue
                 
@@ -105,6 +105,7 @@ def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp
             return False
 
     new_events = pd.DataFrame(new_events, columns=['Fecha (UTC)', 'Latitud', 'Longitud', 'Profundidad [km]', 'Magnitud [*]', 'Estaciones', 'Identificador'])
+    new_events = new_events.sort_values(by=['Fecha (UTC)', 'Identificador']).reset_index(drop=True)
 
     widget.insert('end', '\nRevisión de estaciones dentro de eventos\n')
     widget.see('end')
@@ -134,9 +135,18 @@ def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp
         widget.see('end')
         window.update_idletasks()
 
-        try:
-            urllib.request.urlretrieve(url, filename=os.path.join('tmp', 'download.wget'))
-        except:
+        max_retries = 3
+        success = False
+        for attempt in range(max_retries):
+            try:
+                urllib.request.urlretrieve(url, filename=os.path.join('tmp', 'download.wget'))
+                success = True
+                break
+            except:
+                time.sleep(1.5)
+                continue
+
+        if not success:
             timestamp = datetime.datetime.utcnow().strftime('%Y%m%d%H%M%S')
             new_events.to_csv(os.path.join(basePath, 'tmp', filename + '_' + timestamp + '.csv'), index=False)
 
