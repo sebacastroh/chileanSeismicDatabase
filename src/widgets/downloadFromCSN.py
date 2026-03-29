@@ -49,14 +49,32 @@ def downloadNewEvents(window, widget, basePath, dataPath, drafPath):
     for r, record in enumerate(records):        
         event_id, station_id = record
 
+        widget.insert('end', 'Revisando evento {event_id}\n'.format(event_id=event_id))
+        widget.see('end')
+        window.update_idletasks()
+
         if not os.path.exists(os.path.join(basePath, 'data', 'rawEvents', 'mseed', event_id + '.zip')):
+
+            widget.insert('end', 'Descargando mseed... ')
+            widget.see('end')
+            window.update_idletasks()
+
             url = 'https://evtdb.csn.uchile.cl/raw/' + event_id
             response = requests.get(url)
             with open(os.path.join(basePath, 'data', 'rawEvents', 'mseed', event_id + '.zip'), 'wb') as f:
                 f.write(response.content)
             time.sleep(0.5)
 
+            widget.insert('end', 'Listo\n')
+            widget.see('end')
+            window.update_idletasks()
+
         if not os.path.exists(os.path.join(basePath, 'data', 'rawEvents', 'txt', event_id + '_' + station_id + '.zip')):
+
+            widget.insert('end', 'Descargando txt estación {station_id}... '.format(station_id=station_id))
+            widget.see('end')
+            window.update_idletasks()
+
             url = 'https://evtdb.csn.uchile.cl/write/{event_id}/{station_id}'.format(
                 event_id   = event_id,
                 station_id = station_id
@@ -67,8 +85,13 @@ def downloadNewEvents(window, widget, basePath, dataPath, drafPath):
                 with open(os.path.join(basePath, 'data', 'rawEvents', 'txt', event_id + '_' + station_id + '.zip'), 'wb') as f:
                     f.write(response.content)
                 time.sleep(0.5)
+                widget.insert('end', 'Listo\n')
             except:
                 failed_files.append([event_id, station_id])
+                widget.insert('end', 'Falló\n')
+
+            widget.see('end')
+            window.update_idletasks()
 
     failed_files = pd.DataFrame(failed_files, columns=['Identificador', 'Estación'])
     # failed_files.to_csv(os.path.join('data', 'failed_files.csv'), index=False)
@@ -76,6 +99,11 @@ def downloadNewEvents(window, widget, basePath, dataPath, drafPath):
     current_event = None
     data = {}
     save = False
+
+    widget.insert('end', '\nConversión a npz\n\n')
+    widget.see('end')
+    window.update_idletasks()
+
     for event_id, stations in registry.items():
         if event_id != current_event:            
             if save:
@@ -101,6 +129,10 @@ def downloadNewEvents(window, widget, basePath, dataPath, drafPath):
 
             if not os.path.exists(os.path.join(basePath, 'data', 'rawEvents', 'txt', event_id + '_' + station_id + '.zip')):
                 continue
+
+            widget.insert('end', 'Revisando evento {event_id} - Estación {station_id}\n'.format(event_id=event_id, station_id=station_id))
+            widget.see('end')
+            window.update_idletasks()
 
             save = True
             with zipfile.ZipFile(os.path.join(basePath, 'data', 'rawEvents', 'mseed', event_id + '.zip')) as zf:
