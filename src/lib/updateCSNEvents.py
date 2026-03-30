@@ -143,7 +143,7 @@ def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp
                 success = True
                 break
             except:
-                time.sleep(1.5)
+                time.sleep(5.)
                 continue
 
         if not success:
