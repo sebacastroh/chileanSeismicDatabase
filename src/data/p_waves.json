@@ -138959,9 +138959,11 @@
       "updated": "2024-10-24T10:22:53.607648"
     },
     "A16P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:01:31.051310"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8463,
+      "status": true,
+      "updated": "2026-04-14T23:19:54.036388"
     },
     "A20P": {
       "corrected": true,
@@ -138985,9 +138987,11 @@
       "updated": "2024-10-24T10:22:53.612424"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:01:31.052031"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8500,
+      "status": true,
+      "updated": "2026-04-14T23:19:54.041630"
     },
     "T11A": {
       "corrected": true,
@@ -138997,14 +139001,18 @@
       "updated": "2024-10-24T10:22:53.617511"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:01:31.050559"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7812,
+      "status": true,
+      "updated": "2026-04-14T23:19:54.046449"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:01:31.052791"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11928,
+      "status": true,
+      "updated": "2026-04-14T23:19:54.051990"
     },
     "T24A": {
       "corrected": true,
@@ -139336,9 +139344,11 @@
   },
   "20230109_3.9M_20.04S_69.44W_119.0KM": {
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:01:35.184539"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9438,
+      "status": true,
+      "updated": "2026-04-14T23:19:58.986072"
     },
     "T11A": {
       "corrected": true,
@@ -139348,9 +139358,11 @@
       "updated": "2024-10-24T10:23:09.204181"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:01:35.185239"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9474,
+      "status": true,
+      "updated": "2026-04-14T23:19:58.991012"
     }
   },
   "20230111_4.0M_25.61S_70.81W_54.0KM": {
@@ -139429,9 +139441,11 @@
       "updated": "2024-10-13T19:36:48.496390"
     },
     "C26O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:01:50.301571"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10356,
+      "status": true,
+      "updated": "2026-04-14T23:20:00.393119"
     },
     "C29O": {
       "corrected": true,
@@ -139464,9 +139478,11 @@
       "updated": "2024-03-16T10:49:51.562456"
     },
     "A19C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:01:37.230423"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 2883,
+      "status": true,
+      "updated": "2026-04-14T23:20:05.008250"
     },
     "A22C": {
       "corrected": true,
@@ -139758,9 +139774,11 @@
       "updated": "2024-03-16T10:49:55.984383"
     },
     "C12O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:01:54.489557"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10823,
+      "status": true,
+      "updated": "2026-04-14T23:20:18.179825"
     }
   },
   "20230113_4.2M_20.73S_70.35W_39.0KM": {
@@ -139772,9 +139790,11 @@
       "updated": "2024-03-16T10:49:56.454439"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:01:53.830102"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10447,
+      "status": true,
+      "updated": "2026-04-14T23:20:19.100434"
     }
   },
   "20230114_3.0M_31.16S_71.17W_35.0KM": {
@@ -139811,9 +139831,11 @@
       "updated": "2024-03-16T10:49:57.948692"
     },
     "C12O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:01:55.182828"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10265,
+      "status": true,
+      "updated": "2026-04-14T23:20:20.080364"
     },
     "C18O": {
       "corrected": true,
@@ -139855,9 +139877,11 @@
       "updated": "2025-04-03T16:31:37.448844"
     },
     "B22I": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:01:56.524237"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10831,
+      "status": true,
+      "updated": "2026-04-14T23:20:21.697913"
     }
   },
   "20230116_4.3M_32.61S_71.75W_35.0KM": {
@@ -139936,9 +139960,11 @@
   },
   "20230120_3.9M_27.94S_70.18W_96.0KM": {
     "A19C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:01:57.460395"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9995,
+      "status": true,
+      "updated": "2026-04-14T23:20:22.908115"
     },
     "A23C": {
       "corrected": true,
@@ -139980,14 +140006,18 @@
       "updated": "2024-10-24T10:23:24.741618"
     },
     "A08P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:01:58.497793"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10562,
+      "status": true,
+      "updated": "2026-04-14T23:20:24.181381"
     },
     "A09P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:01:58.498575"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10542,
+      "status": true,
+      "updated": "2026-04-14T23:20:24.186138"
     },
     "A14P": {
       "corrected": true,
@@ -140004,9 +140034,11 @@
       "updated": "2024-10-24T10:23:24.745493"
     },
     "A16P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:01:58.499295"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9213,
+      "status": true,
+      "updated": "2026-04-14T23:20:24.191002"
     },
     "A19P": {
       "corrected": true,
@@ -140064,9 +140096,11 @@
       "updated": "2024-03-16T10:50:02.174650"
     },
     "C12O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:00.819067"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10330,
+      "status": true,
+      "updated": "2026-04-14T23:20:27.069201"
     },
     "C18O": {
       "corrected": true,
@@ -140092,14 +140126,18 @@
       "updated": "2024-08-05T20:14:10.976520"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:02.753810"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9538,
+      "status": true,
+      "updated": "2026-04-14T23:20:29.296982"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:02.753043"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8726,
+      "status": true,
+      "updated": "2026-04-14T23:20:29.301681"
     }
   },
   "20230128_3.9M_30.16S_71.16W_80.0KM": {
@@ -140173,9 +140211,11 @@
       "updated": "2024-03-16T10:50:06.146745"
     },
     "A16P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:07.481259"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9608,
+      "status": true,
+      "updated": "2026-04-14T23:20:30.553283"
     },
     "T11A": {
       "corrected": true,
@@ -140208,9 +140248,11 @@
       "updated": "2024-10-24T10:23:27.709234"
     },
     "A09P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:03.802782"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8654,
+      "status": true,
+      "updated": "2026-04-14T23:20:31.947712"
     },
     "A12P": {
       "corrected": true,
@@ -140227,9 +140269,11 @@
       "updated": "2024-10-24T10:23:27.713166"
     },
     "A16P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:03.803556"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8723,
+      "status": true,
+      "updated": "2026-04-14T23:20:31.952516"
     },
     "A18P": {
       "corrected": true,
@@ -140253,9 +140297,11 @@
       "updated": "2024-03-16T10:50:06.631370"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:03.804296"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8518,
+      "status": true,
+      "updated": "2026-04-14T23:20:31.957299"
     },
     "T11A": {
       "corrected": true,
@@ -140265,9 +140311,11 @@
       "updated": "2024-10-24T10:23:27.721352"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:03.805008"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8698,
+      "status": true,
+      "updated": "2026-04-14T23:20:31.962225"
     }
   },
   "20230202_3.7M_32.10S_71.81W_33.0KM": {
@@ -140325,9 +140373,11 @@
       "updated": "2024-10-13T19:46:06.869593"
     },
     "C26O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:13.531585"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10729,
+      "status": true,
+      "updated": "2026-04-14T23:20:36.449678"
     },
     "C29O": {
       "corrected": true,
@@ -140346,9 +140396,11 @@
       "updated": "2024-03-16T10:50:10.173316"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:12.793757"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10252,
+      "status": true,
+      "updated": "2026-04-14T23:20:38.558167"
     }
   },
   "20230203_4.6M_18.86S_69.71W_92.0KM": {
@@ -140381,9 +140433,11 @@
       "updated": "2024-10-24T10:23:31.086622"
     },
     "A09P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:08.720368"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9427,
+      "status": true,
+      "updated": "2026-04-14T23:20:39.664932"
     },
     "A12P": {
       "corrected": true,
@@ -140407,9 +140461,11 @@
       "updated": "2024-10-24T10:23:31.094455"
     },
     "A16P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:08.721121"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9602,
+      "status": true,
+      "updated": "2026-04-14T23:20:39.680726"
     },
     "A18P": {
       "corrected": true,
@@ -140433,26 +140489,34 @@
       "updated": "2024-03-16T10:50:10.668620"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:08.721912"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11950,
+      "status": true,
+      "updated": "2026-04-14T23:20:39.686023"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:08.722629"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8563,
+      "status": true,
+      "updated": "2026-04-14T23:20:39.690742"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:08.719584"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7529,
+      "status": true,
+      "updated": "2026-04-14T23:20:39.706228"
     }
   },
   "20230204_3.9M_19.73S_69.31W_90.0KM": {
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:15.322320"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9887,
+      "status": true,
+      "updated": "2026-04-14T23:20:44.721427"
     }
   },
   "20230204_3.9M_29.93S_71.66W_36.0KM": {
@@ -140626,9 +140690,11 @@
       "updated": "2024-03-16T10:50:16.207385"
     },
     "A19C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:16.772091"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 6733,
+      "status": true,
+      "updated": "2026-04-14T23:20:46.033818"
     },
     "A22C": {
       "corrected": true,
@@ -140887,14 +140953,18 @@
   },
   "20230209_4.0M_19.25S_70.14W_50.0KM": {
     "A16P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:28.817801"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11984,
+      "status": true,
+      "updated": "2026-04-14T23:20:58.451045"
     },
     "T09A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:28.818051"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10515,
+      "status": true,
+      "updated": "2026-04-14T23:20:58.455906"
     }
   },
   "20230210_3.8M_30.68S_71.32W_56.0KM": {
@@ -140922,21 +140992,27 @@
   },
   "20230210_4.1M_19.06S_69.25W_111.0KM": {
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:29.691129"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8729,
+      "status": true,
+      "updated": "2026-04-14T23:20:59.345997"
     }
   },
   "20230210_4.1M_20.24S_69.29W_112.0KM": {
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:29.256609"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9482,
+      "status": true,
+      "updated": "2026-04-14T23:20:59.930629"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:29.256850"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9670,
+      "status": true,
+      "updated": "2026-04-14T23:20:59.935436"
     }
   },
   "20230214_3.8M_28.71S_71.61W_19.0KM": {
@@ -141053,16 +141129,20 @@
       "updated": "2024-03-16T10:50:24.581675"
     },
     "C26O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:29.979208"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11069,
+      "status": true,
+      "updated": "2026-04-14T23:21:00.831539"
     }
   },
   "20230223_5.5M_33.83S_72.89W_35.0KM": {
     "B06O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:30.499237"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8818,
+      "status": true,
+      "updated": "2026-04-14T23:21:01.646685"
     },
     "M15L": {
       "corrected": true,
@@ -141171,9 +141251,11 @@
       "updated": "2025-02-19T23:35:24.074690"
     },
     "B15I": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:31.413050"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9244,
+      "status": true,
+      "updated": "2026-04-14T23:21:02.716362"
     },
     "B17I": {
       "corrected": true,
@@ -141190,14 +141272,18 @@
       "updated": "2025-02-19T23:35:24.148449"
     },
     "B22I": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:31.413860"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 12063,
+      "status": true,
+      "updated": "2026-04-14T23:21:02.721317"
     },
     "CCSP": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:31.414634"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 12074,
+      "status": true,
+      "updated": "2026-04-14T23:21:02.726295"
     },
     "L06C": {
       "corrected": true,
@@ -141218,9 +141304,11 @@
   },
   "20230227_4.3M_22.51S_68.84W_103.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:35.527148"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9296,
+      "status": true,
+      "updated": "2026-04-14T23:21:07.408056"
     },
     "A17F": {
       "corrected": true,
@@ -141237,9 +141325,11 @@
       "updated": "2024-03-16T10:50:26.899001"
     },
     "A23F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:35.527446"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11987,
+      "status": true,
+      "updated": "2026-04-14T23:21:07.412732"
     }
   },
   "20230227_4.5M_26.88S_70.20W_80.0KM": {
@@ -141286,9 +141376,11 @@
       "updated": "2024-10-13T19:46:36.169596"
     },
     "A19C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:36.791904"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8534,
+      "status": true,
+      "updated": "2026-04-14T23:21:09.038940"
     },
     "A27C": {
       "corrected": true,
@@ -141370,9 +141462,11 @@
       "updated": "2024-03-16T10:50:29.622083"
     },
     "C26O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:39.980245"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10750,
+      "status": true,
+      "updated": "2026-04-14T23:21:12.419223"
     },
     "C33O": {
       "corrected": true,
@@ -141393,9 +141487,11 @@
   },
   "20230303_3.8M_20.18S_69.10W_103.0KM": {
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:43.355399"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9302,
+      "status": true,
+      "updated": "2026-04-14T23:21:16.028278"
     },
     "T13A": {
       "corrected": true,
@@ -141405,9 +141501,11 @@
       "updated": "2024-08-05T20:14:12.543358"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:43.355673"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9413,
+      "status": true,
+      "updated": "2026-04-14T23:21:16.034119"
     }
   },
   "20230305_3.4M_29.32S_71.33W_46.0KM": {
@@ -141690,16 +141788,20 @@
   },
   "20230307_4.4M_23.09S_69.56W_97.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:44.086564"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11895,
+      "status": true,
+      "updated": "2026-04-14T23:21:17.214089"
     }
   },
   "20230309_4.2M_19.53S_69.78W_31.0KM": {
     "A16P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:44.511541"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10499,
+      "status": true,
+      "updated": "2026-04-14T23:21:17.886927"
     },
     "T03A": {
       "corrected": true,
@@ -141723,19 +141825,25 @@
       "updated": "2024-10-24T10:23:37.324446"
     },
     "T08A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:44.510025"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9578,
+      "status": true,
+      "updated": "2026-04-14T23:21:17.892152"
     },
     "T09A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:44.512259"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11933,
+      "status": true,
+      "updated": "2026-04-14T23:21:17.897061"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:44.512984"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10638,
+      "status": true,
+      "updated": "2026-04-14T23:21:17.901825"
     },
     "T11A": {
       "corrected": true,
@@ -141745,21 +141853,27 @@
       "updated": "2024-10-24T10:23:37.328306"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:44.510804"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9805,
+      "status": true,
+      "updated": "2026-04-14T23:21:17.906644"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:44.513701"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10467,
+      "status": true,
+      "updated": "2026-04-14T23:21:17.911344"
     }
   },
   "20230309_4.3M_23.11S_69.35W_96.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:46.876596"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10081,
+      "status": true,
+      "updated": "2026-04-14T23:21:21.366009"
     }
   },
   "20230311_4.6M_41.35S_73.80W_52.0KM": {
@@ -141843,14 +141957,18 @@
       "updated": "2024-10-24T10:23:39.048460"
     },
     "A09P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:47.393247"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9170,
+      "status": true,
+      "updated": "2026-04-14T23:21:22.082889"
     },
     "A11P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:47.394030"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9194,
+      "status": true,
+      "updated": "2026-04-14T23:21:22.087655"
     },
     "A12P": {
       "corrected": true,
@@ -141874,9 +141992,11 @@
       "updated": "2024-03-15T23:07:15.689549"
     },
     "A16P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:47.394744"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 6858,
+      "status": true,
+      "updated": "2026-04-14T23:21:22.092324"
     },
     "A18P": {
       "corrected": true,
@@ -141943,21 +142063,27 @@
   },
   "20230318_4.6M_23.04S_68.89W_98.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:50.873055"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9844,
+      "status": true,
+      "updated": "2026-04-14T23:21:26.191835"
     },
     "A22F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:50.873298"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9412,
+      "status": true,
+      "updated": "2026-04-14T23:21:26.196543"
     }
   },
   "20230320_3.6M_31.53S_71.74W_38.0KM": {
     "C12O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:51.279967"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11158,
+      "status": true,
+      "updated": "2026-04-14T23:21:27.067683"
     }
   },
   "20230321_5.5M_33.61S_71.33W_64.0KM": {
@@ -142095,9 +142221,11 @@
       "updated": "2025-03-06T00:12:07.936162"
     },
     "M04L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:54.025206"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7235,
+      "status": true,
+      "updated": "2026-04-14T23:21:29.166743"
     },
     "M11L": {
       "corrected": true,
@@ -142205,9 +142333,11 @@
       "updated": "2024-11-05T23:52:27.852188"
     },
     "R06M": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:54.026036"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11457,
+      "status": true,
+      "updated": "2026-04-14T23:21:29.172117"
     },
     "R07M": {
       "corrected": true,
@@ -142301,9 +142431,11 @@
       "updated": "2024-10-13T20:34:53.246958"
     },
     "R22M": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:02:54.026803"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11915,
+      "status": true,
+      "updated": "2026-04-14T23:21:29.177370"
     },
     "R23M": {
       "corrected": true,
@@ -142504,9 +142636,11 @@
   },
   "20230322_4.4M_22.72S_68.97W_109.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:18.425476"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9707,
+      "status": true,
+      "updated": "2026-04-14T23:21:54.304266"
     }
   },
   "20230322_5.3M_23.51S_66.72W_228.0KM": {
@@ -142534,9 +142668,11 @@
       "updated": "2024-10-13T20:35:16.556060"
     },
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:19.271872"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11590,
+      "status": true,
+      "updated": "2026-04-14T23:21:55.233160"
     },
     "A06F": {
       "corrected": true,
@@ -142616,9 +142752,11 @@
       "updated": "2024-10-13T20:35:16.602935"
     },
     "A23F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:19.272665"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 2110,
+      "status": true,
+      "updated": "2026-04-14T23:21:55.238101"
     },
     "A24F": {
       "corrected": true,
@@ -142649,19 +142787,25 @@
       "updated": "2024-03-15T23:07:29.203354"
     },
     "T07A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:19.273400"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 2034,
+      "status": true,
+      "updated": "2026-04-14T23:21:55.243268"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:19.276949"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 1452,
+      "status": true,
+      "updated": "2026-04-14T23:21:55.248265"
     },
     "T11A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:19.274120"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 626,
+      "status": true,
+      "updated": "2026-04-14T23:21:55.253372"
     },
     "T13A": {
       "corrected": true,
@@ -142671,24 +142815,32 @@
       "updated": "2024-10-13T20:35:16.615035"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:19.274830"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 1438,
+      "status": true,
+      "updated": "2026-04-14T23:21:55.258186"
     },
     "T19A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:19.275532"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
+      "updated": "2026-04-14T23:21:55.262832"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:19.277650"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 1643,
+      "status": true,
+      "updated": "2026-04-14T23:21:55.267718"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:19.276238"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 1388,
+      "status": true,
+      "updated": "2026-04-14T23:21:55.272520"
     }
   },
   "20230324_4.0M_30.10S_71.24W_65.0KM": {
@@ -142728,16 +142880,20 @@
       "updated": "2024-10-13T20:35:22.391713"
     },
     "C26O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:25.990964"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10514,
+      "status": true,
+      "updated": "2026-04-14T23:22:03.536828"
     }
   },
   "20230325_4.5M_22.90S_68.84W_121.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:28.031302"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9435,
+      "status": true,
+      "updated": "2026-04-14T23:22:05.847697"
     },
     "A17F": {
       "corrected": true,
@@ -142812,9 +142968,11 @@
       "updated": "2025-02-19T23:35:28.148474"
     },
     "B15I": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:31.708307"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9330,
+      "status": true,
+      "updated": "2026-04-14T23:22:07.307301"
     },
     "B16I": {
       "corrected": true,
@@ -142852,14 +143010,18 @@
       "updated": "2024-03-15T23:07:32.258575"
     },
     "B22I": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:31.709079"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10717,
+      "status": true,
+      "updated": "2026-04-14T23:22:07.312202"
     },
     "CCSP": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:31.709816"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11979,
+      "status": true,
+      "updated": "2026-04-14T23:22:07.317343"
     },
     "M08L": {
       "corrected": true,
@@ -142899,9 +143061,11 @@
       "updated": "2024-03-15T23:07:33.970374"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:29.075335"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8162,
+      "status": true,
+      "updated": "2026-04-14T23:22:13.685492"
     },
     "T11A": {
       "corrected": true,
@@ -142911,14 +143075,18 @@
       "updated": "2024-10-24T10:24:08.160885"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:29.074553"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7669,
+      "status": true,
+      "updated": "2026-04-14T23:22:13.690340"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:29.076060"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8160,
+      "status": true,
+      "updated": "2026-04-14T23:22:13.695172"
     },
     "T24A": {
       "corrected": true,
@@ -143014,9 +143182,11 @@
       "updated": "2025-03-06T00:12:39.044074"
     },
     "M07L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:37.788097"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 5641,
+      "status": true,
+      "updated": "2026-04-14T23:22:16.744982"
     },
     "M08L": {
       "corrected": true,
@@ -143047,9 +143217,11 @@
       "updated": "2025-03-06T00:12:39.153926"
     },
     "M14L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:37.788941"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10099,
+      "status": true,
+      "updated": "2026-04-14T23:22:16.750296"
     },
     "M15L": {
       "corrected": true,
@@ -143244,9 +143416,11 @@
       "updated": "2024-03-15T23:07:37.865449"
     },
     "A19C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:43.962094"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11734,
+      "status": true,
+      "updated": "2026-04-14T23:22:23.028248"
     },
     "A20C": {
       "corrected": true,
@@ -143467,38 +143641,50 @@
       "updated": "2024-10-24T10:24:10.046546"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:55.245302"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9421,
+      "status": true,
+      "updated": "2026-04-14T23:22:34.690330"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:55.244579"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9622,
+      "status": true,
+      "updated": "2026-04-14T23:22:34.695109"
     }
   },
   "20230407_3.9M_38.23S_72.42W_44.0KM": {
     "B15I": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:55.950950"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9498,
+      "status": true,
+      "updated": "2026-04-14T23:22:35.853345"
     }
   },
   "20230409_4.3M_19.28S_70.20W_44.0KM": {
     "A16P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:56.232179"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11146,
+      "status": true,
+      "updated": "2026-04-14T23:22:36.422719"
     },
     "T09A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:56.232474"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10803,
+      "status": true,
+      "updated": "2026-04-14T23:22:36.427453"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:56.232759"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9654,
+      "status": true,
+      "updated": "2026-04-14T23:22:36.432130"
     }
   },
   "20230410_4.0M_32.37S_71.45W_53.0KM": {
@@ -143619,9 +143805,11 @@
   },
   "20230411_4.3M_31.48S_71.71W_34.0KM": {
     "C12O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:56.856697"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11129,
+      "status": true,
+      "updated": "2026-04-14T23:22:37.663920"
     }
   },
   "20230420_4.0M_29.04S_71.47W_58.0KM": {
@@ -143635,9 +143823,11 @@
   },
   "20230420_4.0M_31.48S_71.64W_38.0KM": {
     "C12O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:57.135008"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11171,
+      "status": true,
+      "updated": "2026-04-14T23:22:38.233824"
     }
   },
   "20230420_4.1M_30.91S_71.44W_51.0KM": {
@@ -143665,14 +143855,18 @@
       "updated": "2024-10-24T10:24:16.569960"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:57.458132"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8956,
+      "status": true,
+      "updated": "2026-04-14T23:22:38.840599"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:57.457424"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8207,
+      "status": true,
+      "updated": "2026-04-14T23:22:38.858339"
     }
   },
   "20230422_3.6M_28.68S_71.00W_59.0KM": {
@@ -143684,9 +143878,11 @@
       "updated": "2024-08-05T20:14:15.649009"
     },
     "A10C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:58.258464"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10525,
+      "status": true,
+      "updated": "2026-04-14T23:22:40.073435"
     },
     "A22C": {
       "corrected": true,
@@ -143712,9 +143908,11 @@
       "updated": "2024-08-05T20:14:16.607002"
     },
     "A27C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:03:59.565523"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9871,
+      "status": true,
+      "updated": "2026-04-14T23:22:41.654402"
     }
   },
   "20230423_4.3M_30.64S_71.26W_56.0KM": {
@@ -143749,9 +143947,11 @@
   },
   "20230424_4.8M_33.66S_72.04W_31.0KM": {
     "B06O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:00.313174"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10610,
+      "status": true,
+      "updated": "2026-04-14T23:22:42.625031"
     },
     "B09O": {
       "corrected": true,
@@ -143923,9 +144123,11 @@
       "updated": "2025-03-06T00:12:44.473362"
     },
     "M04L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:03.423572"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9833,
+      "status": true,
+      "updated": "2026-04-14T23:22:45.782547"
     },
     "M05L": {
       "corrected": true,
@@ -143935,9 +144137,11 @@
       "updated": "2025-03-06T00:12:44.477168"
     },
     "M07L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:03.424354"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9468,
+      "status": true,
+      "updated": "2026-04-14T23:22:45.787329"
     },
     "M09L": {
       "corrected": true,
@@ -143968,9 +144172,11 @@
       "updated": "2025-03-06T00:12:44.489443"
     },
     "M14L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:03.425101"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8828,
+      "status": true,
+      "updated": "2026-04-14T23:22:45.792093"
     },
     "M15L": {
       "corrected": true,
@@ -144019,9 +144225,11 @@
   },
   "20230430_4.6M_23.34S_69.92W_49.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:10.738300"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9945,
+      "status": true,
+      "updated": "2026-04-14T23:22:53.742686"
     },
     "A24F": {
       "corrected": true,
@@ -144093,9 +144301,11 @@
       "updated": "2024-10-13T20:49:24.569557"
     },
     "L04R": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:11.383446"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10178,
+      "status": true,
+      "updated": "2026-04-14T23:22:54.653277"
     },
     "L11R": {
       "corrected": true,
@@ -144107,9 +144317,11 @@
   },
   "20230505_4.2M_19.87S_69.07W_104.0KM": {
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:12.615662"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9347,
+      "status": true,
+      "updated": "2026-04-14T23:22:56.181761"
     }
   },
   "20230506_3.8M_32.13S_71.40W_45.0KM": {
@@ -144137,16 +144349,20 @@
   },
   "20230507_3.5M_19.27S_70.15W_54.0KM": {
     "A16P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:12.880206"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10819,
+      "status": true,
+      "updated": "2026-04-14T23:22:56.739807"
     }
   },
   "20230507_4.4M_22.40S_68.72W_106.0KM": {
     "A12F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:13.271163"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9717,
+      "status": true,
+      "updated": "2026-04-14T23:22:57.389891"
     },
     "A17F": {
       "corrected": true,
@@ -144170,9 +144386,11 @@
       "updated": "2024-03-15T23:07:54.455180"
     },
     "A23F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:13.271439"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11987,
+      "status": true,
+      "updated": "2026-04-14T23:22:57.395272"
     }
   },
   "20230507_5.3M_25.36S_70.45W_48.0KM": {
@@ -144184,9 +144402,11 @@
       "updated": "2024-10-13T20:49:26.895066"
     },
     "A07C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:15.027798"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 6530,
+      "status": true,
+      "updated": "2026-04-14T23:22:59.481004"
     },
     "A10F": {
       "corrected": true,
@@ -144224,9 +144444,11 @@
       "updated": "2024-10-13T20:49:26.912752"
     },
     "A19C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:15.028578"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 4891,
+      "status": true,
+      "updated": "2026-04-14T23:22:59.485697"
     },
     "A21F": {
       "corrected": true,
@@ -144243,14 +144465,18 @@
       "updated": "2024-10-13T20:49:26.922178"
     },
     "A27C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:15.029336"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 6756,
+      "status": true,
+      "updated": "2026-04-14T23:22:59.490736"
     },
     "A28C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:15.030073"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 6194,
+      "status": true,
+      "updated": "2026-04-14T23:22:59.495626"
     },
     "A28F": {
       "corrected": true,
@@ -144260,9 +144486,11 @@
       "updated": "2024-10-13T20:49:26.926673"
     },
     "A29C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:15.030595"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 1996,
+      "status": true,
+      "updated": "2026-04-14T23:22:59.499668"
     },
     "AC01": {
       "corrected": true,
@@ -144288,9 +144516,11 @@
       "updated": "2024-10-13T20:49:30.795388"
     },
     "A10C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:19.226139"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10538,
+      "status": true,
+      "updated": "2026-04-14T23:23:04.501996"
     },
     "A22C": {
       "corrected": true,
@@ -144323,9 +144553,11 @@
   },
   "20230511_3.8M_20.41S_68.78W_116.0KM": {
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:21.105684"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8746,
+      "status": true,
+      "updated": "2026-04-14T23:23:06.663734"
     }
   },
   "20230511_4.2M_22.20S_70.04W_54.0KM": {
@@ -144364,19 +144596,25 @@
   },
   "20230515_4.3M_20.08S_69.07W_104.0KM": {
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:21.400094"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9298,
+      "status": true,
+      "updated": "2026-04-14T23:23:07.264818"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:21.400773"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9445,
+      "status": true,
+      "updated": "2026-04-14T23:23:07.269627"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:21.399331"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8819,
+      "status": true,
+      "updated": "2026-04-14T23:23:07.274337"
     }
   },
   "20230516_3.8M_20.84S_70.26W_40.0KM": {
@@ -144406,9 +144644,11 @@
       "updated": "2024-10-24T10:24:19.667837"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:22.089204"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9282,
+      "status": true,
+      "updated": "2026-04-14T23:23:08.530320"
     },
     "T12A": {
       "corrected": true,
@@ -144425,14 +144665,18 @@
       "updated": "2024-08-05T20:14:17.685856"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:22.089903"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9439,
+      "status": true,
+      "updated": "2026-04-14T23:23:08.535245"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:22.088444"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8024,
+      "status": true,
+      "updated": "2026-04-14T23:23:08.540013"
     }
   },
   "20230519_4.7M_30.61S_71.32W_68.0KM": {
@@ -144451,9 +144695,11 @@
       "updated": "2024-03-15T23:07:58.032976"
     },
     "C10O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:23.807390"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10284,
+      "status": true,
+      "updated": "2026-04-14T23:23:10.785115"
     },
     "C11O": {
       "corrected": true,
@@ -144470,9 +144716,11 @@
       "updated": "2024-10-13T20:49:32.436198"
     },
     "C18O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:23.808167"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9931,
+      "status": true,
+      "updated": "2026-04-14T23:23:10.789813"
     },
     "C20O": {
       "corrected": true,
@@ -144482,9 +144730,11 @@
       "updated": "2024-10-13T20:49:32.440161"
     },
     "C26O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:23.808908"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11977,
+      "status": true,
+      "updated": "2026-04-14T23:23:10.794771"
     },
     "C29O": {
       "corrected": true,
@@ -144584,14 +144834,18 @@
       "updated": "2025-02-19T23:35:46.705186"
     },
     "B22I": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:26.655082"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10453,
+      "status": true,
+      "updated": "2026-04-14T23:23:14.206448"
     },
     "CCSP": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:26.655835"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10712,
+      "status": true,
+      "updated": "2026-04-14T23:23:14.211408"
     }
   },
   "20230523_4.6M_36.88S_73.71W_16.0KM": {
@@ -144645,16 +144899,20 @@
       "updated": "2025-02-19T23:35:48.166963"
     },
     "CCSP": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:28.167668"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10798,
+      "status": true,
+      "updated": "2026-04-14T23:23:16.100704"
     }
   },
   "20230524_4.3M_19.75S_69.41W_115.0KM": {
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:30.600207"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9529,
+      "status": true,
+      "updated": "2026-04-14T23:23:18.824142"
     }
   },
   "20230528_5.0M_23.39S_69.89W_36.0KM": {
@@ -144680,9 +144938,11 @@
       "updated": "2024-10-13T20:49:37.393047"
     },
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:31.092167"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9951,
+      "status": true,
+      "updated": "2026-04-14T23:23:19.541782"
     },
     "A15F": {
       "corrected": true,
@@ -144722,9 +144982,11 @@
   },
   "20230530_3.3M_19.67S_69.81W_38.0KM": {
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:42.032566"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10838,
+      "status": true,
+      "updated": "2026-04-14T23:23:22.533656"
     }
   },
   "20230530_3.9M_22.50S_70.26W_41.0KM": {
@@ -144759,14 +145021,18 @@
       "updated": "2024-03-15T23:08:03.000148"
     },
     "C16O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:33.900710"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10670,
+      "status": true,
+      "updated": "2026-04-14T23:23:23.170702"
     },
     "C27O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:33.901478"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10423,
+      "status": true,
+      "updated": "2026-04-14T23:23:23.175581"
     },
     "C28O": {
       "corrected": true,
@@ -144848,14 +145114,18 @@
       "updated": "2024-03-15T23:08:04.218257"
     },
     "T08A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:36.203700"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11851,
+      "status": true,
+      "updated": "2026-04-14T23:23:25.715218"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:36.206144"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11708,
+      "status": true,
+      "updated": "2026-04-14T23:23:25.720342"
     },
     "T12A": {
       "corrected": true,
@@ -144879,9 +145149,11 @@
       "updated": "2024-03-15T23:08:04.223001"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:36.204536"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11949,
+      "status": true,
+      "updated": "2026-04-14T23:23:25.725574"
     },
     "T16A": {
       "corrected": true,
@@ -144891,14 +145163,18 @@
       "updated": "2024-03-15T23:08:04.227814"
     },
     "T19A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:36.205347"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11807,
+      "status": true,
+      "updated": "2026-04-14T23:23:25.730783"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:36.206883"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8770,
+      "status": true,
+      "updated": "2026-04-14T23:23:25.735582"
     },
     "T23A": {
       "corrected": true,
@@ -144968,14 +145244,18 @@
       "updated": "2024-03-15T22:07:51.844841"
     },
     "T08A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:42.558543"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7877,
+      "status": true,
+      "updated": "2026-04-14T23:23:32.752274"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:42.560782"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8843,
+      "status": true,
+      "updated": "2026-04-14T23:23:32.757275"
     },
     "T12A": {
       "corrected": true,
@@ -144992,19 +145272,25 @@
       "updated": "2024-10-13T21:36:48.699412"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:42.559317"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8202,
+      "status": true,
+      "updated": "2026-04-14T23:23:32.762336"
     },
     "T19A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:42.560042"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7702,
+      "status": true,
+      "updated": "2026-04-14T23:23:32.766989"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:42.561567"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11990,
+      "status": true,
+      "updated": "2026-04-14T23:23:32.772176"
     },
     "T24A": {
       "corrected": true,
@@ -145032,9 +145318,11 @@
   },
   "20230604_4.3M_28.42S_70.78W_76.0KM": {
     "A10C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:45.665616"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10612,
+      "status": true,
+      "updated": "2026-04-14T23:23:36.793095"
     },
     "A22C": {
       "corrected": true,
@@ -145060,9 +145348,11 @@
   },
   "20230605_3.6M_27.58S_69.95W_91.0KM": {
     "A28C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:46.845242"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9784,
+      "status": true,
+      "updated": "2026-04-14T23:23:38.261978"
     }
   },
   "20230605_4.3M_21.42S_69.95W_79.0KM": {
@@ -145081,9 +145371,11 @@
       "updated": "2024-06-06T11:01:24.234328"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:47.132444"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8803,
+      "status": true,
+      "updated": "2026-04-14T23:23:38.829540"
     }
   },
   "20230606_4.3M_21.30S_69.96W_56.0KM": {
@@ -145148,9 +145440,11 @@
   },
   "20230609_4.0M_23.48S_69.61W_81.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:48.012977"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9624,
+      "status": true,
+      "updated": "2026-04-14T23:23:40.003748"
     }
   },
   "20230610_4.5M_21.57S_69.54W_6.0KM": {
@@ -145185,14 +145479,18 @@
       "updated": "2024-10-13T21:36:56.086670"
     },
     "C10O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:48.450655"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10235,
+      "status": true,
+      "updated": "2026-04-14T23:23:40.665718"
     },
     "C11O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:48.451427"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10580,
+      "status": true,
+      "updated": "2026-04-14T23:23:40.670506"
     },
     "C13O": {
       "corrected": true,
@@ -145202,9 +145500,11 @@
       "updated": "2024-10-13T21:36:56.089884"
     },
     "C16O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:48.452147"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9634,
+      "status": true,
+      "updated": "2026-04-14T23:23:40.675150"
     },
     "C20O": {
       "corrected": true,
@@ -145214,9 +145514,11 @@
       "updated": "2024-10-13T21:36:56.093956"
     },
     "C26O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:48.452837"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10190,
+      "status": true,
+      "updated": "2026-04-14T23:23:40.679835"
     },
     "C29O": {
       "corrected": true,
@@ -145242,16 +145544,20 @@
       "updated": "2024-03-15T22:07:56.220525"
     },
     "C16O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:50.972847"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10237,
+      "status": true,
+      "updated": "2026-04-14T23:23:43.950351"
     }
   },
   "20230611_4.5M_22.02S_68.81W_106.0KM": {
     "A20F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:51.905451"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9479,
+      "status": true,
+      "updated": "2026-04-14T23:23:45.180684"
     }
   },
   "20230615_5.1M_34.51S_71.87W_47.0KM": {
@@ -145291,9 +145597,11 @@
       "updated": "2024-03-15T22:07:57.087647"
     },
     "B06O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:53.023610"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11996,
+      "status": true,
+      "updated": "2026-04-14T23:23:46.278440"
     },
     "B07O": {
       "corrected": true,
@@ -145373,9 +145681,11 @@
       "updated": "2025-03-06T00:12:50.986640"
     },
     "M04L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:53.024401"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9540,
+      "status": true,
+      "updated": "2026-04-14T23:23:46.283087"
     },
     "M05L": {
       "corrected": true,
@@ -145385,9 +145695,11 @@
       "updated": "2025-03-06T00:12:50.991188"
     },
     "M07L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:04:53.025135"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10212,
+      "status": true,
+      "updated": "2026-04-14T23:23:46.287861"
     },
     "M09L": {
       "corrected": true,
@@ -145476,9 +145788,11 @@
   },
   "20230616_4.1M_20.63S_70.53W_43.0KM": {
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:02.385799"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10464,
+      "status": true,
+      "updated": "2026-04-14T23:23:56.337461"
     }
   },
   "20230617_4.9M_34.83S_71.05W_100.0KM": {
@@ -145518,9 +145832,11 @@
       "updated": "2025-03-06T00:13:00.295654"
     },
     "M04L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:02.884415"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9697,
+      "status": true,
+      "updated": "2026-04-14T23:23:57.055739"
     },
     "M05L": {
       "corrected": true,
@@ -145546,41 +145862,55 @@
   },
   "20230619_3.5M_19.34S_69.91W_5.0KM": {
     "A16P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:06.777267"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11328,
+      "status": true,
+      "updated": "2026-04-14T23:24:00.212715"
     }
   },
   "20230619_4.8M_22.63S_69.01W_127.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:05.774326"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9329,
+      "status": true,
+      "updated": "2026-04-14T23:24:00.821026"
     },
     "A12F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:05.774605"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9597,
+      "status": true,
+      "updated": "2026-04-14T23:24:00.825916"
     },
     "A17F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:05.774805"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9611,
+      "status": true,
+      "updated": "2026-04-14T23:24:00.831012"
     },
     "A20F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:05.775026"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9629,
+      "status": true,
+      "updated": "2026-04-14T23:24:00.835982"
     },
     "A22F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:05.775277"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11998,
+      "status": true,
+      "updated": "2026-04-14T23:24:00.841036"
     },
     "A23F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:05.775544"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11808,
+      "status": true,
+      "updated": "2026-04-14T23:24:00.846377"
     }
   },
   "20230620_4.3M_20.40S_69.05W_104.0KM": {
@@ -145592,9 +145922,11 @@
       "updated": "2024-08-05T20:14:18.518544"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:07.097275"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9260,
+      "status": true,
+      "updated": "2026-04-14T23:24:02.983936"
     }
   },
   "20230624_3.8M_29.97S_71.50W_52.0KM": {
@@ -145613,9 +145945,11 @@
       "updated": "2024-03-15T22:07:59.497879"
     },
     "C16O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:08.358297"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10755,
+      "status": true,
+      "updated": "2026-04-14T23:24:03.891492"
     },
     "C17O": {
       "corrected": true,
@@ -145634,16 +145968,20 @@
       "updated": "2024-08-05T20:14:18.992383"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:07.699029"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9488,
+      "status": true,
+      "updated": "2026-04-14T23:24:05.443590"
     }
   },
   "20230625_4.3M_20.91S_68.99W_103.0KM": {
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:09.594014"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8380,
+      "status": true,
+      "updated": "2026-04-14T23:24:06.313391"
     }
   },
   "20230627_4.6M_30.14S_71.27W_72.0KM": {
@@ -145669,9 +146007,11 @@
       "updated": "2024-10-24T10:24:26.833092"
     },
     "C03O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:10.263620"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10159,
+      "status": true,
+      "updated": "2026-04-14T23:24:07.129648"
     },
     "C06O": {
       "corrected": true,
@@ -145688,14 +146028,18 @@
       "updated": "2024-10-13T21:37:07.060074"
     },
     "C10O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:10.264418"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10502,
+      "status": true,
+      "updated": "2026-04-14T23:24:07.134710"
     },
     "C11O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:10.265126"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9975,
+      "status": true,
+      "updated": "2026-04-14T23:24:07.139635"
     },
     "C13O": {
       "corrected": true,
@@ -145712,9 +146056,11 @@
       "updated": "2024-03-15T22:08:00.063913"
     },
     "C16O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:10.265870"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11971,
+      "status": true,
+      "updated": "2026-04-14T23:24:07.145063"
     },
     "C17O": {
       "corrected": true,
@@ -145738,9 +146084,11 @@
       "updated": "2024-10-13T21:37:07.075545"
     },
     "C26O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:10.266596"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 12003,
+      "status": true,
+      "updated": "2026-04-14T23:24:07.149875"
     },
     "C29O": {
       "corrected": true,
@@ -145775,9 +146123,11 @@
   },
   "20230704_4.2M_23.45S_69.55W_83.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:15.286426"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9966,
+      "status": true,
+      "updated": "2026-04-14T23:24:13.085965"
     }
   },
   "20230706_3.7M_35.09S_71.31W_80.0KM": {
@@ -145791,24 +146141,32 @@
   },
   "20230706_5.7M_23.97S_67.98W_130.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:15.605708"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7411,
+      "status": true,
+      "updated": "2026-04-14T23:24:13.680403"
     },
     "A08F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:15.606467"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11995,
+      "status": true,
+      "updated": "2026-04-14T23:24:13.685196"
     },
     "A20F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:15.607172"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 6371,
+      "status": true,
+      "updated": "2026-04-14T23:24:13.690061"
     },
     "A22F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:15.607857"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8214,
+      "status": true,
+      "updated": "2026-04-14T23:24:13.694849"
     },
     "PB15": {
       "corrected": true,
@@ -145931,14 +146289,18 @@
   },
   "20230709_4.1M_30.21S_71.26W_58.0KM": {
     "C14O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:37.466846"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10059,
+      "status": true,
+      "updated": "2026-04-14T23:24:15.526995"
     },
     "C16O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:37.468092"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10612,
+      "status": true,
+      "updated": "2026-04-14T23:24:15.531919"
     },
     "C20O": {
       "corrected": true,
@@ -146153,9 +146515,11 @@
       "updated": "2024-11-05T23:52:52.964569"
     },
     "R06M": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:18.523853"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11937,
+      "status": true,
+      "updated": "2026-04-14T23:24:17.959946"
     },
     "R07M": {
       "corrected": true,
@@ -146242,9 +146606,11 @@
       "updated": "2024-10-13T21:37:16.728279"
     },
     "R22M": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:18.524699"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11985,
+      "status": true,
+      "updated": "2026-04-14T23:24:17.965157"
     },
     "R23M": {
       "corrected": true,
@@ -146373,9 +146739,11 @@
       "updated": "2024-10-24T10:24:34.820605"
     },
     "V22A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:18.525435"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8257,
+      "status": true,
+      "updated": "2026-04-14T23:24:17.969846"
     },
     "V23A": {
       "corrected": true,
@@ -146475,9 +146843,11 @@
   },
   "20230713_3.9M_34.91S_71.80W_42.0KM": {
     "M07L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:38.291534"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10742,
+      "status": true,
+      "updated": "2026-04-14T23:24:37.610620"
     },
     "M17L": {
       "corrected": true,
@@ -146510,9 +146880,11 @@
       "updated": "2024-10-13T21:37:38.045336"
     },
     "R06M": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:39.189805"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10097,
+      "status": true,
+      "updated": "2026-04-14T23:24:38.684194"
     },
     "R07M": {
       "corrected": true,
@@ -146657,9 +147029,11 @@
       "updated": "2024-10-13T21:37:42.571524"
     },
     "B09I": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:45.765060"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 3313,
+      "status": true,
+      "updated": "2026-04-14T23:24:44.458098"
     },
     "B09O": {
       "corrected": true,
@@ -146704,9 +147078,11 @@
       "updated": "2024-10-13T21:37:42.585225"
     },
     "B15I": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:45.766023"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11694,
+      "status": true,
+      "updated": "2026-04-14T23:24:44.463587"
     },
     "B16I": {
       "corrected": true,
@@ -146751,9 +147127,11 @@
       "updated": "2024-10-13T21:37:42.594295"
     },
     "B22I": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:45.766904"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11716,
+      "status": true,
+      "updated": "2026-04-14T23:24:44.469008"
     },
     "BI04": {
       "corrected": true,
@@ -146840,9 +147218,11 @@
       "updated": "2024-10-13T21:37:42.628119"
     },
     "L04R": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:45.767690"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 5935,
+      "status": true,
+      "updated": "2026-04-14T23:24:44.474237"
     },
     "L05C": {
       "corrected": true,
@@ -146978,9 +147358,11 @@
       "updated": "2025-03-06T00:13:06.140305"
     },
     "M04L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:45.768445"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 4374,
+      "status": true,
+      "updated": "2026-04-14T23:24:44.479009"
     },
     "M05L": {
       "corrected": true,
@@ -146990,9 +147372,11 @@
       "updated": "2025-03-06T00:13:06.144847"
     },
     "M07L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:45.769324"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11740,
+      "status": true,
+      "updated": "2026-04-14T23:24:44.485356"
     },
     "M09L": {
       "corrected": true,
@@ -147023,9 +147407,11 @@
       "updated": "2025-03-06T00:13:06.160816"
     },
     "M14L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:45.770214"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11755,
+      "status": true,
+      "updated": "2026-04-14T23:24:44.492139"
     },
     "M15L": {
       "corrected": true,
@@ -147077,9 +147463,11 @@
       "updated": "2024-10-13T21:37:42.701509"
     },
     "R06M": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:05:45.770943"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 856,
+      "status": true,
+      "updated": "2026-04-14T23:24:44.496908"
     },
     "R07M": {
       "corrected": true,
@@ -147247,14 +147635,18 @@
   },
   "20230719_3.7M_27.48S_70.17W_84.0KM": {
     "A27C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:13.847044"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10113,
+      "status": true,
+      "updated": "2026-04-14T23:25:14.322572"
     },
     "A28C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:13.852678"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10257,
+      "status": true,
+      "updated": "2026-04-14T23:25:14.327388"
     }
   },
   "20230721_4.2M_32.44S_70.78W_80.0KM": {
@@ -147296,9 +147688,11 @@
       "updated": "2024-10-13T21:38:04.200447"
     },
     "C11O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:14.399589"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10064,
+      "status": true,
+      "updated": "2026-04-14T23:25:15.273624"
     },
     "C13O": {
       "corrected": true,
@@ -147308,9 +147702,11 @@
       "updated": "2024-10-13T21:38:04.203780"
     },
     "C18O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:14.400351"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9385,
+      "status": true,
+      "updated": "2026-04-14T23:25:15.278692"
     },
     "C20O": {
       "corrected": true,
@@ -147405,9 +147801,11 @@
       "updated": "2024-08-05T20:14:21.321364"
     },
     "A28C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:16.520623"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10439,
+      "status": true,
+      "updated": "2026-04-14T23:25:17.840934"
     }
   },
   "20230727_4.8M_26.77S_71.09W_29.0KM": {
@@ -147433,9 +147831,11 @@
       "updated": "2024-08-05T20:14:21.877707"
     },
     "A07C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:17.327663"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9744,
+      "status": true,
+      "updated": "2026-04-14T23:25:18.853566"
     },
     "A18C": {
       "corrected": true,
@@ -147445,24 +147845,32 @@
       "updated": "2025-02-19T23:36:16.016791"
     },
     "A19C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:17.328446"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8433,
+      "status": true,
+      "updated": "2026-04-14T23:25:18.858404"
     },
     "A27C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:17.329181"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9194,
+      "status": true,
+      "updated": "2026-04-14T23:25:18.863539"
     },
     "A28C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:17.329887"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9439,
+      "status": true,
+      "updated": "2026-04-14T23:25:18.868503"
     },
     "A29C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:17.330410"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 5529,
+      "status": true,
+      "updated": "2026-04-14T23:25:18.872763"
     },
     "A30C": {
       "corrected": true,
@@ -147488,9 +147896,11 @@
       "updated": "2025-03-06T00:13:34.386576"
     },
     "M04L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:23.554034"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10159,
+      "status": true,
+      "updated": "2026-04-14T23:25:22.238220"
     },
     "M05L": {
       "corrected": true,
@@ -147500,9 +147910,11 @@
       "updated": "2025-03-06T00:13:34.390461"
     },
     "M07L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:23.554800"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10328,
+      "status": true,
+      "updated": "2026-04-14T23:25:22.243357"
     },
     "M09L": {
       "corrected": true,
@@ -147556,9 +147968,11 @@
       "updated": "2024-10-13T21:38:06.212274"
     },
     "B15I": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:19.977256"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11247,
+      "status": true,
+      "updated": "2026-04-14T23:25:25.205949"
     },
     "B16I": {
       "corrected": true,
@@ -147589,14 +148003,18 @@
       "updated": "2025-02-19T23:36:18.094351"
     },
     "B22I": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:19.978037"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9892,
+      "status": true,
+      "updated": "2026-04-14T23:25:25.210785"
     },
     "CCSP": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:19.978757"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10317,
+      "status": true,
+      "updated": "2026-04-14T23:25:25.215851"
     },
     "L06C": {
       "corrected": true,
@@ -147647,9 +148065,11 @@
       "updated": "2024-10-13T21:38:08.125393"
     },
     "C12O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:25.987055"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11033,
+      "status": true,
+      "updated": "2026-04-14T23:25:29.336407"
     },
     "C21O": {
       "corrected": true,
@@ -147677,9 +148097,11 @@
   },
   "20230805_4.0M_31.67S_71.73W_27.0KM": {
     "C12O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:27.629449"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10830,
+      "status": true,
+      "updated": "2026-04-14T23:25:31.368074"
     },
     "C21O": {
       "corrected": true,
@@ -147705,9 +148127,11 @@
       "updated": "2024-10-13T21:38:09.891747"
     },
     "A16P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:28.662841"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8981,
+      "status": true,
+      "updated": "2026-04-14T23:25:32.566074"
     },
     "A18P": {
       "corrected": true,
@@ -147738,9 +148162,11 @@
       "updated": "2024-03-15T22:08:21.161176"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:28.663565"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9320,
+      "status": true,
+      "updated": "2026-04-14T23:25:32.570951"
     },
     "T12A": {
       "corrected": true,
@@ -147757,14 +148183,18 @@
       "updated": "2024-10-13T21:38:09.908845"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:28.662059"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8858,
+      "status": true,
+      "updated": "2026-04-14T23:25:32.576007"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:28.664333"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11883,
+      "status": true,
+      "updated": "2026-04-14T23:25:32.581250"
     },
     "T24A": {
       "corrected": true,
@@ -147804,9 +148234,11 @@
       "updated": "2024-10-13T21:38:13.802335"
     },
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:32.989104"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9931,
+      "status": true,
+      "updated": "2026-04-14T23:25:37.647079"
     },
     "A06F": {
       "corrected": true,
@@ -147830,9 +148262,11 @@
       "updated": "2024-10-13T21:38:13.814003"
     },
     "A23F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:32.989854"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8038,
+      "status": true,
+      "updated": "2026-04-14T23:25:37.651877"
     },
     "A24F": {
       "corrected": true,
@@ -147925,14 +148359,18 @@
       "updated": "2024-10-24T10:25:21.802589"
     },
     "T08A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:35.999110"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8961,
+      "status": true,
+      "updated": "2026-04-14T23:25:41.093955"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:36.001302"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9377,
+      "status": true,
+      "updated": "2026-04-14T23:25:41.098861"
     },
     "T12A": {
       "corrected": true,
@@ -147949,19 +148387,25 @@
       "updated": "2024-10-13T21:38:19.222223"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:35.999875"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9047,
+      "status": true,
+      "updated": "2026-04-14T23:25:41.103827"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:36.002018"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9579,
+      "status": true,
+      "updated": "2026-04-14T23:25:41.108677"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:36.000604"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8965,
+      "status": true,
+      "updated": "2026-04-14T23:25:41.113599"
     }
   },
   "20230812_3.1M_22.26S_70.46W_28.0KM": {
@@ -148009,9 +148453,11 @@
   },
   "20230813_3.8M_19.28S_70.10W_50.0KM": {
     "A16P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:38.114233"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10916,
+      "status": true,
+      "updated": "2026-04-14T23:25:44.172614"
     }
   },
   "20230813_4.0M_30.18S_71.21W_63.0KM": {
@@ -148023,9 +148469,11 @@
       "updated": "2024-10-13T21:38:20.471887"
     },
     "C16O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:38.775669"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10557,
+      "status": true,
+      "updated": "2026-04-14T23:25:44.806969"
     },
     "C17O": {
       "corrected": true,
@@ -148044,9 +148492,11 @@
   },
   "20230813_4.1M_19.86S_69.49W_110.0KM": {
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:38.402255"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9563,
+      "status": true,
+      "updated": "2026-04-14T23:25:46.362015"
     }
   },
   "20230816_4.6M_22.06S_70.52W_28.0KM": {
@@ -148095,9 +148545,11 @@
       "updated": "2024-11-05T23:53:13.142484"
     },
     "R06M": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:40.459558"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9648,
+      "status": true,
+      "updated": "2026-04-14T23:25:47.177824"
     },
     "R08M": {
       "corrected": true,
@@ -148121,9 +148573,11 @@
       "updated": "2024-11-05T23:53:13.146442"
     },
     "R13M": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:40.460346"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9573,
+      "status": true,
+      "updated": "2026-04-14T23:25:47.182615"
     },
     "R14M": {
       "corrected": true,
@@ -148184,9 +148638,11 @@
   },
   "20230818_4.2M_20.18S_69.23W_94.0KM": {
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:45.319381"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9506,
+      "status": true,
+      "updated": "2026-04-14T23:25:52.482706"
     },
     "T12A": {
       "corrected": true,
@@ -148196,26 +148652,34 @@
       "updated": "2024-08-05T20:14:22.713851"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:45.318320"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8976,
+      "status": true,
+      "updated": "2026-04-14T23:25:52.487536"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:45.320074"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9690,
+      "status": true,
+      "updated": "2026-04-14T23:25:52.492524"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:45.318626"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9117,
+      "status": true,
+      "updated": "2026-04-14T23:25:52.497323"
     }
   },
   "20230818_4.4M_23.34S_69.41W_70.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:46.402424"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9920,
+      "status": true,
+      "updated": "2026-04-14T23:25:54.345867"
     }
   },
   "20230820_2.9M_29.16S_71.34W_62.0KM": {
@@ -148296,14 +148760,18 @@
       "updated": "2024-03-15T22:08:27.894208"
     },
     "T08A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:47.020564"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9231,
+      "status": true,
+      "updated": "2026-04-14T23:25:55.128570"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:47.023608"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11991,
+      "status": true,
+      "updated": "2026-04-14T23:25:55.134121"
     },
     "T12A": {
       "corrected": true,
@@ -148320,24 +148788,32 @@
       "updated": "2024-10-13T21:38:24.085147"
     },
     "T14A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:47.021343"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8852,
+      "status": true,
+      "updated": "2026-04-14T23:25:55.138914"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:47.022127"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11985,
+      "status": true,
+      "updated": "2026-04-14T23:25:55.144437"
     },
     "T19A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:47.022831"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9051,
+      "status": true,
+      "updated": "2026-04-14T23:25:55.149137"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:47.024389"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 12027,
+      "status": true,
+      "updated": "2026-04-14T23:25:55.154906"
     },
     "T24A": {
       "corrected": true,
@@ -148365,9 +148841,11 @@
   },
   "20230827_3.9M_30.23S_71.22W_57.0KM": {
     "C16O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:51.116361"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10478,
+      "status": true,
+      "updated": "2026-04-14T23:26:00.390029"
     },
     "C20O": {
       "corrected": true,
@@ -148526,9 +149004,11 @@
       "updated": "2024-10-13T21:38:30.774308"
     },
     "C14O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:04.819769"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9428,
+      "status": true,
+      "updated": "2026-04-14T23:26:01.391543"
     },
     "C15O": {
       "corrected": true,
@@ -148538,9 +149018,11 @@
       "updated": "2024-03-15T22:08:31.315688"
     },
     "C16O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:04.820537"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10546,
+      "status": true,
+      "updated": "2026-04-14T23:26:01.396418"
     },
     "C28O": {
       "corrected": true,
@@ -148601,9 +149083,11 @@
       "updated": "2025-02-19T23:36:21.702254"
     },
     "B15I": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:52.103783"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8955,
+      "status": true,
+      "updated": "2026-04-14T23:26:04.083751"
     },
     "B16I": {
       "corrected": true,
@@ -148634,9 +149118,11 @@
       "updated": "2024-03-15T22:08:32.432629"
     },
     "CCSP": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:52.104594"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9705,
+      "status": true,
+      "updated": "2026-04-14T23:26:04.088758"
     },
     "M10L": {
       "corrected": true,
@@ -148655,9 +149141,11 @@
   },
   "20230830_5.4M_29.49S_71.26W_53.0KM": {
     "A07C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:57.158781"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 5540,
+      "status": true,
+      "updated": "2026-04-14T23:26:09.386139"
     },
     "A09C": {
       "corrected": true,
@@ -148667,9 +149155,11 @@
       "updated": "2024-10-13T21:38:34.545223"
     },
     "A10C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:57.159577"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9297,
+      "status": true,
+      "updated": "2026-04-14T23:26:09.391251"
     },
     "A13C": {
       "corrected": true,
@@ -148707,14 +149197,18 @@
       "updated": "2024-10-13T21:38:34.561894"
     },
     "A28C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:57.160323"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 5501,
+      "status": true,
+      "updated": "2026-04-14T23:26:09.396045"
     },
     "A29C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:57.160848"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 268,
+      "status": true,
+      "updated": "2026-04-14T23:26:09.400154"
     },
     "C01O": {
       "corrected": true,
@@ -148731,9 +149225,11 @@
       "updated": "2024-10-24T10:25:30.008285"
     },
     "C03O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:57.161568"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9872,
+      "status": true,
+      "updated": "2026-04-14T23:26:09.405371"
     },
     "C06O": {
       "corrected": true,
@@ -148750,19 +149246,25 @@
       "updated": "2024-10-13T21:38:34.574303"
     },
     "C10O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:57.162400"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9478,
+      "status": true,
+      "updated": "2026-04-14T23:26:09.410258"
     },
     "C11O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:57.163293"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8192,
+      "status": true,
+      "updated": "2026-04-14T23:26:09.415052"
     },
     "C14O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:57.164076"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9225,
+      "status": true,
+      "updated": "2026-04-14T23:26:09.420155"
     },
     "C15O": {
       "corrected": true,
@@ -148786,9 +149288,11 @@
       "updated": "2024-03-15T22:08:33.820617"
     },
     "C18O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:57.164815"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9046,
+      "status": true,
+      "updated": "2026-04-14T23:26:09.425027"
     },
     "C20O": {
       "corrected": true,
@@ -148805,14 +149309,18 @@
       "updated": "2024-10-13T21:38:34.586739"
     },
     "C26O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:57.165532"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9339,
+      "status": true,
+      "updated": "2026-04-14T23:26:09.429840"
     },
     "C27O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:06:57.166268"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10460,
+      "status": true,
+      "updated": "2026-04-14T23:26:09.435072"
     },
     "C28O": {
       "corrected": true,
@@ -148838,9 +149346,11 @@
   },
   "20230901_4.6M_32.75S_70.46W_107.0KM": {
     "R07M": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:06.900701"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9072,
+      "status": true,
+      "updated": "2026-04-14T23:26:18.867266"
     },
     "R17M": {
       "corrected": true,
@@ -148896,9 +149406,11 @@
       "updated": "2024-03-15T22:08:36.069832"
     },
     "C12O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:08.304126"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10244,
+      "status": true,
+      "updated": "2026-04-14T23:26:20.525534"
     },
     "C21O": {
       "corrected": true,
@@ -148931,39 +149443,53 @@
   },
   "20230905_3.7M_20.06S_70.21W_43.0KM": {
     "T03A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:10.384427"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10832,
+      "status": true,
+      "updated": "2026-04-14T23:26:22.889543"
     },
     "T06A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:10.384731"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10818,
+      "status": true,
+      "updated": "2026-04-14T23:26:22.894499"
     },
     "T08A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:10.385035"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10800,
+      "status": true,
+      "updated": "2026-04-14T23:26:22.899361"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:10.386721"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11595,
+      "status": true,
+      "updated": "2026-04-14T23:26:22.904194"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:10.385490"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10775,
+      "status": true,
+      "updated": "2026-04-14T23:26:22.909080"
     },
     "T19A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:10.385746"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10811,
+      "status": true,
+      "updated": "2026-04-14T23:26:22.913922"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:10.385985"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10926,
+      "status": true,
+      "updated": "2026-04-14T23:26:22.918756"
     }
   },
   "20230906_3.7M_27.59S_70.96W_27.0KM": {
@@ -148975,23 +149501,29 @@
       "updated": "2024-08-05T20:14:24.210787"
     },
     "A29C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:13.259946"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 6023,
+      "status": true,
+      "updated": "2026-04-14T23:26:25.502920"
     }
   },
   "20230906_3.7M_31.65S_71.70W_26.0KM": {
     "C12O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:12.927789"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10848,
+      "status": true,
+      "updated": "2026-04-14T23:26:26.303371"
     }
   },
   "20230906_4.0M_20.31S_69.16W_104.0KM": {
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:11.817526"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9170,
+      "status": true,
+      "updated": "2026-04-14T23:26:26.925145"
     },
     "T13A": {
       "corrected": true,
@@ -149001,26 +149533,34 @@
       "updated": "2024-08-05T20:14:24.856953"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:11.816514"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8706,
+      "status": true,
+      "updated": "2026-04-14T23:26:26.930136"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:11.818240"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9401,
+      "status": true,
+      "updated": "2026-04-14T23:26:26.935097"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:11.816748"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8492,
+      "status": true,
+      "updated": "2026-04-14T23:26:26.940158"
     }
   },
   "20230906_6.5M_30.34S_71.46W_46.0KM": {
     "A07C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:15.186879"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 2932,
+      "status": true,
+      "updated": "2026-04-14T23:26:29.689979"
     },
     "A09C": {
       "corrected": true,
@@ -149030,14 +149570,18 @@
       "updated": "2024-10-13T21:38:43.494367"
     },
     "A10C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:15.187669"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7267,
+      "status": true,
+      "updated": "2026-04-14T23:26:29.694844"
     },
     "A19C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:15.188437"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 4178,
+      "status": true,
+      "updated": "2026-04-14T23:26:29.699806"
     },
     "A22C": {
       "corrected": true,
@@ -149068,9 +149612,11 @@
       "updated": "2024-10-13T21:38:43.508549"
     },
     "A28C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:15.189181"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 2575,
+      "status": true,
+      "updated": "2026-04-14T23:26:29.704637"
     },
     "C01O": {
       "corrected": true,
@@ -149087,9 +149633,11 @@
       "updated": "2024-10-24T10:25:41.730832"
     },
     "C03O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:15.189995"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 12019,
+      "status": true,
+      "updated": "2026-04-14T23:26:29.710196"
     },
     "C05O": {
       "corrected": true,
@@ -149127,14 +149675,18 @@
       "updated": "2024-10-13T21:38:43.537306"
     },
     "C10O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:15.190775"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11867,
+      "status": true,
+      "updated": "2026-04-14T23:26:29.715549"
     },
     "C11O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:15.191603"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11863,
+      "status": true,
+      "updated": "2026-04-14T23:26:29.720975"
     },
     "C12O": {
       "corrected": true,
@@ -149151,9 +149703,11 @@
       "updated": "2024-10-13T21:38:43.540884"
     },
     "C14O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:15.192440"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11926,
+      "status": true,
+      "updated": "2026-04-14T23:26:29.726623"
     },
     "C15O": {
       "corrected": true,
@@ -149177,9 +149731,11 @@
       "updated": "2024-03-15T22:08:37.067420"
     },
     "C18O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:15.193250"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11944,
+      "status": true,
+      "updated": "2026-04-14T23:26:29.732028"
     },
     "C21O": {
       "corrected": true,
@@ -149210,9 +149766,11 @@
       "updated": "2024-03-15T22:08:37.073331"
     },
     "C27O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:15.193984"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9196,
+      "status": true,
+      "updated": "2026-04-14T23:26:29.737239"
     },
     "C28O": {
       "corrected": true,
@@ -149278,14 +149836,18 @@
       "updated": "2024-03-15T22:08:37.100812"
     },
     "R07M": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:15.194721"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 3051,
+      "status": true,
+      "updated": "2026-04-14T23:26:29.742503"
     },
     "R13M": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:15.195436"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 2197,
+      "status": true,
+      "updated": "2026-04-14T23:26:29.747336"
     },
     "R21M": {
       "corrected": true,
@@ -149355,14 +149917,18 @@
   },
   "20230907_4.3M_30.35S_71.41W_47.0KM": {
     "C11O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:29.407656"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10159,
+      "status": true,
+      "updated": "2026-04-14T23:26:46.124997"
     },
     "C16O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:29.407907"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10208,
+      "status": true,
+      "updated": "2026-04-14T23:26:46.129751"
     },
     "C20O": {
       "corrected": true,
@@ -149379,9 +149945,11 @@
       "updated": "2024-08-05T20:14:25.365519"
     },
     "C26O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:29.408201"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 12071,
+      "status": true,
+      "updated": "2026-04-14T23:26:46.134452"
     }
   },
   "20230909_4.2M_33.93S_71.30W_55.0KM": {
@@ -149393,9 +149961,11 @@
       "updated": "2024-12-04T20:48:08.200792"
     },
     "B02O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:30.813786"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10287,
+      "status": true,
+      "updated": "2026-04-14T23:26:48.130535"
     },
     "B03O": {
       "corrected": true,
@@ -149405,9 +149975,11 @@
       "updated": "2024-12-04T20:48:08.207374"
     },
     "R06M": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:30.814541"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9938,
+      "status": true,
+      "updated": "2026-04-14T23:26:48.135323"
     },
     "R08M": {
       "corrected": true,
@@ -149447,9 +150019,11 @@
       "updated": "2024-10-24T10:25:55.011926"
     },
     "C03O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:32.790523"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9638,
+      "status": true,
+      "updated": "2026-04-14T23:26:50.469908"
     },
     "C09O": {
       "corrected": true,
@@ -149459,14 +150033,18 @@
       "updated": "2024-10-13T21:38:57.011083"
     },
     "C10O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:32.791291"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10583,
+      "status": true,
+      "updated": "2026-04-14T23:26:50.474675"
     },
     "C11O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:32.792015"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9567,
+      "status": true,
+      "updated": "2026-04-14T23:26:50.479442"
     },
     "C15O": {
       "corrected": true,
@@ -149476,9 +150054,11 @@
       "updated": "2024-03-15T22:08:41.938592"
     },
     "C16O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:32.792744"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11992,
+      "status": true,
+      "updated": "2026-04-14T23:26:50.484450"
     },
     "C17O": {
       "corrected": true,
@@ -149488,9 +150068,11 @@
       "updated": "2024-10-13T21:38:57.014906"
     },
     "C18O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:32.793463"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10075,
+      "status": true,
+      "updated": "2026-04-14T23:26:50.489145"
     },
     "C20O": {
       "corrected": true,
@@ -149500,9 +150082,11 @@
       "updated": "2024-10-13T21:38:57.018953"
     },
     "C26O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:32.794195"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10487,
+      "status": true,
+      "updated": "2026-04-14T23:26:50.494267"
     },
     "C29O": {
       "corrected": true,
@@ -149528,9 +150112,11 @@
       "updated": "2024-10-13T21:38:59.739860"
     },
     "C12O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:36.644469"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9862,
+      "status": true,
+      "updated": "2026-04-14T23:26:55.359749"
     },
     "C21O": {
       "corrected": true,
@@ -149591,14 +150177,18 @@
       "updated": "2024-08-05T20:14:26.216994"
     },
     "A07C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:39.529201"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11834,
+      "status": true,
+      "updated": "2026-04-14T23:26:58.413863"
     },
     "A10C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:39.529997"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7282,
+      "status": true,
+      "updated": "2026-04-14T23:26:58.418864"
     },
     "A17C": {
       "corrected": true,
@@ -149615,9 +150205,11 @@
       "updated": "2025-02-19T23:36:46.624378"
     },
     "A19C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:39.530728"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8597,
+      "status": true,
+      "updated": "2026-04-14T23:26:58.423652"
     },
     "A22C": {
       "corrected": true,
@@ -149627,14 +150219,18 @@
       "updated": "2024-08-05T20:14:26.225256"
     },
     "A28C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:39.531483"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9664,
+      "status": true,
+      "updated": "2026-04-14T23:26:58.428944"
     },
     "A29C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:39.532015"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 5723,
+      "status": true,
+      "updated": "2026-04-14T23:26:58.433014"
     },
     "A30C": {
       "corrected": true,
@@ -149653,9 +150249,11 @@
       "updated": "2024-10-13T21:39:02.174514"
     },
     "A16P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:42.929087"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 6496,
+      "status": true,
+      "updated": "2026-04-14T23:27:02.572600"
     },
     "GO01": {
       "corrected": true,
@@ -149672,19 +150270,25 @@
       "updated": "2024-07-07T17:35:41.896702"
     },
     "T03A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:42.926081"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7916,
+      "status": true,
+      "updated": "2026-04-14T23:27:02.577548"
     },
     "T08A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:42.926853"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 7994,
+      "status": true,
+      "updated": "2026-04-14T23:27:02.582646"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:42.929815"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8397,
+      "status": true,
+      "updated": "2026-04-14T23:27:02.587802"
     },
     "T12A": {
       "corrected": true,
@@ -149701,19 +150305,25 @@
       "updated": "2024-10-13T21:39:02.182807"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:42.927640"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11520,
+      "status": true,
+      "updated": "2026-04-14T23:27:02.593361"
     },
     "T19A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:42.928361"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 7604,
+      "status": true,
+      "updated": "2026-04-14T23:27:02.598253"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:42.930583"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11947,
+      "status": true,
+      "updated": "2026-04-14T23:27:02.603799"
     },
     "T24A": {
       "corrected": true,
@@ -149739,16 +150349,20 @@
       "updated": "2024-08-05T20:14:27.761251"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:46.508969"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10178,
+      "status": true,
+      "updated": "2026-04-14T23:27:07.456875"
     }
   },
   "20230915_4.4M_20.78S_69.12W_110.0KM": {
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:47.141307"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8360,
+      "status": true,
+      "updated": "2026-04-14T23:27:08.358479"
     },
     "T13A": {
       "corrected": true,
@@ -149758,19 +150372,25 @@
       "updated": "2024-08-05T20:14:28.256715"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:47.140223"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8195,
+      "status": true,
+      "updated": "2026-04-14T23:27:08.363374"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:47.142022"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8629,
+      "status": true,
+      "updated": "2026-04-14T23:27:08.368209"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:47.140532"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8471,
+      "status": true,
+      "updated": "2026-04-14T23:27:08.373077"
     }
   },
   "20230917_5.1M_29.46S_71.30W_50.0KM": {
@@ -149782,14 +150402,18 @@
       "updated": "2024-10-13T21:39:05.055498"
     },
     "A10C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:48.893056"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9391,
+      "status": true,
+      "updated": "2026-04-14T23:27:10.646529"
     },
     "A19C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:48.893839"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 6094,
+      "status": true,
+      "updated": "2026-04-14T23:27:10.651520"
     },
     "A22C": {
       "corrected": true,
@@ -149834,9 +150458,11 @@
       "updated": "2024-10-24T10:26:01.054462"
     },
     "C03O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:48.894596"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10083,
+      "status": true,
+      "updated": "2026-04-14T23:27:10.656706"
     },
     "C06O": {
       "corrected": true,
@@ -149853,19 +150479,25 @@
       "updated": "2024-10-13T21:39:05.079574"
     },
     "C10O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:48.895316"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9507,
+      "status": true,
+      "updated": "2026-04-14T23:27:10.661774"
     },
     "C11O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:48.896156"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8420,
+      "status": true,
+      "updated": "2026-04-14T23:27:10.666695"
     },
     "C14O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:48.897024"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9488,
+      "status": true,
+      "updated": "2026-04-14T23:27:10.672007"
     },
     "C15O": {
       "corrected": true,
@@ -149889,9 +150521,11 @@
       "updated": "2024-03-15T22:08:45.262732"
     },
     "C18O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:48.897764"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9417,
+      "status": true,
+      "updated": "2026-04-14T23:27:10.677210"
     },
     "C20O": {
       "corrected": true,
@@ -149908,14 +150542,18 @@
       "updated": "2024-10-13T21:39:05.091997"
     },
     "C26O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:48.898486"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9603,
+      "status": true,
+      "updated": "2026-04-14T23:27:10.682272"
     },
     "C27O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:48.899214"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10464,
+      "status": true,
+      "updated": "2026-04-14T23:27:10.687540"
     },
     "C28O": {
       "corrected": true,
@@ -149941,14 +150579,18 @@
   },
   "20230919_3.8M_20.04S_69.33W_85.0KM": {
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:56.236197"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9750,
+      "status": true,
+      "updated": "2026-04-14T23:27:19.642332"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:56.236452"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9763,
+      "status": true,
+      "updated": "2026-04-14T23:27:19.647489"
     }
   },
   "20230920_4.4M_25.01S_70.17W_65.0KM": {
@@ -149983,9 +150625,11 @@
       "updated": "2024-08-05T20:14:28.763427"
     },
     "A10C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:56.744463"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10724,
+      "status": true,
+      "updated": "2026-04-14T23:27:20.577620"
     },
     "A22C": {
       "corrected": true,
@@ -149997,16 +150641,20 @@
   },
   "20230922_3.1M_22.53S_69.35W_102.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:57.673003"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9956,
+      "status": true,
+      "updated": "2026-04-14T23:27:21.806497"
     }
   },
   "20230922_4.0M_28.21S_70.39W_74.0KM": {
     "A19C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:57.917550"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9735,
+      "status": true,
+      "updated": "2026-04-14T23:27:22.352180"
     }
   },
   "20230923_3.9M_19.78S_69.31W_98.0KM": {
@@ -150018,9 +150666,11 @@
       "updated": "2024-08-05T20:14:29.609318"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:58.214513"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9798,
+      "status": true,
+      "updated": "2026-04-14T23:27:22.931955"
     }
   },
   "20230923_3.9M_32.14S_71.72W_26.0KM": {
@@ -150041,14 +150691,18 @@
   },
   "20230923_4.3M_18.70S_70.05W_79.0KM": {
     "A01P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:58.970078"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9226,
+      "status": true,
+      "updated": "2026-04-14T23:27:23.923576"
     },
     "A04P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:58.970853"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10235,
+      "status": true,
+      "updated": "2026-04-14T23:27:23.928612"
     },
     "A06P": {
       "corrected": true,
@@ -150065,9 +150719,11 @@
       "updated": "2024-10-24T10:26:07.171919"
     },
     "A09P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:58.971601"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10078,
+      "status": true,
+      "updated": "2026-04-14T23:27:23.933467"
     },
     "A13P": {
       "corrected": true,
@@ -150084,9 +150740,11 @@
       "updated": "2024-06-06T11:01:30.014401"
     },
     "A16P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:07:58.972339"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9959,
+      "status": true,
+      "updated": "2026-04-14T23:27:23.938599"
     },
     "A19P": {
       "corrected": true,
@@ -150105,9 +150763,11 @@
       "updated": "2024-10-13T21:39:13.109682"
     },
     "A10C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:01.467963"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10014,
+      "status": true,
+      "updated": "2026-04-14T23:27:27.158868"
     },
     "A22C": {
       "corrected": true,
@@ -150147,14 +150807,18 @@
       "updated": "2024-08-05T20:14:30.101891"
     },
     "A07C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:05.167682"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9786,
+      "status": true,
+      "updated": "2026-04-14T23:27:29.331561"
     },
     "A10C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:05.168437"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9069,
+      "status": true,
+      "updated": "2026-04-14T23:27:29.336397"
     },
     "A18C": {
       "corrected": true,
@@ -150164,36 +150828,48 @@
       "updated": "2025-02-19T23:36:56.316839"
     },
     "A19C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:05.169166"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9306,
+      "status": true,
+      "updated": "2026-04-14T23:27:29.341252"
     },
     "A28C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:05.169892"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9876,
+      "status": true,
+      "updated": "2026-04-14T23:27:29.346327"
     },
     "A29C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:05.170418"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 5937,
+      "status": true,
+      "updated": "2026-04-14T23:27:29.350594"
     }
   },
   "20230926_4.7M_20.20S_69.23W_92.0KM": {
     "T03A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:03.410314"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8504,
+      "status": true,
+      "updated": "2026-04-14T23:27:31.788238"
     },
     "T08A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:03.410632"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9017,
+      "status": true,
+      "updated": "2026-04-14T23:27:31.793122"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:03.412000"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9480,
+      "status": true,
+      "updated": "2026-04-14T23:27:31.798021"
     },
     "T12A": {
       "corrected": true,
@@ -150210,26 +150886,34 @@
       "updated": "2024-08-05T20:14:30.637915"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:03.410924"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9147,
+      "status": true,
+      "updated": "2026-04-14T23:27:31.803052"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:03.412716"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9657,
+      "status": true,
+      "updated": "2026-04-14T23:27:31.808155"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:03.411221"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9064,
+      "status": true,
+      "updated": "2026-04-14T23:27:31.813260"
     }
   },
   "20230929_4.2M_21.06S_68.92W_111.0KM": {
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:06.655831"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8148,
+      "status": true,
+      "updated": "2026-04-14T23:27:34.548815"
     }
   },
   "20230930_3.4M_18.95S_70.53W_39.0KM": {
@@ -150259,9 +150943,11 @@
       "updated": "2024-08-05T20:14:31.456435"
     },
     "A10C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:07.089432"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10549,
+      "status": true,
+      "updated": "2026-04-14T23:27:35.217050"
     },
     "A13C": {
       "corrected": true,
@@ -150324,9 +151010,11 @@
       "updated": "2025-02-19T23:36:59.305642"
     },
     "C15O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:18.105669"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9762,
+      "status": true,
+      "updated": "2026-04-14T23:27:37.433878"
     }
   },
   "20231008_4.5M_34.67S_71.85W_39.0KM": {
@@ -150366,9 +151054,11 @@
       "updated": "2025-03-06T00:13:46.617281"
     },
     "M04L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:09.239341"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9875,
+      "status": true,
+      "updated": "2026-04-14T23:27:39.169568"
     },
     "M05L": {
       "corrected": true,
@@ -150378,9 +151068,11 @@
       "updated": "2025-03-06T00:13:46.621202"
     },
     "M07L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:09.240133"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11854,
+      "status": true,
+      "updated": "2026-04-14T23:27:39.174416"
     },
     "M09L": {
       "corrected": true,
@@ -150413,9 +151105,11 @@
   },
   "20231008_5.1M_21.24S_69.70W_68.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:13.333193"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7448,
+      "status": true,
+      "updated": "2026-04-14T23:27:43.595416"
     },
     "A11F": {
       "corrected": true,
@@ -150432,9 +151126,11 @@
       "updated": "2024-10-13T21:39:15.144111"
     },
     "A20F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:13.333963"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7865,
+      "status": true,
+      "updated": "2026-04-14T23:27:43.600238"
     },
     "GO01": {
       "corrected": true,
@@ -150465,19 +151161,25 @@
       "updated": "2024-03-15T22:08:50.321922"
     },
     "T03A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:13.334696"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8597,
+      "status": true,
+      "updated": "2026-04-14T23:27:43.605372"
     },
     "T08A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:13.335419"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8974,
+      "status": true,
+      "updated": "2026-04-14T23:27:43.610326"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:13.337617"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8589,
+      "status": true,
+      "updated": "2026-04-14T23:27:43.615380"
     },
     "T12A": {
       "corrected": true,
@@ -150494,19 +151196,25 @@
       "updated": "2024-10-13T21:39:15.152770"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:13.336157"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8984,
+      "status": true,
+      "updated": "2026-04-14T23:27:43.620796"
     },
     "T19A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:13.336884"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8993,
+      "status": true,
+      "updated": "2026-04-14T23:27:43.625814"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:13.338342"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8510,
+      "status": true,
+      "updated": "2026-04-14T23:27:43.631038"
     },
     "T23A": {
       "corrected": true,
@@ -150532,9 +151240,11 @@
   },
   "20231010_6.4M_22.86S_66.39W_245.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:19.488798"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 3695,
+      "status": true,
+      "updated": "2026-04-14T23:27:49.792395"
     },
     "A19F": {
       "corrected": true,
@@ -150565,33 +151275,43 @@
       "updated": "2024-03-15T22:08:52.326087"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:19.490318"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
+      "updated": "2026-04-14T23:27:49.797271"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:19.491048"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 1396,
+      "status": true,
+      "updated": "2026-04-14T23:27:49.802175"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:19.489579"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 611,
+      "status": true,
+      "updated": "2026-04-14T23:27:49.807031"
     }
   },
   "20231011_3.8M_30.67S_71.21W_59.0KM": {
     "C11O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:22.380567"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10640,
+      "status": true,
+      "updated": "2026-04-14T23:27:52.360307"
     }
   },
   "20231011_4.8M_19.19S_69.40W_102.0KM": {
     "A04P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:21.334564"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9450,
+      "status": true,
+      "updated": "2026-04-14T23:27:52.977684"
     },
     "A13P": {
       "corrected": true,
@@ -150601,19 +151321,25 @@
       "updated": "2024-10-24T10:26:10.167572"
     },
     "A16P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:21.335362"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9396,
+      "status": true,
+      "updated": "2026-04-14T23:27:52.982607"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:21.336076"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9142,
+      "status": true,
+      "updated": "2026-04-14T23:27:52.987251"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:21.336772"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9276,
+      "status": true,
+      "updated": "2026-04-14T23:27:52.992093"
     }
   },
   "20231012_4.5M_39.59S_72.33W_83.0KM": {
@@ -150632,9 +151358,11 @@
       "updated": "2024-10-13T21:39:20.630942"
     },
     "L04R": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:22.770431"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9943,
+      "status": true,
+      "updated": "2026-04-14T23:27:54.886938"
     },
     "L05R": {
       "corrected": true,
@@ -150662,38 +151390,50 @@
   },
   "20231013_3.6M_19.65S_69.23W_99.0KM": {
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:24.322672"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9563,
+      "status": true,
+      "updated": "2026-04-14T23:27:56.744779"
     }
   },
   "20231014_4.2M_19.57S_68.89W_120.0KM": {
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:26.813592"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8618,
+      "status": true,
+      "updated": "2026-04-14T23:27:57.324169"
     }
   },
   "20231014_4.5M_20.77S_70.24W_66.0KM": {
     "T03A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:24.766925"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10096,
+      "status": true,
+      "updated": "2026-04-14T23:27:57.967506"
     },
     "T06A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:24.767700"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10179,
+      "status": true,
+      "updated": "2026-04-14T23:27:57.972466"
     },
     "T08A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:24.768421"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10317,
+      "status": true,
+      "updated": "2026-04-14T23:27:57.977220"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:24.771325"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9378,
+      "status": true,
+      "updated": "2026-04-14T23:27:57.982030"
     },
     "T13A": {
       "corrected": true,
@@ -150703,9 +151443,11 @@
       "updated": "2024-08-05T20:14:33.172100"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:24.769145"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10137,
+      "status": true,
+      "updated": "2026-04-14T23:27:57.986860"
     },
     "T16A": {
       "corrected": true,
@@ -150715,33 +151457,43 @@
       "updated": "2024-10-24T10:26:10.717799"
     },
     "T19A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:24.769870"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10265,
+      "status": true,
+      "updated": "2026-04-14T23:27:57.991484"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:24.772036"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9058,
+      "status": true,
+      "updated": "2026-04-14T23:27:57.996539"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:24.770604"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10229,
+      "status": true,
+      "updated": "2026-04-14T23:27:58.001541"
     }
   },
   "20231015_4.4M_23.32S_69.29W_87.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:27.080252"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10039,
+      "status": true,
+      "updated": "2026-04-14T23:28:01.445812"
     }
   },
   "20231016_3.9M_27.38S_69.94W_100.0KM": {
     "A19C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:27.322523"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9631,
+      "status": true,
+      "updated": "2026-04-14T23:28:01.989275"
     }
   },
   "20231016_5.3M_24.62S_67.23W_186.0KM": {
@@ -150762,9 +151514,11 @@
       "updated": "2025-02-19T23:37:00.556604"
     },
     "C15O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:27.660390"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10716,
+      "status": true,
+      "updated": "2026-04-14T23:28:02.590612"
     },
     "C28O": {
       "corrected": true,
@@ -150776,9 +151530,11 @@
   },
   "20231020_3.7M_30.64S_71.33W_53.0KM": {
     "C11O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:30.233124"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10480,
+      "status": true,
+      "updated": "2026-04-14T23:28:03.768196"
     },
     "C32O": {
       "corrected": true,
@@ -150790,9 +151546,11 @@
   },
   "20231020_4.0M_28.16S_71.18W_51.0KM": {
     "A10C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:29.573001"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10073,
+      "status": true,
+      "updated": "2026-04-14T23:28:04.733330"
     },
     "A13C": {
       "corrected": true,
@@ -150811,9 +151569,11 @@
       "updated": "2024-10-13T21:39:22.226982"
     },
     "C16O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:31.008611"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10148,
+      "status": true,
+      "updated": "2026-04-14T23:28:05.723679"
     },
     "C17O": {
       "corrected": true,
@@ -150830,16 +151590,20 @@
       "updated": "2024-10-13T21:39:22.231229"
     },
     "C26O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:31.009383"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10771,
+      "status": true,
+      "updated": "2026-04-14T23:28:05.728433"
     }
   },
   "20231020_4.4M_20.40S_68.94W_112.0KM": {
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:28.607086"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8862,
+      "status": true,
+      "updated": "2026-04-14T23:28:07.674847"
     },
     "T13A": {
       "corrected": true,
@@ -150849,28 +151613,36 @@
       "updated": "2024-08-05T20:14:35.254951"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:28.607817"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9201,
+      "status": true,
+      "updated": "2026-04-14T23:28:07.679619"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:28.606282"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8393,
+      "status": true,
+      "updated": "2026-04-14T23:28:07.684389"
     }
   },
   "20231021_3.9M_19.22S_69.46W_101.0KM": {
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:33.077251"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9146,
+      "status": true,
+      "updated": "2026-04-14T23:28:09.210742"
     }
   },
   "20231021_4.1M_36.91S_72.83W_41.0KM": {
     "B15I": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:32.495049"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10192,
+      "status": true,
+      "updated": "2026-04-14T23:28:09.793060"
     },
     "B17I": {
       "corrected": true,
@@ -150882,9 +151654,11 @@
   },
   "20231022_4.2M_22.88S_69.30W_85.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:33.343858"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10285,
+      "status": true,
+      "updated": "2026-04-14T23:28:10.671004"
     }
   },
   "20231024_3.8M_29.28S_71.28W_65.0KM": {
@@ -150903,9 +151677,11 @@
       "updated": "2024-08-05T20:14:35.744480"
     },
     "C15O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:34.903031"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 12098,
+      "status": true,
+      "updated": "2026-04-14T23:28:11.272061"
     },
     "C28O": {
       "corrected": true,
@@ -150917,9 +151693,11 @@
   },
   "20231024_3.9M_20.26S_69.37W_104.0KM": {
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:33.682378"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9498,
+      "status": true,
+      "updated": "2026-04-14T23:28:12.780676"
     },
     "T12A": {
       "corrected": true,
@@ -150929,19 +151707,25 @@
       "updated": "2024-08-05T20:14:36.556509"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:33.681303"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9121,
+      "status": true,
+      "updated": "2026-04-14T23:28:12.785424"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:33.683102"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9785,
+      "status": true,
+      "updated": "2026-04-14T23:28:12.790241"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:33.681609"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9001,
+      "status": true,
+      "updated": "2026-04-14T23:28:12.794945"
     }
   },
   "20231026_4.0M_28.69S_70.33W_101.0KM": {
@@ -150976,9 +151760,11 @@
       "updated": "2024-10-13T21:39:23.677961"
     },
     "A07C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:36.861729"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8480,
+      "status": true,
+      "updated": "2026-04-14T23:28:15.157600"
     },
     "A09C": {
       "corrected": true,
@@ -150988,9 +151774,11 @@
       "updated": "2024-10-13T21:39:23.682297"
     },
     "A10C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:36.862575"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 12038,
+      "status": true,
+      "updated": "2026-04-14T23:28:15.163164"
     },
     "A17C": {
       "corrected": true,
@@ -151000,9 +151788,11 @@
       "updated": "2024-10-13T21:39:23.686431"
     },
     "A19C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:36.863399"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11901,
+      "status": true,
+      "updated": "2026-04-14T23:28:15.168606"
     },
     "A20C": {
       "corrected": true,
@@ -151040,14 +151830,18 @@
       "updated": "2025-02-19T23:37:03.042650"
     },
     "A28C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:36.864206"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11859,
+      "status": true,
+      "updated": "2026-04-14T23:28:15.174313"
     },
     "A29C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:36.864832"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7961,
+      "status": true,
+      "updated": "2026-04-14T23:28:15.178964"
     },
     "AC04": {
       "corrected": true,
@@ -151078,14 +151872,18 @@
       "updated": "2024-10-24T10:26:11.951742"
     },
     "C03O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:36.865571"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8313,
+      "status": true,
+      "updated": "2026-04-14T23:28:15.184061"
     },
     "C06O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:36.866294"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8005,
+      "status": true,
+      "updated": "2026-04-14T23:28:15.189227"
     },
     "C08O": {
       "corrected": true,
@@ -151102,24 +151900,32 @@
       "updated": "2024-10-13T21:39:23.713252"
     },
     "C10O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:36.867001"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7607,
+      "status": true,
+      "updated": "2026-04-14T23:28:15.194054"
     },
     "C11O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:36.867700"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 6780,
+      "status": true,
+      "updated": "2026-04-14T23:28:15.198882"
     },
     "C14O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:36.868432"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8187,
+      "status": true,
+      "updated": "2026-04-14T23:28:15.204064"
     },
     "C15O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:36.869264"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9135,
+      "status": true,
+      "updated": "2026-04-14T23:28:15.209192"
     },
     "C16O": {
       "corrected": true,
@@ -151143,14 +151949,18 @@
       "updated": "2024-10-13T21:39:23.717236"
     },
     "C26O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:36.869992"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 4909,
+      "status": true,
+      "updated": "2026-04-14T23:28:15.213942"
     },
     "C27O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:36.870712"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9332,
+      "status": true,
+      "updated": "2026-04-14T23:28:15.219129"
     },
     "C28O": {
       "corrected": true,
@@ -151199,9 +152009,11 @@
   },
   "20231028_4.3M_20.08S_68.95W_108.0KM": {
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:45.534560"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 12083,
+      "status": true,
+      "updated": "2026-04-14T23:28:26.124865"
     },
     "T13A": {
       "corrected": true,
@@ -151211,21 +152023,27 @@
       "updated": "2024-08-05T20:14:37.883444"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:45.535342"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9396,
+      "status": true,
+      "updated": "2026-04-14T23:28:26.129798"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:45.533505"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8609,
+      "status": true,
+      "updated": "2026-04-14T23:28:26.134655"
     }
   },
   "20231028_4.5M_21.90S_69.85W_64.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:46.650287"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8939,
+      "status": true,
+      "updated": "2026-04-14T23:28:27.814268"
     },
     "A06F": {
       "corrected": true,
@@ -151263,19 +152081,25 @@
       "updated": "2024-06-06T11:01:30.544422"
     },
     "A17F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:46.651071"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9157,
+      "status": true,
+      "updated": "2026-04-14T23:28:27.819196"
     },
     "A20F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:46.651790"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11948,
+      "status": true,
+      "updated": "2026-04-14T23:28:27.824173"
     },
     "A23F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:46.652488"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8417,
+      "status": true,
+      "updated": "2026-04-14T23:28:27.829319"
     }
   },
   "20231029_4.3M_30.01S_71.27W_72.0KM": {
@@ -151294,9 +152118,11 @@
       "updated": "2024-08-05T20:14:38.394205"
     },
     "C03O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:49.279248"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9881,
+      "status": true,
+      "updated": "2026-04-14T23:28:31.133665"
     },
     "C09O": {
       "corrected": true,
@@ -151306,29 +152132,39 @@
       "updated": "2024-08-05T20:14:38.398418"
     },
     "C10O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:49.280026"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10573,
+      "status": true,
+      "updated": "2026-04-14T23:28:31.138641"
     },
     "C11O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:49.280764"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9402,
+      "status": true,
+      "updated": "2026-04-14T23:28:31.143798"
     },
     "C14O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:49.281471"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9741,
+      "status": true,
+      "updated": "2026-04-14T23:28:31.148712"
     },
     "C16O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:49.282191"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10592,
+      "status": true,
+      "updated": "2026-04-14T23:28:31.153848"
     },
     "C18O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:49.282908"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10144,
+      "status": true,
+      "updated": "2026-04-14T23:28:31.158689"
     },
     "C20O": {
       "corrected": true,
@@ -151338,9 +152174,11 @@
       "updated": "2024-08-05T20:14:38.403959"
     },
     "C26O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:49.283638"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10261,
+      "status": true,
+      "updated": "2026-04-14T23:28:31.163691"
     },
     "C29O": {
       "corrected": true,
@@ -151352,14 +152190,18 @@
   },
   "20231030_4.4M_32.82S_70.25W_124.0KM": {
     "R07M": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:52.315315"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9160,
+      "status": true,
+      "updated": "2026-04-14T23:28:35.392747"
     },
     "R13M": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:52.316065"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8804,
+      "status": true,
+      "updated": "2026-04-14T23:28:35.397688"
     },
     "R17M": {
       "corrected": true,
@@ -151415,9 +152257,11 @@
       "updated": "2024-10-13T21:39:33.078545"
     },
     "A07C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:55.282758"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11572,
+      "status": true,
+      "updated": "2026-04-14T23:28:38.218304"
     },
     "A08C": {
       "corrected": true,
@@ -151434,9 +152278,11 @@
       "updated": "2024-10-13T21:39:33.087845"
     },
     "A10C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:55.283701"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11973,
+      "status": true,
+      "updated": "2026-04-14T23:28:38.224327"
     },
     "A13C": {
       "corrected": true,
@@ -151474,9 +152320,11 @@
       "updated": "2025-02-19T23:37:13.172735"
     },
     "A19C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:55.284604"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11526,
+      "status": true,
+      "updated": "2026-04-14T23:28:38.230014"
     },
     "A20C": {
       "corrected": true,
@@ -151521,14 +152369,18 @@
       "updated": "2025-02-19T23:37:13.183607"
     },
     "A28C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:55.285536"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11797,
+      "status": true,
+      "updated": "2026-04-14T23:28:38.235741"
     },
     "A29C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:55.286254"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7661,
+      "status": true,
+      "updated": "2026-04-14T23:28:38.240389"
     },
     "A30C": {
       "corrected": true,
@@ -151566,24 +152418,32 @@
       "updated": "2024-10-24T10:26:21.550676"
     },
     "C03O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:55.287130"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11768,
+      "status": true,
+      "updated": "2026-04-14T23:28:38.245859"
     },
     "C05O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:55.287902"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 7000,
+      "status": true,
+      "updated": "2026-04-14T23:28:38.250939"
     },
     "C06O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:55.288777"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11768,
+      "status": true,
+      "updated": "2026-04-14T23:28:38.256540"
     },
     "C07O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:55.289498"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 5041,
+      "status": true,
+      "updated": "2026-04-14T23:28:38.261131"
     },
     "C08O": {
       "corrected": true,
@@ -151600,19 +152460,25 @@
       "updated": "2024-10-13T21:39:33.137938"
     },
     "C10O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:55.290442"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11516,
+      "status": true,
+      "updated": "2026-04-14T23:28:38.266898"
     },
     "C11O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:55.291796"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11056,
+      "status": true,
+      "updated": "2026-04-14T23:28:38.272596"
     },
     "C12O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:55.292882"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 5423,
+      "status": true,
+      "updated": "2026-04-14T23:28:38.277286"
     },
     "C13O": {
       "corrected": true,
@@ -151622,14 +152488,18 @@
       "updated": "2024-10-13T21:39:33.141801"
     },
     "C14O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:55.294303"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11768,
+      "status": true,
+      "updated": "2026-04-14T23:28:38.283238"
     },
     "C15O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:55.295664"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11991,
+      "status": true,
+      "updated": "2026-04-14T23:28:38.288850"
     },
     "C16O": {
       "corrected": true,
@@ -151646,9 +152516,11 @@
       "updated": "2024-03-15T22:08:55.269169"
     },
     "C18O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:55.297066"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11835,
+      "status": true,
+      "updated": "2026-04-14T23:28:38.294500"
     },
     "C20O": {
       "corrected": true,
@@ -151658,9 +152530,11 @@
       "updated": "2024-10-13T21:39:33.147536"
     },
     "C21O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:55.298147"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 1777,
+      "status": true,
+      "updated": "2026-04-14T23:28:38.299172"
     },
     "C22O": {
       "corrected": true,
@@ -151691,9 +152565,11 @@
       "updated": "2024-03-15T22:08:55.401082"
     },
     "C27O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:08:55.299395"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11818,
+      "status": true,
+      "updated": "2026-04-14T23:28:38.304428"
     },
     "C28O": {
       "corrected": true,
@@ -151768,9 +152644,11 @@
   },
   "20231102_3.8M_30.79S_71.59W_26.0KM": {
     "C05O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:11.502602"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11140,
+      "status": true,
+      "updated": "2026-04-14T23:28:57.916134"
     }
   },
   "20231102_3.8M_32.62S_71.61W_61.0KM": {
@@ -151807,9 +152685,11 @@
       "updated": "2024-10-13T21:39:45.493257"
     },
     "C16O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:11.928373"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10201,
+      "status": true,
+      "updated": "2026-04-14T23:28:58.576309"
     },
     "C17O": {
       "corrected": true,
@@ -151826,9 +152706,11 @@
       "updated": "2024-10-13T21:39:45.497175"
     },
     "C26O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:11.929166"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10403,
+      "status": true,
+      "updated": "2026-04-14T23:28:58.581073"
     }
   },
   "20231105_3.4M_32.57S_71.69W_38.0KM": {
@@ -151842,14 +152724,18 @@
   },
   "20231106_5.2M_33.06S_71.94W_46.0KM": {
     "R06M": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:14.355771"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8496,
+      "status": true,
+      "updated": "2026-04-14T23:29:01.199364"
     },
     "R07M": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:14.356560"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 12006,
+      "status": true,
+      "updated": "2026-04-14T23:29:01.204605"
     },
     "R08M": {
       "corrected": true,
@@ -151866,14 +152752,18 @@
       "updated": "2024-11-05T23:53:18.180873"
     },
     "R11M": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:14.357279"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7951,
+      "status": true,
+      "updated": "2026-04-14T23:29:01.209322"
     },
     "R13M": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:14.358021"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11895,
+      "status": true,
+      "updated": "2026-04-14T23:29:01.214275"
     },
     "R18M": {
       "corrected": true,
@@ -151960,9 +152850,11 @@
       "updated": "2024-10-24T10:26:36.092206"
     },
     "V17A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:14.354980"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10356,
+      "status": true,
+      "updated": "2026-04-14T23:29:01.219235"
     },
     "V18A": {
       "corrected": true,
@@ -151972,9 +152864,11 @@
       "updated": "2024-10-24T10:26:36.096581"
     },
     "V22A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:14.358722"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10947,
+      "status": true,
+      "updated": "2026-04-14T23:29:01.224274"
     },
     "V23A": {
       "corrected": true,
@@ -152000,9 +152894,11 @@
   },
   "20231108_4.1M_22.04S_68.79W_113.0KM": {
     "A20F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:21.617718"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9215,
+      "status": true,
+      "updated": "2026-04-14T23:29:09.613616"
     }
   },
   "20231109_4.4M_18.47S_70.90W_50.0KM": {
@@ -152028,9 +152924,11 @@
       "updated": "2024-10-24T10:26:42.666404"
     },
     "A11P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:21.966853"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10113,
+      "status": true,
+      "updated": "2026-04-14T23:29:10.216758"
     },
     "A13P": {
       "corrected": true,
@@ -152081,9 +152979,11 @@
       "updated": "2024-08-05T20:14:41.807963"
     },
     "A10C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:24.188092"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10109,
+      "status": true,
+      "updated": "2026-04-14T23:29:12.589764"
     },
     "A22C": {
       "corrected": true,
@@ -152135,19 +153035,25 @@
       "updated": "2024-08-05T20:14:41.825940"
     },
     "C14O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:24.188878"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8057,
+      "status": true,
+      "updated": "2026-04-14T23:29:12.594658"
     },
     "C15O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:24.189601"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10091,
+      "status": true,
+      "updated": "2026-04-14T23:29:12.599505"
     },
     "C16O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:24.190328"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8975,
+      "status": true,
+      "updated": "2026-04-14T23:29:12.604506"
     },
     "C20O": {
       "corrected": true,
@@ -152157,9 +153063,11 @@
       "updated": "2024-08-05T20:14:41.830166"
     },
     "C27O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:24.191060"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9687,
+      "status": true,
+      "updated": "2026-04-14T23:29:12.609183"
     },
     "C28O": {
       "corrected": true,
@@ -152185,9 +153093,11 @@
       "updated": "2025-03-06T00:13:50.392070"
     },
     "M04L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:28.281628"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9886,
+      "status": true,
+      "updated": "2026-04-14T23:29:17.599746"
     },
     "M05L": {
       "corrected": true,
@@ -152197,9 +153107,11 @@
       "updated": "2025-03-06T00:13:50.395784"
     },
     "M07L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:28.282386"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10472,
+      "status": true,
+      "updated": "2026-04-14T23:29:17.604487"
     }
   },
   "20231112_3.9M_29.66S_71.32W_53.0KM": {
@@ -152211,21 +153123,27 @@
       "updated": "2024-08-05T20:14:44.223563"
     },
     "C15O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:30.487717"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10617,
+      "status": true,
+      "updated": "2026-04-14T23:29:19.445738"
     },
     "C16O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:30.488018"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10849,
+      "status": true,
+      "updated": "2026-04-14T23:29:19.450731"
     }
   },
   "20231112_4.0M_34.91S_71.72W_43.0KM": {
     "M04L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:29.699934"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10076,
+      "status": true,
+      "updated": "2026-04-14T23:29:20.649696"
     },
     "M05L": {
       "corrected": true,
@@ -152235,9 +153153,11 @@
       "updated": "2025-03-06T00:13:51.612274"
     },
     "M07L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:29.700680"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10761,
+      "status": true,
+      "updated": "2026-04-14T23:29:20.654439"
     }
   },
   "20231114_3.0M_33.12S_71.75W_38.0KM": {
@@ -152251,9 +153171,11 @@
   },
   "20231115_4.3M_22.76S_68.85W_103.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:31.214483"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9671,
+      "status": true,
+      "updated": "2026-04-14T23:29:21.813596"
     }
   },
   "20231115_4.3M_24.11S_70.06W_50.0KM": {
@@ -152283,9 +153205,11 @@
       "updated": "2025-03-06T00:13:52.163093"
     },
     "M04L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:31.558413"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10220,
+      "status": true,
+      "updated": "2026-04-14T23:29:22.414577"
     },
     "M05L": {
       "corrected": true,
@@ -152295,9 +153219,11 @@
       "updated": "2025-03-06T00:13:52.167154"
     },
     "M07L": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:31.559184"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10827,
+      "status": true,
+      "updated": "2026-04-14T23:29:22.419264"
     },
     "M11L": {
       "corrected": true,
@@ -152309,9 +153235,11 @@
   },
   "20231120_4.2M_20.02S_69.29W_114.0KM": {
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:33.069009"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9319,
+      "status": true,
+      "updated": "2026-04-14T23:29:24.311632"
     },
     "T12A": {
       "corrected": true,
@@ -152328,21 +153256,27 @@
       "updated": "2024-08-05T20:14:45.774399"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:33.069719"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9577,
+      "status": true,
+      "updated": "2026-04-14T23:29:24.316558"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:33.068193"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11868,
+      "status": true,
+      "updated": "2026-04-14T23:29:24.321348"
     }
   },
   "20231120_4.5M_32.23S_70.28W_116.0KM": {
     "C07O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:34.423305"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8771,
+      "status": true,
+      "updated": "2026-04-14T23:29:26.206342"
     },
     "C08O": {
       "corrected": true,
@@ -152396,14 +153330,18 @@
       "updated": "2024-10-13T21:39:52.703864"
     },
     "C05O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:36.746509"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10958,
+      "status": true,
+      "updated": "2026-04-14T23:29:28.657841"
     },
     "C07O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:36.747299"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9720,
+      "status": true,
+      "updated": "2026-04-14T23:29:28.662588"
     },
     "C08O": {
       "corrected": true,
@@ -152413,14 +153351,18 @@
       "updated": "2024-10-13T21:39:52.707845"
     },
     "C10O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:36.748037"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10028,
+      "status": true,
+      "updated": "2026-04-14T23:29:28.667356"
     },
     "C11O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:36.748782"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10650,
+      "status": true,
+      "updated": "2026-04-14T23:29:28.672347"
     },
     "C12O": {
       "corrected": true,
@@ -152444,9 +153386,11 @@
       "updated": "2024-03-15T22:09:02.858191"
     },
     "C18O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:36.749505"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9496,
+      "status": true,
+      "updated": "2026-04-14T23:29:28.677098"
     },
     "C20O": {
       "corrected": true,
@@ -152514,14 +153458,18 @@
       "updated": "2024-10-13T21:39:56.703441"
     },
     "C11O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:41.618778"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10075,
+      "status": true,
+      "updated": "2026-04-14T23:29:34.431151"
     },
     "C16O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:41.619624"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10263,
+      "status": true,
+      "updated": "2026-04-14T23:29:34.435984"
     },
     "C17O": {
       "corrected": true,
@@ -152531,9 +153479,11 @@
       "updated": "2024-07-07T10:23:38.609664"
     },
     "C18O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:41.620410"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10173,
+      "status": true,
+      "updated": "2026-04-14T23:29:34.441021"
     },
     "C20O": {
       "corrected": true,
@@ -152543,16 +153493,20 @@
       "updated": "2024-10-13T21:39:56.707446"
     },
     "C26O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:41.621205"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10397,
+      "status": true,
+      "updated": "2026-04-14T23:29:34.445709"
     }
   },
   "20231122_4.7M_22.89S_69.09W_105.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:43.986991"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9986,
+      "status": true,
+      "updated": "2026-04-14T23:29:37.567918"
     }
   },
   "20231123_3.7M_39.99S_72.61W_90.0KM": {
@@ -152587,9 +153541,11 @@
   },
   "20231123_5.3M_21.94S_68.75W_141.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:44.401287"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8398,
+      "status": true,
+      "updated": "2026-04-14T23:29:38.222483"
     },
     "A06F": {
       "corrected": true,
@@ -152613,19 +153569,25 @@
       "updated": "2024-10-13T21:39:59.862273"
     },
     "A17F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:44.402069"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9057,
+      "status": true,
+      "updated": "2026-04-14T23:29:38.227298"
     },
     "A20F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:44.402768"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8993,
+      "status": true,
+      "updated": "2026-04-14T23:29:38.232424"
     },
     "A23F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:44.403512"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8546,
+      "status": true,
+      "updated": "2026-04-14T23:29:38.237180"
     },
     "PB03": {
       "corrected": true,
@@ -152653,9 +153615,11 @@
   },
   "20231125_3.8M_29.67S_71.19W_71.0KM": {
     "C03O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:46.549501"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9910,
+      "status": true,
+      "updated": "2026-04-14T23:29:41.155639"
     }
   },
   "20231126_4.5M_28.44S_71.45W_29.0KM": {
@@ -152669,9 +153633,11 @@
   },
   "20231126_4.8M_21.48S_68.89W_96.0KM": {
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:46.797365"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 6716,
+      "status": true,
+      "updated": "2026-04-14T23:29:41.703812"
     }
   },
   "20231127_3.9M_30.94S_71.51W_60.0KM": {
@@ -152683,9 +153649,11 @@
       "updated": "2024-08-05T20:14:48.235715"
     },
     "C11O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:47.114326"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9999,
+      "status": true,
+      "updated": "2026-04-14T23:29:42.294155"
     }
   },
   "20231127_5.0M_24.56S_70.12W_49.0KM": {
@@ -152720,16 +153688,20 @@
   },
   "20231128_2.9M_19.23S_70.16W_52.0KM": {
     "A16P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:51.579826"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10530,
+      "status": true,
+      "updated": "2026-04-14T23:29:43.204765"
     }
   },
   "20231128_4.7M_32.15S_71.45W_51.0KM": {
     "C07O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:48.015012"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10189,
+      "status": true,
+      "updated": "2026-04-14T23:29:43.959479"
     },
     "C08O": {
       "corrected": true,
@@ -152739,14 +153711,18 @@
       "updated": "2024-10-13T21:40:02.855685"
     },
     "C12O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:48.015780"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9629,
+      "status": true,
+      "updated": "2026-04-14T23:29:43.964420"
     },
     "C21O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:48.016547"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 12043,
+      "status": true,
+      "updated": "2026-04-14T23:29:43.969751"
     },
     "C23O": {
       "corrected": true,
@@ -152807,9 +153783,11 @@
   },
   "20231130_4.6M_21.24S_68.78W_114.0KM": {
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:51.866696"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7799,
+      "status": true,
+      "updated": "2026-04-14T23:29:48.138438"
     }
   },
   "20231201_4.6M_19.77S_69.14W_114.0KM": {
@@ -152828,33 +153806,43 @@
       "updated": "2024-08-05T20:14:48.759231"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:52.231757"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11947,
+      "status": true,
+      "updated": "2026-04-14T23:29:48.759402"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:52.232766"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9398,
+      "status": true,
+      "updated": "2026-04-14T23:29:48.764389"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:52.232001"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8511,
+      "status": true,
+      "updated": "2026-04-14T23:29:48.769394"
     }
   },
   "20231202_3.3M_31.26S_71.51W_54.0KM": {
     "C12O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:02.961634"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10765,
+      "status": true,
+      "updated": "2026-04-14T23:29:50.584508"
     }
   },
   "20231202_5.4M_24.43S_70.34W_41.0KM": {
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:01.238375"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 6830,
+      "status": true,
+      "updated": "2026-04-14T23:29:51.257290"
     },
     "A21F": {
       "corrected": true,
@@ -152894,14 +153882,18 @@
   },
   "20231202_5.6M_19.23S_69.30W_108.0KM": {
     "A01P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:54.075297"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8275,
+      "status": true,
+      "updated": "2026-04-14T23:29:53.666121"
     },
     "A04P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:54.076094"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11569,
+      "status": true,
+      "updated": "2026-04-14T23:29:53.671303"
     },
     "A05P": {
       "corrected": true,
@@ -152925,19 +153917,25 @@
       "updated": "2024-10-24T10:26:52.972132"
     },
     "A08P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:54.076805"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7968,
+      "status": true,
+      "updated": "2026-04-14T23:29:53.675947"
     },
     "A09P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:54.077536"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8163,
+      "status": true,
+      "updated": "2026-04-14T23:29:53.680942"
     },
     "A11P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:54.078267"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 8255,
+      "status": true,
+      "updated": "2026-04-14T23:29:53.686065"
     },
     "A13P": {
       "corrected": true,
@@ -152968,9 +153966,11 @@
       "updated": "2025-06-12T18:56:15.165274"
     },
     "A20P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:54.079068"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11730,
+      "status": true,
+      "updated": "2026-04-14T23:29:53.691406"
     },
     "AP01": {
       "corrected": true,
@@ -153001,9 +154001,11 @@
       "updated": "2024-03-15T21:27:13.451852"
     },
     "T03A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:54.072223"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7871,
+      "status": true,
+      "updated": "2026-04-14T23:29:53.696010"
     },
     "T05A": {
       "corrected": true,
@@ -153013,14 +154015,18 @@
       "updated": "2024-10-24T10:26:52.984289"
     },
     "T08A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:54.073023"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8116,
+      "status": true,
+      "updated": "2026-04-14T23:29:53.701185"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:54.079848"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11678,
+      "status": true,
+      "updated": "2026-04-14T23:29:53.706502"
     },
     "T12A": {
       "corrected": true,
@@ -153037,19 +154043,25 @@
       "updated": "2024-10-13T21:40:06.681926"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:54.073825"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11819,
+      "status": true,
+      "updated": "2026-04-14T23:29:53.712111"
     },
     "T19A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:54.074558"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7932,
+      "status": true,
+      "updated": "2026-04-14T23:29:53.717059"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:09:54.080647"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11980,
+      "status": true,
+      "updated": "2026-04-14T23:29:53.722332"
     },
     "T24A": {
       "corrected": true,
@@ -153075,14 +154087,18 @@
       "updated": "2024-08-05T20:14:49.584698"
     },
     "C15O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:03.343076"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10421,
+      "status": true,
+      "updated": "2026-04-14T23:30:02.971451"
     },
     "C18O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:03.343372"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9704,
+      "status": true,
+      "updated": "2026-04-14T23:30:02.976242"
     },
     "C20O": {
       "corrected": true,
@@ -153110,9 +154126,11 @@
       "updated": "2024-10-13T21:40:09.825238"
     },
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:04.449721"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 5039,
+      "status": true,
+      "updated": "2026-04-14T23:30:04.489589"
     },
     "A24F": {
       "corrected": true,
@@ -153131,9 +154149,11 @@
   },
   "20231212_3.9M_31.67S_71.52W_26.0KM": {
     "C07O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:05.718670"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10910,
+      "status": true,
+      "updated": "2026-04-14T23:30:05.995759"
     },
     "C08O": {
       "corrected": true,
@@ -153143,14 +154163,18 @@
       "updated": "2024-10-13T21:40:11.024568"
     },
     "C12O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:05.719451"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11050,
+      "status": true,
+      "updated": "2026-04-14T23:30:06.000495"
     },
     "C21O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:05.720194"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 11225,
+      "status": true,
+      "updated": "2026-04-14T23:30:06.005247"
     },
     "C23O": {
       "corrected": true,
@@ -153214,21 +154238,27 @@
   },
   "20231220_6.2M_16.51S_73.00W_103.0KM": {
     "A16P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:07.069702"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 2648,
+      "status": true,
+      "updated": "2026-04-14T23:30:07.938310"
     }
   },
   "20231221_4.5M_30.77S_71.36W_49.0KM": {
     "C05O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:15.939594"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10958,
+      "status": true,
+      "updated": "2026-04-14T23:30:08.560009"
     },
     "C07O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:15.940357"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9619,
+      "status": true,
+      "updated": "2026-04-14T23:30:08.564779"
     },
     "C08O": {
       "corrected": true,
@@ -153238,9 +154268,11 @@
       "updated": "2024-10-24T15:13:23.194960"
     },
     "C11O": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:15.941090"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10310,
+      "status": true,
+      "updated": "2026-04-14T23:30:08.569808"
     },
     "C23O": {
       "corrected": true,
@@ -153266,9 +154298,11 @@
       "updated": "2024-10-13T21:40:12.148055"
     },
     "A05F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:08.040589"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8817,
+      "status": true,
+      "updated": "2026-04-14T23:30:11.195896"
     },
     "A06F": {
       "corrected": true,
@@ -153285,9 +154319,11 @@
       "updated": "2024-10-13T21:40:12.156454"
     },
     "A12F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:08.041396"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8539,
+      "status": true,
+      "updated": "2026-04-14T23:30:11.200754"
     },
     "A13F": {
       "corrected": true,
@@ -153311,14 +154347,18 @@
       "updated": "2024-10-13T21:40:12.170111"
     },
     "A16P": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:08.049364"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 5373,
+      "status": true,
+      "updated": "2026-04-14T23:30:11.205522"
     },
     "A17F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:08.042312"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11869,
+      "status": true,
+      "updated": "2026-04-14T23:30:11.210726"
     },
     "A19F": {
       "corrected": true,
@@ -153328,19 +154368,25 @@
       "updated": "2024-10-13T21:40:12.174001"
     },
     "A20F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:08.043296"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11887,
+      "status": true,
+      "updated": "2026-04-14T23:30:11.216063"
     },
     "A22F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:08.044021"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 5621,
+      "status": true,
+      "updated": "2026-04-14T23:30:11.220665"
     },
     "A23F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:08.044822"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 12088,
+      "status": true,
+      "updated": "2026-04-14T23:30:11.225913"
     },
     "A24F": {
       "corrected": true,
@@ -153350,9 +154396,11 @@
       "updated": "2024-10-13T21:40:12.177799"
     },
     "A25F": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:08.045536"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 6816,
+      "status": true,
+      "updated": "2026-04-14T23:30:11.230601"
     },
     "PB01": {
       "corrected": true,
@@ -153404,9 +154452,11 @@
       "updated": "2024-07-07T17:35:43.545444"
     },
     "T03A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:08.046332"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7971,
+      "status": true,
+      "updated": "2026-04-14T23:30:11.235263"
     },
     "T07A": {
       "corrected": true,
@@ -153416,14 +154466,18 @@
       "updated": "2024-03-15T21:27:16.499740"
     },
     "T08A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:08.047216"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8050,
+      "status": true,
+      "updated": "2026-04-14T23:30:11.240043"
     },
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:08.050099"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 7518,
+      "status": true,
+      "updated": "2026-04-14T23:30:11.245256"
     },
     "T13A": {
       "corrected": true,
@@ -153433,19 +154487,25 @@
       "updated": "2024-10-13T21:40:12.182000"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:08.047931"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 7969,
+      "status": true,
+      "updated": "2026-04-14T23:30:11.249935"
     },
     "T19A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:08.048650"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 7813,
+      "status": true,
+      "updated": "2026-04-14T23:30:11.255156"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:08.050823"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 6915,
+      "status": true,
+      "updated": "2026-04-14T23:30:11.259861"
     },
     "T24A": {
       "corrected": true,
@@ -153464,9 +154524,11 @@
   },
   "20231224_4.8M_38.15S_74.32W_34.0KM": {
     "B11I": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:19.114924"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 10410,
+      "status": true,
+      "updated": "2026-04-14T23:30:21.444160"
     }
   },
   "20231224_5.4M_38.13S_74.16W_36.0KM": {
@@ -153478,9 +154540,11 @@
       "updated": "2025-02-19T23:37:38.951082"
     },
     "B11I": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:17.640589"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 11241,
+      "status": true,
+      "updated": "2026-04-14T23:30:22.081549"
     },
     "BI04": {
       "corrected": true,
@@ -153497,9 +154561,11 @@
       "updated": "2025-03-06T00:13:53.465153"
     },
     "L06C": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:17.641337"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 8382,
+      "status": true,
+      "updated": "2026-04-14T23:30:22.086559"
     },
     "LC02": {
       "corrected": true,
@@ -153527,21 +154593,27 @@
   },
   "20231229_3.7M_20.44S_69.87W_84.0KM": {
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:19.391879"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10081,
+      "status": true,
+      "updated": "2026-04-14T23:30:24.030176"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:19.392137"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 10110,
+      "status": true,
+      "updated": "2026-04-14T23:30:24.034955"
     }
   },
   "20231230_4.2M_20.21S_69.23W_97.0KM": {
     "T10A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:19.982272"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9517,
+      "status": true,
+      "updated": "2026-04-14T23:30:25.006279"
     },
     "T12A": {
       "corrected": true,
@@ -153558,19 +154630,25 @@
       "updated": "2024-10-24T15:13:25.347577"
     },
     "T15A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:19.980777"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9110,
+      "status": true,
+      "updated": "2026-04-14T23:30:25.011051"
     },
     "T20A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:19.983014"
+      "corrected": true,
+      "method": "Manual",
+      "pos": 9760,
+      "status": true,
+      "updated": "2026-04-14T23:30:25.016175"
     },
     "T24A": {
-      "corrected": false,
-      "status": null,
-      "updated": "2026-04-12T18:10:19.981540"
+      "corrected": true,
+      "method": "Automatic",
+      "pos": 9263,
+      "status": true,
+      "updated": "2026-04-14T23:30:25.020938"
     }
   },
   "20240101_4.0M_25.30S_70.50W_25.0KM": {
