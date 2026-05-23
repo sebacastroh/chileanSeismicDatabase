@@ -62,9 +62,9 @@ def updateSpectralValues(window, widget, basePath, dataPath, draftPath):
         os.mkdir(os.path.join(dataPath, 'spectralValues'))
 
     if os.path.exists(os.path.join(draftPath, 'spectralValues', 'computed.xlsx')):
-        computed = pd.read_excel(os.path.join(draftPath, 'spectralValues', 'computed.xlsx'))
+        computed = pd.read_excel(os.path.join(draftPath, 'spectralValues', 'computed.xlsx'), parse_dates=['Last update'])
     elif os.path.exists(os.path.join(dataPath, 'spectralValues', 'computed.xlsx')):
-        computed = pd.read_excel(os.path.join(dataPath, 'spectralValues', 'computed.xlsx'))
+        computed = pd.read_excel(os.path.join(dataPath, 'spectralValues', 'computed.xlsx'), parse_dates=['Last update'])
     else:
         computed = pd.DataFrame([], columns=['Earthquake Name', 'Station code', 'Component 1', 'Component 2', 'Component 3', 'Last update'])
 
