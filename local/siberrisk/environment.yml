@@ -13,3 +13,5 @@ dependencies:
   - obspy
   - geojson
   - bokeh
+  - sqlite
+  - ipython
