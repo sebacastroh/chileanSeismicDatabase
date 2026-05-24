@@ -9,6 +9,7 @@ import json
 import time
 import urllib
 import datetime
+import requests
 import pandas as pd
 
 DEFAULT_INDENT = 2
@@ -17,8 +18,6 @@ SORT_KEYS      = True
 def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp_file=None, start_event=None):
 
     new_events = []
-    all_done = False
-    i = 1
 
     with open(os.path.join(basePath, 'data', 'eventLists', 'registry.json')) as f:
         registry = json.load(f)
@@ -33,38 +32,38 @@ def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp
         widget.see('end')
         window.update_idletasks()
 
-    while not all_done:
-        if tmp_file is not None:
-            break
+        url = 'https://evtdb.csn.uchile.cl/events'
+        payload = {
+            'min_date' : '2012-01-01',
+            'max_date' : datetime.datetime.now().strftime('%Y-%m-%d'),
+            'min_lat'  : '-90',
+            'max_lat'  : '90',
+            'min_lon'  : '-180',
+            'max_lon'  : '180',
+            'min_depth': '0',
+            'max_depth': '9999',
+            'min_mag'  : '0',
+            'max_mag'  : '9999',
+            'filter'   : 'Buscar'
+        }
 
-        time.sleep(1)
-        url = 'http://evtdb.csn.uchile.cl/?page=%i' %i
-        try:
-            urllib.request.urlretrieve(url, filename=os.path.join(basePath, 'tmp', 'download.wget'))
-        except:
-            all_done = True
-            break
-
-        widget.insert('end', 'Página número %0.3i completada.\n' %i)
-        widget.see('end')
-        window.update_idletasks()
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        }
 
         next_line = ''
-        saved = False
-        with open(os.path.join(basePath, 'tmp', 'download.wget'), 'r') as fopen:
-            for line in fopen:
-                if line.startswith('<title>500 Internal Server Error</title>'):
-                    all_done = True
-                    break
-                
+        try:
+            response = requests.post(url, data=payload, headers=headers)
+            response.raise_for_status()
+            website = response.text.split('\n')
+            for line in website:
                 if line.find('"/event/') >= 0:
                     event = line
                     pos = event.find('/event/')
-                    uid = event[pos+7:-3]
+                    uid = event[pos+7:-2]
                     next_line = 'date'
                     continue
                 
-                # if not saved:
                 if next_line == 'date':
                     date = line.strip()
                     next_line = ''
@@ -98,12 +97,15 @@ def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp
                     row = [date, float(lat), float(lon), float(depth), float(mag), '', uid]
                     next_line = ''
                     new_events.append(row)
+        except:
+            widget.insert('end', '\n¡Ha ocurrido un error al descargar la lista actualizada de eventos!\n')
+            widget.see('end')
+            window.update_idletasks()
 
-        if not all_done:
-            i += 1
-            os.remove(os.path.join('tmp', 'download.wget'))
-            
+            return False
+
     new_events = pd.DataFrame(new_events, columns=['Fecha (UTC)', 'Latitud', 'Longitud', 'Profundidad [km]', 'Magnitud [*]', 'Estaciones', 'Identificador'])
+    new_events = new_events.sort_values(by=['Fecha (UTC)', 'Identificador']).reset_index(drop=True)
 
     widget.insert('end', '\nRevisión de estaciones dentro de eventos\n')
     widget.see('end')
@@ -133,9 +135,18 @@ def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp
         widget.see('end')
         window.update_idletasks()
 
-        try:
-            urllib.request.urlretrieve(url, filename=os.path.join('tmp', 'download.wget'))
-        except:
+        max_retries = 3
+        success = False
+        for attempt in range(max_retries):
+            try:
+                urllib.request.urlretrieve(url, filename=os.path.join('tmp', 'download.wget'))
+                success = True
+                break
+            except:
+                time.sleep(5.)
+                continue
+
+        if not success:
             timestamp = datetime.datetime.utcnow().strftime('%Y%m%d%H%M%S')
             new_events.to_csv(os.path.join(basePath, 'tmp', filename + '_' + timestamp + '.csv'), index=False)
 
@@ -156,7 +167,7 @@ def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp
                     pos = line.find("/write/")
                     sl = line[pos:].split("/")
                     evt = sl[2]
-                    sta = sl[3][:-2].strip()
+                    sta = sl[3].split('"')[0].strip()
                     stations.append(sta)
 
                     if not isinstance(registry[event_id].get(sta), bool):
