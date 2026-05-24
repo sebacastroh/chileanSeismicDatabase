@@ -1,3 +1,4 @@
+import io
 import os
 import json
 import pyproj
@@ -34,9 +35,9 @@ def updateDistances(window, widget, basePath, dataPath, draftPath):
     flatfile = pd.read_csv(os.path.join(basePath, 'data', 'flatFile - backup.csv'), parse_dates=['Earthquake date', 'Start time record', 'Last update'])
 
     if os.path.exists(os.path.join(draftPath, 'spectralValues', 'computed.xlsx')):
-        computed = pd.read_excel(os.path.join(draftPath, 'spectralValues', 'computed.xlsx'))
+        computed = pd.read_excel(os.path.join(draftPath, 'spectralValues', 'computed.xlsx'), parse_dates=['Last update'])
     elif os.path.exists(os.path.join(dataPath, 'spectralValues', 'computed.xlsx')):
-        computed = pd.read_excel(os.path.join(dataPath, 'spectralValues', 'computed.xlsx'))
+        computed = pd.read_excel(os.path.join(dataPath, 'spectralValues', 'computed.xlsx'), parse_dates=['Last update'])
     else:
         computed = None
 
@@ -226,11 +227,33 @@ def updateDistances(window, widget, basePath, dataPath, draftPath):
     with open(os.path.join(basePath, 'data', 'p_waves.json'), 'w') as f:
         json.dump(p_waves, f, indent=DEFAULT_INDENT, sort_keys=SORT_KEYS)
 
+    with open(os.path.join(basePath, 'data', 'flatFile - backup.csv')) as f:
+        lines = f.readlines()
+
+    row = io.StringIO()
+    flatfile.to_csv(row, index=False, sep=',')
+    row.seek(0)
+
+    rows = row.readlines()
+    row.close()
+
+    txt = lines[0]
+    for i in range(len(lines)-1):
+        if i in candidates.index:
+            txt += rows[i+1]
+        else:
+            txt += lines[i+1]
+
+    with open(os.path.join(basePath, 'data', 'flatFile - backup.csv'), 'w') as f:
+        f.write(txt)
+
+    with open(os.path.join(draftPath, 'flatFile.csv'), 'w') as f:
+        f.write(txt)
+
     flatfile.to_excel(os.path.join(draftPath, 'flatFile.xlsx'), index=False)
-    flatfile.to_csv(os.path.join(draftPath, 'flatFile.csv'), index=False)
-    flatfile.to_csv(os.path.join(basePath, 'data', 'flatFile - backup.csv'), index=False)
 
     if computed is not None:
+        computed['Last update'] = computed.merge(flatfile, on=['Earthquake Name', 'Station code'], how='left')['Last update_y']
         computed.to_excel(os.path.join(draftPath, 'spectralValues', 'computed.xlsx'), index=False)
 
     widget.insert('end', '\nProceso finalizado.')
