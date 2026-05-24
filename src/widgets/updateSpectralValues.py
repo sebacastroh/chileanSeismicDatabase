@@ -61,10 +61,10 @@ def updateSpectralValues(window, widget, basePath, dataPath, draftPath):
     if not os.path.exists(os.path.join(dataPath, 'spectralValues')):
         os.mkdir(os.path.join(dataPath, 'spectralValues'))
 
-    if os.path.exists(os.path.join(draftPath, 'spectralValues', 'computed.xlsx')):
-        computed = pd.read_excel(os.path.join(draftPath, 'spectralValues', 'computed.xlsx'), parse_dates=['Last update'])
-    elif os.path.exists(os.path.join(dataPath, 'spectralValues', 'computed.xlsx')):
-        computed = pd.read_excel(os.path.join(dataPath, 'spectralValues', 'computed.xlsx'), parse_dates=['Last update'])
+    if os.path.exists(os.path.join(draftPath, 'spectralValues', 'computed.csv')):
+        computed = pd.read_csv(os.path.join(draftPath, 'spectralValues', 'computed.csv'), parse_dates=['Last update'])
+    elif os.path.exists(os.path.join(dataPath, 'spectralValues', 'computed.csv')):
+        computed = pd.read_csv(os.path.join(dataPath, 'spectralValues', 'computed.csv'), parse_dates=['Last update'])
     else:
         computed = pd.DataFrame([], columns=['Earthquake Name', 'Station code', 'Component 1', 'Component 2', 'Component 3', 'Last update'])
 
@@ -210,6 +210,7 @@ def updateSpectralValues(window, widget, basePath, dataPath, draftPath):
     computed = pd.concat([computed, pd.DataFrame(new_rows, columns=['Earthquake Name', 'Station code', 'Component 1', 'Component 2', 'Component 3', 'Last update'])], ignore_index=True)
     computed.sort_values(by=['Earthquake Name', 'Station code'], inplace=True)
 
+    computed.to_csv(os.path.join(draftPath, 'spectralValues', 'computed.csv'), index=False)
     computed.to_excel(os.path.join(draftPath, 'spectralValues', 'computed.xlsx'), index=False)
 
     widget.insert('end', 'Espectros actualizados.\n')
