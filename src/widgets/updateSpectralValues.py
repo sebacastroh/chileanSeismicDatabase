@@ -12,11 +12,13 @@ import pandas as pd
 import multiprocessing
 
 columns = []
+foldername = ''
 foldernameDraft = ''
 pending = None
+indices = None
 
 def updateSpectralValues(window, widget, basePath, dataPath, draftPath):
-    global columns, foldernameDraft, pending
+    global columns, indices, foldername, foldernameDraft, pending
 
     if not os.path.exists(os.path.join(dataPath, 'seismicDatabase', 'npz')):
         widget.insert('end', 'No existen registros almacenados para registrar en la base de datos.\n')
@@ -220,7 +222,7 @@ def updateSpectralValues(window, widget, basePath, dataPath, draftPath):
     window.update_idletasks()
 
 def saveSpectralvalues(combination):
-    global columns, foldernameDraft, pending
+    global columns, indices, foldername, foldernameDraft, pending
     spectrum_name, spectral_values = combination
     new_spectrum_values = pd.concat([pending.reset_index(drop=True), pd.DataFrame(spectral_values, columns=columns[2:])], axis=1)
 
