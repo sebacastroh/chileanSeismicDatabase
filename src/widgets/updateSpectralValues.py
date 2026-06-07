@@ -9,8 +9,16 @@ import seismic
 import zipfile
 import numpy as np
 import pandas as pd
+import multiprocessing
+
+columns = []
+foldername = ''
+foldernameDraft = ''
+pending = None
+indices = None
 
 def updateSpectralValues(window, widget, basePath, dataPath, draftPath):
+    global columns, indices, foldername, foldernameDraft, pending
 
     if not os.path.exists(os.path.join(dataPath, 'seismicDatabase', 'npz')):
         widget.insert('end', 'No existen registros almacenados para registrar en la base de datos.\n')
@@ -181,27 +189,15 @@ def updateSpectralValues(window, widget, basePath, dataPath, draftPath):
                 spectral_values[5].append(spectrum_r50)
                 spectral_values[6].append(spectrum_r100)
 
-        for i, spectrum_name in enumerate(spectrum_names):
-            widget.insert('end', 'Guardando espectro %s.\n' %spectrum_name)
-            widget.see('end')
-            window.update_idletasks()
+        widget.insert('end', 'Guardando espectros.\n')
+        widget.see('end')
+        window.update_idletasks()
 
-            new_spectrum_values = pd.concat([pending.reset_index(drop=True), pd.DataFrame(spectral_values[i], columns=columns[2:])], axis=1)
+        combinations = [(spectrum_name, spectral_values_i) for spectrum_name, spectral_values_i in zip(spectrum_names, spectral_values)]
 
-            if os.path.exists(os.path.join(foldernameDraft, spectrum_name + '.xlsx')):
-                spectrum_values = pd.read_excel(os.path.join(foldernameDraft, spectrum_name + '.xlsx'))
-            elif os.path.exists(os.path.join(foldername, spectrum_name + '.xlsx')):
-                spectrum_values = pd.read_excel(os.path.join(foldername, spectrum_name + '.xlsx'))
-            else:
-                spectrum_values = pd.DataFrame([], columns=columns)
-
-            filename = os.path.join(foldernameDraft, spectrum_name + '.xlsx')
-
-            spectrum_values.drop(indices, inplace=True)
-            spectrum_values = pd.concat([spectrum_values, new_spectrum_values], ignore_index=True)
-            spectrum_values.sort_values(by=['Earthquake Name', 'Station code'], inplace=True)
-
-            spectrum_values.to_excel(filename, index=False)
+        pool = multiprocessing.Pool(len(spectrum_names))
+        pool.map(saveSpectralvalues, combinations)
+        pool.close()
 
     widget.insert('end', 'Guardando tabla índice.\n\n')
     widget.see('end')
@@ -224,3 +220,23 @@ def updateSpectralValues(window, widget, basePath, dataPath, draftPath):
     widget.insert('end', 'Espectros actualizados.\n')
     widget.see('end')
     window.update_idletasks()
+
+def saveSpectralvalues(combination):
+    global columns, indices, foldername, foldernameDraft, pending
+    spectrum_name, spectral_values = combination
+    new_spectrum_values = pd.concat([pending.reset_index(drop=True), pd.DataFrame(spectral_values, columns=columns[2:])], axis=1)
+
+    if os.path.exists(os.path.join(foldernameDraft, spectrum_name + '.xlsx')):
+        spectrum_values = pd.read_excel(os.path.join(foldernameDraft, spectrum_name + '.xlsx'))
+    elif os.path.exists(os.path.join(foldername, spectrum_name + '.xlsx')):
+        spectrum_values = pd.read_excel(os.path.join(foldername, spectrum_name + '.xlsx'))
+    else:
+        spectrum_values = pd.DataFrame([], columns=columns)
+
+    filename = os.path.join(foldernameDraft, spectrum_name + '.xlsx')
+
+    spectrum_values.drop(indices, inplace=True)
+    spectrum_values = pd.concat([spectrum_values, new_spectrum_values], ignore_index=True)
+    spectrum_values.sort_values(by=['Earthquake Name', 'Station code'], inplace=True)
+
+    spectrum_values.to_excel(filename, index=False)
