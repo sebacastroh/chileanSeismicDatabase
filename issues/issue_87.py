@@ -106,10 +106,10 @@ def saveSpectralvalues(combination):
     global indices, map_dict
     
     xi, spectrum_name = combination
-    spectrum_values = pd.read_excel(os.path.join(dataPath, 'spectralValues', '%0.2f' %xi, spectrum_name + '.xlsx'))
+    spectrum_values = pd.read_excel(os.path.join(dataPath, 'spectralValues', f'xi_{xi:0.2f}', f'{spectrum_name}.xlsx'))
 
     spectrum_values.loc[indices, 'Station code'] = spectrum_values.loc[indices, 'Station code'].map(map_dict)
-    spectrum_values.to_excel(os.path.join(draftPath, 'spectralValues', '%0.2f' %xi, spectrum_name + '.xlsx'), index=False)
+    spectrum_values.to_excel(os.path.join(draftPath, 'spectralValues', f'xi_{xi:0.2f}', f'{spectrum_name}.xlsx'), index=False)
 
 combinations = []
 for xi in xis:
