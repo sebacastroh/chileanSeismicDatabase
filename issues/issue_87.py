@@ -1,7 +1,9 @@
 import os
 import json
+import zipfile
 import numpy as np
 import pandas as pd
+import multiprocessing
 import scipy.io as spio
 
 basePath  = os.path.abspath(os.path.join('.', '..', 'src'))
@@ -85,3 +87,42 @@ for old_station_code in old_station_codes:
 
 with open(os.path.join(basePath, 'data', 'p_waves.json'), 'w') as f:
     json.dump(p_waves, f, indent=DEFAULT_INDENT, sort_keys=SORT_KEYS)
+
+# Fix spectral values codes
+map_dict = {row['Old Station Code']: row['Station Code'] for r, row in fix_station_names.iterrows()}
+
+computed = pd.read_csv(os.path.join(dataPath, 'spectralValues', 'computed.csv'), parse_dates=['Last update'])
+indices = computed[computed['Earthquake Name'] == event_id].index
+
+computed.loc[indices, 'Station code'] = computed.loc[indices, 'Station code'].map(map_dict)
+computed.to_csv(os.path.join(draftPath, 'spectralValues', 'computed.csv'), index=False)
+computed.to_excel(os.path.join(draftPath, 'spectralValues', 'computed.xlsx'), index=False)
+
+xis = [0.02, 0.03, 0.05, 0.08, 0.1, 0.15, 0.2, 0.3, 0.5]
+spectrum_names = ['component_1', 'component_2', 'component_3',
+    'geometric_mean', 'rotd0', 'rotd50', 'rotd100']
+
+def saveSpectralvalues(combination):
+    global indices, map_dict
+    
+    xi, spectrum_name = combination
+    spectrum_values = pd.read_excel(os.path.join(dataPath, 'spectralValues', '%0.2f' %xi, spectrum_name + '.xlsx'))
+
+    spectrum_values.loc[indices, 'Station code'] = spectrum_values.loc[indices, 'Station code'].map(map_dict)
+    spectrum_values.to_excel(os.path.join(draftPath, 'spectralValues', '%0.2f' %xi, spectrum_name + '.xlsx'), index=False)
+
+combinations = []
+for xi in xis:
+    for spectrum_name in spectrum_names:
+        combinations.append((xi, spectrum_name))
+
+pool = multiprocessing.Pool(7)
+pool.map(saveSpectralvalues, combinations)
+pool.close()
+
+with zipfile.ZipFile(os.path.join(draftPath, 'spectralValues.zip'), 'w') as zf:
+    zf.write(os.path.join(draftPath, 'spectralValues', 'computed.xlsx'), 'computed.xlsx')
+    for xi in xis:
+        for spectrum_name in spectrum_names:
+            filename = os.path.join(draftPath, 'spectralValues', f'xi_{xi:0.2f}', f'{spectrum_name}.xlsx')
+            zf.write(filename, os.path.join(f'xi_{xi:0.2f}', f'{spectrum_name}.xlsx'))
