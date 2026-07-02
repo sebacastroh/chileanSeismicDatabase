@@ -21,7 +21,7 @@ with np.load(os.path.join(dataPath, 'seismicDatabase', 'npz', f'{event_id}.npz')
 with open(os.path.join(basePath, 'data', 'stationsInfo.json')) as f:
     sinfo = json.load(f)
 
-fix_station_names = pd.read_csv(os.path.join('extras', 'issue_87_corrected_station_codes.csv'))
+fix_station_names = pd.read_csv(os.path.join('extras', 'issue_87_corrected_station_codes.csv'), encoding='utf8')
 
 for st, station in data.items():
     if not st.startswith('st'):
@@ -38,6 +38,9 @@ for st, station in data.items():
 
 np.savez_compressed(os.path.join(draftPath, 'seismicDatabase', 'npz', event_id), **data)
 spio.savemat(os.path.join(draftPath, 'seismicDatabase', 'mat', event_id + '.mat'), data, do_compression=True)
+
+with open(os.path.join(basePath, 'data', 'stationsInfo.json'), 'w') as f:
+    json.dump(sinfo, f, indent=DEFAULT_INDENT, ensure_ascii=False)
 
 flatfile = ''
 with open(os.path.join(dataPath, 'flatFile.csv')) as f:
