@@ -28,7 +28,7 @@ for stationCode in stationCodes:
     if len(station) == 0:
         continue
     
-    vs30 = station.iloc[0]['PreferedVs30']
+    vs30 = int(station.iloc[0]['PreferedVs30'])
     
     valid.append((stationCode, vs30))
     sinfo[stationCode][2] = vs30
@@ -50,7 +50,7 @@ for r, row in to_fix.iterrows():
             np.savez_compressed(os.path.join(draftPath, 'seismicDatabase', 'npz', currentEvent), **data)
             spio.savemat(os.path.join(draftPath, 'seismicDatabase', 'mat', currentEvent + '.mat'), data, do_compression=True)
             
-            currentEvent = event_id
+        currentEvent = event_id
         
         with np.load(os.path.join(dataPath, 'seismicDatabase', 'npz', f'{event_id}.npz'), allow_pickle=True) as f:
             data = {}
@@ -89,8 +89,8 @@ for i, line in enumerate(lines):
 with open(os.path.join(basePath, 'data', 'flatFile - backup.csv'), 'w', encoding='utf8') as f:
     f.write(flatfile)
 
-# with open(os.path.join(draftPath, 'flatFile.csv'), 'w', encoding='utf8') as f:
-    # f.write(flatfile)
+with open(os.path.join(draftPath, 'flatFile.csv'), 'w', encoding='utf8') as f:
+    f.write(flatfile)
 
-# df = pd.read_csv(os.path.join(basePath, 'data', 'flatFile - backup.csv'))
-# df.to_excel(os.path.join(draftPath, 'flatFile.xlsx'), index=False)
+df = pd.read_csv(os.path.join(basePath, 'data', 'flatFile - backup.csv'))
+df.to_excel(os.path.join(draftPath, 'flatFile.xlsx'), index=False)
