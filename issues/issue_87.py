@@ -116,7 +116,7 @@ for xi in xis:
     for spectrum_name in spectrum_names:
         combinations.append((xi, spectrum_name))
 
-pool = multiprocessing.Pool(7)
+pool = multiprocessing.Pool(21)
 pool.map(saveSpectralvalues, combinations)
 pool.close()
 
