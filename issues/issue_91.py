@@ -53,7 +53,7 @@ flatfile = ''
 with open(os.path.join(basePath, 'data', 'flatFile - backup.csv')) as f:
     lines = f.readlines()
 
-for line in lines:
+for i, line in enumerate(lines):
     if i-1 not in indices:
         flatfile += line
         continue
