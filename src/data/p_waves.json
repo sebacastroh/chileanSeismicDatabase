@@ -2074,152 +2074,152 @@
     }
   },
   "20100227_8.8M_36.17S_73.14W_30.1KM": {
-    "Angol": {
+    "ANGO01R": {
       "corrected": true,
       "method": "Manual",
       "pos": 1800,
       "status": true,
       "updated": "2024-11-07T08:40:28.549362"
     },
-    "Concepcion": {
+    "CONC01R": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
       "updated": "2024-11-07T08:40:28.549388"
     },
-    "Constitucion": {
-      "corrected": true,
-      "method": "Manual",
-      "pos": 0,
-      "status": true,
-      "updated": "2024-11-07T08:40:28.549395"
-    },
-    "Copiapo": {
+    "COPI01R": {
       "corrected": false,
       "method": "Automatic",
       "pos": 1897,
       "status": false,
       "updated": "2024-11-07T08:40:28.549402"
     },
-    "Curico": {
-      "corrected": true,
-      "method": "Manual",
-      "pos": 0,
-      "status": true,
-      "updated": "2024-11-07T08:40:28.549408"
-    },
-    "Hualane": {
-      "corrected": true,
-      "method": "Manual",
-      "pos": 0,
-      "status": true,
-      "updated": "2024-11-07T08:40:28.549413"
-    },
-    "Llolleo": {
-      "corrected": true,
-      "method": "Manual",
-      "pos": 0,
-      "status": true,
-      "updated": "2024-11-07T08:40:28.549418"
-    },
-    "Matanzas": {
-      "corrected": true,
-      "method": "Manual",
-      "pos": 0,
-      "status": true,
-      "updated": "2024-11-07T08:40:28.549424"
-    },
-    "Papudo": {
-      "corrected": true,
-      "method": "Manual",
-      "pos": 0,
-      "status": true,
-      "updated": "2024-11-07T08:40:28.549430"
-    },
-    "SantiagoCentro": {
-      "corrected": true,
-      "method": "Manual",
-      "pos": 0,
-      "status": true,
-      "updated": "2024-11-07T08:40:28.549434"
-    },
-    "SantiagoLaFlorida": {
-      "corrected": true,
-      "method": "Manual",
-      "pos": 0,
-      "status": true,
-      "updated": "2024-11-07T08:40:28.549440"
-    },
-    "SantiagoMaipu": {
-      "corrected": true,
-      "method": "Manual",
-      "pos": 0,
-      "status": true,
-      "updated": "2024-11-07T08:40:28.549444"
-    },
-    "SantiagoPenalolen": {
-      "corrected": true,
-      "method": "Manual",
-      "pos": 0,
-      "status": true,
-      "updated": "2024-11-07T08:40:28.549449"
-    },
-    "SantiagoPuenteAlto": {
-      "corrected": true,
-      "method": "Manual",
-      "pos": 0,
-      "status": true,
-      "updated": "2024-11-07T08:40:28.549454"
-    },
-    "Talca": {
-      "corrected": true,
-      "method": "Manual",
-      "pos": 0,
-      "status": true,
-      "updated": "2024-11-07T08:40:28.549458"
-    },
-    "Valdivia": {
-      "corrected": true,
-      "method": "Manual",
-      "pos": 0,
-      "status": true,
-      "updated": "2024-11-07T08:40:28.549462"
-    },
-    "Vallenar": {
+    "COPI02R": {
       "corrected": false,
       "method": "Automatic",
       "pos": 2092,
       "status": false,
       "updated": "2024-11-07T08:40:28.549467"
     },
-    "ValparaisoAlmendral": {
+    "LAGO01R": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-07T08:40:28.549471"
+      "updated": "2024-11-07T08:40:28.549462"
     },
-    "ValparaisoUTFSM": {
+    "MATA01R": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
-      "updated": "2024-11-07T08:40:28.549476"
+      "updated": "2024-11-07T08:40:28.549424"
     },
-    "VinadelMarCentro": {
+    "MAUL01R": {
+      "corrected": true,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
+      "updated": "2024-11-07T08:40:28.549408"
+    },
+    "MAUL02R": {
+      "corrected": true,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
+      "updated": "2024-11-07T08:40:28.549413"
+    },
+    "MAUL03R": {
+      "corrected": true,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
+      "updated": "2024-11-07T08:40:28.549458"
+    },
+    "MAUL04R": {
+      "corrected": true,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
+      "updated": "2024-11-07T08:40:28.549395"
+    },
+    "STGO01R": {
+      "corrected": true,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
+      "updated": "2024-11-07T08:40:28.549434"
+    },
+    "STGO02R": {
+      "corrected": true,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
+      "updated": "2024-11-07T08:40:28.549444"
+    },
+    "STGO03R": {
+      "corrected": true,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
+      "updated": "2024-11-07T08:40:28.549449"
+    },
+    "STGO04R": {
+      "corrected": true,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
+      "updated": "2024-11-07T08:40:28.549440"
+    },
+    "STGO05R": {
+      "corrected": true,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
+      "updated": "2024-11-07T08:40:28.549454"
+    },
+    "VALP01R": {
+      "corrected": true,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
+      "updated": "2024-11-07T08:40:28.549430"
+    },
+    "VALP02R": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
       "updated": "2024-11-07T08:40:28.549482"
     },
-    "VinadelMarElSalto": {
+    "VALP03R": {
       "corrected": true,
       "method": "Manual",
       "pos": 0,
       "status": true,
       "updated": "2024-11-07T08:40:28.549486"
+    },
+    "VALP06R": {
+      "corrected": true,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
+      "updated": "2024-11-07T08:40:28.549471"
+    },
+    "VALP07R": {
+      "corrected": true,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
+      "updated": "2024-11-07T08:40:28.549476"
+    },
+    "VALP08R": {
+      "corrected": true,
+      "method": "Manual",
+      "pos": 0,
+      "status": true,
+      "updated": "2024-11-07T08:40:28.549418"
     }
   },
   "20100228_6.6M_34.90S_71.62W_44.0KM": {
