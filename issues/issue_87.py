@@ -61,3 +61,8 @@ for line in lines:
 with open(os.path.join(basePath, 'data', 'flatFile - backup.csv'), 'w', encoding='utf8') as f:
     f.write(flatfile)
 
+with open(os.path.join(draftPath, 'flatFile.csv'), 'w', encoding='utf8') as f:
+    f.write(flatfile)
+
+df = pd.read_csv(os.path.join(basePath, 'data', 'flatFile - backup.csv'))
+df.to_excel(os.path.join(draftPath, 'flatFile.xlsx'), index=False)
