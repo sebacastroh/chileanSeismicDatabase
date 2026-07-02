@@ -34,8 +34,8 @@ for st, station in data.items():
     sinfo[properties['Station Code']][5] = properties['Station Name']
     break
 
-np.savez_compressed(os.path.join(draftPath, 'seismicDatabase', 'npz', event_id), **event)
-spio.savemat(os.path.join(draftPath, 'seismicDatabase', 'mat', event_id + '.mat'), event, do_compression=True)
+np.savez_compressed(os.path.join(draftPath, 'seismicDatabase', 'npz', event_id), **data)
+spio.savemat(os.path.join(draftPath, 'seismicDatabase', 'mat', event_id + '.mat'), data, do_compression=True)
 
 flatfile = ''
 with open(os.path.join(dataPath, 'flatFile.csv')) as f:
