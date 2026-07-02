@@ -72,11 +72,13 @@ df.to_excel(os.path.join(draftPath, 'flatFile.xlsx'), index=False)
 with open(os.path.join(basePath, 'data', 'p_waves.json')) as f:
     p_waves = json.load(f)
 
-for old_station_code in p_waves[event_id].keys():
+old_station_codes = list(p_waves[event_id].keys())
+
+for old_station_code in old_station_codes:
     properties = fix_station_names[fix_station_names['Old Station Code'] == old_station_code].iloc[0]
 
-    p_waves[properties['Station Code']] = p_waves[old_station_code].copy()
-    p_waves.pop(old_station_code, None)
+    p_waves[event_id][properties['Station Code']] = p_waves[event_id][old_station_code].copy()
+    p_waves[event_id].pop(old_station_code, None)
 
 with open(os.path.join(basePath, 'data', 'p_waves.json'), 'w') as f:
     json.dump(p_waves, f, indent=DEFAULT_INDENT, sort_keys=SORT_KEYS)
