@@ -30,7 +30,7 @@ for event_id, event_type in to_change:
     if not os.path.exists(filename):
         filename = os.path.join(dataPath, 'seismicDatabase', 'npz', f'{event_id}.npz')
 
-    with np.load(filename, allow_pickle=True):
+    with np.load(filename, allow_pickle=True) as f:
         data = {}
         for key, value in f.items():
             data[key] = value.item()
