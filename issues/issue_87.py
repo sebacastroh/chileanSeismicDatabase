@@ -8,6 +8,9 @@ basePath  = os.path.abspath(os.path.join('.', '..', 'src'))
 dataPath  = os.path.abspath(os.path.join('.', '..', 'data'))
 draftPath = os.path.abspath(os.path.join('.', '..', 'draft'))
 
+DEFAULT_INDENT = 2
+SORT_KEYS      = True
+
 event_id = '20100227_8.8M_36.17S_73.14W_30.1KM'
 
 with np.load(os.path.join(dataPath, 'seismicDatabase', 'npz', f'{event_id}.npz'), allow_pickle=True) as f:
@@ -32,7 +35,6 @@ for st, station in data.items():
     data[st]['vs30']         = sinfo[properties['Station Code']][2]
 
     sinfo[properties['Station Code']][5] = properties['Station Name']
-    break
 
 np.savez_compressed(os.path.join(draftPath, 'seismicDatabase', 'npz', event_id), **data)
 spio.savemat(os.path.join(draftPath, 'seismicDatabase', 'mat', event_id + '.mat'), data, do_compression=True)
@@ -66,3 +68,15 @@ with open(os.path.join(draftPath, 'flatFile.csv'), 'w', encoding='utf8') as f:
 
 df = pd.read_csv(os.path.join(basePath, 'data', 'flatFile - backup.csv'))
 df.to_excel(os.path.join(draftPath, 'flatFile.xlsx'), index=False)
+
+with open(os.path.join(basePath, 'data', 'p_waves.json')) as f:
+    p_waves = json.load(f)
+
+for old_station_code in p_waves[event_id].keys():
+    properties = fix_station_names[fix_station_names['Old Station Code'] == old_station_code].iloc[0]
+
+    p_waves[properties['Station Code']] = p_waves[old_station_code].copy()
+    p_waves.pop(old_station_code, None)
+
+with open(os.path.join(basePath, 'data', 'p_waves.json'), 'w') as f:
+    json.dump(p_waves, f, indent=DEFAULT_INDENT, sort_keys=SORT_KEYS)
