@@ -3342,7 +3342,7 @@
   "13e017bae925c90fe5a16ddfe007db8f": {
     "A04F": true,
     "A05F": true,
-    "A06F": null,
+    "A06F": true,
     "A08F": true,
     "A12F": true,
     "A17F": true,
@@ -9663,9 +9663,9 @@
   },
   "5628aae4a0c998ed562f667cc2030d83": {
     "T05A": true,
-    "T07A": null,
+    "T07A": true,
     "T10A": true,
-    "T12A": null,
+    "T12A": true,
     "T13A": true,
     "T15A": true,
     "T20A": true,
@@ -9679,7 +9679,7 @@
     "A14F": true,
     "T10A": true,
     "T13A": true,
-    "T16A": null,
+    "T16A": true,
     "T24A": true
   },
   "5628aae4a0c998ed562f667cc20322ae": {
@@ -9687,23 +9687,23 @@
     "T03A": true,
     "T05A": true,
     "T06A": true,
-    "T07A": null,
+    "T07A": true,
     "T08A": true,
     "T10A": true,
     "T13A": true,
     "T14A": true,
     "T15A": true,
-    "T16A": null,
+    "T16A": true,
     "T19A": true,
     "T20A": true,
     "T24A": true
   },
   "5628aae4a0c998ed562f667cc2032547": {
     "A16P": true,
-    "T07A": null,
+    "T07A": true,
     "T08A": true,
     "T10A": true,
-    "T12A": null,
+    "T12A": true,
     "T13A": true,
     "T15A": true,
     "T20A": true,
@@ -9711,10 +9711,10 @@
   },
   "5628aae4a0c998ed562f667cc2032c8f": {
     "A07F": true,
-    "T07A": null,
+    "T07A": true,
     "T08A": true,
     "T10A": true,
-    "T12A": null,
+    "T12A": true,
     "T13A": true,
     "T20A": true,
     "T24A": true
@@ -9722,7 +9722,7 @@
   "5628aae4a0c998ed562f667cc20335b5": {
     "T03A": true,
     "T05A": true,
-    "T07A": null,
+    "T07A": true,
     "T08A": true,
     "T13A": true,
     "T15A": true,
@@ -9730,7 +9730,7 @@
     "T24A": true
   },
   "5628aae4a0c998ed562f667cc20344eb": {
-    "T07A": null,
+    "T07A": true,
     "T10A": true,
     "T15A": true,
     "T19A": true,
@@ -9739,7 +9739,7 @@
   },
   "5628aae4a0c998ed562f667cc2034d4e": {
     "T10A": true,
-    "T12A": null,
+    "T12A": true,
     "T13A": true,
     "T15A": true,
     "T20A": true,
@@ -9755,9 +9755,9 @@
     "T15A": true
   },
   "5628aae4a0c998ed562f667cc2036689": {
-    "T07A": null,
+    "T07A": true,
     "T10A": true,
-    "T12A": null,
+    "T12A": true,
     "T15A": true,
     "T20A": true
   },
@@ -9765,25 +9765,25 @@
     "A07F": true,
     "A16P": true,
     "T03A": true,
-    "T07A": null,
+    "T07A": true,
     "T10A": true,
-    "T12A": null,
+    "T12A": true,
     "T13A": true,
     "T15A": true,
     "T19A": true,
     "T20A": true
   },
   "5628aae4a0c998ed562f667cc2036a32": {
-    "T07A": null,
+    "T07A": true,
     "T10A": true,
-    "T12A": null,
+    "T12A": true,
     "T13A": true,
     "T15A": true,
     "T20A": true
   },
   "5628aae4a0c998ed562f667cc2036d05": {
     "T05A": true,
-    "T07A": null,
+    "T07A": true,
     "T10A": true,
     "T13A": true,
     "T15A": true,
@@ -9794,7 +9794,7 @@
     "A11F": true,
     "T13A": true,
     "T15A": true,
-    "T16A": null,
+    "T16A": true,
     "T19A": true,
     "T24A": true
   },
@@ -9986,18 +9986,18 @@
     "T15A": true
   },
   "5628aae4a0c998ed562f667cc204d597": {
-    "T07A": null,
+    "T07A": true,
     "T15A": true,
     "T24A": true
   },
   "5628aae4a0c998ed562f667cc204d633": {
-    "T07A": null,
+    "T07A": true,
     "T10A": true,
     "T15A": true,
     "T20A": true
   },
   "5628aae4a0c998ed562f667cc204dd21": {
-    "T07A": null,
+    "T07A": true,
     "T15A": true,
     "T24A": true
   },
@@ -10234,12 +10234,12 @@
     "T11A": true
   },
   "5628aae4a0c998ed562f667cc20c92e8": {
-    "T03A": null,
-    "T07A": null,
+    "T03A": true,
+    "T07A": true,
     "T10A": true,
     "T11A": true,
-    "T15A": null,
-    "T19A": null
+    "T15A": true,
+    "T19A": true
   },
   "5628aae4a0c998ed562f667cc20c96ac": {
     "A05P": true,
@@ -10292,14 +10292,14 @@
   },
   "5628aae4a0c998ed562f667cc20cdffd": {
     "T10A": true,
-    "T12A": null,
+    "T12A": true,
     "T13A": true,
     "T20A": true
   },
   "5628aae4a0c998ed562f667cc20ce620": {
-    "T07A": null,
+    "T07A": true,
     "T10A": true,
-    "T12A": null,
+    "T12A": true,
     "T13A": true,
     "T20A": true
   },
@@ -10309,16 +10309,16 @@
     "T20A": true
   },
   "5628aae4a0c998ed562f667cc20cf007": {
-    "T07A": null,
+    "T07A": true,
     "T10A": true,
-    "T12A": null,
+    "T12A": true,
     "T13A": true,
-    "T15A": null,
+    "T15A": true,
     "T20A": true
   },
   "5628aae4a0c998ed562f667cc20cf49b": {
     "T10A": true,
-    "T20A": null
+    "T20A": true
   },
   "5628aae4a0c998ed562f667cc20d030c": {
     "T20A": true
@@ -10379,12 +10379,12 @@
     "T20A": true
   },
   "5628aae4a0c998ed562f667cc20d7166": {
-    "T12A": null,
+    "T12A": true,
     "T13A": true,
     "T20A": true
   },
   "5628aae4a0c998ed562f667cc20d7de4": {
-    "T12A": null,
+    "T12A": true,
     "T20A": true
   },
   "5628aae4a0c998ed562f667cc20d8326": {
@@ -10410,7 +10410,7 @@
     "T20A": true
   },
   "5628aae4a0c998ed562f667cc20db32e": {
-    "T12A": null,
+    "T12A": true,
     "T20A": true
   },
   "5628aae4a0c998ed562f667cc20db42f": {
@@ -10919,7 +10919,7 @@
     "PB06": true,
     "PB19": true,
     "PB21": null,
-    "T07A": null
+    "T07A": true
   },
   "5628aae4a0c998ed562f667cc212aa16": {
     "GO01": true,
@@ -11040,7 +11040,7 @@
     "VA03": true
   },
   "5628aae4a0c998ed562f667cc2132169": {
-    "B03O": null,
+    "B03O": true,
     "B06O": true,
     "B09O": true,
     "R06M": true,
@@ -11052,8 +11052,8 @@
     "R27M": null,
     "V02A": true,
     "V14A": true,
-    "V16A": null,
-    "V24A": null
+    "V16A": true,
+    "V24A": true
   },
   "5628aae4a0c998ed562f667cc2133118": {
     "R11M": true
@@ -26179,7 +26179,7 @@
   "b13d6fbb0c255df0ab833594860331ca": {
     "T07A": null,
     "T13A": true,
-    "T20A": null
+    "T20A": true
   },
   "b13d6fbb0c255df0ab833594860336d5": {
     "A06Y": true
@@ -26340,81 +26340,81 @@
     "A07F": true
   },
   "b13d6fbb0c255df0ab83359486113386": {
-    "C16O": null,
-    "C26O": null,
-    "CO02": null,
-    "CO03": null,
-    "CO06": null
+    "C16O": true,
+    "C26O": true,
+    "CO02": true,
+    "CO03": true,
+    "CO06": true
   },
   "b13d6fbb0c255df0ab8335948611382e": {
-    "A14P": null
+    "A14P": true
   },
   "b13d6fbb0c255df0ab83359486113d47": {
-    "A14P": null
+    "A14P": true
   },
   "b13d6fbb0c255df0ab833594861141e2": {
-    "A08P": null,
-    "A09P": null,
-    "A12P": null,
-    "A14P": null
+    "A08P": true,
+    "A09P": true,
+    "A12P": true,
+    "A14P": true
   },
   "b13d6fbb0c255df0ab83359486114fcd": {
-    "T15A": null
+    "T15A": true
   },
   "b13d6fbb0c255df0ab83359486115d27": {
-    "T16A": null
+    "T16A": true
   },
   "b13d6fbb0c255df0ab83359486116a05": {
-    "A09P": null,
-    "A12P": null,
-    "T16A": null
+    "A09P": true,
+    "A12P": true,
+    "T16A": true
   },
   "b13d6fbb0c255df0ab83359486117373": {
-    "T16A": null
+    "T16A": true
   },
   "b13d6fbb0c255df0ab83359486117ebd": {
-    "T16A": null
+    "T16A": true
   },
   "b13d6fbb0c255df0ab83359486118861": {
-    "T07A": null,
-    "T20A": null
+    "T07A": true,
+    "T20A": true
   },
   "b13d6fbb0c255df0ab833594861194cf": {
-    "T20A": null
+    "T20A": true
   },
   "b13d6fbb0c255df0ab833594861198c1": {
-    "T20A": null
+    "T20A": true
   },
   "b13d6fbb0c255df0ab8335948611a467": {
-    "T20A": null
+    "T20A": true
   },
   "b13d6fbb0c255df0ab8335948611ab55": {
-    "T20A": null
+    "T20A": true
   },
   "b13d6fbb0c255df0ab8335948611b0a7": {
-    "T20A": null
+    "T20A": true
   },
   "b13d6fbb0c255df0ab8335948611b740": {
-    "T07A": null
+    "T07A": true
   },
   "b13d6fbb0c255df0ab8335948611c116": {
-    "A12P": null
+    "A12P": true
   },
   "b13d6fbb0c255df0ab8335948611d079": {
-    "A12P": null
+    "A12P": true
   },
   "b13d6fbb0c255df0ab8335948611d9f0": {
-    "T08A": null,
-    "T15A": null
+    "T08A": true,
+    "T15A": true
   },
   "b13d6fbb0c255df0ab8335948611e10f": {
-    "T16A": null
+    "T16A": true
   },
   "b13d6fbb0c255df0ab8335948611ee66": {
-    "T20A": null
+    "T20A": true
   },
   "b13d6fbb0c255df0ab8335948611ef48": {
-    "A03P": null
+    "A03P": true
   },
   "b714adf9e134dd6d13a576383600478a": {
     "A07C": true,
@@ -28205,7 +28205,7 @@
     "B02I": true,
     "B02O": true,
     "B03I": true,
-    "B03O": null,
+    "B03O": true,
     "B04I": true,
     "B04O": true,
     "B05I": true,
@@ -28282,7 +28282,7 @@
     "V18A": true,
     "V22A": true,
     "V23A": true,
-    "V24A": null,
+    "V24A": true,
     "V25A": true,
     "VA01": true,
     "VA05": true,
@@ -28301,7 +28301,7 @@
     "T07A": true,
     "T09A": null,
     "T10A": true,
-    "T12A": null,
+    "T12A": true,
     "T13A": true,
     "T14A": true,
     "T15A": true,
@@ -28331,7 +28331,7 @@
     "GO04": true
   },
   "bb570e105e6d75e93470d23dfd0a5910": {
-    "T07A": null,
+    "T07A": true,
     "T10A": true,
     "T13A": true,
     "T19A": true,
@@ -28372,14 +28372,14 @@
     "T07A": true,
     "T08A": true,
     "T10A": true,
-    "T12A": null,
+    "T12A": true,
     "T13A": true,
     "T14A": true,
     "T15A": true,
-    "T16A": null,
+    "T16A": true,
     "T19A": true,
     "T20A": true,
-    "T23A": null,
+    "T23A": true,
     "T24A": true,
     "TA01": true,
     "TA02": true
@@ -28643,7 +28643,7 @@
     "PB08": true,
     "T07A": true,
     "T10A": true,
-    "T12A": null,
+    "T12A": true,
     "T13A": true,
     "T15A": true,
     "T20A": true,
@@ -30673,8 +30673,8 @@
   },
   "e302f0b056e5f4cc0fa2a7740409f922": {
     "A12P": true,
-    "T15A": null,
-    "T20A": null
+    "T15A": true,
+    "T20A": true
   },
   "e302f0b056e5f4cc0fa2a774040a121d": {
     "AC04": true,
