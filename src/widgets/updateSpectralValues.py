@@ -11,14 +11,7 @@ import numpy as np
 import pandas as pd
 import multiprocessing
 
-columns = []
-foldername = ''
-foldernameDraft = ''
-pending = None
-indices = None
-
 def updateSpectralValues(window, widget, basePath, dataPath, draftPath):
-    global columns, indices, foldername, foldernameDraft, pending
 
     if not os.path.exists(os.path.join(dataPath, 'seismicDatabase', 'npz')):
         widget.insert('end', 'No existen registros almacenados para registrar en la base de datos.\n')
@@ -50,11 +43,13 @@ def updateSpectralValues(window, widget, basePath, dataPath, draftPath):
     ])
     n  = len(Tn)
 
-    xis = [0.02, 0.03, 0.05, 0.08, 0.1, 0.15, 0.2, 0.3, 0.5]
+    xis = np.array([0.02, 0.03, 0.05, 0.08, 0.1, 0.15, 0.2, 0.3, 0.5])
     g   = 9.81
 
     spectrum_names = ['component_1', 'component_2', 'component_3',
         'geometric_mean', 'rotd0', 'rotd50', 'rotd100']
+
+    spectral_values = [[] for i in range(7)]
 
     columns = ['Earthquake Name', 'Station code'] + Tn.tolist()
 
@@ -70,10 +65,17 @@ def updateSpectralValues(window, widget, basePath, dataPath, draftPath):
     if not os.path.exists(os.path.join(dataPath, 'spectralValues')):
         os.mkdir(os.path.join(dataPath, 'spectralValues'))
 
+    for xi in xis:
+        if not os.path.exists(os.path.join(draftPath, 'spectralValues', 'xi_%0.2f' %xi)):
+            os.mkdir(os.path.join(draftPath, 'spectralValues', 'xi_%0.2f' %xi))
+
+        if not os.path.exists(os.path.join(dataPath, 'spectralValues', 'xi_%0.2f' %xi)):
+            os.mkdir(os.path.join(dataPath, 'spectralValues', 'xi_%0.2f' %xi))
+
     if os.path.exists(os.path.join(draftPath, 'spectralValues', 'computed.csv')):
-        computed = pd.read_csv(os.path.join(draftPath, 'spectralValues', 'computed.csv'), parse_dates=['Last update'])
+       computed = pd.read_csv(os.path.join(draftPath, 'spectralValues', 'computed.csv'), parse_dates=['Last update'])
     elif os.path.exists(os.path.join(dataPath, 'spectralValues', 'computed.csv')):
-        computed = pd.read_csv(os.path.join(dataPath, 'spectralValues', 'computed.csv'), parse_dates=['Last update'])
+       computed = pd.read_csv(os.path.join(dataPath, 'spectralValues', 'computed.csv'), parse_dates=['Last update'])
     else:
         computed = pd.DataFrame([], columns=['Earthquake Name', 'Station code', 'Component 1', 'Component 2', 'Component 3', 'Last update'])
 
@@ -90,122 +92,95 @@ def updateSpectralValues(window, widget, basePath, dataPath, draftPath):
 
     indices = pending.merge(computed.reset_index(), how='inner', on=['Earthquake Name', 'Station code'])['index'].tolist()
 
-    for k, xi in enumerate(xis):
-        widget.insert('end', 'Calculando espectro para xi = %0.2f.\n' %xi)
-        widget.see('end')
-        window.update_idletasks()
+    event_ids = pending['Earthquake Name'].unique().tolist()
+    nPending  = len(pending)
 
-        foldername = os.path.join(dataPath, 'spectralValues', 'xi_%0.2f' %xi)
-        if not os.path.exists(foldername):
-            os.mkdir(foldername)
+    i = 0
+    for event_id in event_ids:
 
-        foldernameDraft = os.path.join(draftPath, 'spectralValues', 'xi_%0.2f' %xi)
-        if not os.path.exists(foldernameDraft):
-            os.mkdir(foldernameDraft)
+        stations_to_compute = pending[pending['Earthquake Name'] == event_id]['Station code'].tolist()
 
-        spectral_values = [[] for i in range(7)]
+        if os.path.exists(os.path.join(draftPath, 'seismicDatabase', 'npz', event_id + '.npz')):
+            filename = os.path.join(draftPath, 'seismicDatabase', 'npz', event_id + '.npz')
+        else:
+            filename = os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz')
 
-        old_event_id = None
-        for r, row in pending.iterrows():
-            event_id     = row['Earthquake Name']
-            station_code = row['Station code']
+        with np.load(filename, allow_pickle=True) as f:
+            data = {}
+            for key, value in f.items():
+                if key.startswith('st'):
+                    data[key] = value.item()
 
-            if event_id != old_event_id:
-                if os.path.exists(os.path.join(draftPath, 'seismicDatabase', 'npz', event_id + '.npz')):
-                    filename = os.path.join(draftPath, 'seismicDatabase', 'npz', event_id + '.npz')
-                else:
-                    filename = os.path.join(dataPath, 'seismicDatabase', 'npz', event_id + '.npz')
+        for st, station in data.items():
 
-                with np.load(filename, allow_pickle=True) as f:
-                    data = {}
-                    for key, value in f.items():
-                        data[key] = value.item()
+            station_code = station['station_code']
 
-                old_event_id = event_id
+            if station_code not in stations_to_compute:
+                continue
 
-            for st, station in data.items():
-                if not st.startswith('st'):
-                    continue
+            i += 1
 
-                if station['station_code'] != station_code:
-                    continue
+            widget.insert('end', f'Calculando espectros para {event_id} - {station_code} ({i}/{nPending})\n')
+            widget.see('end')
+            window.update_idletasks()
 
-                if k == 0:
-                    new_rows.append([event_id, station_code, station['component_1'], station['component_2'], station['component_3'], station['last_update']])
+            new_rows.append([event_id, station_code, station['component_1'], station['component_2'], station['component_3'], station['last_update']])
 
-                component_1 = station['acc_filtered_1']/g
-                component_2 = station['acc_filtered_2']/g
-                component_3 = station['acc_filtered_3']/g
+            component_1 = station['acc_filtered_1']/g
+            component_2 = station['acc_filtered_2']/g
+            component_3 = station['acc_filtered_3']/g
 
-                compute_1   = False
-                compute_2   = False
-                compute_3   = False
-                compute_rot = False
+            compute_1   = len(component_1) > 0
+            compute_2   = len(component_2) > 0
+            compute_3   = len(component_3) > 0
+            compute_rot = compute_1 and compute_2
 
-                if len(component_1) > 0:
-                    compute_1 = True
+            dt = station['dt']
 
-                if len(component_2) > 0:
-                    compute_2 = True
+            if compute_rot:
+                spectra       = seismic.SpectraRotFull(component_1, component_2, dt, Tn, xis, 181)
+                spectrum_1    = spectra[:,0,:]
+                spectrum_2    = spectra[:,90,:]
+                spectrum_g    = np.sqrt(spectrum_1*spectrum_2)
+                spectrum_r0   = np.min(spectra, axis=1)
+                spectrum_r50  = np.median(spectra, axis=1)
+                spectrum_r100 = np.max(spectra, axis=1)
+            else:
+                spectrum_1    = seismic.SpectraMultiXi(component_1, dt, Tn, xis) if compute_1 else np.full((len(xis), len(Tn)), np.nan)
+                spectrum_2    = seismic.SpectraMultiXi(component_2, dt, Tn, xis) if compute_2 else np.full((len(xis), len(Tn)), np.nan)
+                spectrum_g    = np.full((len(xis), len(Tn)), np.nan)
+                spectrum_r0   = np.full((len(xis), len(Tn)), np.nan)
+                spectrum_r50  = np.full((len(xis), len(Tn)), np.nan)
+                spectrum_r100 = np.full((len(xis), len(Tn)), np.nan)
 
-                if len(component_3) > 0:
-                    compute_3 = True
+            spectrum_3 = seismic.SpectraMultiXi(component_3, dt, Tn, xis) if compute_3 else np.full((len(xis), len(Tn)), np.nan)
 
-                if compute_1 and compute_2:
-                    compute_rot = True
+            spectral_values[0].append(spectrum_1)
+            spectral_values[1].append(spectrum_2)
+            spectral_values[2].append(spectrum_3)
+            spectral_values[3].append(spectrum_g)
+            spectral_values[4].append(spectrum_r0)
+            spectral_values[5].append(spectrum_r50)
+            spectral_values[6].append(spectrum_r100)
 
-                dt = station['dt']
-
-                if compute_rot:
-                    spectra       = seismic.SpectraRot(component_1, component_2, dt, Tn, xi, 181)
-                    spectrum_1    = spectra[0]
-                    spectrum_2    = spectra[90]
-                    spectrum_g    = np.sqrt(spectra[0]*spectra[90])
-                    spectrum_r0   = np.min(spectra, axis=0)
-                    spectrum_r50  = np.median(spectra, axis=0)
-                    spectrum_r100 = np.max(spectra, axis=0)
-                else:
-                    spectrum_1    = np.array([np.nan for i in range(n)])
-                    spectrum_2    = np.array([np.nan for i in range(n)])
-                    spectrum_g    = np.array([np.nan for i in range(n)])
-                    spectrum_r0   = np.array([np.nan for i in range(n)])
-                    spectrum_r50  = np.array([np.nan for i in range(n)])
-                    spectrum_r100 = np.array([np.nan for i in range(n)])
-                    if compute_1:
-                        spectrum_1 = seismic.Spectrum(component_1, dt, Tn, xi)
-                    if compute_2:
-                        spectrum_2 = seismic.Spectrum(component_2, dt, Tn, xi)
-
-                if compute_3:
-                    spectrum_3 = seismic.Spectrum(component_3, dt, Tn, xi)
-                else:
-                    spectrum_3 = np.array([np.nan for i in range(n)])
-
-                spectral_values[0].append(spectrum_1)
-                spectral_values[1].append(spectrum_2)
-                spectral_values[2].append(spectrum_3)
-                spectral_values[3].append(spectrum_g)
-                spectral_values[4].append(spectrum_r0)
-                spectral_values[5].append(spectrum_r50)
-                spectral_values[6].append(spectrum_r100)
-
-        widget.insert('end', 'Guardando espectros.\n')
-        widget.see('end')
-        window.update_idletasks()
-
-        combinations = [(spectrum_name, spectral_values_i) for spectrum_name, spectral_values_i in zip(spectrum_names, spectral_values)]
-
-        pool = multiprocessing.Pool(len(spectrum_names))
-        pool.map(saveSpectralvalues, combinations)
-        pool.close()
-
-    widget.insert('end', 'Guardando tabla índice.\n\n')
+    widget.insert('end', 'Guardando espectros.\n')
     widget.see('end')
     window.update_idletasks()
 
+    new_rows = pd.DataFrame(new_rows, columns=['Earthquake Name', 'Station code', 'Component 1', 'Component 2', 'Component 3', 'Last update'])
+
     computed.drop(indices, inplace=True)
-    computed = pd.concat([computed, pd.DataFrame(new_rows, columns=['Earthquake Name', 'Station code', 'Component 1', 'Component 2', 'Component 3', 'Last update'])], ignore_index=True)
+    computed = pd.concat([computed, new_rows], ignore_index=True)
     computed.sort_values(by=['Earthquake Name', 'Station code'], inplace=True)
+
+    combinations = []
+    for i, xi in enumerate(xis):
+        for j, spectrum_name in enumerate(spectrum_names):
+            combinations.append([xi, spectrum_name, draftPath, dataPath, columns, new_rows, np.array(spectral_values[j])[:,i,:], indices]) 
+
+    pool = multiprocessing.Pool(len(combinations))
+    pool.map(saveSpectralvalues, combinations)
+    pool.close()
 
     computed.to_csv(os.path.join(draftPath, 'spectralValues', 'computed.csv'), index=False)
     computed.to_excel(os.path.join(draftPath, 'spectralValues', 'computed.xlsx'), index=False)
@@ -221,22 +196,25 @@ def updateSpectralValues(window, widget, basePath, dataPath, draftPath):
     widget.see('end')
     window.update_idletasks()
 
-def saveSpectralvalues(combination):
-    global columns, indices, foldername, foldernameDraft, pending
-    spectrum_name, spectral_values = combination
-    new_spectrum_values = pd.concat([pending.reset_index(drop=True), pd.DataFrame(spectral_values, columns=columns[2:])], axis=1)
+def saveSpectralvalues(inputs):
+    xi, spectrum_name, draftPath, dataPath, columns, new_rows, new_spectrum_values, indices = inputs
 
-    if os.path.exists(os.path.join(foldernameDraft, spectrum_name + '.xlsx')):
-        spectrum_values = pd.read_excel(os.path.join(foldernameDraft, spectrum_name + '.xlsx'))
-    elif os.path.exists(os.path.join(foldername, spectrum_name + '.xlsx')):
-        spectrum_values = pd.read_excel(os.path.join(foldername, spectrum_name + '.xlsx'))
+    if os.path.exists(os.path.join(draftPath, 'spectralValues', 'xi_%0.2f' %xi, spectrum_name + '.xlsx')):
+        spectrum_values = pd.read_excel(os.path.join(draftPath, 'spectralValues', 'xi_%0.2f' %xi, spectrum_name + '.xlsx'))
+    elif os.path.exists(os.path.join(dataPath, 'spectralValues', 'xi_%0.2f' %xi, spectrum_name + '.xlsx')):
+        spectrum_values = pd.read_excel(os.path.join(dataPath, 'spectralValues', 'xi_%0.2f' %xi, spectrum_name + '.xlsx'))
     else:
         spectrum_values = pd.DataFrame([], columns=columns)
 
-    filename = os.path.join(foldernameDraft, spectrum_name + '.xlsx')
-
     spectrum_values.drop(indices, inplace=True)
-    spectrum_values = pd.concat([spectrum_values, new_spectrum_values], ignore_index=True)
-    spectrum_values.sort_values(by=['Earthquake Name', 'Station code'], inplace=True)
 
-    spectrum_values.to_excel(filename, index=False)
+    spectra_df = pd.DataFrame([], columns=columns)
+
+    spectra_df['Earthquake Name'] = new_rows['Earthquake Name']
+    spectra_df['Station code']    = new_rows['Station code']
+    spectra_df.iloc[:,2:]         = new_spectrum_values
+
+    spectrum_values = pd.concat([spectrum_values, spectra_df], ignore_index=True)
+    spectrum_values.sort_values(by=['Earthquake Name', 'Station code'], inplace=True)
+    spectrum_values.to_excel(os.path.join(draftPath, 'spectralValues', 'xi_%0.2f' %xi, spectrum_name + '.xlsx'), index=False)
+
