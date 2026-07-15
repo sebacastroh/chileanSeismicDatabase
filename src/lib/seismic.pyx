@@ -276,7 +276,7 @@ cdef int _Spectrum_Combined(double *ax, double *ay, double s, double c, double d
 cpdef SpectraRotFull(double[::1] ax, double[::1] ay, double dt, double[::1] T, double[::1] xi, int nTheta):
 
     cdef double theta, s, c
-    cdef int i, j, k, n, nT, nXi, offset
+    cdef int j, n, nT, nXi, offset, x, t, p
     cdef double *acc
     cdef double *thisSa
     cdef np.ndarray Sa
@@ -300,6 +300,31 @@ cpdef SpectraRotFull(double[::1] ax, double[::1] ay, double dt, double[::1] T, d
         for t in range(nTheta):
             for p in range(nT):
                 Sa[x, t, p] = thisSa[(t * nXi * nT) + (p * nXi) + x]
+    free(thisSa)
+
+    return Sa
+
+@cython.boundscheck(False)
+@cython.wraparound(False)
+@cython.cdivision(True)  
+cpdef SpectraMultiXi(double[::1] ax, double dt, double[::1] T, double[::1] xi):
+
+    cdef int x, p, n, nT, nXi
+    cdef double *thisSa
+    cdef np.ndarray Sa
+
+    n   = len(ax)
+    nT  = len(T)
+    nXi = len(xi)
+
+    thisSa = <double *>malloc(nXi * nT * sizeof(double))
+    
+    _Spectrum_Combined(&ax[0], &ax[0], 1., 0., dt, T, xi, n, nT, nXi, thisSa, 0)
+
+    Sa = np.empty((nXi, nT))
+    for x in range(nXi):
+        for p in range(nT):
+            Sa[x, p] = thisSa[(p * nXi) + x]
     free(thisSa)
 
     return Sa
