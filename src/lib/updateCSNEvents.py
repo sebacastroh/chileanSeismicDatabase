@@ -5,9 +5,9 @@ Created on Tue Jul 16 11:50:36 2024
 @author: sebac
 """
 import os
+import re
 import json
 import time
-import urllib
 import datetime
 import requests
 import pandas as pd
@@ -21,6 +21,12 @@ def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp
 
     with open(os.path.join(basePath, 'data', 'eventLists', 'registry.json')) as f:
         registry = json.load(f)
+
+    session = requests.Session()
+    session.headers.update({
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept-Encoding': 'gzip, deflate'
+    })
 
     if tmp_file is not None:
         widget.insert('end', 'Cargando archivo temporal %s.\n' %tmp_file)
@@ -47,58 +53,25 @@ def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp
             'filter'   : 'Buscar'
         }
 
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-        }
-
-        next_line = ''
         try:
-            response = requests.post(url, data=payload, headers=headers)
+            response = session.post(url, data=payload, timeout=30)
             response.raise_for_status()
-            website = response.text.split('\n')
-            for line in website:
-                if line.find('"/event/') >= 0:
-                    event = line
-                    pos = event.find('/event/')
-                    uid = event[pos+7:-2]
-                    next_line = 'date'
-                    continue
-                
-                if next_line == 'date':
-                    date = line.strip()
-                    next_line = ''
 
-                elif line.find('<td class="latitude">') >= 0:
-                    next_line = 'latitude'
+            pattern = re.compile(
+                r'href="/event/([a-f0-9]+)".*?>\s*(.*?)\s*</a>.*?'
+                r'<td class="latitude">\s*(.*?)\s*</td>.*?'
+                r'<td class="longitude">\s*(.*?)\s*</td>.*?'
+                r'<td class="depth">\s*(.*?)\s*</td>.*?'
+                r'<td class="magnitude">\s*(.*?)\s*</td>',
+                re.DOTALL
+            )
+            
+            matches = pattern.findall(response.text)
+            for uid, date, lat, lon, depth, mag in matches:
+                new_events.append([date, float(lat), float(lon), float(depth), float(mag), '', uid])
 
-                elif next_line == 'latitude':
-                    lat = line.strip()
-                    next_line = ''
-
-                elif line.find('<td class="longitude">') >= 0:
-                    next_line = 'longitude'
-
-                elif next_line == 'longitude':
-                    lon = line.strip()
-                    next_line = ''
-
-                elif line.find('<td class="depth">') >= 0:
-                    next_line = 'depth'
-
-                elif next_line == 'depth':
-                    depth = line.strip()
-                    next_line = ''
-
-                elif line.find('<td class="magnitude">') >= 0:
-                    next_line = 'magnitude'
-
-                elif next_line == 'magnitude':
-                    mag = line.strip()
-                    row = [date, float(lat), float(lon), float(depth), float(mag), '', uid]
-                    next_line = ''
-                    new_events.append(row)
-        except:
-            widget.insert('end', '\n¡Ha ocurrido un error al descargar la lista actualizada de eventos!\n')
+        except Exception as e:
+            widget.insert('end', f'\n¡Ha ocurrido un error al descargar la lista actualizada de eventos!: {e}\n')
             widget.see('end')
             window.update_idletasks()
 
@@ -116,6 +89,11 @@ def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp
     else:
         start_event_pos = None
 
+    station_regex = re.compile(r'/write/[^/]+/([^"/]+)')
+
+    total_events = len(new_events)
+    stations_list_column = []
+
     for r, row in new_events.iterrows():
         event_id = row['Identificador']
         url = 'http://evtdb.csn.uchile.cl/event/' + event_id
@@ -128,25 +106,25 @@ def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp
             for station in stations:
                 if not isinstance(registry[event_id].get(station), bool):
                     registry[event_id][station] = None
-
+            
+            stations_list_column.append(row['Estaciones'])
             continue
-        time.sleep(1)
-        widget.insert('end', 'Obteniendo estaciones del evento %s (%i/%i)\n' %(event_id, r+1, len(new_events)))
+
+        widget.insert('end', f'Obteniendo estaciones del evento {event_id} ({r+1}/{total_events})\n')
         widget.see('end')
         window.update_idletasks()
 
-        max_retries = 3
-        success = False
-        for attempt in range(max_retries):
+        html_content = None
+        for attempt in range(3):
             try:
-                urllib.request.urlretrieve(url, filename=os.path.join('tmp', 'download.wget'))
-                success = True
-                break
-            except:
-                time.sleep(5.)
-                continue
+                res = session.get(url, timeout=10)
+                if res.status_code == 200:
+                    html_content = res.text
+                    break
+            except requests.RequestException:
+                time.sleep(2)
 
-        if not success:
+        if html_content is None:
             timestamp = datetime.datetime.utcnow().strftime('%Y%m%d%H%M%S')
             new_events.to_csv(os.path.join(basePath, 'tmp', filename + '_' + timestamp + '.csv'), index=False)
 
@@ -156,51 +134,36 @@ def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp
             window.update_idletasks()
 
             return False
-        
-        if registry.get(event_id) is None:
+
+        if event_id not in registry:
             registry[event_id] = {}
 
-        stations = []
-        with open(os.path.join('tmp', 'download.wget'), 'r') as fopen:
-            for line in fopen:
-                if line.find('/write/') >= 0:
-                    pos = line.find("/write/")
-                    sl = line[pos:].split("/")
-                    evt = sl[2]
-                    sta = sl[3].split('"')[0].strip()
-                    stations.append(sta)
-
-                    if not isinstance(registry[event_id].get(sta), bool):
-                        registry[event_id][sta] = None
-                    
-        stations = '; '.join(sorted(set(stations)))
-        new_events.iloc[r,5] = stations
+        found_stations = sorted(list(set(station_regex.findall(html_content))))
         
-        os.remove(os.path.join('tmp', 'download.wget'))
+        for sta in found_stations:
+            if not isinstance(registry[event_id].get(sta), bool):
+                registry[event_id][sta] = None
+
+        stations_str = '; '.join(found_stations)
+        stations_list_column.append(stations_str)
+
+    new_events['Estaciones'] = stations_list_column
 
     old_events = pd.read_csv(os.path.join(basePath, 'data', 'eventLists', filename + '.csv'))
-    removed_rows = []
-    for r, row in old_events.iterrows():
-        identifier     = row['Identificador']
-        new_event_rows = new_events[new_events['Identificador'] == identifier]
-
-        if len(new_event_rows) == 0:
-            removed_rows.append(row)
-            continue
-        
-        new_stations = new_event_rows.iloc[0]['Estaciones'].split('; ')
-
-        changed = False
-        for station in row['Estaciones'].split('; '):
-            if station not in new_stations:
-                new_stations.append(station)
-                changed = True
-
-        if changed:
-            new_events.loc[new_event_rows.iloc[0].name, 'Estaciones'] = '; '.join(sorted(set(new_stations)))
-
-    if len(removed_rows) > 0:
-        new_events = pd.concat([new_events, pd.DataFrame(removed_rows)], ignore_index=True)
+    
+    old_events_map = dict(zip(old_events['Identificador'], old_events['Estaciones']))
+    new_events_map = dict(zip(new_events['Identificador'], new_events['Estaciones']))
+    
+    for ident, old_sta_str in old_events_map.items():
+        if ident in new_events_map:
+            old_set = set(str(old_sta_str).split('; ')) if pd.notna(old_sta_str) else set()
+            new_set = set(str(new_events_map[ident]).split('; ')) if pd.notna(new_events_map[ident]) else set()
+            
+            combined = sorted(list(old_set.union(new_set)))
+            new_events.loc[new_events['Identificador'] == ident, 'Estaciones'] = '; '.join(combined)
+        else:
+            row_to_add = old_events[old_events['Identificador'] == ident]
+            new_events = pd.concat([new_events, row_to_add], ignore_index=True)
 
     new_events.sort_values(by=['Fecha (UTC)', 'Identificador'], inplace=True)
     new_events.to_csv(os.path.join(basePath, 'data', 'eventLists', filename + '.csv'), index=False)
