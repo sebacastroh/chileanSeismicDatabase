@@ -96,7 +96,7 @@ def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp
 
     for r, row in new_events.iterrows():
         event_id = row['Identificador']
-        url = 'http://evtdb.csn.uchile.cl/event/' + event_id
+        url = 'https://evtdb.csn.uchile.cl/event/' + event_id
 
         if start_event_pos is not None and r < start_event_pos:
             if registry.get(event_id) is None:
@@ -121,7 +121,10 @@ def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp
                 if res.status_code == 200:
                     html_content = res.text
                     break
-            except requests.RequestException:
+                res.raise_for_status()
+
+            except requests.RequestException as e:
+                last_error = f"Excepción de Red: {type(e).__name__} - {e}"
                 time.sleep(2)
 
         if html_content is None:
@@ -129,6 +132,7 @@ def updateCSNEvents(window, widget, basePath, dataPath, draftPath, filename, tmp
             new_events.to_csv(os.path.join(basePath, 'tmp', filename + '_' + timestamp + '.csv'), index=False)
 
             widget.insert('end', '\n¡Ha ocurrido un error al descargar la página del evento %s!.\n' %event_id)
+            widget.insert('end', f'Causa del error: {last_error}\n')
             widget.insert('end', 'Se han guardado los resultados parciales en la ruta %s.\n' %(os.path.join(basePath, 'tmp', filename + '_' + timestamp + '.csv')))
             widget.see('end')
             window.update_idletasks()
