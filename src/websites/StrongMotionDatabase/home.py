@@ -9,6 +9,7 @@ import pandas as pd
 import scipy.fftpack as spf
 import scipy.integrate as spi
 from pyproj import Transformer
+from urllib.parse import urlencode
 
 ###################
 ## Bokeh modules ##
@@ -19,7 +20,7 @@ from bokeh.io import curdoc
 
 from bokeh.layouts import column, grid, layout
 
-from bokeh.models import ColorBar, ColumnDataSource, CustomJS, DatePicker, GeoJSONDataSource, LinearColorMapper, Tabs, TabPanel
+from bokeh.models import ColorBar, ColumnDataSource, CustomJS, DatePicker, GeoJSONDataSource, LinearColorMapper, Tabs, TabPanel, WMTSTileSource
 from bokeh.models.widgets import Button, CheckboxGroup, DataTable, Div, NumericInput, Select, TableColumn
 
 from bokeh.palettes import Spectral6
@@ -318,7 +319,18 @@ empty_geojson = json.dumps({
 
 plot_map = figure(x_axis_type='mercator', y_axis_type='mercator', x_range=(0, 1), y_range=(0, 1),
     sizing_mode='stretch_width', width=pwdith)
-plot_map.add_tile('CartoDB Positron')
+tile_source = WMTSTileSource(
+    url=(
+        "https://basemaps.cartocdn.com/light_all/{Z}/{X}/{Y}.png?"
+        + urlencode({"key": os.environ["CARTO_BASEMAP_API_KEY"].strip()})
+    ),
+    attribution=(
+        '&copy; <a href="https://www.openstreetmap.org/copyright">'
+        'OpenStreetMap</a> contributors '
+        '&copy; <a href="https://carto.com/attribution/">CARTO</a>'
+    ),
+)
+plot_map.add_tile(tile_source)
 source_hypo = ColumnDataSource(data=dict(lat=[], lon=[]))
 source_sta  = ColumnDataSource(data=dict(lat=[], lon=[]))
 source_ffm  = GeoJSONDataSource(geojson=empty_geojson)
