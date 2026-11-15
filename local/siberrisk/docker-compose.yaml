@@ -14,6 +14,8 @@ services:
   web:
     image: siberrisk
     working_dir: /usr/local/src/websites
+    environment:
+      CARTO_BASEMAP_API_KEY: ${CARTO_BASEMAP_API_KEY:?Configura la clave en .env}
     ports:
       - "5006:5006"
     volumes:
