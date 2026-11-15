@@ -4,7 +4,9 @@ Created on Sat Jan 20 09:29:28 2022
 
 @author: sebac
 """
+import io
 import os
+import csv
 import json
 import datetime
 import numpy as np
@@ -145,19 +147,13 @@ def updateFlatFile(window, widget, basePath, dataPath, draftPath):
         # Save new/modified lines
         df_merge = pd.merge(df_old, df, how='right', on=['Earthquake Name', 'Station code'])
         new_rows = df.loc[df_merge.apply(lambda row: row['Last update_x'] != row['Last update_y'], axis=1)]
-
+        new_rows.sort_values(by=['Earthquake Name', 'Station code'], inplace=True)
         new_rows.to_csv(os.path.join(basePath, 'tmp', 'new_rows.csv'), index=False)
 
         with open(os.path.join(basePath, 'tmp', 'new_rows.csv')) as f:
             new_lines = f.read().split('\n')[1:]
 
-        for i, new_line in enumerate(new_lines):
-            indices = []
-            if new_line.strip() == '':
-                indices.append(i)
-
-        for i in reversed(indices):
-            new_lines.pop(i)
+        new_lines = [line for line in new_lines if line.strip() != '']
 
         os.remove(os.path.join(basePath, 'tmp', 'new_rows.csv'))
 
@@ -166,15 +162,17 @@ def updateFlatFile(window, widget, basePath, dataPath, draftPath):
             with open(df_old_path) as f:
                 new_csv = f.readline()
                 for line in f:
-                    event_id     = line.split(',')[0]
-                    station_code = line.split(',')[9]
+                    values       = next(csv.reader(io.StringIO(line)))
+                    event_id     = values[0]
+                    station_code = values[9]
                     skip = False
 
                     if len(new_lines) > 0:
-                        new_event_id     = new_lines[0].split(',')[0]
-                        new_station_code = new_lines[0].split(',')[9]
+                        values           = next(csv.reader(io.StringIO(new_lines[0])))
+                        new_event_id     = values[0]
+                        new_station_code = values[9]
 
-                    while len(new_lines) > 0 and event_id >= new_event_id and station_code >= new_station_code:
+                    while len(new_lines) > 0 and (event_id, station_code) >= (new_event_id, new_station_code):
                         new_csv += new_lines[0].strip() + '\n'
 
                         if event_id == new_event_id and station_code == new_station_code:
@@ -183,8 +181,9 @@ def updateFlatFile(window, widget, basePath, dataPath, draftPath):
                         new_lines.pop(0)
 
                         if len(new_lines) > 0:
-                            new_event_id     = new_lines[0].split(',')[0]
-                            new_station_code = new_lines[0].split(',')[9]
+                            values           = next(csv.reader(io.StringIO(new_lines[0])))
+                            new_event_id     = values[0]
+                            new_station_code = values[9]
 
                     if skip:
                         continue
@@ -209,3 +208,4 @@ def updateFlatFile(window, widget, basePath, dataPath, draftPath):
 
     widget.insert('end', 'Flat file actualizado.\n')
     window.update_idletasks()
+
