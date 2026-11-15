@@ -22,3 +22,6 @@
 
 # Python compilation files
 *.pyc
+
+# Credentials
+/local/siberrisk/.env
